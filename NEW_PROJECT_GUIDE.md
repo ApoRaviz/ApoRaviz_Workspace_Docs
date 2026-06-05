@@ -10,6 +10,7 @@
 _docs/README.md                    = บอกว่าเอกสารแต่ละชั้นมีหน้าที่อะไร
 _docs/NEW_PROJECT_GUIDE.md         = กติกากลางก่อนเริ่มโปรเจกต์ใหม่
 _docs/WORKSPACE_PLAN.md            = แผนรวมแบบ step/substep พร้อม [x]
+_docs/angular/README.md            = Angular teach/commands กลาง
 ```
 
 จากนั้นดูตัวอย่างจริง:
@@ -215,7 +216,22 @@ Teach note ต้องตอบ:
 
 ถ้าเป็นบทเรียนเฉพาะ domain เช่น POS, reward, LINE OA ให้เก็บในโปรเจกต์นั้น
 
-ถ้าเป็นบทเรียนที่ใช้ได้ทุกโปรเจกต์ เช่น SSR safety, CI/CD, comment style ให้สรุปไว้ใน `_docs/`
+ถ้าเป็นบทเรียน Angular ที่ใช้ได้ทุกโปรเจกต์ เช่น signals, DI, SSR safety, browser API, component structure, unit test, CI/CD ให้เก็บใน `_docs/angular/teach/`
+
+ถ้าเป็น command ที่ควรเรียนรู้ ให้แยกชั้นแบบนี้:
+
+```text
+_docs/angular/commands.md      = Angular command pattern กลาง
+_docs/git/commands.md          = Git command pattern กลาง
+Project/docs/commands.md       = command เฉพาะ path/repo/port/base-href ของโปรเจกต์
+Project/docs/teach/            = อธิบายว่าคำสั่งนั้นสอน concept อะไร ถ้าเป็นบทเรียนเฉพาะโปรเจกต์
+```
+
+ตัวอย่าง:
+
+- `npm ci` คือ concept กลางของ CI/CD ให้เก็บใน `_docs/angular/teach/07-cicd-github-pages.md`
+- `npm run build:gh-pages` พร้อม `/ApoRaviz_Mooping/` ให้เก็บใน `ApoRaviz_Mooping/docs/commands.md`
+- `git remote set-url origin ...` ให้เก็บ pattern ใน `_docs/git/commands.md` และ URL จริงไว้ใน project docs เมื่อจำเป็น
 
 ## 11. Validation
 

@@ -35,6 +35,9 @@
 - [x] 0.9 ลบ generic UI skill copy ที่ซ้ำในแต่ละโปรเจกต์
 - [x] 0.10 แยก `_docs` เป็น repo กลาง `ApoRaviz_Workspace_Docs`
 - [x] 0.11 เปลี่ยน repo ของ MooPing เป็น `ApoRaviz_Mooping`
+- [x] 0.12 แยก Angular teach/commands กลางไว้ที่ `_docs/angular/`
+- [x] 0.13 แยก Git commands กลางไว้ที่ `_docs/git/commands.md`
+- [x] 0.14 เพิ่ม rule ว่า project teach เก็บตัวอย่างเฉพาะโปรเจกต์ ส่วน common Angular concept อยู่กลาง
 
 ## Project Lifecycle Template
 

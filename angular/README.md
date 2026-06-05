@@ -1,0 +1,55 @@
+# Angular Learning Hub
+
+โฟลเดอร์นี้คือบทเรียน Angular กลางของ workspace `ApoRaviz` ใช้กับทุกโปรเจกต์ Angular ในอนาคต
+
+## Purpose
+
+```text
+_docs/angular/          = concept และ command ที่ใช้ซ้ำได้ทุก Angular project
+Project/docs/teach/     = ตัวอย่างจริงและ decision เฉพาะโปรเจกต์นั้น
+Project/docs/commands.md = command ที่มี path, repo, port, base-href หรือ workflow เฉพาะโปรเจกต์
+```
+
+หลักคิดคือไม่ย้ายทุกอย่างออกจากโปรเจกต์ เพราะตัวอย่างจริงยังสำคัญต่อการเรียน แต่ concept ที่ใช้ซ้ำต้องมีบ้านกลางเพื่อไม่ต้องอ่านซ้ำหลาย repo
+
+## Recommended Order
+
+1. [Angular Commands](commands.md)
+2. [Angular Teach Index](teach/README.md)
+3. [Reactive State และ Signals](teach/01-reactive-signals.md)
+4. [Services และ Dependency Injection](teach/02-services-dependency-injection.md)
+5. [App Config, SSR และ Hydration](teach/03-app-config-ssr-hydration.md)
+6. [Browser APIs และ SSR Safety](teach/04-browser-apis-ssr-safety.md)
+7. [Component Structure และ Data Flow](teach/05-component-structure-data-flow.md)
+8. [Unit Test และ Regression Safety](teach/06-unit-test-regression.md)
+9. [CI/CD และ GitHub Pages](teach/07-cicd-github-pages.md)
+
+## What Belongs Here
+
+- Angular 21 concept ที่ใช้ซ้ำ เช่น `signal`, `computed`, `inject`, `input`, `output`
+- SSR/prerender/hydration rule
+- Browser API safety เช่น `window`, `document`, `IntersectionObserver`, `localStorage`
+- Component ownership และ one-way data flow
+- Unit test concept เช่น `.spec.ts`, `TestBed`, fake timers, mock browser APIs
+- CI/CD concept เช่น `npm ci`, GitHub Actions, artifact, GitHub Pages `base-href`
+- Command pattern ที่ใช้ได้หลายโปรเจกต์
+
+## What Stays In Project Docs
+
+- Business rule เฉพาะโปรเจกต์ เช่น loyalty reward, POS, saved rewards
+- Design direction เฉพาะเว็บ เช่น RPG profile, resume hero, project card copy
+- URL เฉพาะโปรเจกต์ เช่น `https://aporaviz.github.io/ApoRaviz_Mooping/`
+- Workflow path เฉพาะโปรเจกต์ เช่น `dist/ApoRaviz_Mooping/browser`
+- สรุป bug/decision ที่เกิดจากโปรเจกต์นั้นโดยตรง
+
+## Update Rule
+
+ถ้าเรียนเรื่องใหม่จากโปรเจกต์หนึ่ง ให้ตัดสินใจตามนี้:
+
+```text
+ใช้ได้โปรเจกต์เดียว  -> เพิ่มใน Project/docs/teach/
+ใช้ได้ทุก Angular app -> เพิ่ม/ปรับใน _docs/angular/teach/
+เป็นคำสั่งเฉพาะ repo -> เพิ่มใน Project/docs/commands.md
+เป็น command pattern กลาง -> เพิ่มใน _docs/angular/commands.md
+```
+
