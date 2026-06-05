@@ -8,6 +8,7 @@
 
 ```text
 _docs/README.md                    = บอกว่าเอกสารแต่ละชั้นมีหน้าที่อะไร
+_docs/PROJECT_START_HERE.md         = ลำดับอ่าน 1-2-3-4 และ checklist เริ่มโปรเจกต์ใหม่
 _docs/NEW_PROJECT_GUIDE.md         = กติกากลางก่อนเริ่มโปรเจกต์ใหม่
 _docs/WORKSPACE_PLAN.md            = แผนรวมแบบ step/substep พร้อม [x]
 _docs/angular/README.md            = Angular teach/commands กลาง
@@ -117,20 +118,26 @@ Design rules:
 
 ## 6. Required Docs Per Project
 
-โปรเจกต์ใหม่ควรมีเท่านี้ก่อน อย่าแตกไฟล์เกินจำเป็น:
+โปรเจกต์ใหม่ควรมีโครงนี้เป็น default:
 
 ```text
 README.md
 progress.md
 docs/
+├── architecture.md
+├── commands.md
+├── design-direction.md
 ├── implementation-plan.md
 ├── product-spec.md
-├── commands.md
 └── teach/
     └── README.md
+.codex/
+└── skills/
+    └── <project-name>/
+        └── SKILL.md
 ```
 
-ถ้า `product-spec.md`, `commands.md` หรือ `teach/README.md` เริ่มยาวมาก ค่อยแตกเป็นไฟล์ย่อยภายหลัง
+ใช้ `ApoRaviz_Portfolio` เป็นตัวอย่าง default structure โดยเฉพาะการแยก `models`, `services`, `components`, `pages`, `docs`, `.codex/skills` และ `.github/workflows`
 
 บทบาทของไฟล์:
 
@@ -138,8 +145,11 @@ docs/
 - `progress.md`: สิ่งที่ทำไปแล้ว
 - `docs/implementation-plan.md`: สิ่งที่จะทำต่อแบบ step/substep พร้อม `[ ]` / `[x]`
 - `docs/product-spec.md`: concept, requirements, user flow, data model และ integration plan
+- `docs/design-direction.md`: visual/copy/UX direction ของโปรเจกต์
+- `docs/architecture.md`: runtime, source structure, data flow, state flow และ deploy flow
 - `docs/commands.md`: setup/dev/build/test/deploy/git/CI commands
 - `docs/teach/`: บทเรียน ไม่ใช่ changelog
+- `.codex/skills/<project-name>/SKILL.md`: กติกาเฉพาะโปรเจกต์ที่ Codex ต้องอ่านก่อนทำงาน
 
 ## 7. Planning Rule
 

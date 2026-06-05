@@ -40,6 +40,8 @@
 - [x] 0.14 เพิ่ม rule ว่า project teach เก็บตัวอย่างเฉพาะโปรเจกต์ ส่วน common Angular concept อยู่กลาง
 - [x] 0.15 ลบ Angular teach กลางที่ซ้ำใน Portfolio และปรับหน้า `/teach` ให้เหลือ Portfolio-specific lessons
 - [x] 0.16 ปรับ README ของ Portfolio และ MooPing ให้บอกว่าโปรเจกต์ทำอะไรอย่างชัดเจน
+- [x] 0.17 เพิ่ม `_docs/PROJECT_START_HERE.md` เป็นลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่
+- [x] 0.18 ตั้ง `ApoRaviz_Portfolio` เป็น default structure reference สำหรับโปรเจกต์ถัดไป
 
 ## Project Lifecycle Template
 
@@ -59,9 +61,11 @@
 - [ ] 2.3 เพิ่ม `README.md`
 - [ ] 2.4 เพิ่ม `progress.md`
 - [ ] 2.5 เพิ่ม `docs/product-spec.md`
-- [ ] 2.6 เพิ่ม `docs/implementation-plan.md`
-- [ ] 2.7 เพิ่ม `docs/commands.md`
-- [ ] 2.8 เพิ่ม `docs/teach/README.md`
+- [ ] 2.6 เพิ่ม `docs/design-direction.md`
+- [ ] 2.7 เพิ่ม `docs/architecture.md`
+- [ ] 2.8 เพิ่ม `docs/implementation-plan.md`
+- [ ] 2.9 เพิ่ม `docs/commands.md`
+- [ ] 2.10 เพิ่ม `docs/teach/README.md`
 
 ### Step 3 - MVP
 

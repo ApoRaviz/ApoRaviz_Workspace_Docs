@@ -6,6 +6,7 @@
 
 ```text
 README.md                = แผนที่ของเอกสารกลาง
+PROJECT_START_HERE.md     = ลำดับอ่านและ checklist สำหรับเริ่มโปรเจกต์ใหม่
 NEW_PROJECT_GUIDE.md      = กติกาก่อนเริ่มโปรเจกต์ใหม่
 WORKSPACE_PLAN.md         = แผนรวมแบบ step/substep ของ workspace
 angular/                  = Angular teach และ command กลาง
@@ -26,10 +27,11 @@ repo นี้เก็บเฉพาะความรู้กลางขอ
 ก่อนเริ่มงานแต่ละวัน ให้อ่านตามลำดับ:
 
 1. `_docs/README.md`
-2. `_docs/NEW_PROJECT_GUIDE.md`
-3. `_docs/WORKSPACE_PLAN.md`
-4. `_docs/angular/README.md` ถ้างานเกี่ยวกับ Angular
-5. เอกสารในโปรเจกต์จริง เช่น `ApoRaviz_Mooping/docs/implementation-plan.md`
+2. `_docs/PROJECT_START_HERE.md` ถ้าเริ่มโปรเจกต์ใหม่
+3. `_docs/NEW_PROJECT_GUIDE.md`
+4. `_docs/WORKSPACE_PLAN.md`
+5. `_docs/angular/README.md` ถ้างานเกี่ยวกับ Angular
+6. เอกสารในโปรเจกต์จริง เช่น `ApoRaviz_Mooping/docs/implementation-plan.md`
 
 ## Project Roles
 
@@ -42,6 +44,7 @@ ApoRaviz_Mooping/     = โปรเจกต์ลูกตัวแรก ร�
 ## Ownership Rule
 
 - Concept ที่ใช้เริ่มโปรเจกต์ใหม่อยู่ใน `_docs/NEW_PROJECT_GUIDE.md`
+- ลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่อยู่ใน `_docs/PROJECT_START_HERE.md`
 - Design direction กลางอยู่ใน `_docs/NEW_PROJECT_GUIDE.md`; design เฉพาะ portfolio อยู่ใน `ApoRaviz_Portfolio/docs/design-direction.md`
 - Commands กลางที่ใช้ซ้ำอยู่ใน `_docs/NEW_PROJECT_GUIDE.md`; commands เฉพาะโปรเจกต์อยู่ใน `docs/commands.md`
 - Angular commands กลางอยู่ใน `_docs/angular/commands.md`
