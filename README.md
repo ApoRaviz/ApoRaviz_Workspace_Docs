@@ -49,6 +49,7 @@ ApoRaviz_Mooping/     = โปรเจกต์ลูกตัวแรก ร�
 - Skills กลางอธิบายใน `_docs/NEW_PROJECT_GUIDE.md`; skill เฉพาะโปรเจกต์อยู่ใน `.codex/skills/<project>/SKILL.md`
 - Angular teach กลางอยู่ใน `_docs/angular/teach/`; teach เฉพาะโปรเจกต์อยู่ใน `docs/teach/`
 - แผนละเอียดของโปรเจกต์ต้องอยู่ใน `docs/implementation-plan.md` และใช้ checkbox `[x]`
+- Project `docs/teach/` ต้องไม่เก็บ Angular/Git concept กลางซ้ำ ให้เก็บเฉพาะ decision, flow, command context และบทเรียนเฉพาะโปรเจกต์นั้น
 
 ## Rule
 
@@ -71,6 +72,7 @@ teach = เรื่องนี้สอนอะไร
 - ถ้าเป็นบทเรียน Angular/SSR/testing/component/CI ที่ใช้ได้ทุกโปรเจกต์ ให้เพิ่มใน `_docs/angular/teach/`
 - ถ้าเป็นบทเรียนเฉพาะ domain, UX, business rule หรือ bug ของโปรเจกต์ ให้เพิ่มใน `docs/teach/` ของโปรเจกต์นั้น
 - ถ้าบทเรียนหรือ command ใช้ได้ทุกโปรเจกต์และเป็น rule สั้น ๆ ให้สรุปใน `_docs/NEW_PROJECT_GUIDE.md`
+- ถ้า project teach เริ่มสอนเรื่องกลางมากเกินไป ให้ย้ายกลับ `_docs` แล้วเหลือในโปรเจกต์แค่ตัวอย่างหรือ system flow เฉพาะงานนั้น
 - ถ้าเป็นสิ่งที่ทำเสร็จแล้ว ให้เพิ่มใน `progress.md`
 - ถ้าเป็นสิ่งที่ต้องทำต่อ ให้เพิ่มใน `docs/implementation-plan.md`
 - ถ้าเป็นแผนระดับ workspace ให้เพิ่มใน `_docs/WORKSPACE_PLAN.md`

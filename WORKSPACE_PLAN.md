@@ -38,6 +38,8 @@
 - [x] 0.12 แยก Angular teach/commands กลางไว้ที่ `_docs/angular/`
 - [x] 0.13 แยก Git commands กลางไว้ที่ `_docs/git/commands.md`
 - [x] 0.14 เพิ่ม rule ว่า project teach เก็บตัวอย่างเฉพาะโปรเจกต์ ส่วน common Angular concept อยู่กลาง
+- [x] 0.15 ลบ Angular teach กลางที่ซ้ำใน Portfolio และปรับหน้า `/teach` ให้เหลือ Portfolio-specific lessons
+- [x] 0.16 ปรับ README ของ Portfolio และ MooPing ให้บอกว่าโปรเจกต์ทำอะไรอย่างชัดเจน
 
 ## Project Lifecycle Template
 

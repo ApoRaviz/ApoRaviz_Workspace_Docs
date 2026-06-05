@@ -218,6 +218,16 @@ Teach note ต้องตอบ:
 
 ถ้าเป็นบทเรียน Angular ที่ใช้ได้ทุกโปรเจกต์ เช่น signals, DI, SSR safety, browser API, component structure, unit test, CI/CD ให้เก็บใน `_docs/angular/teach/`
 
+กติกา final:
+
+```text
+Project/docs/teach/ = สอนสิ่งที่เกิดจากโปรเจกต์นั้นจริง ๆ
+_docs/angular/teach/ = สอน Angular concept กลาง
+_docs/git/commands.md = สอน Git command กลาง
+```
+
+ถ้าอ่านชื่อไฟล์แล้วใช้ได้กับทุกโปรเจกต์ เช่น `Angular Reactive`, `Dependency Injection`, `Unit Test`, `CI/CD` ให้เก็บกลาง ไม่เก็บซ้ำใน project teach
+
 ถ้าเป็น command ที่ควรเรียนรู้ ให้แยกชั้นแบบนี้:
 
 ```text
