@@ -26,14 +26,14 @@ repo นี้เก็บเฉพาะความรู้กลางขอ
 1. `_docs/README.md`
 2. `_docs/NEW_PROJECT_GUIDE.md`
 3. `_docs/WORKSPACE_PLAN.md`
-4. เอกสารในโปรเจกต์จริง เช่น `MooPing_Loyalty/docs/implementation-plan.md`
+4. เอกสารในโปรเจกต์จริง เช่น `ApoRaviz_Mooping/docs/implementation-plan.md`
 
 ## Project Roles
 
 ```text
 _docs/                 = ความจำกลาง ใช้กับทุกโปรเจกต์ในอนาคต
 ApoRaviz_Portfolio/    = profile หลักและ hub ที่ link ไปโปรเจกต์ต่าง ๆ
-MooPing_Loyalty/       = โปรเจกต์ลูกตัวแรก ระบบขาย/สะสมสิทธิ์หมูปิ้ง
+ApoRaviz_Mooping/     = โปรเจกต์ลูกตัวแรก ระบบขาย/สะสมสิทธิ์หมูปิ้ง
 ```
 
 ## Ownership Rule

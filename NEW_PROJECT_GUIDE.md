@@ -16,7 +16,7 @@ _docs/WORKSPACE_PLAN.md            = แผนรวมแบบ step/substep �
 
 ```text
 ApoRaviz_Portfolio/                = profile หลักและ project hub
-MooPing_Loyalty/                   = โปรเจกต์ลูกตัวแรก
+ApoRaviz_Mooping/                  = โปรเจกต์ลูกตัวแรก
 ```
 
 ตัวอย่าง repo naming:
@@ -33,7 +33,7 @@ ApoRaviz_Mooping                   = repo ของโปรเจกต์ MooP
 /Users/aporaviz/ApoRaviz/
 ├── _docs/                         # กติกากลาง ใช้กับทุกโปรเจกต์
 ├── ApoRaviz_Portfolio/            # profile หลักและ hub สำหรับ link ไปโปรเจกต์ต่าง ๆ
-├── MooPing_Loyalty/               # โปรเจกต์ลูก: ระบบขาย/สะสมสิทธิ์หมูปิ้ง
+├── ApoRaviz_Mooping/              # โปรเจกต์ลูก: ระบบขาย/สะสมสิทธิ์หมูปิ้ง
 └── New_Project_Name/              # โปรเจกต์ใหม่ในอนาคต เป็น repo แยก
 ```
 

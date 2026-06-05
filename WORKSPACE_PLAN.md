@@ -19,7 +19,7 @@
 |---|---|---|---|---|
 | `_docs` | `ApoRaviz_Workspace_Docs` | เอกสารกลางของ workspace | Active | `_docs/WORKSPACE_PLAN.md` |
 | `ApoRaviz_Portfolio` | `ApoRaviz_Portfolio` | Profile หลักและ project hub | Active | `ApoRaviz_Portfolio/docs/implementation-plan.md` |
-| `MooPing_Loyalty` | `ApoRaviz_Mooping` | โปรเจกต์ลูกตัวแรก: ระบบขาย/สะสมสิทธิ์หมูปิ้ง | Active | `MooPing_Loyalty/docs/implementation-plan.md` |
+| `ApoRaviz_Mooping` | `ApoRaviz_Mooping` | โปรเจกต์ลูกตัวแรก: ระบบขาย/สะสมสิทธิ์หมูปิ้ง | Active | `ApoRaviz_Mooping/docs/implementation-plan.md` |
 | Future project | `ApoRaviz_ProjectName` | เพิ่มเมื่อเริ่มโปรเจกต์ใหม่ | Backlog | `Project/docs/implementation-plan.md` |
 
 ## Current Focus
