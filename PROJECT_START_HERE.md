@@ -33,9 +33,10 @@ _docs/git/commands.md
 
 อ่านเพื่อรู้ว่า:
 
-- ใช้ Angular 21 + Node 24 อย่างไร
+- ใช้ latest stable Angular + Node LTS + Tailwind CSS v4 อย่างไร
 - command setup/build/test/deploy พื้นฐานคืออะไร
-- concept กลาง เช่น signals, DI, SSR, browser API, unit test, CI/CD อยู่ที่ไหน
+- concept กลาง เช่น signals, DI, SSR, browser API, Tailwind, unit test, CI/CD อยู่ที่ไหน
+- สิ่งที่ต้องระวังเมื่อขยับจาก Angular 21 ไป Angular 22 อยู่ที่ `_docs/angular/teach/09-angular-22-from-21.md`
 - Git command กลางอยู่ที่ไหน
 
 ### 3. อ่านตัวอย่างมาตรฐานจาก Portfolio
@@ -120,10 +121,42 @@ Project/
 
 หมายเหตุ:
 
+- Angular frontend project ใหม่ต้องติดตั้ง Tailwind CSS v4 เป็น default หลังสร้าง project
 - `.github/workflows/` เพิ่มเมื่อเริ่มมี demo/deploy path จริง
 - `docs/design-direction.md` จำเป็นสำหรับทุกโปรเจกต์ที่มี UI ให้คนใช้งาน
 - `docs/architecture.md` จำเป็นเมื่อเริ่มมี service, route, component หลายส่วน หรือ integration
 - `docs/teach/` ห้ามเก็บ Angular/Git concept กลางซ้ำ ให้เก็บเฉพาะบทเรียนของโปรเจกต์นั้น
+
+## Default Frontend Stack
+
+เช็กเวอร์ชันจาก official docs/npm ก่อนเริ่มโปรเจกต์ใหม่เสมอ เพราะ frontend toolchain เปลี่ยนเร็ว
+
+ค่า baseline ณ 2026-06-06:
+
+```text
+Angular           = latest stable major, ตอนนี้ v22
+Node.js           = latest Active LTS, ตอนนี้ Node 24
+TypeScript        = version ที่ Angular compiler รองรับ, ตอนนี้ Angular 22 ใช้ TypeScript 6.0.x
+Tailwind CSS      = v4 เป็น default styling system
+Angular Router    = default router ของ Angular app
+Responsive Design = ต้องคิดตั้งแต่ first usable screen
+SEO/SSR           = ใช้ SSR/prerender เมื่อเป็น demo, portfolio-facing app หรือ public page
+Testing           = ต้องมี test สำหรับ business logic สำคัญ
+```
+
+กติกาเรื่อง CSS:
+
+```text
+Tailwind utility classes = layout, spacing, color, typography, responsive, state ส่วนใหญ่
+src/styles.css           = @import "tailwindcss", @theme, global base เล็ก ๆ
+component .css           = ใช้เฉพาะ animation/keyframes หรือ style ที่ Tailwind อ่านยากจริง
+```
+
+Animation:
+
+- ใช้ Tailwind/CSS animation ก่อนสำหรับ motion ทั่วไป
+- ใช้ Angular animations หรือ Web Animations API เมื่อผูกกับ Angular state
+- `Framer Motion` เป็น React-first; ใน Angular ถ้าต้องใช้ motion library ให้พิจารณา `motion` JavaScript package เฉพาะงานที่ซับซ้อน ไม่ใส่เป็น default ทุกโปรเจกต์
 
 ## Default Source Ownership
 
@@ -198,11 +231,12 @@ skill ต้องมี:
 
 ### Step 3 - Angular Foundation
 
-- [ ] 3.1 สร้าง Angular 21 project ด้วย Node 24
-- [ ] 3.2 ตั้ง scripts: `start`, `build`, `test`, `test:ci`
-- [ ] 3.3 ตรวจ `.gitignore` ว่ามี `dist`, `node_modules`, `.angular/cache`, `.env`, `.DS_Store`
-- [ ] 3.4 ตั้ง `src/app/models`, `services`, `components`, `pages`
-- [ ] 3.5 รัน build/test ครั้งแรก
+- [ ] 3.1 สร้าง Angular latest stable project ด้วย Node LTS
+- [ ] 3.2 ติดตั้ง Tailwind CSS v4 และตั้ง `src/styles.css` / `.postcssrc.json`
+- [ ] 3.3 ตั้ง scripts: `start`, `build`, `test`, `test:ci`
+- [ ] 3.4 ตรวจ `.gitignore` ว่ามี `dist`, `node_modules`, `.angular/cache`, `.env`, `.DS_Store`
+- [ ] 3.5 ตั้ง `src/app/models`, `services`, `components`, `pages`
+- [ ] 3.6 รัน build/test ครั้งแรก
 
 ### Step 4 - First Usable Flow
 
@@ -231,4 +265,3 @@ skill ต้องมี:
 - [ ] `docs/implementation-plan.md` มี step/substep พร้อม `[ ]`
 - [ ] `docs/commands.md` มี purpose/verify/caution
 - [ ] `docs/teach/README.md` บอกชัดว่า teach ของโปรเจกต์นี้สอนอะไร
-

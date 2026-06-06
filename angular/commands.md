@@ -1,16 +1,26 @@
 # Angular Commands
 
-ไฟล์นี้คือ command กลางสำหรับ Angular 21 + Node 24 ใน workspace `ApoRaviz`
+ไฟล์นี้คือ command กลางสำหรับ Angular latest stable + Node LTS + Tailwind CSS v4 ใน workspace `ApoRaviz`
 
 ถ้า command มี path, port, repo URL, base-href หรือ output folder เฉพาะโปรเจกต์ ให้เก็บรายละเอียดจริงไว้ใน `Project/docs/commands.md`
 
-## Node 24
+## Runtime Baseline
+
+ณ 2026-06-06:
+
+```text
+Angular CLI/Core        = 22.0.0
+Node.js production/dev  = Node 24 LTS
+TypeScript              = 6.0.x สำหรับ Angular 22
+Tailwind CSS            = 4.3.0
+@tailwindcss/postcss    = 4.3.0
+```
+
+ใช้ Node LTS เป็น default แม้จะมี Node Current ที่ใหม่กว่า เพราะ Node official แนะนำให้ production ใช้ Active LTS หรือ Maintenance LTS
 
 ```bash
 nvm use 24
 ```
-
-ใช้เมื่อ shell มี `nvm` และต้องการสลับ Node version ให้ตรงกับโปรเจกต์
 
 ถ้า command ใน sandbox หรือ automation หา Node ไม่เจอ ให้บังคับ path แบบชัดเจน:
 
@@ -20,7 +30,8 @@ PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH npm run build
 
 บทเรียน:
 
-- Angular project ใน workspace นี้ยึด Node 24 เป็นค่าเริ่มต้น
+- Angular project ใน workspace นี้ยึด Node 24 LTS เป็นค่าเริ่มต้น
+- ถ้า Angular major ใหม่ต้องใช้ Node ต่ำสุดสูงขึ้น ให้เช็ก `angular.dev/reference/versions` ก่อนสร้าง project
 - ถ้า build ผ่านในเครื่องแต่ fail ใน CI ให้เช็ก Node version ก่อน
 - command ที่ส่งให้ Codex ใช้ควรระบุ Node path เมื่อ project เคยมีปัญหา version ไม่ตรง
 
@@ -127,16 +138,53 @@ npm run test:ci
 
 ```bash
 PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH \
-npx -y @angular/cli@21.2.12 new New_Project_Name --routing --style css --ssr --skip-git --package-manager npm
+npx -y @angular/cli@22.0.0 new New_Project_Name --routing --style css --ssr --skip-git --package-manager npm
 ```
 
 เหตุผลของ flags:
 
 - `--routing`: เปิด Angular Router ตั้งแต่แรก
-- `--style css`: ใช้ CSS ปกติ อ่านง่ายสำหรับ learning
+- `--style css`: ใช้ stylesheet มาตรฐานเพื่อให้ Tailwind v4 ทำงานตรงกับ Angular/Tailwind docs
 - `--ssr`: รองรับ SSR/prerender สำหรับ demo/portfolio
 - `--skip-git`: แต่ละ project จะตั้ง git เองและต่อ remote เอง
 - `--package-manager npm`: ใช้ npm ให้เหมือนกันทั้ง workspace
+
+## Tailwind CSS v4 Setup
+
+ใช้ automated setup ก่อน:
+
+```bash
+ng add tailwindcss
+```
+
+ถ้าต้องทำ manual:
+
+```bash
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+เพิ่ม `.postcssrc.json`:
+
+```json
+{
+  "plugins": {
+    "@tailwindcss/postcss": {}
+  }
+}
+```
+
+ใน `src/styles.css`:
+
+```css
+@import "tailwindcss";
+```
+
+บทเรียน:
+
+- Tailwind เป็น styling default ของ Angular frontend ใน workspace นี้
+- ใช้ utility classes ใน template เป็นหลัก
+- ใช้ `@theme` ใน `src/styles.css` สำหรับสี/font/shadow กลางของโปรเจกต์
+- component `.css` ใช้เฉพาะ animation/keyframes หรือ style ที่ Tailwind อ่านยากจริง
 
 ## Git Checks Before Push
 
@@ -165,4 +213,3 @@ sed -n '1,220p' path/to/file.md
 - ใช้ `rg` ก่อน `grep` เพราะเร็วและอ่านง่าย
 - ใช้ `rg --files` เมื่ออยากเห็น file list
 - ใช้ `sed -n` อ่านช่วงไฟล์โดยไม่เปิดทั้งไฟล์ยาวเกินจำเป็น
-

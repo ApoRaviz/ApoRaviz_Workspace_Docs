@@ -23,10 +23,14 @@ Project/docs/commands.md = command ที่มี path, repo, port, base-href �
 7. [Component Structure และ Data Flow](teach/05-component-structure-data-flow.md)
 8. [Unit Test และ Regression Safety](teach/06-unit-test-regression.md)
 9. [CI/CD และ GitHub Pages](teach/07-cicd-github-pages.md)
+10. [Tailwind CSS v4 ใน Angular](teach/08-tailwind-css-v4.md)
+11. [Angular 22 จาก Angular 21](teach/09-angular-22-from-21.md)
 
 ## What Belongs Here
 
-- Angular 21 concept ที่ใช้ซ้ำ เช่น `signal`, `computed`, `inject`, `input`, `output`
+- Angular modern concept ที่ใช้ซ้ำ เช่น `signal`, `computed`, `inject`, `input`, `output`
+- Angular latest stable + Node LTS + TypeScript compatibility rules
+- Tailwind CSS v4 setup และ style ownership
 - SSR/prerender/hydration rule
 - Browser API safety เช่น `window`, `document`, `IntersectionObserver`, `localStorage`
 - Component ownership และ one-way data flow
@@ -52,4 +56,3 @@ Project/docs/commands.md = command ที่มี path, repo, port, base-href �
 เป็นคำสั่งเฉพาะ repo -> เพิ่มใน Project/docs/commands.md
 เป็น command pattern กลาง -> เพิ่มใน _docs/angular/commands.md
 ```
-

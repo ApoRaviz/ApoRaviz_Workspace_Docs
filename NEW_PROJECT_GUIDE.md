@@ -49,9 +49,11 @@ ApoRaviz_Mooping                   = repo ของโปรเจกต์ MooP
 
 ## 3. Default Stack
 
-- Node 24
-- Angular 21
+- Node latest Active LTS เป็นค่า default สำหรับ production/dev tooling ตอนนี้คือ Node 24
+- Angular latest stable major ตอนนี้คือ Angular 22
 - TypeScript strict
+- TypeScript version ต้องตาม Angular compatibility เสมอ ตอนนี้ Angular 22 ใช้ TypeScript 6.0.x
+- Tailwind CSS v4 เป็น styling system หลักของ frontend project
 - Standalone components
 - Angular Router
 - Angular signals และ `computed()`
@@ -64,8 +66,28 @@ ApoRaviz_Mooping                   = repo ของโปรเจกต์ MooP
 
 ```bash
 PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH \
-npx -y @angular/cli@21.2.12 new New_Project_Name --routing --style css --ssr --skip-git --package-manager npm
+npx -y @angular/cli@22.0.0 new New_Project_Name --routing --style css --ssr --skip-git --package-manager npm
 ```
+
+หลังสร้าง project ให้ติดตั้ง Tailwind CSS v4:
+
+```bash
+ng add tailwindcss
+```
+
+หรือ manual setup:
+
+```bash
+npm install tailwindcss @tailwindcss/postcss postcss
+```
+
+แล้วให้ `src/styles.css` มี:
+
+```css
+@import "tailwindcss";
+```
+
+ใช้ Tailwind utility class เป็นหลักใน template ส่วน CSS file ให้เหลือเฉพาะ global theme, base style, animation/keyframes หรือ style ที่อธิบายด้วย Tailwind class แล้วอ่านยากเกินไป
 
 ## 4. Design Direction
 
@@ -92,6 +114,7 @@ Dark premium / friendly builder / orange accent / practical app surface
 Design rules:
 
 - ถ้าเป็น app/tool ให้แสดง usable experience ก่อน ไม่เริ่มด้วย landing page ลอย ๆ
+- ใช้ Tailwind responsive utilities เช่น `sm:`, `md:`, `lg:` ตั้งแต่รอบแรก ไม่ทำ desktop ก่อนแล้วค่อยซ่อม mobile ทีหลัง
 - Orange คือ action/active/highlight หลัก
 - Green ใช้กับ success, available, LINE OA หรือสถานะดี
 - หลีกเลี่ยง purple/blue เป็นสีหลัก
@@ -212,7 +235,34 @@ Project/docs/implementation-plan.md
 - HTML: บอกว่าทำไมใช้ `section`, `nav`, `article`, `aside`, `form`, `button`, `a`
 - `div`: บอกเมื่อเป็น layout wrapper, visual layer, grid/flex container หรือ width container
 - TypeScript: comment ใกล้ data source, signal/computed, service boundary, SSR guard และ business rule
-- CSS: comment เฉพาะ layout section, responsive rule, state สำคัญ หรือ UX decision
+- Tailwind class ใน HTML: comment เมื่อเป็น semantic section หรือ UX flow สำคัญ ไม่ต้อง comment ทุก utility class
+- CSS: comment เฉพาะ global base, `@theme`, animation/keyframes, responsive rule, state สำคัญ หรือ UX decision
+
+## 9.1 Frontend Essentials In 2026
+
+สิ่งที่ควรมีใน Angular frontend project ใหม่:
+
+- TypeScript strict: จำเป็น
+- Tailwind CSS v4: จำเป็นสำหรับ workspace นี้
+- Angular Router: จำเป็นเมื่อมีหลายหน้า/route หรือ public demo path
+- Responsive Design: จำเป็นตั้งแต่ first screen
+- SEO Friendly: จำเป็นเมื่อเป็น public site, portfolio demo, landing page หรือ case study
+- SSR/prerender: แนะนำสำหรับ public/demo app
+- Component structure แยกไฟล์ชัดเจน: จำเป็น
+- Unit test: จำเป็นเมื่อมี business logic เช่น reward, payment, auth, data mutation
+- Accessibility: จำเป็น เช่น semantic HTML, label, button/a ที่ถูกต้อง, focus state
+
+Animation:
+
+- Tailwind/CSS animation: default สำหรับ micro interaction
+- Angular animations/Web Animations API: ใช้เมื่อ animation ผูกกับ Angular state
+- Framer Motion: ไม่ใช่ default เพราะเป็น React-first
+- `motion` JavaScript package: ใช้เฉพาะเมื่อ animation ซับซ้อนจริง เช่น gesture, timeline, scroll-linked effect
+
+Backend/database:
+
+- ไม่ล็อก default ในไฟล์นี้
+- ถ้าโปรเจกต์เริ่มมี backend, database, auth, SQL migration หรือ secret ให้เปิดแผน backend แยกใน project docs ก่อนลง code
 
 ## 10. Teach Rule
 

@@ -13,6 +13,8 @@
 5. [Component Structure และ Data Flow](05-component-structure-data-flow.md)
 6. [Unit Test และ Regression Safety](06-unit-test-regression.md)
 7. [CI/CD และ GitHub Pages](07-cicd-github-pages.md)
+8. [Tailwind CSS v4 ใน Angular](08-tailwind-css-v4.md)
+9. [Angular 22 จาก Angular 21](09-angular-22-from-21.md)
 
 ## How To Read With Project Docs
 
@@ -28,4 +30,4 @@
 - อ่าน `01-reactive-signals.md` แล้วดู `ApoRaviz_Portfolio/src/app/services/theme.service.ts`
 - อ่าน `05-component-structure-data-flow.md` แล้วดู component ของ `ApoRaviz_Mooping`
 - อ่าน `07-cicd-github-pages.md` แล้วดู `.github/workflows/deploy-pages.yml` ในแต่ละ repo
-
+- อ่าน `08-tailwind-css-v4.md` แล้วดู `ApoRaviz_Portfolio/src/styles.css` และ component template ที่ใช้ utility classes

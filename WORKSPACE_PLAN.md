@@ -29,7 +29,7 @@
 - [x] 0.3 ตั้งมาตรฐานว่าโปรเจกต์ใหม่ใช้ `docs/product-spec.md` ก่อน ไม่แตกไฟล์เล็กเกินจำเป็น
 - [x] 0.4 ตั้งมาตรฐานว่าโปรเจกต์ใหม่ต้องมี `docs/implementation-plan.md`
 - [x] 0.5 รวม command docs ของ Portfolio และ MooPing ให้เหลือ `docs/commands.md`
-- [x] 0.6 ลบ prompt/spec เก่า Angular 19 ที่ทำให้สับสนกับ Angular 21
+- [x] 0.6 ลบ prompt/spec เก่าที่ทำให้สับสนกับ frontend baseline ปัจจุบัน
 - [x] 0.7 ตรวจและ clean docs ที่เหลือหลัง refactor
 - [x] 0.8 ย้าย Portfolio project skill เข้า `.codex/skills/angular-portfolio-mentor`
 - [x] 0.9 ลบ generic UI skill copy ที่ซ้ำในแต่ละโปรเจกต์
@@ -42,6 +42,8 @@
 - [x] 0.16 ปรับ README ของ Portfolio และ MooPing ให้บอกว่าโปรเจกต์ทำอะไรอย่างชัดเจน
 - [x] 0.17 เพิ่ม `_docs/PROJECT_START_HERE.md` เป็นลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่
 - [x] 0.18 ตั้ง `ApoRaviz_Portfolio` เป็น default structure reference สำหรับโปรเจกต์ถัดไป
+- [x] 0.19 เพิ่ม Tailwind CSS v4 เป็น frontend default ของโปรเจกต์ Angular ใหม่
+- [x] 0.20 เพิ่ม Angular 22 upgrade note จาก Angular 21 ไว้ใน `_docs/angular/teach/`
 
 ## Project Lifecycle Template
 
@@ -56,7 +58,7 @@
 
 ### Step 2 - Foundation
 
-- [ ] 2.1 สร้าง Angular 21 project ด้วย Node 24
+- [ ] 2.1 สร้าง Angular latest stable project ด้วย Node LTS และ Tailwind CSS v4
 - [ ] 2.2 เพิ่ม project-specific skill ใน `.codex/skills/<project>/SKILL.md`
 - [ ] 2.3 เพิ่ม `README.md`
 - [ ] 2.4 เพิ่ม `progress.md`
