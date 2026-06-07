@@ -1,5 +1,20 @@
 # ApoRaviz Workspace Docs
 
+## Current Rule
+
+ตั้งแต่วันที่ 2026-06-07 repo นี้คือ learning hub และ web กลางของ `ApoRaviz_*` ทั้งหมด
+
+ให้อ่านกติกาใหม่ก่อน:
+
+```text
+WORKSPACE_RULES.md = บทบาทของแต่ละ repo และ source of truth
+TEACHING_RULES.md  = วิธีเขียนบทเรียนแบบภาพจำง่าย ๆ -> technical term -> flow -> code
+AI_UPDATE_RULE.md  = กติกาให้ AI อัปเดตความรู้กลับมา repo นี้โดยไม่ต้องสั่งซ้ำ
+templates/         = template สำหรับ concept, lesson, lab
+```
+
+`ApoRaviz_Portfolio` เป็น profile/showcase/link hub เท่านั้น ไม่ใช่แหล่งบทเรียนกลางอีกต่อไป
+
 เอกสารใน `_docs/` คือความจำระดับ workspace ใช้กับทุกโปรเจกต์ใน `/Users/aporaviz/ApoRaviz`
 
 ## Document Types
@@ -11,6 +26,7 @@ NEW_PROJECT_GUIDE.md      = กติกาก่อนเริ่มโปร�
 WORKSPACE_PLAN.md         = แผนรวมแบบ step/substep ของ workspace
 angular/                  = Angular teach และ command กลาง
 git/                      = Git command กลาง
+projects/                 = case study และบทเรียนจากโปรเจกต์จริง
 ```
 
 ## Repository
@@ -32,6 +48,23 @@ repo นี้เก็บเฉพาะความรู้กลางขอ
 4. `_docs/WORKSPACE_PLAN.md`
 5. `_docs/angular/README.md` ถ้างานเกี่ยวกับ Angular
 6. เอกสารในโปรเจกต์จริง เช่น `ApoRaviz_Mooping/docs/implementation-plan.md`
+7. `projects/` ถ้าต้องการอ่าน case study จากโปรเจกต์จริง
+
+## Static Site
+
+repo นี้เริ่มใช้ VitePress เป็น static docs site
+
+```bash
+npm install
+npm run docs:dev
+npm run docs:build
+```
+
+ตัวอย่างบทเรียนแรกสำหรับทดสอบรูปแบบคือ:
+
+```text
+angular/labs/01-signal-counter.md
+```
 
 ## Project Roles
 
@@ -50,9 +83,9 @@ ApoRaviz_Mooping/     = โปรเจกต์ลูกตัวแรก ร�
 - Angular commands กลางอยู่ใน `_docs/angular/commands.md`
 - Git commands กลางอยู่ใน `_docs/git/commands.md`
 - Skills กลางอธิบายใน `_docs/NEW_PROJECT_GUIDE.md`; skill เฉพาะโปรเจกต์อยู่ใน `.codex/skills/<project>/SKILL.md`
-- Angular teach กลางอยู่ใน `_docs/angular/teach/`; teach เฉพาะโปรเจกต์อยู่ใน `docs/teach/`
+- Angular teach กลางอยู่ใน `_docs/angular/teach/`; case study จากโปรเจกต์จริงอยู่ใน `_docs/projects/`
 - แผนละเอียดของโปรเจกต์ต้องอยู่ใน `docs/implementation-plan.md` และใช้ checkbox `[x]`
-- Project `docs/teach/` ต้องไม่เก็บ Angular/Git concept กลางซ้ำ ให้เก็บเฉพาะ decision, flow, command context และบทเรียนเฉพาะโปรเจกต์นั้น
+- Project repo ไม่ควรมี learning docs แยกยาว ๆ ถ้าจะใช้สอน ให้ย้ายหรือสรุปกลับมาไว้ที่ `_docs/projects/` หรือ `_docs/angular/`
 
 ## Rule
 
@@ -73,9 +106,9 @@ teach = เรื่องนี้สอนอะไร
 - ถ้าเป็น Angular command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `_docs/angular/commands.md`
 - ถ้าเป็น Git command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `_docs/git/commands.md`
 - ถ้าเป็นบทเรียน Angular/SSR/testing/component/CI ที่ใช้ได้ทุกโปรเจกต์ ให้เพิ่มใน `_docs/angular/teach/`
-- ถ้าเป็นบทเรียนเฉพาะ domain, UX, business rule หรือ bug ของโปรเจกต์ ให้เพิ่มใน `docs/teach/` ของโปรเจกต์นั้น
+- ถ้าเป็นบทเรียนเฉพาะ domain, UX, business rule หรือ bug ของโปรเจกต์ที่ใช้สอนได้ ให้เพิ่มใน `_docs/projects/<project>/`
 - ถ้าบทเรียนหรือ command ใช้ได้ทุกโปรเจกต์และเป็น rule สั้น ๆ ให้สรุปใน `_docs/NEW_PROJECT_GUIDE.md`
-- ถ้า project teach เริ่มสอนเรื่องกลางมากเกินไป ให้ย้ายกลับ `_docs` แล้วเหลือในโปรเจกต์แค่ตัวอย่างหรือ system flow เฉพาะงานนั้น
+- ถ้า project repo เริ่มมีบทเรียนยาว ให้ย้ายกลับ `_docs` แล้วเหลือในโปรเจกต์แค่ product spec, implementation plan, commands หรือ system docs ที่จำเป็นต่อ app นั้น
 - ถ้าเป็นสิ่งที่ทำเสร็จแล้ว ให้เพิ่มใน `progress.md`
 - ถ้าเป็นสิ่งที่ต้องทำต่อ ให้เพิ่มใน `docs/implementation-plan.md`
 - ถ้าเป็นแผนระดับ workspace ให้เพิ่มใน `_docs/WORKSPACE_PLAN.md`

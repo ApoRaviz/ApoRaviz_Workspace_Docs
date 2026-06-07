@@ -1,320 +1,115 @@
 # New Project Guide
 
-ไฟล์นี้คือ concept กลางก่อนเริ่มโปรเจกต์ใหม่ใน workspace `ApoRaviz` ใช้อ่านคู่กับ `_docs/WORKSPACE_PLAN.md`
+ไฟล์นี้คือกติกากลางก่อนเริ่มโปรเจกต์ใหม่ใน ecosystem `ApoRaviz_*`
 
-## 1. Start Here
-
-โปรเจกต์ใหม่ต้องดู concept จาก 3 จุดนี้:
+## Core Rule
 
 ```text
-_docs/README.md                    = บอกว่าเอกสารแต่ละชั้นมีหน้าที่อะไร
-_docs/PROJECT_START_HERE.md         = ลำดับอ่าน 1-2-3-4 และ checklist เริ่มโปรเจกต์ใหม่
-_docs/NEW_PROJECT_GUIDE.md         = กติกากลางก่อนเริ่มโปรเจกต์ใหม่
-_docs/WORKSPACE_PLAN.md            = แผนรวมแบบ step/substep พร้อม [x]
-_docs/angular/README.md            = Angular teach/commands กลาง
+ApoRaviz_Workspace_Docs = learning hub, static docs site, shared rules, case studies
+ApoRaviz_Portfolio      = profile/showcase/job site, link hub
+ApoRaviz_Mooping        = app project, paused for now
+ApoRaviz_*              = future project repos
 ```
 
-จากนั้นดูตัวอย่างจริง:
+โปรเจกต์ใหม่ทุกตัวต้องเริ่มจาก `ApoRaviz_Workspace_Docs` ก่อน ไม่เริ่มจากการ copy บทเรียนใน Portfolio หรือ Mooping
+
+## Read First
 
 ```text
-ApoRaviz_Portfolio/                = profile หลักและ project hub
-ApoRaviz_Mooping/                  = โปรเจกต์ลูกตัวแรก
+README.md
+WORKSPACE_RULES.md
+TEACHING_RULES.md
+AI_UPDATE_RULE.md
+PROJECT_START_HERE.md
+WORKSPACE_PLAN.md
+angular/README.md
 ```
 
-ตัวอย่าง repo naming:
+## Default Frontend Stack
 
-```text
-ApoRaviz_Workspace_Docs            = เอกสารกลางของ workspace
-ApoRaviz_Portfolio                 = profile หลัก
-ApoRaviz_Mooping                   = repo ของโปรเจกต์ MooPing
-```
-
-## 2. Workspace Shape
-
-```text
-/Users/aporaviz/ApoRaviz/
-├── _docs/                         # กติกากลาง ใช้กับทุกโปรเจกต์
-├── ApoRaviz_Portfolio/            # profile หลักและ hub สำหรับ link ไปโปรเจกต์ต่าง ๆ
-├── ApoRaviz_Mooping/              # โปรเจกต์ลูก: ระบบขาย/สะสมสิทธิ์หมูปิ้ง
-└── New_Project_Name/              # โปรเจกต์ใหม่ในอนาคต เป็น repo แยก
-```
-
-กติกาสำคัญ:
-
-- โปรเจกต์ใหม่ต้องเป็น repo แยก ไม่สร้างซ้อนใน `ApoRaviz_Portfolio`
-- ชื่อ repo ควรขึ้นต้นด้วย `ApoRaviz_` เพื่อให้อ่านใน GitHub แล้วเห็นว่าเป็น ecosystem เดียวกัน
-- `ApoRaviz_Portfolio` ใช้โชว์ project card, demo link, GitHub link และ case study
-- Rule ที่ใช้ข้ามโปรเจกต์ให้เก็บใน `_docs/`
-- Rule เฉพาะโปรเจกต์ให้เก็บใน docs หรือ skill ของโปรเจกต์นั้น
-
-## 3. Default Stack
-
-- Node latest Active LTS เป็นค่า default สำหรับ production/dev tooling ตอนนี้คือ Node 24
-- Angular latest stable major ตอนนี้คือ Angular 22
+- Angular latest stable
+- Node latest Active LTS
 - TypeScript strict
-- TypeScript version ต้องตาม Angular compatibility เสมอ ตอนนี้ Angular 22 ใช้ TypeScript 6.0.x
-- Tailwind CSS v4 เป็น styling system หลักของ frontend project
+- Tailwind CSS latest stable
 - Standalone components
 - Angular Router
-- Angular signals และ `computed()`
-- `inject()` สำหรับ dependency injection
-- Angular control flow: `@if`, `@for`, `@switch`
-- SSR/prerender ได้ ถ้าเป็นเว็บ demo หรือ portfolio-facing app
-- Browser-only APIs ต้อง guard แบบ SSR-safe เช่น `window`, `document`, `localStorage`, `IntersectionObserver`
+- Angular signals
+- SSR/prerender เมื่อเป็น public/demo app
 
-สร้าง Angular project ใหม่:
+Angular app ของ ApoRaviz ใช้ Tailwind CSS เป็น styling system หลักเสมอ ถ้าเจอ Tailwind pattern ใหม่ ให้เพิ่มกลับมาที่ `angular/tailwind/` หรือ `angular/teach/`
 
-```bash
-PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH \
-npx -y @angular/cli@22.0.0 new New_Project_Name --routing --style css --ssr --skip-git --package-manager npm
-```
+## Default Project Docs
 
-หลังสร้าง project ให้ติดตั้ง Tailwind CSS v4:
-
-```bash
-ng add tailwindcss
-```
-
-หรือ manual setup:
-
-```bash
-npm install tailwindcss @tailwindcss/postcss postcss
-```
-
-แล้วให้ `src/styles.css` มี:
-
-```css
-@import "tailwindcss";
-```
-
-ใช้ Tailwind utility class เป็นหลักใน template ส่วน CSS file ให้เหลือเฉพาะ global theme, base style, animation/keyframes หรือ style ที่อธิบายด้วย Tailwind class แล้วอ่านยากเกินไป
-
-## 4. Design Direction
-
-Base identity ของ ecosystem นี้:
-
-```text
-Dark premium / friendly builder / orange accent / practical app surface
-```
-
-สีหลัก:
-
-| Role | Color |
-|---|---|
-| Base black | `#0A0A0A` |
-| Deep black | `#050505` |
-| Card black | `#111111` |
-| Border steel | `#2A2A2A` |
-| Apo orange | `#FF6B00` |
-| Orange light | `#FF8C00` |
-| Success green | `#22C55E` |
-| Warm text | `#E5E5E5` |
-| Muted text | `#A3A3A3` |
-
-Design rules:
-
-- ถ้าเป็น app/tool ให้แสดง usable experience ก่อน ไม่เริ่มด้วย landing page ลอย ๆ
-- ใช้ Tailwind responsive utilities เช่น `sm:`, `md:`, `lg:` ตั้งแต่รอบแรก ไม่ทำ desktop ก่อนแล้วค่อยซ่อม mobile ทีหลัง
-- Orange คือ action/active/highlight หลัก
-- Green ใช้กับ success, available, LINE OA หรือสถานะดี
-- หลีกเลี่ยง purple/blue เป็นสีหลัก
-- หลีกเลี่ยง gradient/orb ล้วนถ้าไม่มี product surface จริง
-- Card ใช้กับ panel, item, modal หรือ tool surface เท่านั้น
-- Text ต้องไม่ล้นปุ่ม/card บน mobile
-
-## 5. UI/UX Source
-
-โปรเจกต์ใหม่ให้เริ่มจาก design rules ในไฟล์นี้ก่อน ไม่ต้อง copy generic UI/UX skill เข้า repo ตั้งแต่แรก
-
-ลำดับการใช้ UI/UX guidance:
-
-1. ใช้ `_docs/NEW_PROJECT_GUIDE.md` เป็น source กลางสำหรับ brand, color, layout และ app-first rule
-2. ใช้ project-specific skill เพื่อเก็บ UX เฉพาะ domain เช่น POS, CRM, invoice, LINE OA
-3. ถ้าต้องทำ design research หนัก ๆ ค่อยติดตั้งหรือใช้ shared `ui-ux-pro-max` ชั่วคราวจากแหล่งกลาง ไม่ copy ไว้ในทุกโปรเจกต์
-4. ถ้า insight จาก `ui-ux-pro-max` ใช้ได้กับทุกโปรเจกต์ ให้สรุปกลับมาเป็น rule สั้น ๆ ใน `_docs/NEW_PROJECT_GUIDE.md`
-
-เหตุผล:
-
-- repo โปรเจกต์ไม่ต้องแบกฐานข้อมูล UI/UX ซ้ำ
-- โปรเจกต์ใหม่ยังมี direction ชัดจาก `_docs`
-- ความรู้ที่ใช้ซ้ำได้จะกลับมาอยู่กลาง ไม่กระจายเป็น skill copy หลายที่
-
-## 6. Required Docs Per Project
-
-โปรเจกต์ใหม่ควรมีโครงนี้เป็น default:
+โปรเจกต์ลูกควรมีเอกสารที่จำเป็นต่อการทำงานของ app:
 
 ```text
 README.md
 progress.md
 docs/
-├── architecture.md
-├── commands.md
-├── design-direction.md
-├── implementation-plan.md
-├── product-spec.md
-└── teach/
-    └── README.md
+  architecture.md
+  commands.md
+  design-direction.md
+  implementation-plan.md
+  product-spec.md
 .codex/
-└── skills/
-    └── <project-name>/
-        └── SKILL.md
+  skills/<project-name>/SKILL.md
 ```
 
-ใช้ `ApoRaviz_Portfolio` เป็นตัวอย่าง default structure โดยเฉพาะการแยก `models`, `services`, `components`, `pages`, `docs`, `.codex/skills` และ `.github/workflows`
+ไม่สร้าง `docs/teach/` เป็น default ในโปรเจกต์ลูกแล้ว
 
-บทบาทของไฟล์:
-
-- `README.md`: โปรเจกต์คืออะไร รันยังไง build/test/deploy ยังไง
-- `progress.md`: สิ่งที่ทำไปแล้ว
-- `docs/implementation-plan.md`: สิ่งที่จะทำต่อแบบ step/substep พร้อม `[ ]` / `[x]`
-- `docs/product-spec.md`: concept, requirements, user flow, data model และ integration plan
-- `docs/design-direction.md`: visual/copy/UX direction ของโปรเจกต์
-- `docs/architecture.md`: runtime, source structure, data flow, state flow และ deploy flow
-- `docs/commands.md`: setup/dev/build/test/deploy/git/CI commands
-- `docs/teach/`: บทเรียน ไม่ใช่ changelog
-- `.codex/skills/<project-name>/SKILL.md`: กติกาเฉพาะโปรเจกต์ที่ Codex ต้องอ่านก่อนทำงาน
-
-## 7. Planning Rule
-
-ทุกโปรเจกต์ต้องมี `docs/implementation-plan.md`
-
-รูปแบบ:
-
-```md
-## Step 1 - Feature Name
-
-- [x] 1.1 ทำสิ่งที่เสร็จแล้ว
-- [ ] 1.2 ทำสิ่งถัดไป
-- [ ] 1.3 ตรวจ build/test
-```
-
-ติ๊ก `[x]` เมื่อ:
-
-- ทำเสร็จจริง
-- build/test ผ่านถ้าเกี่ยวกับ code
-- เอกสารและ cross-link อัปเดตครบถ้าเป็นงาน docs
-
-แผนรวมทั้ง workspace อยู่ที่:
+ถ้ามีบทเรียนที่ใช้สอนได้ ให้เก็บที่:
 
 ```text
-_docs/WORKSPACE_PLAN.md
+projects/<project-name>/ = case study จากโปรเจกต์จริง
+angular/                 = Angular/Tailwind concept กลาง
+git/                     = Git command กลาง
 ```
 
-## 8. Skills
-
-ทุกโปรเจกต์ควรมี project-specific skill:
+## What Goes Where
 
 ```text
-.codex/skills/<project-name>/SKILL.md
+Angular concept ที่ใช้ซ้ำได้        -> angular/
+Tailwind pattern ที่ใช้ซ้ำได้       -> angular/tailwind/
+Git command pattern                 -> git/
+Business/UX lesson จากโปรเจกต์จริง  -> projects/<project-name>/
+Product spec / implementation plan   -> repo ของโปรเจกต์นั้น
+Repo URL / port / base-href command  -> repo ของโปรเจกต์นั้น docs/commands.md
+Portfolio showcase                   -> ApoRaviz_Portfolio
 ```
 
-ใน skill ควรมี:
+## Project Startup Checklist
 
-- project purpose
-- tech defaults
-- business rules สำคัญ
-- UX direction เฉพาะ domain
-- comment style
-- docs ที่ต้องอัปเดต
-- validation commands
+- [ ] ตั้งชื่อ repo เป็น `ApoRaviz_<ProjectName>`
+- [ ] เขียน problem statement
+- [ ] ระบุ user หลัก
+- [ ] ระบุ workflow หลัก
+- [ ] เลือก stack ตาม default frontend stack
+- [ ] สร้าง docs ขั้นต่ำของโปรเจกต์
+- [ ] สร้าง implementation plan แบบ step/substep
+- [ ] สร้าง project-specific skill ถ้ามี domain rule สำคัญ
+- [ ] ถ้าเป็น Angular app ให้ติดตั้ง Tailwind CSS
+- [ ] รัน build/test ครั้งแรก
+- [ ] ถ้ามีความรู้ใหม่ ให้เพิ่มกลับมาที่ Workspace Docs
 
-ก่อนทำงานในโปรเจกต์ ให้ดู:
-
-```text
-_docs/NEW_PROJECT_GUIDE.md
-Project/.codex/skills/<project-name>/SKILL.md
-Project/docs/implementation-plan.md
-```
-
-## 9. Commenting Style
-
-ใช้ comment ภาษาไทยแบบ `ApoRaviz_Portfolio`
-
-หลักคืออธิบาย intent ไม่ใช่อธิบาย syntax:
-
-- HTML: บอกว่าทำไมใช้ `section`, `nav`, `article`, `aside`, `form`, `button`, `a`
-- `div`: บอกเมื่อเป็น layout wrapper, visual layer, grid/flex container หรือ width container
-- TypeScript: comment ใกล้ data source, signal/computed, service boundary, SSR guard และ business rule
-- Tailwind class ใน HTML: comment เมื่อเป็น semantic section หรือ UX flow สำคัญ ไม่ต้อง comment ทุก utility class
-- CSS: comment เฉพาะ global base, `@theme`, animation/keyframes, responsive rule, state สำคัญ หรือ UX decision
-
-## 9.1 Frontend Essentials In 2026
-
-สิ่งที่ควรมีใน Angular frontend project ใหม่:
-
-- TypeScript strict: จำเป็น
-- Tailwind CSS v4: จำเป็นสำหรับ workspace นี้
-- Angular Router: จำเป็นเมื่อมีหลายหน้า/route หรือ public demo path
-- Responsive Design: จำเป็นตั้งแต่ first screen
-- SEO Friendly: จำเป็นเมื่อเป็น public site, portfolio demo, landing page หรือ case study
-- SSR/prerender: แนะนำสำหรับ public/demo app
-- Component structure แยกไฟล์ชัดเจน: จำเป็น
-- Unit test: จำเป็นเมื่อมี business logic เช่น reward, payment, auth, data mutation
-- Accessibility: จำเป็น เช่น semantic HTML, label, button/a ที่ถูกต้อง, focus state
-
-Animation:
-
-- Tailwind/CSS animation: default สำหรับ micro interaction
-- Angular animations/Web Animations API: ใช้เมื่อ animation ผูกกับ Angular state
-- Framer Motion: ไม่ใช่ default เพราะเป็น React-first
-- `motion` JavaScript package: ใช้เฉพาะเมื่อ animation ซับซ้อนจริง เช่น gesture, timeline, scroll-linked effect
-
-Backend/database:
-
-- ไม่ล็อก default ในไฟล์นี้
-- ถ้าโปรเจกต์เริ่มมี backend, database, auth, SQL migration หรือ secret ให้เปิดแผน backend แยกใน project docs ก่อนลง code
-
-## 10. Teach Rule
-
-Teach note ต้องตอบ:
-
-```text
-เรื่องนี้สอนอะไร
-ทำไมต้องออกแบบแบบนี้
-เอาไปใช้โปรเจกต์อื่นได้อย่างไร
-```
-
-ถ้าเป็นบทเรียนเฉพาะ domain เช่น POS, reward, LINE OA ให้เก็บในโปรเจกต์นั้น
-
-ถ้าเป็นบทเรียน Angular ที่ใช้ได้ทุกโปรเจกต์ เช่น signals, DI, SSR safety, browser API, component structure, unit test, CI/CD ให้เก็บใน `_docs/angular/teach/`
-
-กติกา final:
-
-```text
-Project/docs/teach/ = สอนสิ่งที่เกิดจากโปรเจกต์นั้นจริง ๆ
-_docs/angular/teach/ = สอน Angular concept กลาง
-_docs/git/commands.md = สอน Git command กลาง
-```
-
-ถ้าอ่านชื่อไฟล์แล้วใช้ได้กับทุกโปรเจกต์ เช่น `Angular Reactive`, `Dependency Injection`, `Unit Test`, `CI/CD` ให้เก็บกลาง ไม่เก็บซ้ำใน project teach
-
-ถ้าเป็น command ที่ควรเรียนรู้ ให้แยกชั้นแบบนี้:
-
-```text
-_docs/angular/commands.md      = Angular command pattern กลาง
-_docs/git/commands.md          = Git command pattern กลาง
-Project/docs/commands.md       = command เฉพาะ path/repo/port/base-href ของโปรเจกต์
-Project/docs/teach/            = อธิบายว่าคำสั่งนั้นสอน concept อะไร ถ้าเป็นบทเรียนเฉพาะโปรเจกต์
-```
-
-ตัวอย่าง:
-
-- `npm ci` คือ concept กลางของ CI/CD ให้เก็บใน `_docs/angular/teach/07-cicd-github-pages.md`
-- `npm run build:gh-pages` พร้อม `/ApoRaviz_Mooping/` ให้เก็บใน `ApoRaviz_Mooping/docs/commands.md`
-- `git remote set-url origin ...` ให้เก็บ pattern ใน `_docs/git/commands.md` และ URL จริงไว้ใน project docs เมื่อจำเป็น
-
-## 11. Validation
+## Validation
 
 ก่อนบอกว่างานเสร็จ:
 
 ```bash
-PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH npm run build
-PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH npm test -- --watch=false
+npm run build
+npm test -- --watch=false
 ```
 
-ถ้าเป็น UI change:
+ถ้าใช้ Angular 22 ต้องใช้ Node ที่ Angular รองรับ เช่น Node 24.15+ ไม่ใช่ Node 22.14
 
-- เปิด dev server
-- ตรวจ desktop และ mobile/tablet viewport
-- ตรวจ action หลักอย่างน้อย 1 flow
-- ตรวจ text ไม่ล้น ไม่ซ้อน ไม่ถูกบัง
+## Static Docs Site Rule
+
+`ApoRaviz_Workspace_Docs` ใช้ VitePress เป็น static docs site
+
+กติกา:
+
+- config อยู่ที่ `.vitepress/config.mts`
+- dev server ใช้ `npm run docs:dev`
+- static build ใช้ `npm run docs:build`
+- ตัวอย่างแรกของรูปแบบบทเรียนคือ `angular/labs/01-signal-counter.md`
+- บทเรียนใหม่ต้องมี flow, code, expected result และ self-check

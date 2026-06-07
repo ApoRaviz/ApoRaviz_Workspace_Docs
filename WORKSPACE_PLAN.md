@@ -1,5 +1,19 @@
 # ApoRaviz Workspace Plan
 
+## Current Direction
+
+ตั้งแต่วันที่ 2026-06-07 แผนหลักของ repo นี้คือทำ `ApoRaviz_Workspace_Docs` ให้เป็น learning hub และ static web กลางของ `ApoRaviz_*`
+
+กติกาที่ต้องยึด:
+
+```text
+WORKSPACE_RULES.md
+TEACHING_RULES.md
+AI_UPDATE_RULE.md
+```
+
+เป้าหมายถัดไปคือจัดโครงบทเรียน Angular ให้เป็น `concepts`, `lessons`, และ `labs` ก่อนเริ่มทำ VitePress
+
 ไฟล์นี้เป็น project registry และแผนรวมของ workspace `ApoRaviz` ใช้ดูภาพใหญ่ว่ามีโปรเจกต์อะไร กำลังทำอะไร และโปรเจกต์ใหม่ควรเข้าระบบอย่างไร
 
 แผนละเอียดของแต่ละโปรเจกต์ต้องอยู่ใน `Project/docs/implementation-plan.md`
@@ -38,7 +52,7 @@
 - [x] 0.12 แยก Angular teach/commands กลางไว้ที่ `_docs/angular/`
 - [x] 0.13 แยก Git commands กลางไว้ที่ `_docs/git/commands.md`
 - [x] 0.14 เพิ่ม rule ว่า project teach เก็บตัวอย่างเฉพาะโปรเจกต์ ส่วน common Angular concept อยู่กลาง
-- [x] 0.15 ลบ Angular teach กลางที่ซ้ำใน Portfolio และปรับหน้า `/teach` ให้เหลือ Portfolio-specific lessons
+- [x] 0.15 ลบ Angular teach กลางที่ซ้ำใน Portfolio และย้ายการเรียนกลับมา Workspace Docs
 - [x] 0.16 ปรับ README ของ Portfolio และ MooPing ให้บอกว่าโปรเจกต์ทำอะไรอย่างชัดเจน
 - [x] 0.17 เพิ่ม `_docs/PROJECT_START_HERE.md` เป็นลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่
 - [x] 0.18 ตั้ง `ApoRaviz_Portfolio` เป็น default structure reference สำหรับโปรเจกต์ถัดไป
@@ -67,7 +81,7 @@
 - [ ] 2.7 เพิ่ม `docs/architecture.md`
 - [ ] 2.8 เพิ่ม `docs/implementation-plan.md`
 - [ ] 2.9 เพิ่ม `docs/commands.md`
-- [ ] 2.10 เพิ่ม `docs/teach/README.md`
+- [ ] 2.10 ถ้ามีบทเรียนจากโปรเจกต์จริง ให้เพิ่มที่ `projects/<project-name>/`
 
 ### Step 3 - MVP
 

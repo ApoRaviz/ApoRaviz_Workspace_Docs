@@ -1,8 +1,8 @@
 # Angular Teach Index
 
-ชุดนี้คือบทเรียน Angular กลางที่สรุปจากการทำ `ApoRaviz_Portfolio` และ `ApoRaviz_Mooping`
+ชุดนี้คือบทเรียน Angular/Tailwind กลางที่สรุปจากการทำ `ApoRaviz_Portfolio`, `ApoRaviz_Mooping` และโปรเจกต์ใหม่ในอนาคต
 
-เป้าหมายคือให้โปรเจกต์ใหม่อ่านจากที่เดียวก่อน แล้วค่อยไปดูตัวอย่างจริงในแต่ละ repo
+เป้าหมายคือให้เริ่มเรียนจากที่เดียวก่อน แล้วค่อยไปดู case study จริงใน `projects/`
 
 ## Lessons
 
@@ -16,18 +16,18 @@
 8. [Tailwind CSS v4 ใน Angular](08-tailwind-css-v4.md)
 9. [Angular 22 จาก Angular 21](09-angular-22-from-21.md)
 
-## How To Read With Project Docs
+## How To Read With Case Studies
 
 ```text
-อ่าน concept กลางใน _docs/angular/teach/
--> เปิด Project/docs/teach/ เพื่อดูตัวอย่างจริง
--> เปิด source code ที่ไฟล์นั้นอ้างถึง
--> ถ้าเจอ rule ที่ใช้ซ้ำได้ ให้กลับมาอัปเดต _docs/angular/
+อ่าน concept กลางใน angular/teach/
+-> เปิด projects/<project-name>/ เพื่อดูตัวอย่างจริง
+-> เปิด source code ของโปรเจกต์ถ้าต้องการดู implementation
+-> ถ้าเจอ rule ที่ใช้ซ้ำได้ ให้กลับมาอัปเดต angular/
 ```
 
 ตัวอย่าง:
 
-- อ่าน `01-reactive-signals.md` แล้วดู `ApoRaviz_Portfolio/src/app/services/theme.service.ts`
+- อ่าน `01-reactive-signals.md` แล้วดู state/service ในโปรเจกต์จริง
 - อ่าน `05-component-structure-data-flow.md` แล้วดู component ของ `ApoRaviz_Mooping`
-- อ่าน `07-cicd-github-pages.md` แล้วดู `.github/workflows/deploy-pages.yml` ในแต่ละ repo
-- อ่าน `08-tailwind-css-v4.md` แล้วดู `ApoRaviz_Portfolio/src/styles.css` และ component template ที่ใช้ utility classes
+- อ่าน `07-cicd-github-pages.md` แล้วดู workflow deploy ของ repo ลูก
+- อ่าน `08-tailwind-css-v4.md` แล้วดู template ที่ใช้ utility classes

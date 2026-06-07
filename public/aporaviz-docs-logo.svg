@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="ApoRaviz Docs">
+  <rect width="48" height="48" rx="10" fill="#0A0A0A"/>
+  <path d="M14 34 24 10l10 24h-6l-2-5h-4l-2 5h-6Zm10-17-3 8h6l-3-8Z" fill="#FF6B00"/>
+  <path d="M10 38h28" stroke="#E5E5E5" stroke-width="3" stroke-linecap="round"/>
+</svg>

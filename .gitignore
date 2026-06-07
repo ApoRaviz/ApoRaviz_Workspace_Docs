@@ -7,10 +7,14 @@
 /.angular/
 .angular/
 
-# Node modules and dependency files
+# Node modules
 /node_modules/
-/package-lock.json
 /yarn.lock
+
+# VitePress build output
+/.vitepress/.temp/
+/.vitepress/cache/
+/.vitepress/dist/
 
 # Environment files
 /.env
