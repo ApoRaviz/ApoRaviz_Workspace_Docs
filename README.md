@@ -47,10 +47,10 @@ repo นี้เก็บเฉพาะความรู้กลางขอ
 2. `_docs/PROJECT_START_HERE.md` ถ้าเริ่มโปรเจกต์ใหม่
 3. `_docs/NEW_PROJECT_GUIDE.md`
 4. `_docs/WORKSPACE_PLAN.md`
-5. `_docs/angular/README.md` ถ้างานเกี่ยวกับ Angular
+5. `_docs/angular/index.md` ถ้างานเกี่ยวกับ Angular
 6. เอกสารในโปรเจกต์จริง เช่น `ApoRaviz_Mooping/docs/implementation-plan.md`
 7. `projects/` ถ้าต้องการอ่าน case study จากโปรเจกต์จริง
-8. `vitepress/README.md` ถ้าต้องการรันหรือแก้เว็บ docs
+8. `vitepress/index.md` ถ้าต้องการรันหรือแก้เว็บ docs
 
 ## Static Site
 
@@ -71,7 +71,7 @@ angular/labs/01-signal-counter.md
 ถ้ายังไม่เคยใช้ VitePress ให้อ่าน:
 
 ```text
-vitepress/README.md
+vitepress/index.md
 ```
 
 ## Project Roles

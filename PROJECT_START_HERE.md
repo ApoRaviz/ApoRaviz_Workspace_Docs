@@ -10,9 +10,9 @@
 4. `AI_UPDATE_RULE.md`
 5. `NEW_PROJECT_GUIDE.md`
 6. `WORKSPACE_PLAN.md`
-7. `angular/README.md` ถ้างานเกี่ยวกับ Angular/Tailwind
-8. `projects/README.md` ถ้าต้องการดู case study จากโปรเจกต์จริง
-9. `vitepress/README.md` ถ้าต้องการรันหรือแก้เว็บ docs
+7. `angular/index.md` ถ้างานเกี่ยวกับ Angular/Tailwind
+8. `projects/index.md` ถ้าต้องการดู case study จากโปรเจกต์จริง
+9. `vitepress/index.md` ถ้าต้องการรันหรือแก้เว็บ docs
 
 ## Current Roles
 

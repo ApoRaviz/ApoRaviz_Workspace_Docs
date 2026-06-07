@@ -31,6 +31,10 @@
 
 ## ไฟล์ตัวอย่าง
 
+หมายเหตุ: หน้านี้ยังเป็นบทเรียนแบบอ่าน flow และอ่าน code ใน VitePress ยังไม่ใช่ Angular live demo ที่มีปุ่มให้กดจริง
+
+ถ้าต้องการปุ่มที่กดแล้ว signal เปลี่ยนจริง ต้องทำ Angular demo แยก แล้วค่อย link หรือ embed กลับมาที่บทเรียนนี้
+
 ```ts
 import { Component, signal } from '@angular/core';
 

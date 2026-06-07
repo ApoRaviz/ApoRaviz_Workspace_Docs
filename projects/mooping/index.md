@@ -7,8 +7,8 @@
 ถ้าต้องการอ่าน concept กลางของ Angular ก่อน ให้เริ่มที่:
 
 ```text
-../../angular/README.md
-../../angular/teach/README.md
+../../angular/
+../../angular/teach/
 ```
 
 ## Ownership

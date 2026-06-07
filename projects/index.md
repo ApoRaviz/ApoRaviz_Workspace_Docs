@@ -6,7 +6,7 @@
 
 ## Current Cases
 
-- [MooPing Learning Case Study](mooping/README.md)
+- [MooPing Learning Case Study](mooping/)
 
 ## Rule
 

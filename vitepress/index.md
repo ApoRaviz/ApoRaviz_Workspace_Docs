@@ -18,6 +18,46 @@ Browser = คนเปิดอ่านเว็บ
 
 เราเขียนไฟล์ `.md` เหมือนจด note ปกติ แล้ว VitePress แปลงเป็นเว็บ static ที่มีหน้าเว็บ, sidebar, navbar, search, code block และ dark/light mode ให้พร้อมใช้
 
+## VitePress ทำงานอย่างไร
+
+ภาพจำง่าย ๆ:
+
+```text
+เราเขียน Markdown = เขียนบทเรียนลงกระดาษ
+VitePress อ่าน Markdown = เอากระดาษเข้าเครื่องจัดหน้า
+VitePress สร้าง HTML = ได้หนังสือหน้าเว็บที่ browser เปิดอ่านได้
+Browser เปิดเว็บ = คนอ่านเห็นหน้า docs ที่จัดเมนูแล้ว
+```
+
+ตอนรัน `npm run docs:dev` ลำดับความคิดคือ:
+
+```text
+1. npm อ่าน package.json
+2. npm เจอ script docs:dev
+3. script เรียก vitepress
+4. VitePress อ่าน .vitepress/config.mts
+5. VitePress อ่านไฟล์ .md ใน repo
+6. VitePress แปลง Markdown เป็นหน้าเว็บ
+7. browser เปิด URL แล้วเห็นเว็บ docs
+```
+
+ไฟล์ที่ควรจำ:
+
+```text
+package.json          = บอกว่าคำสั่ง docs:dev/docs:build ต้องรันอะไร
+.vitepress/config.mts = ตั้งชื่อเว็บ, base path, nav, sidebar, search
+index.md              = หน้าแรกของเว็บ
+folder/index.md       = หน้าแรกของโฟลเดอร์นั้น เช่น /vitepress/
+```
+
+ดังนั้นถ้าถามว่า "VitePress อ่านไฟล์ไหนก่อน" ให้จำแบบนี้:
+
+```text
+คำสั่งเริ่มที่ package.json
+เว็บ docs เริ่มตั้งค่าที่ .vitepress/config.mts
+หน้าเว็บเริ่มจากไฟล์ .md
+```
+
 ## ทำไม repo นี้ใช้ VitePress
 
 `ApoRaviz_Workspace_Docs` จะมีข้อมูลเยอะขึ้นเรื่อย ๆ ถ้าอ่านจากไฟล์ Markdown ตรง ๆ จะเริ่มหลงง่าย
@@ -29,6 +69,43 @@ VitePress ช่วยให้:
 - search ใน docs ได้
 - build เป็น HTML static สำหรับ deploy ได้
 - ไม่ต้องสร้าง Angular app เพื่อทำเว็บเอกสาร
+
+## VitePress กับ Angular ต่างกันอย่างไร
+
+VitePress ใช้ Vue อยู่ข้างในเพื่อทำเว็บเอกสาร แต่เราไม่จำเป็นต้องเรียน Vue ก่อนถึงจะใช้ VitePress ได้
+
+ใน repo นี้เราใช้ VitePress เพื่อสอน Angular ไม่ได้ใช้ VitePress แทน Angular
+
+ภาพจำง่าย ๆ:
+
+```text
+VitePress = ห้องเรียนและหนังสือเรียน
+Angular = เครื่องมือที่เรากำลังเรียน
+Tailwind CSS = วิธีแต่งหน้าตาของ Angular app
+```
+
+ถ้าในหน้า VitePress มี code แบบนี้:
+
+```html
+<button type="button" (click)="increase()">+1</button>
+```
+
+ตอนนี้ VitePress แสดง code ให้เราอ่าน แต่ไม่ได้เอา Angular component ไปรันจริงในหน้านั้น
+
+ดังนั้นหน้า `angular/labs/01-signal-counter.md` ตอนนี้ถูกต้องแล้วที่ยังไม่มีปุ่มให้กดจริง เพราะมันเป็นบทเรียนแบบอ่าน flow + อ่าน code ก่อน
+
+ถ้าต้องการ "ปุ่ม Angular จริงที่กดแล้ว signal เปลี่ยนจริง" เราจะต้องเพิ่มระบบ demo แยก เช่น:
+
+- ทำ Angular mini demo แล้ว link หรือ embed เข้ามา
+- ทำ StackBlitz สำหรับกดเล่น
+- ทำ HTML/JavaScript simulation ใน VitePress แล้วเขียนชัด ๆ ว่าเป็น simulation ไม่ใช่ Angular จริง
+
+กติกาตอนนี้:
+
+```text
+ช่วงแรก = ทำ VitePress ให้เข้าใจก่อน
+ช่วงถัดไป = ค่อยเพิ่ม Angular demo ที่กดได้จริง
+```
 
 ## ไฟล์สำคัญใน repo นี้
 
@@ -142,13 +219,51 @@ VitePress ใช้ file-based routing
 ```text
 index.md                              -> /
 PROJECT_START_HERE.md                 -> /PROJECT_START_HERE
-angular/README.md                     -> /angular/
+angular/index.md                      -> /angular/
 angular/concepts/signal.md            -> /angular/concepts/signal
 angular/labs/01-signal-counter.md     -> /angular/labs/01-signal-counter
-projects/mooping/README.md            -> /projects/mooping/
+projects/mooping/index.md             -> /projects/mooping/
 ```
 
 เพราะ config เปิด `cleanUrls: true` จึงไม่ต้องใส่ `.html` ตอนเปิดหน้า
+
+## ทำไมใช้ `index.md` แทน `README.md`
+
+ใน GitHub เวลาเปิดโฟลเดอร์ คนมักเห็น `README.md` เป็นหน้าแนะนำโฟลเดอร์
+
+แต่ใน VitePress ถ้าอยากให้ URL แบบนี้เปิดหน้าได้ตรง ๆ:
+
+```text
+/vitepress/
+/angular/
+/projects/mooping/
+```
+
+ให้ใช้ไฟล์:
+
+```text
+vitepress/index.md
+angular/index.md
+projects/mooping/index.md
+```
+
+ภาพจำง่าย ๆ:
+
+```text
+index.md = ประตูหน้าของโฟลเดอร์บนเว็บ
+README.md = ป้ายแนะนำโฟลเดอร์บน GitHub
+```
+
+สำหรับ repo นี้ เราให้ความสำคัญกับการเปิดอ่านบนเว็บ VitePress เป็นหลัก ดังนั้นหน้าแรกของแต่ละหมวดจะใช้ `index.md`
+
+ถ้าหน้า `/vitepress/` เข้าไม่ได้ ให้ตรวจตามนี้:
+
+```text
+1. มีไฟล์ vitepress/index.md ไหม
+2. .vitepress/config.mts link ไป /vitepress/ ไหม
+3. รัน npm run docs:build ผ่านไหม
+4. ถ้า dev server เปิดค้างก่อนย้ายไฟล์ ให้หยุดแล้วรัน npm run docs:dev ใหม่
+```
 
 ## เพิ่มหน้าใหม่ต้องทำอะไร
 

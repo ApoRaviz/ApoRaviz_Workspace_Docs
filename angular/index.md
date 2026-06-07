@@ -32,7 +32,7 @@ Project/docs/commands.md = command ที่มี path, repo, port, base-href �
 ## Recommended Order
 
 1. [Angular Commands](commands.md)
-2. [Angular Teach Index](teach/README.md)
+2. [Angular Teach Index](teach/)
 3. [Reactive State และ Signals](teach/01-reactive-signals.md)
 4. [Services และ Dependency Injection](teach/02-services-dependency-injection.md)
 5. [App Config, SSR และ Hydration](teach/03-app-config-ssr-hydration.md)

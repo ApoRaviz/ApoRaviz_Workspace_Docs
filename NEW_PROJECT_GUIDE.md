@@ -22,7 +22,7 @@ TEACHING_RULES.md
 AI_UPDATE_RULE.md
 PROJECT_START_HERE.md
 WORKSPACE_PLAN.md
-angular/README.md
+angular/index.md
 ```
 
 ## Default Frontend Stack
@@ -113,4 +113,4 @@ npm test -- --watch=false
 - static build ใช้ `npm run docs:build`
 - ตัวอย่างแรกของรูปแบบบทเรียนคือ `angular/labs/01-signal-counter.md`
 - บทเรียนใหม่ต้องมี flow, code, expected result และ self-check
-- ถ้ายังไม่เคยใช้ VitePress ให้อ่าน `vitepress/README.md` ก่อน
+- ถ้ายังไม่เคยใช้ VitePress ให้อ่าน `vitepress/index.md` ก่อน
