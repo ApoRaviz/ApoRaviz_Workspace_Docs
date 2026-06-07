@@ -27,6 +27,7 @@ WORKSPACE_PLAN.md         = แผนรวมแบบ step/substep ของ w
 angular/                  = Angular teach และ command กลาง
 git/                      = Git command กลาง
 projects/                 = case study และบทเรียนจากโปรเจกต์จริง
+vitepress/                = คู่มือรันและแก้เว็บ docs ด้วย VitePress
 ```
 
 ## Repository
@@ -49,6 +50,7 @@ repo นี้เก็บเฉพาะความรู้กลางขอ
 5. `_docs/angular/README.md` ถ้างานเกี่ยวกับ Angular
 6. เอกสารในโปรเจกต์จริง เช่น `ApoRaviz_Mooping/docs/implementation-plan.md`
 7. `projects/` ถ้าต้องการอ่าน case study จากโปรเจกต์จริง
+8. `vitepress/README.md` ถ้าต้องการรันหรือแก้เว็บ docs
 
 ## Static Site
 
@@ -64,6 +66,12 @@ npm run docs:build
 
 ```text
 angular/labs/01-signal-counter.md
+```
+
+ถ้ายังไม่เคยใช้ VitePress ให้อ่าน:
+
+```text
+vitepress/README.md
 ```
 
 ## Project Roles

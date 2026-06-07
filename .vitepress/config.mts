@@ -10,6 +10,7 @@ export default defineConfig({
     logo: '/aporaviz-docs-logo.svg',
     nav: [
       { text: 'Start', link: '/PROJECT_START_HERE' },
+      { text: 'VitePress', link: '/vitepress/' },
       { text: 'Angular', link: '/angular/' },
       { text: 'Labs', link: '/angular/labs/' },
       { text: 'Projects', link: '/projects/' },
@@ -22,6 +23,7 @@ export default defineConfig({
           { text: 'Home', link: '/' },
           { text: 'Project Start Here', link: '/PROJECT_START_HERE' },
           { text: 'New Project Guide', link: '/NEW_PROJECT_GUIDE' },
+          { text: 'VitePress Guide', link: '/vitepress/' },
           { text: 'Workspace Rules', link: '/WORKSPACE_RULES' },
           { text: 'Teaching Rules', link: '/TEACHING_RULES' },
           { text: 'AI Update Rule', link: '/AI_UPDATE_RULE' }

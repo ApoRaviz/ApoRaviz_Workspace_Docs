@@ -12,6 +12,7 @@
 6. `WORKSPACE_PLAN.md`
 7. `angular/README.md` ถ้างานเกี่ยวกับ Angular/Tailwind
 8. `projects/README.md` ถ้าต้องการดู case study จากโปรเจกต์จริง
+9. `vitepress/README.md` ถ้าต้องการรันหรือแก้เว็บ docs
 
 ## Current Roles
 

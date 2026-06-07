@@ -113,3 +113,4 @@ npm test -- --watch=false
 - static build ใช้ `npm run docs:build`
 - ตัวอย่างแรกของรูปแบบบทเรียนคือ `angular/labs/01-signal-counter.md`
 - บทเรียนใหม่ต้องมี flow, code, expected result และ self-check
+- ถ้ายังไม่เคยใช้ VitePress ให้อ่าน `vitepress/README.md` ก่อน
