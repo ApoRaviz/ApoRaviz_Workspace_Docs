@@ -452,19 +452,150 @@ angular/labs/01-signal-counter.md
 ```powershell
 # ใช้ Node 24
 $env:PATH='C:\Users\tanon\AppData\Local\nvm\v24.16.0;' + $env:PATH
+node -v
+npm -v
 
 # ติดตั้ง dependency
 npm install
+npm ci
 
 # เปิดเว็บระหว่างเขียน
 npm run docs:dev
+npm run docs:dev -- --port 5174
 
 # ตรวจ build
 npm run docs:build
 
 # preview output หลัง build
 npm run docs:preview
+npm run docs:preview -- --port 4174
 ```
+
+## คำสั่ง VitePress ที่ควรรู้
+
+รันผ่าน npm script เป็นหลัก:
+
+```bash
+npm run docs:dev
+npm run docs:build
+npm run docs:preview
+```
+
+รัน VitePress ตรงผ่าน local dependency:
+
+```bash
+npx vitepress dev --host 127.0.0.1
+npx vitepress build
+npx vitepress preview --host 127.0.0.1
+```
+
+ดู help:
+
+```bash
+npx vitepress --help
+```
+
+บทเรียน:
+
+- `docs:dev` ใช้ตอนเขียน
+- `docs:build` ใช้ตรวจว่าพร้อม deploy
+- `docs:preview` ใช้ดูผลลัพธ์หลัง build
+- ใน repo นี้ prefer npm script เพราะจำง่ายและตรงกับ `package.json`
+
+## คำสั่งตรวจเว็บ Docs ก่อน Push
+
+```bash
+npm run docs:build
+git status --short --branch
+git diff --check
+git diff --cached --stat
+```
+
+ถ้าแก้ sidebar หรือ link ควรค้น path ด้วย:
+
+```bash
+rg "/angular/labs|/angular/concepts|/projects/mooping" .vitepress/config.mts
+rg "อ่านเพิ่ม|ไปต่อ|link" angular projects
+```
+
+ถ้า build fail เพราะ link ผิด ให้ดู path ตามกติกา file-based routing:
+
+```text
+angular/labs/03-basic-form-input.md -> /angular/labs/03-basic-form-input
+projects/mooping/index.md          -> /projects/mooping/
+```
+
+## คำสั่ง Deploy GitHub Pages
+
+repo นี้ใช้ GitHub Actions:
+
+```text
+.github/workflows/deploy-pages.yml
+```
+
+ปกติแค่ push เข้า `main`:
+
+```bash
+git push origin main
+```
+
+workflow จะรัน:
+
+```bash
+npm ci
+npm run docs:build
+```
+
+แล้ว upload:
+
+```text
+.vitepress/dist
+```
+
+URL ที่ควรได้:
+
+```text
+https://aporaviz.github.io/ApoRaviz_Workspace_Docs/
+```
+
+ถ้าต้องการสั่ง deploy เอง ให้ไปที่ GitHub repo:
+
+```text
+Actions -> Deploy VitePress to GitHub Pages -> Run workflow
+```
+
+## คำสั่งอ่านโครงสร้าง Docs
+
+ดูไฟล์ Markdown ทั้งหมด:
+
+```bash
+rg --files -g '*.md'
+```
+
+ดูเฉพาะบทเรียน Angular:
+
+```bash
+rg --files angular
+```
+
+ดูหัวข้อในไฟล์:
+
+```bash
+rg "^## " vitepress/index.md
+rg "^## " angular/labs/03-basic-form-input.md
+```
+
+ดู config:
+
+```bash
+sed -n '1,220p' .vitepress/config.mts
+```
+
+บทเรียน:
+
+- VitePress route มาจากตำแหน่งไฟล์ `.md`
+- sidebar/nav อยู่ใน `.vitepress/config.mts`
+- ถ้าเพิ่มหน้าใหม่แล้วหาในเว็บไม่เจอ ให้เช็กว่าเพิ่มเข้า sidebar หรือยัง
 
 ## จำสั้น ๆ
 

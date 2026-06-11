@@ -8,6 +8,8 @@
 
 ```bash
 git status --short --branch
+git branch --show-current
+git log --oneline -5
 ```
 
 ใช้ดู:
@@ -16,14 +18,44 @@ git status --short --branch
 - ahead/behind จาก remote
 - ไฟล์ที่แก้
 - ไฟล์ที่ staged แล้ว
+- commit ล่าสุด 5 อัน
+
+## Clone And First Setup
+
+```bash
+git clone https://github.com/ApoRaviz/Repo_Name.git
+cd Repo_Name
+git status --short --branch
+```
+
+ตั้งชื่อ user ในเครื่อง:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+ดู config ที่ Git ใช้อยู่:
+
+```bash
+git config --list
+```
+
+บทเรียน:
+
+- `clone` คือดึง repo จาก GitHub ลงเครื่อง
+- `config --global` ตั้งค่าทั้งเครื่อง
+- ถ้าใช้หลาย GitHub account ต้องเช็ก user/email ก่อน commit
 
 ## Review Changes
 
 ```bash
 git diff
 git diff --stat
+git diff --name-only
 git diff --cached
 git diff --cached --stat
+git diff --cached --name-only
 ```
 
 ใช้ก่อน commit เพื่อดูว่ามีไฟล์แปลกปนหรือไม่
@@ -34,11 +66,24 @@ git diff --check
 
 ใช้จับ whitespace error ก่อน commit
 
+ดูว่าไฟล์หนึ่งเปลี่ยนอะไร:
+
+```bash
+git diff -- path/to/file.md
+```
+
+ดู staged diff ของไฟล์เดียว:
+
+```bash
+git diff --cached -- path/to/file.md
+```
+
 ## Fetch And Compare
 
 ```bash
 git fetch origin
 git rev-list --left-right --count HEAD...origin/main
+git log --oneline --left-right HEAD...origin/main
 ```
 
 ผลลัพธ์เช่น:
@@ -52,10 +97,47 @@ git rev-list --left-right --count HEAD...origin/main
 ถ้าเลขซ้ายมากกว่า 0 แปลว่า local ahead  
 ถ้าเลขขวามากกว่า 0 แปลว่า remote ahead
 
+## Branch
+
+ดู branch ทั้งหมด:
+
+```bash
+git branch
+git branch -a
+```
+
+สร้าง branch ใหม่:
+
+```bash
+git switch -c feature/name
+```
+
+สลับ branch:
+
+```bash
+git switch main
+git switch feature/name
+```
+
+อัปเดต `main` จาก remote:
+
+```bash
+git fetch origin
+git switch main
+git pull --ff-only origin main
+```
+
+บทเรียน:
+
+- `switch -c` = สร้าง branch ใหม่แล้วเข้า branch นั้น
+- `pull --ff-only` = รับเฉพาะกรณีที่เลื่อน commit ไปข้างหน้าได้ตรง ๆ
+- ถ้า pull แล้วมี conflict ให้หยุดอ่าน message ก่อน ไม่แก้มั่ว
+
 ## Stage And Commit
 
 ```bash
 git add -A
+git add path/to/file.md
 git commit -m "Describe the change"
 ```
 
@@ -63,14 +145,35 @@ git commit -m "Describe the change"
 
 ```bash
 git diff --cached --stat
+git diff --cached --check
 ```
 
 เพื่อยืนยันว่า staged เฉพาะไฟล์ที่ตั้งใจ
+
+ดู commit ล่าสุด:
+
+```bash
+git show --stat
+git show --name-only
+```
+
+แก้ commit message ล่าสุด ถ้ายังไม่ได้ push:
+
+```bash
+git commit --amend -m "Better commit message"
+```
+
+บทเรียน:
+
+- ใช้ `git add path/to/file.md` เมื่อไม่อยาก stage ทุกไฟล์
+- ใช้ `git add -A` เฉพาะเมื่อมั่นใจว่าทุก change เกี่ยวกับงานเดียวกัน
+- อย่า amend commit ที่ push แล้ว ถ้าไม่ได้คุยกับทีมก่อน
 
 ## Push
 
 ```bash
 git push origin main
+git push -u origin feature/name
 ```
 
 หลัง push ให้เช็ก:
@@ -86,6 +189,99 @@ git status --short --branch
 ```
 
 และไม่มีไฟล์ต่อท้าย แปลว่า clean และ sync แล้ว
+
+## Restore And Unstage
+
+ยกเลิก staged แต่ยังเก็บไฟล์ที่แก้ไว้:
+
+```bash
+git restore --staged path/to/file.md
+```
+
+ทิ้งการแก้ในไฟล์หนึ่ง:
+
+```bash
+git restore path/to/file.md
+```
+
+ทิ้งทุกไฟล์ที่แก้:
+
+```bash
+git restore .
+```
+
+ข้อควรระวัง:
+
+```text
+git restore path/to/file.md จะลบการแก้ในไฟล์นั้น
+ใช้เฉพาะเมื่อแน่ใจว่าไม่ต้องการ change แล้ว
+```
+
+ใน workspace นี้ห้ามใช้คำสั่งทำลายงาน เช่น `git reset --hard` ถ้าไม่ได้ตั้งใจจริงและตรวจแล้วว่าไม่มีงานของคนอื่นปน
+
+## Stash
+
+เก็บงานชั่วคราว:
+
+```bash
+git stash push -m "Describe temporary work"
+```
+
+ดู stash:
+
+```bash
+git stash list
+```
+
+เอา stash ล่าสุดกลับมา:
+
+```bash
+git stash pop
+```
+
+เอา stash กลับมาแต่ยังเก็บ stash ไว้:
+
+```bash
+git stash apply stash@{0}
+```
+
+บทเรียน:
+
+- stash เหมาะเมื่ออยากสลับ branch แต่ยังไม่พร้อม commit
+- ก่อน `stash pop` ควรเช็ก `git status --short --branch`
+- ถ้ามี conflict หลัง pop ให้แก้เหมือน conflict ปกติ
+
+## Tag
+
+สร้าง tag สำหรับจุดสำคัญ:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+ดู tags:
+
+```bash
+git tag
+```
+
+ลบ tag ใน local:
+
+```bash
+git tag -d v0.1.0
+```
+
+ลบ tag บน remote:
+
+```bash
+git push origin --delete v0.1.0
+```
+
+บทเรียน:
+
+- tag เหมาะกับ release หรือจุด deploy สำคัญ
+- ถ้ายังเป็นงานทดลอง ใช้ commit ธรรมดาก่อนก็พอ
 
 ## Remote
 
@@ -103,3 +299,39 @@ git remote set-url origin https://github.com/ApoRaviz/Repo_Name.git
 
 ใช้เมื่อ rename repo หรือย้าย repo ปลายทาง
 
+## Troubleshooting
+
+ดูว่าไฟล์หนึ่งถูก track ไหม:
+
+```bash
+git ls-files path/to/file.md
+```
+
+ดูว่า `.gitignore` rule ไหน ignore ไฟล์:
+
+```bash
+git check-ignore -v path/to/file
+```
+
+ดูประวัติของไฟล์:
+
+```bash
+git log --oneline -- path/to/file.md
+```
+
+ดูว่าใครแก้บรรทัดไหน:
+
+```bash
+git blame path/to/file.md
+```
+
+จำสั้น ๆ:
+
+```text
+status = ตอนนี้เกิดอะไรขึ้น
+diff = เปลี่ยนอะไร
+add = เลือกสิ่งที่จะ commit
+commit = บันทึกใน local
+push = ส่งขึ้น remote
+fetch = ไปดู remote โดยยังไม่รวมเข้า local
+```
