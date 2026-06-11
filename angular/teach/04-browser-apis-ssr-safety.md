@@ -1,10 +1,10 @@
 # Browser APIs และ SSR Safety
 
-บทเรียนนี้สรุปวิธีคิดเมื่อ Angular code ต้องใช้ browser APIs
+บทนี้สรุปวิธีคิดเมื่อ Angular code ต้องใช้ browser APIs
 
 ## Browser API คืออะไร
 
-Browser API คือความสามารถที่ browser ให้ JavaScript ใช้ เช่น:
+Browser API คือความสามารถที่ browser ให้ JavaScript ใช้:
 
 - `window`
 - `document`
@@ -80,7 +80,7 @@ threshold: [0.15, 0.4, 0.65]
 rootMargin: '-35% 0px -45% 0px'
 ```
 
-ค่าติดลบช่วยให้ active section เปลี่ยนเมื่อ section เข้าใกล้กลางจอ ไม่ใช่แตะขอบจอนิดเดียว
+ค่าติดลบช่วยให้ active section เปลี่ยนเมื่อ section เข้าใกล้กลางจอ ไม่ใช่เพิ่งแตะขอบจอ
 
 ## Cleanup
 
@@ -96,7 +96,7 @@ this.sectionObserver?.disconnect();
 this.revealObserver?.unobserve(entry.target);
 ```
 
-เหตุผล:
+เหตุผลที่ต้อง cleanup:
 
 - กัน callback ซ้ำ
 - กัน observer เก่าค้าง
@@ -109,4 +109,3 @@ this.revealObserver?.unobserve(entry.target);
 - [ ] cleanup observer/timer/listener
 - [ ] มี test ถ้า browser API คุม behavior สำคัญ
 - [ ] อย่าเขียน DOM selector แทน Angular state ถ้าใช้ reactive template ได้
-

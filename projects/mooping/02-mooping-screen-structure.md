@@ -1,19 +1,19 @@
 # 02 MooPing Screen Structure และการแยก Component
 
-ไฟล์นี้สอนโครงสร้างหน้าจอของ `ApoRaviz_Mooping` ว่าเราแยก POS, iPad display, reward และ LINE mock ออกจากกันอย่างไร เพื่อให้ flow หน้าร้านอ่านง่ายและต่อยอดได้
+บทนี้อธิบายโครงสร้างหน้าจอของ `ApoRaviz_Mooping`: การแยก POS, iPad display, reward และ LINE mock เพื่อให้ flow หน้าร้านอ่านง่ายและต่อยอดได้
 
 ## ทำไมไม่ควรใส่ทุกอย่างไว้ในไฟล์เดียว
 
 ตอนเริ่ม MVP การเขียนทุกอย่างไว้ใน `app.ts`, `app.html`, และ `app.css` ช่วยให้เห็นภาพเร็ว
 
-แต่เมื่อ flow เริ่มมีหลายส่วน เช่น POS, iPad display, reward, LINE OA mock ถ้ายังรวมไว้ในไฟล์เดียวจะเริ่มมีปัญหา:
+แต่เมื่อ flow มี POS, iPad display, reward และ LINE OA mock การรวมทุกอย่างไว้ไฟล์เดียวจะเริ่มมีปัญหา:
 
 - หา logic ยาก
 - แก้ UI จุดหนึ่งแล้วกระทบอีกจุดง่าย
 - test ยากขึ้น
 - คนอ่าน portfolio ไม่เห็นว่าเราออกแบบระบบเป็นส่วน ๆ ได้
 
-ดังนั้นจึงควรแยกเป็น focused components
+จึงควรแยกเป็น focused components
 
 ## Container Component คืออะไร
 
@@ -56,7 +56,7 @@ line-panel = mock LINE OA messages
 
 ## Tailwind กับ CSS แยกกันอย่างไร
 
-หลังปรับ baseline ปี 2026 โปรเจกต์นี้ใช้ Tailwind CSS v4 เป็น styling default เหมือน `ApoRaviz_Portfolio`
+หลังปรับ baseline ปี 2026 โปรเจกต์นี้ใช้ Tailwind CSS v4 เป็น styling default เช่นเดียวกับ `ApoRaviz_Portfolio`
 
 หลักการคือ:
 
@@ -66,7 +66,7 @@ src/styles.css             = import Tailwind, theme token และ global base
 component .css             = animation/keyframes หรือ visual effect ที่ Tailwind อ่านยาก
 ```
 
-ตอนนี้ POS workspace ย้าย layout หลักไปเป็น utility class ใน HTML แล้ว เพื่อให้อ่าน flow ได้จาก template โดยตรง
+ตอนนี้ POS workspace ย้าย layout หลักไปเป็น utility class ใน HTML เพื่อให้อ่าน flow ได้จาก template โดยตรง
 
 ไฟล์ที่ควรดูเป็นตัวอย่าง:
 
@@ -77,9 +77,9 @@ src/app/components/reward-panel/reward-panel.html
 src/app/components/line-panel/line-panel.html
 ```
 
-แต่ iPad grill animation ยังเก็บใน `display-panel.css` ได้ เพราะมี `@keyframes`, pseudo state และ visual detail เฉพาะ component
+ส่วน iPad grill animation ยังอยู่ใน `display-panel.css` ได้ เพราะมี `@keyframes`, pseudo state และ visual detail เฉพาะ component
 
-ดังนั้น `app.css` ควรเหลือแค่ host token หรือ selector ที่ Angular component ต้องใช้จริง ๆ ไม่ใช่ที่เก็บ layout ทั้งหน้า
+ดังนั้น `app.css` ควรเหลือแค่ host token หรือ selector ที่ Angular component ต้องใช้ ไม่ใช่ที่เก็บ layout ทั้งหน้า
 
 ถ้าต้องเรียน concept กลาง ให้อ่าน:
 
@@ -103,7 +103,7 @@ readonly customer = input.required<Customer>();
 - ข้อมูลถูกส่งมาจาก parent
 - component ลูกไม่ต้องไปหา data เอง
 
-ข้อดีคือ component อ่านง่ายและ test ง่าย เพราะ input ชัดเจน
+ข้อดีคือ component อ่านและ test ง่าย เพราะ input ชัดเจน
 
 ## output() ใช้ทำอะไร
 
@@ -139,7 +139,7 @@ child ส่ง event ขึ้น
 
 โปรเจกต์นี้ยังใช้ mock data จึงให้ `app.ts` ถือ state กลางก่อน
 
-เหตุผล:
+เหตุผลหลัก:
 
 - learning flow อ่านง่าย
 - ยังไม่สร้าง abstraction เร็วเกินไป
@@ -157,7 +157,7 @@ LineNotificationService
 
 ## สิ่งที่ควรเรียนจากไฟล์นี้
 
-โครงสร้างที่ดีไม่ได้แปลว่าแยกไฟล์เยอะที่สุด แต่แปลว่าแต่ละไฟล์มีเหตุผลชัดเจน
+โครงสร้างที่ดีไม่ได้แปลว่าแยกไฟล์เยอะที่สุด แต่คือแต่ละไฟล์มีเหตุผลชัดเจน
 
 จำง่าย:
 

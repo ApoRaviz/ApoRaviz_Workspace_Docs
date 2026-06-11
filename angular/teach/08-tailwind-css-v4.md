@@ -1,12 +1,12 @@
 # Tailwind CSS v4 ใน Angular
 
-บทเรียนนี้สรุปว่าโปรเจกต์ Angular ใน workspace `ApoRaviz` ควรใช้ Tailwind CSS v4 อย่างไร และ CSS file ยังมีหน้าที่อะไรอยู่
+บทนี้สรุปการใช้ Tailwind CSS v4 ใน Angular workspace `ApoRaviz` และบทบาทที่ยังเหลือของ CSS file
 
 ## ทำไม Tailwind เป็น default
 
 Tailwind เป็น utility-first CSS framework
 
-ข้อดีสำหรับโปรเจกต์ของเรา:
+ข้อดีสำหรับโปรเจกต์ใน workspace:
 
 - เห็น layout และ responsive rule ใน template ทันที
 - ลดการกระโดดไปมาระหว่าง HTML กับ CSS
@@ -22,7 +22,7 @@ Tailwind เป็น utility-first CSS framework
 ng add tailwindcss
 ```
 
-ถ้าต้อง manual setup:
+ถ้าต้อง setup เอง:
 
 ```bash
 npm install tailwindcss @tailwindcss/postcss postcss
@@ -48,7 +48,7 @@ npm install tailwindcss @tailwindcss/postcss postcss
 
 `src/styles.css` เป็น global stylesheet ของทั้ง app
 
-ใช้สำหรับ:
+ใช้สำหรับงานเหล่านี้:
 
 - `@import "tailwindcss";`
 - `@theme` เช่นสี brand, font, shadow token
@@ -83,7 +83,7 @@ component `.css` ใช้เมื่อ:
 </section>
 ```
 
-หลักคือ:
+หลักคิด:
 
 ```text
 mobile/tablet/desktop ต้องเป็น design เดียวกันที่ยืดหยุ่น

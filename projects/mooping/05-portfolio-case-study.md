@@ -1,10 +1,10 @@
 # 05 วิธีเล่าโปรเจกต์นี้เป็น Portfolio Case Study
 
-ไฟล์นี้สอนวิธีเขียน case study ให้โปรเจกต์ดูเป็นงาน product จริง ไม่ใช่แค่ demo หน้าเว็บ
+บทนี้ช่วยจัด `ApoRaviz_Mooping` ให้เล่าเป็น product case study ไม่ใช่แค่ demo หน้าเว็บ
 
 ## Case Study ควรตอบอะไร
 
-case study ที่ดีควรตอบ 5 คำถาม:
+case study ควรตอบ 5 คำถาม:
 
 - ปัญหาคืออะไร
 - ใครเจอปัญหานี้
@@ -28,11 +28,11 @@ case study ที่ดีควรตอบ 5 คำถาม:
 7. What I Learned
 ```
 
-โครงนี้เหมาะกับ portfolio เพราะอ่านง่ายและทำให้ recruiter หรือผู้ชมเข้าใจเร็วว่าเราทำอะไรเอง
+โครงนี้เหมาะกับ portfolio เพราะ recruiter หรือผู้ชมเข้าใจเร็วว่าเราทำอะไรเอง
 
 ## Problem
 
-ส่วน problem ควรเล่าให้สั้นและเป็นมนุษย์:
+ส่วน problem ควรสั้นและเป็นมนุษย์:
 
 ```text
 ร้านหมูปิ้งมีโปรโมชันซื้อครบ 10 ไม้ แถม 1 แต่การจำยอดด้วยกระดาษหรือความจำทำให้พลาดง่าย และลูกค้าไม่เห็นสถานะของตัวเองแบบ real-time
@@ -48,7 +48,7 @@ case study ที่ดีควรตอบ 5 คำถาม:
 
 ## UX Decisions
 
-สิ่งที่ควรเล่า:
+ประเด็นที่ควรเล่า:
 
 - ใช้ confirmation ก่อนบันทึกยอด เพราะหน้าร้านมีโอกาสกดผิด
 - มี undo latest sale เพื่อแก้รายการล่าสุดได้เร็ว
@@ -56,11 +56,11 @@ case study ที่ดีควรตอบ 5 คำถาม:
 - แสดง saved rewards เพื่อไม่ให้ลูกค้ากังวลว่าสิทธิ์หาย
 - ทำ iPad display ให้หน้าร้านดูทันสมัยและโปร่งใส
 
-UX decisions ควรมีเหตุผลเสมอ ไม่ใช่แค่บอกว่า "เพิ่มปุ่มนี้"
+UX decisions ต้องมีเหตุผล ไม่ใช่แค่บอกว่า "เพิ่มปุ่มนี้"
 
 ## Technical Decisions
 
-สิ่งที่ควรเล่า:
+ประเด็นที่ควรเล่า:
 
 - ใช้ Angular standalone components
 - แยก container component กับ presentation components
@@ -73,7 +73,7 @@ UX decisions ควรมีเหตุผลเสมอ ไม่ใช่แ
 
 ## What I Learned
 
-หัวข้อนี้สำคัญมาก เพราะโปรเจกต์ portfolio ไม่ได้มีไว้โชว์แค่ว่าทำได้ แต่โชว์ว่าเราเรียนรู้อะไร
+หัวข้อนี้ทำให้ portfolio โชว์ว่าเราเรียนรู้อะไร ไม่ใช่แค่ทำอะไรได้
 
 ตัวอย่าง learning:
 
@@ -99,4 +99,4 @@ POS confirmation prevents accidental loyalty updates before staff confirms the s
 Saved rewards remain visible after customers choose to redeem later.
 ```
 
-caption แบบนี้ทำให้ภาพกลายเป็นหลักฐานของการตัดสินใจออกแบบ
+caption แบบนี้ทำให้ภาพเป็นหลักฐานของการตัดสินใจออกแบบ

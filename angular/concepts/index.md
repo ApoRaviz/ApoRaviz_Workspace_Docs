@@ -5,7 +5,7 @@
 ใช้เมื่อมีคำที่คนเรียนอาจงง เช่น:
 
 - [`signal`](signal.md)
-- `computed`
+- [`computed`](computed.md)
 - `effect`
 - `inject`
 - `provider`

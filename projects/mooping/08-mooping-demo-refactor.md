@@ -1,12 +1,12 @@
 # 08 MooPing Demo Refactor
 
-ไฟล์นี้สอนวิธีคิดตอน refactor demo ของ `ApoRaviz_Mooping`: เมื่อไหร่ควรแยกไฟล์ เมื่อไหร่ยังไม่ควรเพิ่ม abstraction และจะทำให้ flow หน้าร้านอ่านง่ายขึ้นได้อย่างไร
+บทนี้สรุปวิธีคิดตอน refactor demo ของ `ApoRaviz_Mooping`: เมื่อไหร่ควรแยกไฟล์ เมื่อไหร่ยังไม่ควรเพิ่ม abstraction และทำอย่างไรให้ flow หน้าร้านอ่านง่ายขึ้น
 
 ## Refactor คืออะไร
 
 Refactor คือการปรับโครงสร้าง code โดยไม่เปลี่ยนพฤติกรรมหลักของระบบ
 
-เป้าหมายไม่ใช่ทำให้ code ดูซับซ้อนขึ้น แต่ทำให้:
+เป้าหมายคือทำให้ code:
 
 - อ่านง่ายขึ้น
 - test ง่ายขึ้น
@@ -15,7 +15,7 @@ Refactor คือการปรับโครงสร้าง code โด�
 
 ## สัญญาณว่าเริ่มควรแยก Component
 
-ควรพิจารณาแยก component เมื่อ:
+พิจารณาแยก component เมื่อ:
 
 - HTML ยาวจนหา section ยาก
 - state หลายชุดปนกัน
@@ -47,11 +47,11 @@ LINE OA mock
 7. เพิ่ม tests กัน regression
 ```
 
-ถ้าแยก service เร็วเกินไป อาจได้ abstraction ที่ไม่ตรงกับปัญหาจริง
+ถ้าแยก service เร็วเกินไป อาจได้ abstraction ที่ไม่ตรงกับปัญหา
 
 ## ทำไมไม่ควรปล่อย app.css ใหญ่เกินไป
 
-ตอน prototype เราอาจรวม style ไว้ที่ `app.css` เพื่อเห็นภาพเร็ว
+ตอน prototype อาจรวม style ไว้ที่ `app.css` เพื่อเห็นภาพเร็ว
 
 แต่เมื่อโปรเจกต์มี `pos-panel`, `display-panel`, `reward-panel` และ `line-panel` แล้ว style ควรมี owner ชัดขึ้น:
 
@@ -60,7 +60,7 @@ LINE OA mock
 - animation เฉพาะจอ เช่น grill/stamp pulse อยู่ใน component CSS ได้
 - `app.css` เหลือไว้เป็น host token และ selector กลางที่จำเป็นกับ Angular component เท่านั้น
 
-แนวนี้ทำให้คนอ่านรู้ว่า HTML บอกโครงหน้าจอ, TypeScript บอก state/logic และ CSS ที่เหลือมีเหตุผลเฉพาะจริง ๆ
+แนวนี้ทำให้คนอ่านรู้ว่า HTML บอกโครงหน้าจอ, TypeScript บอก state/logic และ CSS ที่เหลือมีเหตุผลเฉพาะ
 
 ## ทำไม TypeScript Models สำคัญ
 
@@ -70,7 +70,7 @@ LINE OA mock
 src/app/models/loyalty.models.ts
 ```
 
-ช่วยบอกว่า object สำคัญในระบบหน้าตาเป็นอย่างไร
+ช่วยบอกว่า object หลักในระบบหน้าตาเป็นอย่างไร
 
 ตัวอย่าง concept:
 
@@ -104,7 +104,7 @@ saveRewardForLater
 
 ส่วนการคำนวณว่า reward เพิ่มเท่าไร หรือ state ต้องเปลี่ยนอย่างไร ควรอยู่ใน container หรือ service
 
-เหตุผล:
+เหตุผลหลัก:
 
 - business logic อยู่จุดเดียว
 - ลดการคำนวณซ้ำ
@@ -113,7 +113,7 @@ saveRewardForLater
 
 ## สิ่งที่ควรเรียนจากไฟล์นี้
 
-refactor ที่ดีคือการทำให้ intent ของระบบชัดขึ้น
+refactor ที่ดีทำให้ intent ของระบบชัดขึ้น
 
 จำง่าย:
 

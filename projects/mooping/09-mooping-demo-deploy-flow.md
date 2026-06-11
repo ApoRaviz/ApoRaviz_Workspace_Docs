@@ -1,6 +1,6 @@
 # 09 MooPing Demo Deploy Flow
 
-ไฟล์นี้สอน deploy flow เฉพาะ `ApoRaviz_Mooping` ว่าทำไมระบบหมูปิ้งต้องมี demo URL ที่เปิดได้จริง, command แต่ละตัวใช้ทำอะไร และต้องตรวจอะไรหลัง push
+บทนี้สรุป deploy flow ของ `ApoRaviz_Mooping`: ทำไมต้องมี demo URL, command ใช้ทำอะไร และหลัง push ต้องตรวจจุดไหน
 
 ถ้าต้องการเรียน concept กลางของ CI/CD และ GitHub Pages ให้อ่าน:
 
@@ -11,7 +11,7 @@
 
 ## ทำไม MooPing ต้อง deploy เป็น demo จริง
 
-MooPing เป็นระบบหน้าร้าน ดังนั้น demo ที่เปิดได้จริงสำคัญกว่าสcreenshot เพราะคนดู portfolio ต้องเห็นว่า:
+MooPing เป็นระบบหน้าร้าน demo ที่กดได้จึงสำคัญกว่า screenshot เพราะคนดู portfolio ต้องเห็นว่า:
 
 - โปรเจกต์เปิดดูได้จริง
 - POS flow กดได้ ไม่ใช่ภาพนิ่ง
@@ -21,7 +21,7 @@ MooPing เป็นระบบหน้าร้าน ดังนั้น d
 
 ## Command flow ของโปรเจกต์นี้
 
-ก่อน push หรือหลังแก้ flow สำคัญให้รัน:
+ก่อน push หรือหลังแก้ flow หลักให้รัน:
 
 ```bash
 npm test -- --watch=false
@@ -35,7 +35,7 @@ npm test -- --watch=false = ตรวจ loyalty behavior ที่มี test �
 npm run build:gh-pages    = build ด้วย base-href ของ GitHub Pages
 ```
 
-ระบบ loyalty เกี่ยวกับสิทธิ์ลูกค้า ถ้า deploy bug ที่ทำให้ reward หาย ความน่าเชื่อถือของโปรเจกต์จะเสียทันที
+ระบบ loyalty เกี่ยวกับสิทธิ์ลูกค้า ถ้า deploy bug ที่ทำให้ reward หาย ความน่าเชื่อถือจะเสียทันที
 
 ## base-href ของ MooPing
 
@@ -45,7 +45,7 @@ repo นี้ deploy เป็น GitHub Pages project site ที่:
 https://aporaviz.github.io/ApoRaviz_Mooping/
 ```
 
-ดังนั้น Angular ต้องรู้ว่า asset ควรถูกโหลดใต้ path:
+Angular ต้องรู้ว่า asset ควรถูกโหลดใต้ path:
 
 ```text
 /ApoRaviz_Mooping/
@@ -75,7 +75,7 @@ public/.nojekyll
 เสิร์ฟไฟล์ static ตามที่ build มาได้เลย ไม่ต้องประมวลผลด้วย Jekyll
 ```
 
-เป็นไฟล์เล็ก ๆ แต่ช่วยลดปัญหากับ static artifact ในอนาคต
+เป็นไฟล์เล็ก ๆ ที่ช่วยลดปัญหากับ static artifact ในอนาคต
 
 ## Artifact คืออะไร
 

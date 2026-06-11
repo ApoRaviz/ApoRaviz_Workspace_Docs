@@ -1,6 +1,6 @@
 # Angular 22 จาก Angular 21
 
-บทเรียนนี้สรุปสิ่งที่ต้องรู้เมื่อขยับ workspace จาก Angular 21 ไป Angular 22
+บทนี้สรุปสิ่งที่ต้องรู้เมื่อขยับ workspace จาก Angular 21 ไป Angular 22
 
 ใช้ไฟล์นี้เมื่อ:
 
@@ -14,7 +14,7 @@ Angular 22 ออกวันที่ 2026-06-03 และเป็น active r
 
 Angular 21 ยังได้รับ LTS แต่ไม่ใช่ baseline สำหรับโปรเจกต์ใหม่ใน workspace นี้แล้ว
 
-ความหมายสำหรับเรา:
+ความหมายใน workspace:
 
 ```text
 new Angular project = Angular 22
@@ -24,7 +24,7 @@ old docs ที่เขียน Angular 21 = ต้องแก้ wording ใ
 
 ## Version Baseline
 
-Angular 22 เปลี่ยน dependency baseline สำคัญ:
+Angular 22 เปลี่ยน dependency baseline:
 
 | Topic | Angular 21 | Angular 22 | Workspace Decision |
 |---|---|---|---|
@@ -51,7 +51,7 @@ Angular 22 เปลี่ยน dependency baseline สำคัญ:
 }
 ```
 
-## Change Detection สำคัญที่สุด
+## Change Detection
 
 Angular 22 ทำให้ component ที่ไม่ได้ระบุ `changeDetection` เป็น `OnPush` โดย default
 
@@ -63,7 +63,7 @@ Angular 22 ทำให้ component ที่ไม่ได้ระบุ `ch
 - `output()`
 - state ที่เปลี่ยนจาก event ชัดเจน
 
-ข้อควรจำ:
+ถ้าต้องการ behavior เดิม:
 
 ```ts
 // ถ้าต้องการ behavior เดิมแบบ eager ให้ระบุเอง
@@ -84,7 +84,7 @@ Angular 22 ตรวจ template เข้มกว่าเดิม:
 
 ผลดีคือ bug ถูกจับเร็วขึ้นตอน build
 
-ผลที่ต้องระวังคือ template เก่าบางจุดอาจต้องแก้ type หรือ binding ให้ชัด
+จุดที่ต้องระวังคือ template เก่าบางส่วนอาจต้องแก้ type หรือ binding ให้ชัด
 
 ## API เก่าที่ถูกถอด
 
@@ -128,7 +128,7 @@ provideRouter(routes, withRouterConfig({
 }));
 ```
 
-ในโปรเจกต์ใหม่ให้ใช้ default ใหม่ก่อน แล้วค่อย override เมื่อมีเหตุผลจริง
+ในโปรเจกต์ใหม่ให้ใช้ default ใหม่ก่อน แล้วค่อย override เมื่อมีเหตุผล
 
 ## Forms และ HTTP
 

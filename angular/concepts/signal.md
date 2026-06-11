@@ -71,5 +71,6 @@ this.count.update((current) => current + 1);
 
 ## ไปต่อ
 
+- [Computed Concept](computed.md)
 - [Signal Counter Lab](../labs/01-signal-counter.md)
 - [Reactive State และ Signals](../teach/01-reactive-signals.md)

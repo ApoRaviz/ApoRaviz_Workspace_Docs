@@ -1,6 +1,6 @@
 # App Config, SSR และ Hydration
 
-บทเรียนนี้สรุปไฟล์ config สำคัญของ Angular standalone app และแนวคิด SSR/prerender
+บทนี้รวมไฟล์ config สำคัญของ Angular standalone app และแนวคิด SSR/prerender
 
 ## Standalone App Config
 
@@ -33,7 +33,7 @@ provideRouter(routes)
 
 ใช้เปิด Angular Router
 
-ถึงเป็นเว็บหน้าเดียวก็ยังมีประโยชน์:
+แม้เป็นเว็บหน้าเดียวก็ยังมีประโยชน์:
 
 - รองรับ route เพิ่มในอนาคต
 - SSR/prerender รู้ route structure
@@ -41,7 +41,7 @@ provideRouter(routes)
 
 ## Hydration
 
-SSR/prerender สร้าง HTML มาให้ browser เห็นก่อน แต่ HTML นั้นยังไม่ได้ผูก event/state ครบ
+SSR/prerender สร้าง HTML ให้ browser เห็นก่อน แต่ HTML นั้นยังไม่ได้ผูก event/state ครบ
 
 `hydration` คือ Angular ฝั่ง browser เข้ามารับช่วง HTML เดิม แล้วผูก event/state กลับเข้าไป
 
@@ -61,7 +61,7 @@ ng build
 -> deploy static files ไป hosting
 ```
 
-เหมาะกับ:
+เหมาะกับงานแบบนี้:
 
 - portfolio
 - product demo
@@ -76,7 +76,7 @@ ng build
 code อาจรันบน server ก่อนถึง browser
 ```
 
-ดังนั้นห้ามเรียกสิ่งเหล่านี้ตรง ๆ ใน constructor หรือ field initializer โดยไม่ guard:
+ห้ามเรียกสิ่งเหล่านี้ตรง ๆ ใน constructor หรือ field initializer โดยไม่ guard:
 
 - `window`
 - `document`
@@ -94,4 +94,3 @@ ng build --configuration production --base-href /Repo_Name/
 ```
 
 ถ้าไม่ตั้ง path นี้ browser อาจหา JS/CSS ผิดตำแหน่ง เพราะ URL จริงอยู่ใต้ path ของ repo
-

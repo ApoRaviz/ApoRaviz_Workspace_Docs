@@ -1,12 +1,12 @@
 # Component Structure และ Data Flow
 
-บทเรียนนี้สรุปวิธีแยก component และส่งข้อมูลใน Angular app
+บทนี้สรุปการแยก component และการส่งข้อมูลใน Angular app
 
 ## ทำไมไม่ใส่ทุกอย่างไว้ใน app component
 
 ตอนเริ่ม MVP การใส่ทุกอย่างใน `app.ts`, `app.html`, `app.css` ช่วยให้ขึ้นรูปเร็ว
 
-แต่เมื่อระบบมีหลายส่วน เช่น nav, hero, POS, reward, LINE mock, modal, page data ถ้ายังรวมไว้ไฟล์เดียวจะเริ่มมีปัญหา:
+แต่เมื่อระบบมี nav, hero, POS, reward, LINE mock, modal และ page data การรวมไว้ไฟล์เดียวจะเริ่มมีปัญหา:
 
 - หา logic ยาก
 - test ยาก
@@ -17,7 +17,7 @@
 
 Container component คือ component ที่ถือ state หรือ orchestrate flow
 
-หน้าที่:
+หน้าที่ของ container:
 
 - ถือ state หลักของหน้า
 - คำนวณ business logic หรือเรียก service
@@ -36,7 +36,7 @@ App/Page container
 
 Presentation component เน้นแสดงผลและ emit event
 
-หน้าที่:
+หน้าที่ของ presentation component:
 
 - รับ data ผ่าน input
 - แสดง UI
@@ -60,7 +60,7 @@ readonly confirmSale = output<void>();
 </button>
 ```
 
-หลักนี้เรียกว่า one-way data flow:
+นี่คือ one-way data flow:
 
 ```text
 parent ส่ง data ลง
@@ -103,10 +103,9 @@ data ที่เป็น source ของ page:
 src/app/pages/<page>/<page-data>.ts
 ```
 
-หลักคิด:
+หลักคิดเรื่อง ownership:
 
 ```text
 วางไฟล์ใกล้ owner ที่สุดก่อน
 ค่อยย้ายขึ้น shared เมื่อ reuse จริง
 ```
-

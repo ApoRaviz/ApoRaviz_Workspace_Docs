@@ -7,8 +7,8 @@ lab ต้องเป็นตัวอย่างกลางใน `ApoRaviz
 ตัวอย่าง lab:
 
 - [signal counter](01-signal-counter.md)
-- computed total price
-- basic form input
+- [computed total price](02-computed-total-price.md)
+- [basic form input](03-basic-form-input.md)
 - interval clock with cleanup
 - localStorage with `isPlatformBrowser`
 - simple route navigation

@@ -35,9 +35,12 @@ export default defineConfig({
           { text: 'Angular Hub', link: '/angular/' },
           { text: 'Concepts', link: '/angular/concepts/' },
           { text: 'Signal Concept', link: '/angular/concepts/signal' },
+          { text: 'Computed Concept', link: '/angular/concepts/computed' },
           { text: 'Lessons', link: '/angular/lessons/' },
           { text: 'Labs', link: '/angular/labs/' },
           { text: 'Signal Counter Lab', link: '/angular/labs/01-signal-counter' },
+          { text: 'Computed Total Price Lab', link: '/angular/labs/02-computed-total-price' },
+          { text: 'Basic Form Input Lab', link: '/angular/labs/03-basic-form-input' },
           { text: 'Tailwind CSS', link: '/angular/tailwind/' },
           { text: 'Commands', link: '/angular/commands' }
         ]

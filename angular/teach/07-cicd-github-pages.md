@@ -1,6 +1,6 @@
 # CI/CD และ GitHub Pages
 
-บทเรียนนี้สรุป CI/CD สำหรับ Angular demo ที่ deploy ไป GitHub Pages
+บทนี้สรุป CI/CD สำหรับ Angular demo ที่ deploy ไป GitHub Pages
 
 ## CI/CD คืออะไร
 
@@ -52,7 +52,7 @@ npm ci
 
 ## Test ก่อน Deploy
 
-ลำดับที่ดี:
+ลำดับที่แนะนำ:
 
 ```text
 npm ci
@@ -61,7 +61,7 @@ npm ci
 -> deploy
 ```
 
-ถ้า deploy โดยไม่ test อาจเอา regression ขึ้น demo โดยไม่รู้ตัว
+ถ้า deploy โดยไม่ test อาจส่ง regression ขึ้น demo โดยไม่รู้ตัว
 
 ## GitHub Pages base-href
 
@@ -77,7 +77,7 @@ Angular ต้อง build ด้วย:
 ng build --configuration production --base-href /ApoRaviz_Mooping/
 ```
 
-กติกากลาง:
+กติกา:
 
 ```text
 base-href = /Repo_Name/
@@ -112,7 +112,7 @@ workflow ต้อง upload folder นี้ ไม่ใช่ upload ทั�
 public/.nojekyll
 ```
 
-ใช้บอก GitHub Pages ว่าให้เสิร์ฟ static files ตาม output ของ Angular ไม่ต้องผ่าน Jekyll
+ใช้บอก GitHub Pages ให้เสิร์ฟ static files ตาม output ของ Angular ไม่ต้องผ่าน Jekyll
 
 ## permissions
 
@@ -150,4 +150,3 @@ gh run watch
 ```
 
 หมายเหตุ: `gh` ต้องติดตั้งและ login ก่อน
-

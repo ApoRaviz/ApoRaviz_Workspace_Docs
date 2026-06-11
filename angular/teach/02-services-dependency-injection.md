@@ -1,6 +1,6 @@
 # Services และ Dependency Injection
 
-บทเรียนนี้อธิบาย service, `inject()` และ dependency injection ใน Angular standalone app
+บทนี้อธิบาย service, `inject()` และ dependency injection ใน Angular standalone app
 
 ## Service คืออะไร
 
@@ -15,7 +15,7 @@ export class PortfolioDataService {}
 
 `providedIn: 'root'` แปลว่า Angular สร้าง service instance เดียวระดับ app
 
-เหมาะกับ:
+เหมาะกับงานแบบนี้:
 
 - data กลาง เช่น profile, nav links, project list
 - UI state กลาง เช่น active section, mobile menu state
@@ -48,7 +48,7 @@ readonly data = inject(PortfolioDataService);
 readonly theme = inject(ThemeService);
 ```
 
-ข้อดี:
+ข้อดีของ `inject()`:
 
 - เห็น dependency ใกล้ field ที่ใช้
 - ไม่ต้องเขียน constructor ยาว
@@ -71,7 +71,7 @@ readonly data = new PortfolioDataService();
 
 ## Boundary ที่ดีของ service
 
-service ที่ดีควรมีขอบเขตชัด:
+service ควรมีขอบเขตชัด:
 
 ```text
 DataService       = source ของข้อมูล
@@ -92,9 +92,8 @@ if (!this.isBrowser || typeof IntersectionObserver === 'undefined') {
 }
 ```
 
-เหตุผล:
+เหตุผลที่ต้อง guard:
 
 - SSR/prerender รันบน server ที่ไม่มี browser APIs
 - test environment อาจไม่มี API บางตัว
 - guard ทำให้ build/test เสถียรกว่า
-

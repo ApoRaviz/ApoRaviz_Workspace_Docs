@@ -1,6 +1,6 @@
 # Unit Test และ Regression Safety
 
-บทเรียนนี้สรุป `.spec.ts`, TestBed และวิธีคิดเรื่อง regression test ใน Angular
+บทนี้สรุป `.spec.ts`, TestBed และวิธีคิดเรื่อง regression test ใน Angular
 
 ## .spec.ts คืออะไร
 
@@ -19,7 +19,7 @@ npm test -- --watch=false
 
 ## ทำไมต้องมี test
 
-test ช่วยกัน regression
+test ช่วยกัน regression กลับมา
 
 ตัวอย่าง:
 
@@ -29,7 +29,7 @@ test ช่วยกัน regression
 -> test ช่วยจับถ้าบัคเดิมกลับมา
 ```
 
-ระบบที่ควรมี test มากเป็นพิเศษ:
+ระบบที่ควรมี test เป็นพิเศษ:
 
 - reward/loyalty
 - money/price
@@ -39,7 +39,7 @@ test ช่วยกัน regression
 
 ## Arrange, Act, Assert
 
-โครง test อ่านง่าย:
+โครง test ที่อ่านง่าย:
 
 ```text
 Arrange = เตรียมสถานการณ์
@@ -100,7 +100,7 @@ vi.advanceTimersByTime(1400);
 vi.useRealTimers();
 ```
 
-เหตุผล:
+เหตุผลที่ใช้ fake timers:
 
 - test ไม่ต้องรอเวลาจริง
 - deterministic กว่า
@@ -119,4 +119,3 @@ npm run test:ci
 ```
 
 ก่อน push งานที่แตะ logic ควรรัน test เสมอ
-

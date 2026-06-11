@@ -1,6 +1,6 @@
 # Reactive State และ Signals
 
-บทเรียนนี้เป็น concept กลางของ Angular reactive state ที่ใช้ได้ทุกโปรเจกต์ใน workspace
+Concept กลางของ Angular reactive state ที่ใช้ได้ทุกโปรเจกต์ใน workspace
 
 ## Reactive คืออะไร
 
@@ -12,7 +12,7 @@ state เปลี่ยน
 -> UI ที่เกี่ยวข้องอัปเดตตาม
 ```
 
-ข้อดีคือ component ไม่ต้องจับ DOM ด้วย selector ตรง ๆ เช่น `document.querySelector()` เพื่อซ่อน/แสดง element เอง
+ข้อดีคือ component ไม่ต้องใช้ selector ตรง ๆ เช่น `document.querySelector()` เพื่อซ่อนหรือแสดง element เอง
 
 ## signal() คืออะไร
 
@@ -36,7 +36,7 @@ this.mobileMenuOpen()
 }
 ```
 
-เหตุผลที่มี `()` เพราะ Angular ใช้การเรียกนี้เพื่อรู้ว่า template กำลังพึ่งพา signal ตัวไหน
+ต้องมี `()` เพราะ Angular ใช้การเรียกนี้เพื่อรู้ว่า template พึ่งพา signal ตัวไหน
 
 ## set() กับ update()
 
@@ -69,7 +69,7 @@ readonly lastName = signal('Promsiri');
 readonly fullName = computed(() => `${this.firstName()} ${this.lastName()}`);
 ```
 
-ใช้เมื่อ:
+เหมาะเมื่อ:
 
 - ค่าใหม่เป็น derivation จาก state อื่น
 - ไม่อยากคำนวณซ้ำใน template หลายจุด
@@ -105,5 +105,4 @@ effect(() => {
 - ร่างยอดขายก่อน confirm
 - pending rewards และ saved rewards
 
-หลักคิดคือ state ที่ UI ต้องตอบสนองควรมี owner ชัดเจน และ template อ่าน state จาก owner นั้น ไม่กระจายตัวแปรซ้ำในหลาย component
-
+หลักคิดคือ state ที่ UI ต้องตอบสนองควรมี owner ชัดเจน และ template อ่านจาก owner นั้น ไม่กระจายตัวแปรซ้ำหลาย component
