@@ -1,13 +1,13 @@
 ---
 name: aporaviz-project-starter
-description: Use when the user wants to create, scaffold, initialize, rename, plan, or set up any new ApoRaviz_* project/repository/app, or when a request mentions a project name starting with ApoRaviz_, a new workspace project, repo startup, project docs, implementation plan, product spec, Angular project setup, Tailwind setup, GitHub Pages demo, or project-specific Codex skill. Enforce ApoRaviz workspace startup rules before coding.
+description: Use when the user wants to create, scaffold, initialize, rename, plan, continue, maintain, refactor, document, or set up any ApoRaviz_* project/repository/app, or when a request mentions a project name starting with ApoRaviz_, an existing/new workspace project, repo startup, project docs, implementation plan, product spec, Angular project setup, Tailwind setup, GitHub Pages demo, reusable learning capture, or project-specific Codex skill. Enforce ApoRaviz workspace rules and capture reusable terms/concepts back to ApoRaviz_Workspace_Docs before finishing.
 ---
 
 # ApoRaviz Project Starter
 
 ## Purpose
 
-Use this skill to start or organize any repo whose name begins with `ApoRaviz_`. Treat these projects as children of the `ApoRaviz` workspace. Do not start coding first; start from workspace rules, project purpose, docs, and reusable-learning boundaries.
+Use this skill to start, continue, or organize any repo whose name begins with `ApoRaviz_`. Treat these projects as children of the `ApoRaviz` workspace. Do not treat app work as isolated code work; keep project purpose, docs, and reusable-learning boundaries visible.
 
 Core rule:
 
@@ -16,9 +16,25 @@ ApoRaviz_Workspace_Docs = learning hub and source of truth
 ApoRaviz_* project repo = app/product implementation plus project-specific docs
 ```
 
+## Always-On Workspace Rule
+
+For every `ApoRaviz_*` repo, actively watch for reusable learning while working.
+
+If the work introduces a new term, API, command, flow, Tailwind pattern, browser/SSR issue, CI/CD pattern, Git workflow, or testing idea that can help future projects, update `ApoRaviz_Workspace_Docs` instead of leaving it only in chat or inside the project repo.
+
+This applies both when:
+
+- creating a brand-new project
+- continuing an existing project such as `ApoRaviz_Portfolio`
+- refactoring or debugging an app
+- writing project docs
+- adding deployment or CI/CD
+
+Do not create a project-local skill just to repeat this rule. This rule belongs in this global workspace skill.
+
 ## Required Reading
 
-Before creating or significantly changing a new `ApoRaviz_*` project, read from `_docs` / `ApoRaviz_Workspace_Docs`:
+Before creating a new `ApoRaviz_*` project, read from `_docs` / `ApoRaviz_Workspace_Docs`:
 
 ```text
 PROJECT_START_HERE.md
@@ -41,6 +57,16 @@ If the task may create teaching material, also read:
 
 ```text
 TEACHING_RULES.md
+```
+
+When continuing an existing `ApoRaviz_*` project, at minimum inspect the project-local docs/skill plus the relevant `_docs` files:
+
+```text
+project README/progress/docs
+project .codex/skills/*/SKILL.md if present
+_docs/WORKSPACE_RULES.md
+_docs/AI_UPDATE_RULE.md
+_docs/TEACHING_RULES.md when reusable learning appears
 ```
 
 ## Startup Workflow
@@ -121,21 +147,25 @@ If exact Angular version may have changed, verify from `_docs/angular/commands.m
 During project work, actively check for reusable learning:
 
 ```text
-new Angular term/API        -> _docs/angular/concepts/
-new Angular flow            -> _docs/angular/lessons/ or _docs/angular/teach/
-small reusable exercise      -> _docs/angular/labs/
-Tailwind pattern             -> _docs/angular/tailwind/
-Git concept/command pattern  -> _docs/git/
-VitePress concept/command    -> _docs/vitepress/
-project business lesson      -> _docs/projects/<project-name>/
-project-specific detail      -> project repo docs/
+new Angular term/API          -> _docs/angular/concepts/
+new Angular flow              -> _docs/angular/lessons/ or _docs/angular/teach/
+small reusable exercise        -> _docs/angular/labs/
+Tailwind pattern               -> _docs/angular/tailwind/
+Git concept                    -> _docs/git/concepts/ if present, otherwise create the structure
+Git command pattern            -> _docs/git/commands.md
+VitePress concept              -> _docs/vitepress/concepts/ if present, otherwise create the structure
+VitePress command pattern      -> _docs/vitepress/commands.md
+project business lesson        -> _docs/projects/<project-name>/
+project-specific detail        -> project repo docs/
 ```
 
 Never leave useful knowledge only in chat.
 
+When adding a command that uses a new term, also create or link the concept page. Commands are not a replacement for concept learning.
+
 ## Project-Specific Skill
 
-Create or update a project-specific skill only when the project has rules Codex must remember across chats, such as domain rules, file ownership, product constraints, or repeated workflows.
+Create or update a project-specific skill only when the project has rules Codex must remember across chats, such as domain rules, file ownership, product constraints, tone/design rules, business rules, or repeated workflows.
 
 Possible location:
 
@@ -144,6 +174,25 @@ Possible location:
 ```
 
 Only create this when it adds real value. Do not create a skill just because a project exists.
+
+Do not duplicate global workspace rules in every project skill. Project skills should contain only project-specific rules and should point back to this global rule for reusable learning capture.
+
+Good reasons to create a project skill:
+
+```text
+Portfolio tone/design/section ownership
+MooPing loyalty/POS/saved reward domain rules
+custom deploy workflow that repeats often
+strict file ownership or architecture rule
+```
+
+Weak reasons:
+
+```text
+project exists
+project uses Angular
+project should update _docs when reusable learning appears
+```
 
 ## Git And Push Practice
 
@@ -166,6 +215,7 @@ Before saying project setup is done:
 - Required docs exist or the user explicitly postponed them.
 - Stack follows workspace baseline.
 - Build/test ran or the reason is stated.
-- Reusable learning was added back to `_docs` or explicitly not needed.
+- Reusable terms/concepts/flows/patterns were added back to `_docs` or explicitly not needed.
+- New command terms link to concept pages when appropriate.
 - Git status is checked.
 - Any push requested by the user is completed and sync verified.
