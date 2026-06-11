@@ -57,7 +57,7 @@ AI_UPDATE_RULE.md
 - [x] 0.17 เพิ่ม `_docs/PROJECT_START_HERE.md` เป็นลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่
 - [x] 0.18 ตั้ง `ApoRaviz_Portfolio` เป็น default structure reference สำหรับโปรเจกต์ถัดไป
 - [x] 0.19 เพิ่ม Tailwind CSS v4 เป็น frontend default ของโปรเจกต์ Angular ใหม่
-- [x] 0.20 เพิ่ม Angular 22 upgrade note จาก Angular 21 ไว้ใน `_docs/angular/teach/`
+- [x] 0.20 เพิ่ม Angular 22 baseline note ไว้ใน `_docs/angular/teach/`
 
 ## Project Lifecycle Template
 

@@ -41,7 +41,7 @@ Project/docs/commands.md = command ที่มี path, repo, port, base-href �
 8. [Unit Test และ Regression Safety](teach/06-unit-test-regression.md)
 9. [CI/CD และ GitHub Pages](teach/07-cicd-github-pages.md)
 10. [Tailwind CSS v4 ใน Angular](teach/08-tailwind-css-v4.md)
-11. [Angular 22 จาก Angular 21](teach/09-angular-22-from-21.md)
+11. [Angular 22 Baseline](teach/09-angular-22-baseline.md)
 
 ## What Belongs Here
 

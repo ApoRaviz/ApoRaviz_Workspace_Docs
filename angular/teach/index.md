@@ -14,7 +14,7 @@
 6. [Unit Test และ Regression Safety](06-unit-test-regression.md)
 7. [CI/CD และ GitHub Pages](07-cicd-github-pages.md)
 8. [Tailwind CSS v4 ใน Angular](08-tailwind-css-v4.md)
-9. [Angular 22 จาก Angular 21](09-angular-22-from-21.md)
+9. [Angular 22 Baseline](09-angular-22-baseline.md)
 
 ## How To Read With Case Studies
 

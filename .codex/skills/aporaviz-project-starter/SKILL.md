@@ -49,7 +49,7 @@ If the project is Angular/frontend, also read:
 ```text
 angular/index.md
 angular/commands.md
-angular/teach/09-angular-22-from-21.md
+angular/teach/09-angular-22-baseline.md
 angular/teach/08-tailwind-css-v4.md
 ```
 

@@ -73,7 +73,7 @@ export default defineConfig({
               { text: '06 Unit Test และ Regression Safety', link: '/angular/teach/06-unit-test-regression' },
               { text: '07 CI/CD และ GitHub Pages', link: '/angular/teach/07-cicd-github-pages' },
               { text: '08 Tailwind CSS v4', link: '/angular/teach/08-tailwind-css-v4' },
-              { text: '09 Angular 22 จาก Angular 21', link: '/angular/teach/09-angular-22-from-21' }
+              { text: '09 Angular 22 Baseline', link: '/angular/teach/09-angular-22-baseline' }
             ]
           },
           {

@@ -1,37 +1,36 @@
-# Angular 22 จาก Angular 21
+# Angular 22 Baseline
 
-บทนี้สรุปสิ่งที่ต้องรู้เมื่อขยับ workspace จาก Angular 21 ไป Angular 22
+บทนี้สรุป baseline ปัจจุบันของ Angular workspace `ApoRaviz`
 
 ใช้ไฟล์นี้เมื่อ:
 
 - เริ่มโปรเจกต์ Angular ใหม่ใน workspace `ApoRaviz`
-- อัปเดตโปรเจกต์จาก Angular 21 ไป Angular 22
+- ตรวจโปรเจกต์เดิมให้ตรงกับ frontend baseline ปัจจุบัน
 - ตรวจว่าทำไม workspace ต้องใช้ Node 24 LTS, TypeScript 6.0.x และ Tailwind CSS v4
 
 ## สถานะ Release
 
 Angular 22 ออกวันที่ 2026-06-03 และเป็น active release ปัจจุบัน
 
-Angular 21 ยังได้รับ LTS แต่ไม่ใช่ baseline สำหรับโปรเจกต์ใหม่ใน workspace นี้แล้ว
-
 ความหมายใน workspace:
 
 ```text
 new Angular project = Angular 22
-existing Angular 21 project = upgrade ได้ถ้า test/build พร้อม
-old docs ที่เขียน Angular 21 = ต้องแก้ wording ให้เป็น history ไม่ใช่ current baseline
+existing Angular project = sync ให้ตรงกับ baseline เมื่อ build/test พร้อม
+old docs ที่เขียน version เก่า = ต้องแก้ wording ไม่ให้สับสนกับ current baseline
 ```
 
 ## Version Baseline
 
-Angular 22 เปลี่ยน dependency baseline:
+Angular 22 dependency baseline สำหรับ workspace นี้:
 
-| Topic | Angular 21 | Angular 22 | Workspace Decision |
-|---|---|---|---|
-| Node.js | `^20.19.0 || ^22.12.0 || ^24.0.0` | `^22.22.3 || ^24.15.0 || ^26.0.0` | ใช้ Node 24 LTS |
-| TypeScript | `>=5.9.0 <6.0.0` | `>=6.0.0 <6.1.0` | ใช้ TypeScript 6.0.x |
-| RxJS | `^6.5.3 || ^7.4.0` | `^6.5.3 || ^7.4.0` | ใช้ตาม Angular default |
-| Browser baseline | 2025-10-20 | 2026-05-07 | ตรวจ UI บน browser ปัจจุบัน |
+| Topic | Workspace Baseline | Decision |
+|---|---|---|
+| Angular | `22.x` | ใช้เป็น default ของโปรเจกต์ Angular ใหม่ |
+| Node.js | `>=24.15.0 <25` | ใช้ Node 24 LTS |
+| TypeScript | `>=6.0.0 <6.1.0` | ใช้ TypeScript 6.0.x |
+| RxJS | Angular default | ไม่ override ถ้าไม่มีเหตุผล |
+| Browser baseline | browser ปัจจุบัน | ตรวจ UI บน desktop และ mobile width |
 
 ตัวอย่าง `package.json` สำหรับ frontend project ใหม่:
 
@@ -63,10 +62,10 @@ Angular 22 ทำให้ component ที่ไม่ได้ระบุ `ch
 - `output()`
 - state ที่เปลี่ยนจาก event ชัดเจน
 
-ถ้าต้องการ behavior เดิม:
+ถ้าต้องการ behavior แบบ eager:
 
 ```ts
-// ถ้าต้องการ behavior เดิมแบบ eager ให้ระบุเอง
+// ระบุเองเฉพาะ component ที่มีเหตุผลจริง
 changeDetection: ChangeDetectionStrategy.Eager
 ```
 
@@ -74,7 +73,7 @@ changeDetection: ChangeDetectionStrategy.Eager
 
 ## Template และ Compiler เข้มขึ้น
 
-Angular 22 ตรวจ template เข้มกว่าเดิม:
+Angular 22 ตรวจ template เข้มขึ้น:
 
 - `data-*` attribute ไม่ bind input/output แล้ว
 - duplicate input/output/model binding จะ error
@@ -156,15 +155,15 @@ Angular 22 ปรับ animation และ browser integration หลายจ�
 
 ถ้าเป็น gesture หรือ motion ที่ซับซ้อน ให้เขียนเหตุผลใน project-specific docs ก่อนเพิ่ม library
 
-## Checklist เวลา Upgrade
+## Checklist เวลา Sync Baseline
 
-ก่อนติ๊ก `[x]` ว่า upgrade เสร็จ:
+ก่อนติ๊ก `[x]` ว่า sync เสร็จ:
 
 - [ ] `package.json` ใช้ Angular 22, TypeScript 6.0.x และ Node engine 24 LTS
 - [ ] `package-lock.json` sync แล้ว
 - [ ] `npm test` หรือ `npm run test:ci` ผ่าน
 - [ ] `npm run build` ผ่าน
-- [ ] search docs แล้วไม่เหลือ wording ที่ทำให้เข้าใจว่า Angular 21 คือ current baseline
+- [ ] search docs แล้วไม่เหลือ wording ที่ทำให้เข้าใจว่า version เก่าคือ current baseline
 - [ ] ถ้าเจอ Angular concept ใหม่ที่ทุกโปรเจกต์ควรรู้ ให้เพิ่มกลับมาที่ `_docs/angular/teach/`
 
 ## Sources
