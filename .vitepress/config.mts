@@ -22,8 +22,14 @@ export default defineConfig({
         items: [
           { text: 'Home', link: '/' },
           { text: 'Project Start Here', link: '/PROJECT_START_HERE' },
-          { text: 'New Project Guide', link: '/NEW_PROJECT_GUIDE' },
-          { text: 'VitePress Guide', link: '/vitepress/' },
+          { text: 'Workspace Plan', link: '/WORKSPACE_PLAN' },
+          { text: 'New Project Guide', link: '/NEW_PROJECT_GUIDE' }
+        ]
+      },
+      {
+        text: 'Workspace Rules',
+        collapsed: false,
+        items: [
           { text: 'Workspace Rules', link: '/WORKSPACE_RULES' },
           { text: 'Teaching Rules', link: '/TEACHING_RULES' },
           { text: 'AI Update Rule', link: '/AI_UPDATE_RULE' }
@@ -31,30 +37,92 @@ export default defineConfig({
       },
       {
         text: 'Angular Learning',
+        collapsed: false,
         items: [
           { text: 'Angular Hub', link: '/angular/' },
-          { text: 'Concepts', link: '/angular/concepts/' },
-          { text: 'Signal Concept', link: '/angular/concepts/signal' },
-          { text: 'Computed Concept', link: '/angular/concepts/computed' },
-          { text: 'Lessons', link: '/angular/lessons/' },
-          { text: 'Labs', link: '/angular/labs/' },
-          { text: 'Signal Counter Lab', link: '/angular/labs/01-signal-counter' },
-          { text: 'Computed Total Price Lab', link: '/angular/labs/02-computed-total-price' },
-          { text: 'Basic Form Input Lab', link: '/angular/labs/03-basic-form-input' },
-          { text: 'Tailwind CSS', link: '/angular/tailwind/' },
-          { text: 'Commands', link: '/angular/commands' }
+          {
+            text: 'Concepts',
+            collapsed: false,
+            items: [
+              { text: 'Concept Index', link: '/angular/concepts/' },
+              { text: 'Signal', link: '/angular/concepts/signal' },
+              { text: 'Computed', link: '/angular/concepts/computed' }
+            ]
+          },
+          {
+            text: 'Labs',
+            collapsed: false,
+            items: [
+              { text: 'Lab Index', link: '/angular/labs/' },
+              { text: '01 Signal Counter', link: '/angular/labs/01-signal-counter' },
+              { text: '02 Computed Total Price', link: '/angular/labs/02-computed-total-price' },
+              { text: '03 Basic Form Input', link: '/angular/labs/03-basic-form-input' }
+            ]
+          },
+          {
+            text: 'Core Lessons',
+            collapsed: true,
+            items: [
+              { text: 'Lesson Index', link: '/angular/teach/' },
+              { text: '01 Reactive State และ Signals', link: '/angular/teach/01-reactive-signals' },
+              { text: '02 Services และ DI', link: '/angular/teach/02-services-dependency-injection' },
+              { text: '03 App Config, SSR และ Hydration', link: '/angular/teach/03-app-config-ssr-hydration' },
+              { text: '04 Browser APIs และ SSR Safety', link: '/angular/teach/04-browser-apis-ssr-safety' },
+              { text: '05 Component Structure และ Data Flow', link: '/angular/teach/05-component-structure-data-flow' },
+              { text: '06 Unit Test และ Regression Safety', link: '/angular/teach/06-unit-test-regression' },
+              { text: '07 CI/CD และ GitHub Pages', link: '/angular/teach/07-cicd-github-pages' },
+              { text: '08 Tailwind CSS v4', link: '/angular/teach/08-tailwind-css-v4' },
+              { text: '09 Angular 22 จาก Angular 21', link: '/angular/teach/09-angular-22-from-21' }
+            ]
+          },
+          {
+            text: 'Reference',
+            collapsed: true,
+            items: [
+              { text: 'Lessons Hub', link: '/angular/lessons/' },
+              { text: 'Tailwind CSS', link: '/angular/tailwind/' },
+              { text: 'Angular Commands', link: '/angular/commands' }
+            ]
+          }
         ]
       },
       {
         text: 'Project Case Studies',
+        collapsed: false,
         items: [
           { text: 'Case Studies', link: '/projects/' },
-          { text: 'MooPing', link: '/projects/mooping/' }
+          {
+            text: 'MooPing Loyalty',
+            collapsed: true,
+            items: [
+              { text: 'MooPing Index', link: '/projects/mooping/' },
+              { text: '01 Project Idea', link: '/projects/mooping/01-project-idea' },
+              { text: '02 Screen Structure', link: '/projects/mooping/02-mooping-screen-structure' },
+              { text: '03 Loyalty Logic', link: '/projects/mooping/03-loyalty-logic' },
+              { text: '04 LINE OA Concept', link: '/projects/mooping/04-line-oa-concept' },
+              { text: '05 Portfolio Case Study', link: '/projects/mooping/05-portfolio-case-study' },
+              { text: '06 POS Correction Flow', link: '/projects/mooping/06-pos-correction-flow' },
+              { text: '07 Saved Rewards', link: '/projects/mooping/07-saved-rewards' },
+              { text: '08 Demo Refactor', link: '/projects/mooping/08-mooping-demo-refactor' },
+              { text: '09 Demo Deploy Flow', link: '/projects/mooping/09-mooping-demo-deploy-flow' }
+            ]
+          }
         ]
       },
       {
-        text: 'Git',
-        items: [{ text: 'Git Commands', link: '/git/commands' }]
+        text: 'Docs Site',
+        collapsed: true,
+        items: [
+          { text: 'VitePress Guide', link: '/vitepress/' },
+          { text: 'README', link: '/README' }
+        ]
+      },
+      {
+        text: 'Tools',
+        collapsed: true,
+        items: [
+          { text: 'Git Commands', link: '/git/commands' }
+        ]
       }
     ],
     socialLinks: [
