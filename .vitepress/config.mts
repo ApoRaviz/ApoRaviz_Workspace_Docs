@@ -13,6 +13,7 @@ export default defineConfig({
       { text: 'VitePress', link: '/vitepress/' },
       { text: 'Angular', link: '/angular/' },
       { text: 'Labs', link: '/angular/labs/' },
+      { text: 'Commands', link: '/commands' },
       { text: 'Projects', link: '/projects/' },
       { text: 'Rules', link: '/WORKSPACE_RULES' }
     ],
@@ -80,10 +81,19 @@ export default defineConfig({
             collapsed: true,
             items: [
               { text: 'Lessons Hub', link: '/angular/lessons/' },
-              { text: 'Tailwind CSS', link: '/angular/tailwind/' },
-              { text: 'Angular Commands', link: '/angular/commands' }
+              { text: 'Tailwind CSS', link: '/angular/tailwind/' }
             ]
           }
+        ]
+      },
+      {
+        text: 'Commands',
+        collapsed: false,
+        items: [
+          { text: 'Commands Hub', link: '/commands' },
+          { text: 'Angular 22 Commands', link: '/angular/commands' },
+          { text: 'Git Commands', link: '/git/commands' },
+          { text: 'VitePress Commands', link: '/vitepress/commands' }
         ]
       },
       {
@@ -114,14 +124,8 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'VitePress Guide', link: '/vitepress/' },
+          { text: 'VitePress Commands', link: '/vitepress/commands' },
           { text: 'README', link: '/README' }
-        ]
-      },
-      {
-        text: 'Tools',
-        collapsed: true,
-        items: [
-          { text: 'Git Commands', link: '/git/commands' }
         ]
       }
     ],
