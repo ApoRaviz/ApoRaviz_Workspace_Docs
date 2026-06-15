@@ -19,3 +19,10 @@ Reason:
 - Two-pass file processing
 - CLI backup flow after successful processing
 - CSV parsing edge cases such as quoted commas and escaped quotes
+- NestJS future path: let Angular upload files, let NestJS call reusable split logic, then return downloadable output
+
+Captured learning:
+
+- Node.js CLI lesson: `../../nodejs/teach/01-cli-file-processing.md`
+- Backend stack rule: `../../backend/`
+- NestJS direction: `../../nestjs/`

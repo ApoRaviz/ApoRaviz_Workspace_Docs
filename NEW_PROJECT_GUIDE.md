@@ -38,6 +38,25 @@ angular/index.md
 
 Angular app ของ ApoRaviz ใช้ Tailwind CSS เป็น styling system หลักเสมอ ถ้าเจอ Tailwind pattern ใหม่ ให้เพิ่มกลับมาที่ `angular/tailwind/` หรือ `angular/teach/`
 
+## Default Backend Stack
+
+ถ้าโปรเจกต์ต้องมีหลังบ้าน ให้ใช้ stack นี้เป็นค่า default:
+
+- NestJS
+- Node.js 24+
+- PostgreSQL
+- Supabase เมื่ออยากเริ่มเร็วด้วย managed PostgreSQL, auth, storage, หรือ API
+
+ภาพรวม full stack ของ workspace:
+
+```text
+Angular frontend
+-> NestJS backend API
+-> PostgreSQL/Supabase database
+```
+
+ถ้าโปรเจกต์เริ่มจาก CLI เช่น `ApoRaviz_Tools` ให้แยก logic สำคัญให้เรียกซ้ำได้ เพื่อให้ NestJS service นำไปใช้ต่อได้ในอนาคต
+
 ## Default Project Docs
 
 โปรเจกต์ลูกควรมีเอกสารที่จำเป็นต่อการทำงานของ app:
@@ -70,6 +89,8 @@ git/                     = Git command กลาง
 ```text
 Angular concept ที่ใช้ซ้ำได้        -> angular/
 Tailwind pattern ที่ใช้ซ้ำได้       -> angular/tailwind/
+Node.js concept / CLI flow          -> nodejs/
+NestJS backend pattern              -> nestjs/
 Git command pattern                 -> git/
 Business/UX lesson จากโปรเจกต์จริง  -> projects/<project-name>/
 Product spec / implementation plan   -> repo ของโปรเจกต์นั้น

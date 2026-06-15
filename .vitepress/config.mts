@@ -12,6 +12,7 @@ export default defineConfig({
       { text: 'Start', link: '/PROJECT_START_HERE' },
       { text: 'VitePress', link: '/vitepress/' },
       { text: 'Angular', link: '/angular/' },
+      { text: 'Backend', link: '/backend/' },
       { text: 'Labs', link: '/angular/labs/' },
       { text: 'Commands', link: '/commands' },
       { text: 'Projects', link: '/projects/' },
@@ -84,6 +85,16 @@ export default defineConfig({
               { text: 'Tailwind CSS', link: '/angular/tailwind/' }
             ]
           }
+        ]
+      },
+      {
+        text: 'Backend Learning',
+        collapsed: false,
+        items: [
+          { text: 'Backend Stack', link: '/backend/' },
+          { text: 'Node.js Hub', link: '/nodejs/' },
+          { text: 'Node.js CLI File Processing', link: '/nodejs/teach/01-cli-file-processing' },
+          { text: 'NestJS Hub', link: '/nestjs/' }
         ]
       },
       {

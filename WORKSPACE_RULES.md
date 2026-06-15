@@ -52,6 +52,8 @@ Portfolio ไม่ควร:
 - Tailwind CSS setup, utility class, responsive design, theme token, และ style ownership
 - forms, routing, SSR, hydration, browser API safety
 - command pattern ที่ใช้ซ้ำได้
+- Node.js CLI, stream, file system, และ testing pattern
+- NestJS backend architecture, service/controller/module, upload/download flow
 - Git workflow ที่ใช้ซ้ำได้
 - วิธีเริ่มโปรเจ็คใหม่
 - teaching rule และ template
@@ -108,6 +110,26 @@ SSR/prerender เมื่อเหมาะกับงาน
 Angular กับ Tailwind ต้องเรียนคู่กัน เพราะโปรเจ็คจริงของ ApoRaviz จะใช้ Tailwind CSS เป็น styling system หลักเสมอ
 
 ถ้าเจอความรู้ใหม่เกี่ยวกับ Tailwind เช่น responsive class, layout utility, theme color, CSS variable, animation, container, grid, flex, dark mode หรือ style ownership ให้เพิ่มกลับมาที่ docs กลาง
+
+## Default Full Stack Rule
+
+ถ้าโปรเจ็ค `ApoRaviz_*` ต้องมี backend หรือ database ให้ใช้ stack นี้เป็นค่า default ระยะยาว:
+
+```text
+Frontend = Angular + Tailwind CSS
+Backend  = NestJS
+Database = PostgreSQL หรือ Supabase
+Runtime  = Node.js 24+
+```
+
+เหตุผล:
+
+- Angular เป็น frontend หลักของ workspace
+- NestJS ใช้ TypeScript และโครงสร้างคล้าย Angular เช่น module, service, dependency injection
+- PostgreSQL เป็น relational database ที่ใช้ได้จริงในโปรดักชัน
+- Supabase เป็นทางเลือกที่ได้ PostgreSQL พร้อม auth/storage/API ที่เริ่มงานเร็ว
+
+ถ้างานเป็น CLI หรือ file processing เช่น `ApoRaviz_Tools/split-order-txt` ให้เริ่มจาก Node.js ก่อน แล้วค่อยแยก core logic ให้ NestJS เรียกใช้ในอนาคต
 
 ## Node Rule
 
