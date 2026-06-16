@@ -2,11 +2,11 @@
 
 ไฟล์นี้คือกติกาสำหรับ AI ทุกครั้งที่ช่วยทำงานใน workspace `ApoRaviz`
 
-เป้าหมายคือไม่ต้องให้เจ้าของโปรเจ็คสั่งซ้ำบ่อย ๆ ว่า "อย่าลืมอัปเดต docs" หรือ "คำนี้ต้องสอนเพิ่มไหม"
+เป้าหมายคือไม่ให้ความรู้ใหม่หายอยู่แค่ในแชท และไม่ให้บทเรียนกลางกระจายผิด repo
 
 ## Required Reading
 
-ก่อนเริ่มงานที่เกี่ยวกับ `ApoRaviz_*` ให้ AI อ่านหรือยึดตามไฟล์เหล่านี้ก่อน:
+ก่อนเริ่มงานที่เกี่ยวกับ `ApoRaviz_*` ให้อ่านหรือยึดตามไฟล์เหล่านี้:
 
 ```text
 ApoRaviz_Workspace_Docs/WORKSPACE_RULES.md
@@ -16,71 +16,89 @@ ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md
 ApoRaviz_Workspace_Docs/WORKSPACE_PLAN.md
 ```
 
-ถ้างานเกี่ยวกับ Angular ให้ดูเพิ่ม:
+ถ้างานเกี่ยวกับ Angular ให้อ่านเพิ่ม:
 
 ```text
-ApoRaviz_Workspace_Docs/angular/README.md
+ApoRaviz_Workspace_Docs/angular/index.md
 ApoRaviz_Workspace_Docs/angular/commands.md
-ApoRaviz_Workspace_Docs/angular/tailwind/README.md
-ApoRaviz_Workspace_Docs/angular/teach/README.md
+ApoRaviz_Workspace_Docs/angular/teach/index.md
+ApoRaviz_Workspace_Docs/angular/concepts/index.md
+ApoRaviz_Workspace_Docs/angular/tailwind/index.md
+```
+
+ถ้างานเกี่ยวกับ Node.js, CLI, backend, NestJS, Fastify หรือ database ให้อ่านเพิ่มตามเรื่อง:
+
+```text
+ApoRaviz_Workspace_Docs/nodejs/index.md
+ApoRaviz_Workspace_Docs/backend/index.md
+ApoRaviz_Workspace_Docs/nestjs/index.md
+ApoRaviz_Workspace_Docs/postgresql/index.md
 ```
 
 ## Source Of Truth
 
-ให้ถือว่า:
-
 ```text
 ApoRaviz_Workspace_Docs = ความรู้กลางและบทเรียน
 ApoRaviz_Portfolio      = เว็บ profile/showcase/link hub
-ApoRaviz_Mooping        = app project ที่หยุดไว้ก่อน
+ApoRaviz_Mooping        = app project MooPing Reward
+ApoRaviz_Tools          = tools project และ CLI/file processing project
 ```
 
 ห้ามสร้างบทเรียนกลางใหม่ใน `ApoRaviz_Portfolio`
 
-ถ้ามีความรู้ที่ใช้ซ้ำได้ ให้เพิ่มใน `ApoRaviz_Workspace_Docs`
+โปรเจกต์ลูกไม่ควรสร้าง `docs/teach/` เป็น default ถ้าบทเรียนนั้นใช้สอนซ้ำได้ ให้กลับมาที่ `ApoRaviz_Workspace_Docs`
 
 ## When To Update Docs
 
-AI ต้องพิจารณาอัปเดต docs กลางเมื่อเจอสิ่งเหล่านี้:
+AI ต้องพิจารณาอัปเดต docs กลางเมื่อเจอ:
 
-- ศัพท์ Angular ใหม่
-- API Angular ใหม่
-- Tailwind CSS class, config, pattern, layout, responsive rule, หรือ style ownership ใหม่
-- file default ของ Angular ที่ยังไม่ได้อธิบาย
-- command ใหม่
-- config ใหม่
+- ศัพท์ Angular/Node/backend/database ใหม่
+- Angular API ใหม่ เช่น `signal`, `computed`, `input`, `output`, `inject`
+- file default ของ Angular เช่น `angular.json`, `main.ts`, `app.config.ts`
+- Tailwind CSS pattern, layout, responsive rule หรือ style ownership ใหม่
+- Node.js CLI, stream, fs, test หรือ file safety pattern ใหม่
+- NestJS/Fastify/backend architecture pattern ใหม่
+- PostgreSQL/Supabase schema, transaction, migration หรือ relationship concept ใหม่
+- command ใหม่ที่ใช้ซ้ำได้
 - bug pattern ที่อาจเจอซ้ำ
-- SSR/browser API safety issue
 - flow ที่คนเรียนควรเข้าใจ
-- project setup rule ที่ใช้ซ้ำได้
+- rule เริ่มโปรเจกต์ที่ใช้ซ้ำได้
 
 ## Decision Table
 
 ```text
-เจอศัพท์ใหม่                         -> เพิ่ม/อัปเดต angular/concepts/
-เจอ flow การทำงาน                    -> เพิ่ม/อัปเดต angular/lessons/
-เจอตัวอย่างทดลองเล็ก ๆ              -> เพิ่ม/อัปเดต angular/labs/
-เจอ Tailwind pattern                  -> เพิ่ม/อัปเดต angular/tailwind/
-เจอ command ที่ใช้ซ้ำได้              -> เพิ่ม/อัปเดต angular/commands.md หรือ git/commands.md
-เจอ rule เริ่มโปรเจ็ค                 -> เพิ่ม/อัปเดต NEW_PROJECT_GUIDE.md
-เจอ step เริ่มงาน                     -> เพิ่ม/อัปเดต PROJECT_START_HERE.md
-เจอแผนระดับ workspace                -> เพิ่ม/อัปเดต WORKSPACE_PLAN.md
-เจอ teaching pattern ใหม่             -> เพิ่ม/อัปเดต TEACHING_RULES.md
-เจอ project-specific business rule    -> เก็บใน docs ของโปรเจ็คนั้น
-เจอ portfolio showcase content        -> เก็บใน ApoRaviz_Portfolio
+เจอศัพท์ Angular ใหม่                  -> angular/concepts/
+เจอ Angular flow ที่ใช้สอนซ้ำได้       -> angular/teach/
+เจอแบบฝึกหัด Angular เล็ก ๆ            -> angular/labs/
+เจอ Tailwind pattern                   -> angular/tailwind/
+เจอ Angular command                    -> angular/commands.md
+เจอ Node.js CLI/file/stream/test        -> nodejs/
+เจอ backend architecture                -> backend/
+เจอ NestJS-specific pattern             -> nestjs/
+เจอ Fastify decision/pattern            -> backend/fastify.md
+เจอ PostgreSQL/Supabase concept         -> postgresql/ หรือ backend/
+เจอ Git command                         -> git/commands.md
+เจอ VitePress command/site rule         -> vitepress/
+เจอ rule เริ่มโปรเจกต์                 -> NEW_PROJECT_GUIDE.md
+เจอ step เริ่มงาน                       -> PROJECT_START_HERE.md
+เจอแผนระดับ workspace                  -> WORKSPACE_PLAN.md
+เจอ teaching pattern ใหม่               -> TEACHING_RULES.md
+เจอ project-specific business rule      -> docs ของโปรเจกต์นั้น
+เจอ project case study ที่ใช้สอนได้     -> projects/<project-name>/
+เจอ portfolio showcase content          -> ApoRaviz_Portfolio
 ```
 
 ## Teaching Output Rule
 
 ถ้า AI เพิ่มบทเรียน ต้องเขียนตาม `TEACHING_RULES.md`
 
-ทุกบทเรียนต้องมี:
+ทุกบทเรียนควรมี:
 
 - ภาพจำง่าย ๆ
 - คำแปลแบบคนธรรมดา
 - technical term
 - flow ทีละขั้น
-- code ตัวอย่างสั้น ๆ
+- code ตัวอย่างสั้น ๆ ถ้าเหมาะ
 - จุดที่มักงง
 - self-check
 - สรุปจำสั้น ๆ
@@ -90,28 +108,22 @@ AI ต้องพิจารณาอัปเดต docs กลางเม�
 ถ้าใช้ศัพท์ใหม่ที่คนเรียนอาจงง:
 
 1. link ไป concept page ใน docs นี้
-2. ถ้ายังไม่มี concept page ให้สร้าง placeholder
+2. ถ้ายังไม่มี concept page ให้สร้างหน้าใหม่หรือเพิ่ม placeholder ที่เหมาะ
 3. อย่าปล่อยศัพท์ใหม่ลอย ๆ
 
 ตัวอย่าง:
 
 ```md
-`hydration` คือการที่ browser รับ HTML ที่ server render ไว้ แล้วทำให้หน้านั้น interactive ต่อ
+`hydration` คือขั้นตอนที่ browser รับ HTML ที่ server render มาแล้วทำให้หน้านั้น interactive ต่อ
 
-อ่านต่อ: [Hydration คืออะไร](./hydration.md)
+อ่านต่อ: [Hydration](./hydration.md)
 ```
 
 ## No External-First Rule
 
-AI ห้ามตอบว่า "ไปอ่าน Angular docs" เป็นคำตอบหลัก
+AI ห้ามตอบว่า "ไปอ่าน official docs" เป็นคำตอบหลัก
 
-ใช้ official docs ได้เฉพาะเพื่อ verify หรือใส่ reference ท้ายหน้า แต่บทเรียนหลักต้องอธิบายภาษาไทยใน repo นี้เอง
-
-## No Portfolio-Learning Dependency
-
-AI ห้ามเขียนบทเรียนที่ต้องพึ่ง `ApoRaviz_Portfolio` เพื่อเข้าใจ concept กลาง
-
-ถ้าต้องมีตัวอย่าง ให้สร้าง tiny example หรือ lab ใน `ApoRaviz_Workspace_Docs`
+ใช้ official docs เพื่อ verify หรือ reference ได้ แต่บทเรียนหลักต้องอธิบายเป็นภาษาไทยใน repo นี้เอง
 
 ## Before Finishing Work
 
@@ -119,18 +131,16 @@ AI ห้ามเขียนบทเรียนที่ต้องพึ�
 
 - มีศัพท์ใหม่ที่ยังไม่มี concept page ไหม
 - มี flow ใหม่ที่ควรทำเป็น lesson ไหม
-- มี Tailwind pattern ใหม่ที่ควรจดไหม
+- มี Tailwind/Node/backend/database pattern ที่ควรจดไหม
 - มี command ใหม่ที่ควรจดไหม
 - มี rule ใหม่ที่ควรอัปเดตไหม
 - มีเนื้อหาไปอยู่ผิด repo ไหม
-
-ถ้าไม่มีการอัปเดต docs ต้องบอกเหตุผลสั้น ๆ ว่าทำไมไม่จำเป็น
+- ถ้าไม่อัปเดต docs ต้องบอกเหตุผลสั้น ๆ ว่าทำไมไม่จำเป็น
 
 ## Memory Rule
-
-จำสั้น ๆ:
 
 ```text
 แก้ code อย่างเดียว = ความรู้กระจาย
 แก้ code + อัปเดต docs = ความรู้กลับบ้าน
 ```
+

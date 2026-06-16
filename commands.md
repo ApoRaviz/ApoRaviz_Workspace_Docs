@@ -5,6 +5,7 @@
 แยกอ่านตามเครื่องมือ:
 
 - [Angular 22 Commands](angular/commands.md)
+- [Node.js Commands](nodejs/commands.md)
 - [Git Commands](git/commands.md)
 - [VitePress Commands](vitepress/commands.md)
 
@@ -16,13 +17,15 @@
 1. Git Commands
 2. VitePress Commands
 3. Angular 22 Commands
+4. Node.js Commands
 ```
 
 เหตุผล:
 
 - Git ใช้บันทึกและ push งานทุก repo
-- VitePress ใช้ดูแล `_docs` ซึ่งเป็นสื่อการเรียนรู้กลาง
-- Angular 22 ใช้สร้างและดูแล app repo ลูก
+- VitePress ใช้ดูแล `ApoRaviz_Workspace_Docs`
+- Angular ใช้สร้างและดูแล frontend app
+- Node.js ใช้รัน CLI, file processing, tooling และ backend runtime
 
 ## จำสั้น ๆ
 
@@ -30,4 +33,6 @@
 Git = จัดการ version และ push ขึ้น GitHub
 VitePress = build Markdown ให้เป็นเว็บ docs
 Angular = build app และ demo จริง
+Node.js = run CLI, file processing, and backend tooling
 ```
+

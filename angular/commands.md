@@ -377,6 +377,12 @@ rg "isPlatformBrowser|PLATFORM_ID" src
 
 ## Inspect Project Config
 
+อ่าน core flow ของ `package.json -> Angular CLI -> angular.json -> main.ts` ได้ที่:
+
+```text
+angular/teach/10-angular-run-flow-and-angular-json.md
+```
+
 ดู scripts:
 
 ```bash

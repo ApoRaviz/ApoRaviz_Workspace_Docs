@@ -1,29 +1,38 @@
 # Angular Concepts
 
-โฟลเดอร์นี้เก็บศัพท์และแนวคิด Angular ทีละเรื่อง
+โฟลเดอร์นี้เก็บศัพท์และแนวคิด Angular ทีละเรื่อง เพื่อให้กลับมาอ่านซ้ำได้เร็ว
 
-ใช้เมื่อมีคำที่คนเรียนอาจงง เช่น:
+ถ้าบทเรียนยาวอยู่ใน `angular/teach/` แล้ว concept page จะทำหน้าที่เป็นสรุปสั้นและชี้ทางไปอ่านต่อ
+
+## Current Concepts
 
 - [`signal`](signal.md)
 - [`computed`](computed.md)
+- [`input()` และ `output()`](input-output.md)
+- [`inject()`](inject.md)
+- [SSR Browser Guard](ssr-browser-guard.md)
+- [Hydration](hydration.md)
+- [ViewEncapsulation](view-encapsulation.md)
+
+## Terms To Add Later
+
 - `effect`
-- `inject`
 - `provider`
-- `SSR`
-- `hydration`
-- `isPlatformBrowser`
 - `DestroyRef`
 - `Reactive Forms`
+- `TestBed`
+- `Router`
 
-กติกา:
+## Rule
 
 - หนึ่งไฟล์สอนหนึ่ง concept
 - เริ่มจากภาพจำง่าย ๆ ก่อน technical term
-- ถ้าใช้ศัพท์ใหม่ ต้อง link ไป concept ที่เกี่ยวข้อง
-- ถ้ายังไม่มี concept ให้สร้าง placeholder
+- ถ้ามีบทเรียนยาวอยู่แล้ว ให้ link ไป `angular/teach/`
+- ถ้าเจอศัพท์ใหม่ใน project จริงและยังไม่มีหน้า ให้เพิ่มที่นี่ก่อนปล่อยให้ศัพท์ลอย
 
 Template:
 
 ```text
 templates/CONCEPT_TEMPLATE.md
 ```
+

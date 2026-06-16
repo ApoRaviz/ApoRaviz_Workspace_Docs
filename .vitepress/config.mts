@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress';
 
 export default defineConfig({
   title: 'ApoRaviz Workspace Docs',
-  description: 'Thai-first learning hub for ApoRaviz Angular, Tailwind CSS, and project case studies.',
+  description: 'Thai-first learning hub for ApoRaviz Angular, Node.js, backend, and project case studies.',
   base: '/ApoRaviz_Workspace_Docs/',
   cleanUrls: true,
   lastUpdated: true,
@@ -16,7 +16,7 @@ export default defineConfig({
       { text: 'Labs', link: '/angular/labs/' },
       { text: 'Commands', link: '/commands' },
       { text: 'Projects', link: '/projects/' },
-      { text: 'Rules', link: '/WORKSPACE_RULES' }
+      { text: 'Rules', link: '/WORKSPACE_RULES' },
     ],
     sidebar: [
       {
@@ -25,8 +25,8 @@ export default defineConfig({
           { text: 'Home', link: '/' },
           { text: 'Project Start Here', link: '/PROJECT_START_HERE' },
           { text: 'Workspace Plan', link: '/WORKSPACE_PLAN' },
-          { text: 'New Project Guide', link: '/NEW_PROJECT_GUIDE' }
-        ]
+          { text: 'New Project Guide', link: '/NEW_PROJECT_GUIDE' },
+        ],
       },
       {
         text: 'Workspace Rules',
@@ -34,8 +34,8 @@ export default defineConfig({
         items: [
           { text: 'Workspace Rules', link: '/WORKSPACE_RULES' },
           { text: 'Teaching Rules', link: '/TEACHING_RULES' },
-          { text: 'AI Update Rule', link: '/AI_UPDATE_RULE' }
-        ]
+          { text: 'AI Update Rule', link: '/AI_UPDATE_RULE' },
+        ],
       },
       {
         text: 'Angular Learning',
@@ -48,8 +48,13 @@ export default defineConfig({
             items: [
               { text: 'Concept Index', link: '/angular/concepts/' },
               { text: 'Signal', link: '/angular/concepts/signal' },
-              { text: 'Computed', link: '/angular/concepts/computed' }
-            ]
+              { text: 'Computed', link: '/angular/concepts/computed' },
+              { text: 'input() And output()', link: '/angular/concepts/input-output' },
+              { text: 'inject()', link: '/angular/concepts/inject' },
+              { text: 'SSR Browser Guard', link: '/angular/concepts/ssr-browser-guard' },
+              { text: 'Hydration', link: '/angular/concepts/hydration' },
+              { text: 'ViewEncapsulation', link: '/angular/concepts/view-encapsulation' },
+            ],
           },
           {
             text: 'Labs',
@@ -58,34 +63,36 @@ export default defineConfig({
               { text: 'Lab Index', link: '/angular/labs/' },
               { text: '01 Signal Counter', link: '/angular/labs/01-signal-counter' },
               { text: '02 Computed Total Price', link: '/angular/labs/02-computed-total-price' },
-              { text: '03 Basic Form Input', link: '/angular/labs/03-basic-form-input' }
-            ]
+              { text: '03 Basic Form Input', link: '/angular/labs/03-basic-form-input' },
+            ],
           },
           {
             text: 'Core Lessons',
             collapsed: true,
             items: [
               { text: 'Lesson Index', link: '/angular/teach/' },
-              { text: '01 Reactive State และ Signals', link: '/angular/teach/01-reactive-signals' },
-              { text: '02 Services และ DI', link: '/angular/teach/02-services-dependency-injection' },
-              { text: '03 App Config, SSR และ Hydration', link: '/angular/teach/03-app-config-ssr-hydration' },
-              { text: '04 Browser APIs และ SSR Safety', link: '/angular/teach/04-browser-apis-ssr-safety' },
-              { text: '05 Component Structure และ Data Flow', link: '/angular/teach/05-component-structure-data-flow' },
-              { text: '06 Unit Test และ Regression Safety', link: '/angular/teach/06-unit-test-regression' },
-              { text: '07 CI/CD และ GitHub Pages', link: '/angular/teach/07-cicd-github-pages' },
+              { text: '01 Reactive State And Signals', link: '/angular/teach/01-reactive-signals' },
+              { text: '02 Services And DI', link: '/angular/teach/02-services-dependency-injection' },
+              { text: '03 App Config, SSR And Hydration', link: '/angular/teach/03-app-config-ssr-hydration' },
+              { text: '04 Browser APIs And SSR Safety', link: '/angular/teach/04-browser-apis-ssr-safety' },
+              { text: '05 Component Structure And Data Flow', link: '/angular/teach/05-component-structure-data-flow' },
+              { text: '06 Unit Test And Regression Safety', link: '/angular/teach/06-unit-test-regression' },
+              { text: '07 CI/CD And GitHub Pages', link: '/angular/teach/07-cicd-github-pages' },
               { text: '08 Tailwind CSS v4', link: '/angular/teach/08-tailwind-css-v4' },
-              { text: '09 Angular 22 Baseline', link: '/angular/teach/09-angular-22-baseline' }
-            ]
+              { text: '09 Angular 22 Baseline', link: '/angular/teach/09-angular-22-baseline' },
+              { text: '10 Angular Run Flow And angular.json', link: '/angular/teach/10-angular-run-flow-and-angular-json' },
+            ],
           },
           {
             text: 'Reference',
             collapsed: true,
             items: [
               { text: 'Lessons Hub', link: '/angular/lessons/' },
-              { text: 'Tailwind CSS', link: '/angular/tailwind/' }
-            ]
-          }
-        ]
+              { text: 'Tailwind CSS', link: '/angular/tailwind/' },
+              { text: 'Angular Commands', link: '/angular/commands' },
+            ],
+          },
+        ],
       },
       {
         text: 'Backend Learning',
@@ -93,9 +100,16 @@ export default defineConfig({
         items: [
           { text: 'Backend Stack', link: '/backend/' },
           { text: 'Node.js Hub', link: '/nodejs/' },
-          { text: 'Node.js CLI File Processing', link: '/nodejs/teach/01-cli-file-processing' },
-          { text: 'NestJS Hub', link: '/nestjs/' }
-        ]
+          { text: 'Node.js Commands', link: '/nodejs/commands' },
+          { text: '01 Node.js CLI File Processing', link: '/nodejs/teach/01-cli-file-processing' },
+          { text: '02 Node Stream And Backpressure', link: '/nodejs/teach/02-node-stream-backpressure' },
+          { text: '03 CLI Arguments And Errors', link: '/nodejs/teach/03-cli-arguments-and-errors' },
+          { text: '04 File Backup Safety', link: '/nodejs/teach/04-file-backup-safety' },
+          { text: '05 Node Test And Temp Files', link: '/nodejs/teach/05-node-test-temp-files' },
+          { text: 'NestJS Hub', link: '/nestjs/' },
+          { text: 'Fastify', link: '/backend/fastify' },
+          { text: 'PostgreSQL Hub', link: '/postgresql/' },
+        ],
       },
       {
         text: 'Commands',
@@ -103,9 +117,10 @@ export default defineConfig({
         items: [
           { text: 'Commands Hub', link: '/commands' },
           { text: 'Angular 22 Commands', link: '/angular/commands' },
+          { text: 'Node.js Commands', link: '/nodejs/commands' },
           { text: 'Git Commands', link: '/git/commands' },
-          { text: 'VitePress Commands', link: '/vitepress/commands' }
-        ]
+          { text: 'VitePress Commands', link: '/vitepress/commands' },
+        ],
       },
       {
         text: 'Project Case Studies',
@@ -113,7 +128,7 @@ export default defineConfig({
         items: [
           { text: 'Case Studies', link: '/projects/' },
           {
-            text: 'MooPing Loyalty',
+            text: 'MooPing Reward',
             collapsed: true,
             items: [
               { text: 'MooPing Index', link: '/projects/mooping/' },
@@ -125,10 +140,19 @@ export default defineConfig({
               { text: '06 POS Correction Flow', link: '/projects/mooping/06-pos-correction-flow' },
               { text: '07 Saved Rewards', link: '/projects/mooping/07-saved-rewards' },
               { text: '08 Demo Refactor', link: '/projects/mooping/08-mooping-demo-refactor' },
-              { text: '09 Demo Deploy Flow', link: '/projects/mooping/09-mooping-demo-deploy-flow' }
-            ]
-          }
-        ]
+              { text: '09 Demo Deploy Flow', link: '/projects/mooping/09-mooping-demo-deploy-flow' },
+            ],
+          },
+          {
+            text: 'ApoRaviz Tools',
+            collapsed: true,
+            items: [
+              { text: 'Tools Index', link: '/projects/tools/' },
+              { text: '01 Split Order TXT Case Study', link: '/projects/tools/01-split-order-txt-case-study' },
+              { text: 'Split Order Requirement Note', link: '/projects/tools/split-order-tool-requirement' },
+            ],
+          },
+        ],
       },
       {
         text: 'Docs Site',
@@ -136,34 +160,35 @@ export default defineConfig({
         items: [
           { text: 'VitePress Guide', link: '/vitepress/' },
           { text: 'VitePress Commands', link: '/vitepress/commands' },
-          { text: 'README', link: '/README' }
-        ]
-      }
+          { text: 'README', link: '/README' },
+        ],
+      },
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/ApoRaviz/ApoRaviz_Workspace_Docs' }
+      { icon: 'github', link: 'https://github.com/ApoRaviz/ApoRaviz_Workspace_Docs' },
     ],
     search: {
-      provider: 'local'
+      provider: 'local',
     },
     editLink: {
       pattern: 'https://github.com/ApoRaviz/ApoRaviz_Workspace_Docs/edit/main/:path',
-      text: 'แก้หน้านี้บน GitHub'
+      text: 'Edit this page on GitHub',
     },
     lastUpdated: {
-      text: 'อัปเดตล่าสุด'
+      text: 'Last updated',
     },
     outline: {
-      label: 'หัวข้อในหน้านี้',
-      level: [2, 3]
+      label: 'On this page',
+      level: [2, 3],
     },
     docFooter: {
-      prev: 'ก่อนหน้า',
-      next: 'ถัดไป'
+      prev: 'Previous',
+      next: 'Next',
     },
-    darkModeSwitchLabel: 'ธีม',
-    sidebarMenuLabel: 'เมนู',
-    returnToTopLabel: 'กลับขึ้นบน',
-    langMenuLabel: 'เปลี่ยนภาษา'
-  }
+    darkModeSwitchLabel: 'Theme',
+    sidebarMenuLabel: 'Menu',
+    returnToTopLabel: 'Return to top',
+    langMenuLabel: 'Change language',
+  },
 });
+

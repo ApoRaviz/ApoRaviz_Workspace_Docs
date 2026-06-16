@@ -59,6 +59,11 @@ AI_UPDATE_RULE.md
 - [x] 0.19 เพิ่ม Tailwind CSS v4 เป็น frontend default ของโปรเจกต์ Angular ใหม่
 - [x] 0.20 เพิ่ม Angular 22 baseline note ไว้ใน `_docs/angular/teach/`
 - [x] 0.21 เพิ่ม backend default stack เป็น Angular + NestJS + PostgreSQL/Supabase
+- [x] 0.22 เพิ่มบทเรียน Angular run flow และ `angular.json` core model
+- [x] 0.23 เพิ่ม Node.js CLI, stream, backpressure, backup safety และ test temp files จาก `ApoRaviz_Tools`
+- [x] 0.24 เพิ่ม Fastify เป็น backend option ที่ใช้ได้เมื่อมีเหตุผล แต่ NestJS ยังเป็น default
+- [x] 0.25 เพิ่ม PostgreSQL/Supabase learning hub
+- [x] 0.26 เพิ่ม `projects/tools/` case study สำหรับ split-order-txt
 
 ## Project Lifecycle Template
 

@@ -23,7 +23,7 @@ Refactor คือการปรับโครงสร้าง code โด�
 - ต้อง reuse layout หรือ behavior
 - test หรือ debug เริ่มยาก
 
-ใน MooPing Loyalty สัญญาณเหล่านี้เกิดเมื่อหน้าเริ่มมีทั้ง:
+ใน MooPing Reward สัญญาณเหล่านี้เกิดเมื่อหน้าเริ่มมีทั้ง:
 
 ```text
 hero

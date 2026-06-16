@@ -1,23 +1,26 @@
 # Backend Stack ของ ApoRaviz
 
-เวลาโปรเจกต์เริ่มจากหน้าเว็บอย่างเดียว เหมือนมีหน้าร้านที่รับลูกค้าได้แล้ว
+เวลาโปรเจกต์เริ่มมี login, upload file, database, report, webhook หรือ secret ที่ห้ามอยู่ใน frontend เราต้องมี backend
 
-แต่พอมี login, upload file, database, report, webhook, หรือระบบหลังบ้าน เราต้องมี “ห้องทำงานหลังร้าน” ที่คอยจัดการข้อมูลจริง
-
-ใน workspace นี้ ห้องทำงานหลังร้านมาตรฐานคือ:
+ค่า default ระยะยาวของ workspace คือ:
 
 ```text
 Angular frontend
 -> NestJS backend
 -> PostgreSQL/Supabase database
+-> Node.js 24+ runtime
 ```
+
+Fastify ใช้ได้เมื่อ scope เล็กหรือเป็น prototype API/webhook แต่ต้องเขียนเหตุผลไว้ใน project docs
 
 ## ความหมายแบบคนธรรมดา
 
-- Angular = หน้าจอที่ user กดใช้งาน
-- NestJS = หลังบ้านที่รับ request, ตรวจข้อมูล, เรียก business logic, และคุยกับ database
-- PostgreSQL = ฐานข้อมูลจริงที่เก็บตารางและความสัมพันธ์
-- Supabase = PostgreSQL แบบ managed ที่แถม auth, storage, API, และ dashboard
+- Angular = หน้าจอที่ user ใช้งาน
+- Node.js = runtime ที่ทำให้ JavaScript/TypeScript รันหลังบ้านได้
+- NestJS = backend framework ที่จัด code เป็น controller, service, module
+- Fastify = backend web framework ที่เบาและตรง เหมาะกับ API เล็กหรือ webhook prototype
+- PostgreSQL = database จริงที่เก็บ table และความสัมพันธ์
+- Supabase = PostgreSQL แบบ managed พร้อม auth/storage/dashboard/API
 
 ## Technical Term
 
@@ -25,13 +28,15 @@ Angular frontend
 Frontend = client-side app ที่ user เห็น
 Backend API = server-side app ที่รับ HTTP request
 Database = ที่เก็บข้อมูลถาวร
+Controller = class หรือ handler ที่รับ route/request
 Service = class ที่เก็บ business logic
-Controller = class ที่รับ route/request จาก frontend
+Migration = ไฟล์เปลี่ยน schema database แบบมีประวัติ
+Webhook = endpoint ที่ระบบอื่นเรียกเข้ามา
 ```
 
 ## Default Rule
 
-ถ้า `ApoRaviz_*` project ต้องมี backend ให้ใช้แนวนี้ก่อน:
+ถ้า `ApoRaviz_*` project ต้องมี backend ให้เริ่มคิดจาก:
 
 ```text
 Angular + NestJS + PostgreSQL/Supabase
@@ -40,29 +45,44 @@ Angular + NestJS + PostgreSQL/Supabase
 เลือก PostgreSQL ตรง ๆ เมื่อ:
 
 - ต้องควบคุม database เอง
+- อยากฝึก SQL/schema ลึกขึ้น
 - deploy backend/database เอง
-- ต้องการฝึก SQL และ schema ให้ลึก
 
 เลือก Supabase เมื่อ:
 
 - อยากเริ่มเร็ว
+- ต้องการ managed PostgreSQL
 - ต้องการ auth/storage/dashboard
-- ต้องการ managed PostgreSQL แต่ยังใช้ SQL จริงได้
 
-## Flow ทีละขั้น
+ใช้ Fastify ได้เมื่อ:
+
+- API เล็กและ scope ชัด
+- ต้องทำ webhook prototype
+- อยากเรียน HTTP request/response แบบตรง
+- ยังไม่ต้องมี structure ใหญ่แบบ NestJS
+
+อ่านต่อ: [Fastify In ApoRaviz Workspace](fastify.md)
+
+## Flow ตัวอย่างจาก MooPing Reward
 
 ```text
-1. User กด upload ใน Angular
-2. Angular ส่งไฟล์ไป NestJS API
-3. NestJS controller รับ request
-4. NestJS service เรียก core logic
-5. service เขียนผลลัพธ์ หรือบันทึก metadata ลง PostgreSQL/Supabase
-6. NestJS ส่ง download URL หรือ result กลับให้ Angular
+1. Staff กดยืนยันยอดขายใน Angular
+2. Angular ส่ง request ไป backend API
+3. Backend ตรวจข้อมูลและเรียก service
+4. Service บันทึก transaction และ reward ใน PostgreSQL/Supabase
+5. Backend ส่ง LINE message ผ่าน token ที่อยู่ฝั่ง server
+6. Backend ส่ง result กลับ Angular
 ```
 
-## ตัวอย่างจาก ApoRaviz_Tools
+จุดสำคัญ:
 
-`split-order-txt` ตอนนี้เป็น Node.js CLI:
+```text
+LINE token และ Supabase service role key ต้องอยู่ backend เท่านั้น
+```
+
+## Flow ตัวอย่างจาก ApoRaviz_Tools
+
+ตอนนี้ `split-order-txt` เป็น Node.js CLI:
 
 ```text
 terminal
@@ -71,31 +91,36 @@ terminal
 -> output files
 ```
 
-ถ้าเปลี่ยนเป็น backend ในอนาคต:
+ถ้าทำเป็น backend ในอนาคต:
 
 ```text
 Angular upload page
 -> NestJS upload endpoint
 -> splitOrderTxt core/service
--> ZIP output
+-> ZIP output หรือ download result
 -> Angular download button
 ```
 
-## จุดที่มักงง
-
-- NestJS ไม่ใช่ frontend framework แต่เป็น backend framework
-- NestJS รันบน Node.js
-- PostgreSQL คือ database จริง ส่วน Supabase คือบริการที่ใช้ PostgreSQL เป็นแกน
-- Browser เรียก `fs`, `createReadStream`, `rename` โดยตรงไม่ได้ ต้องให้ Node.js/NestJS ทำ
-
 ## อ่านต่อ
 
-- Node.js: `../nodejs/`
-- NestJS: `../nestjs/`
+- [Node.js Learning Hub](../nodejs/)
+- [Node.js Commands](../nodejs/commands.md)
+- [NestJS Learning Hub](../nestjs/)
+- [Fastify In ApoRaviz Workspace](fastify.md)
+- [PostgreSQL Learning Hub](../postgresql/)
+
+## จุดที่มักงง
+
+- Backend ไม่ใช่ database แต่เป็นตัวคุม request/business logic
+- PostgreSQL คือ database ส่วน Supabase คือบริการที่ใช้ PostgreSQL เป็นแกน
+- NestJS และ Fastify รันบน Node.js
+- Browser แตะ secret หรือ file system backend โดยตรงไม่ได้
+- CLI file processing เริ่มจาก Node.js ได้ แต่ถ้าจะทำ web ระยะยาวควรแยก core logic ให้ backend ใช้ต่อได้
 
 ## สรุปจำสั้น ๆ
 
 ```text
 มีแค่หน้าจอ -> Angular
-มี API / file / database -> Angular + NestJS + PostgreSQL/Supabase
+มี API / file / database / secret -> Angular + backend + PostgreSQL/Supabase
 ```
+

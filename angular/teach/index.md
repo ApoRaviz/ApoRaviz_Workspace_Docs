@@ -15,6 +15,7 @@
 7. [CI/CD และ GitHub Pages](07-cicd-github-pages.md)
 8. [Tailwind CSS v4 ใน Angular](08-tailwind-css-v4.md)
 9. [Angular 22 Baseline](09-angular-22-baseline.md)
+10. [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
 
 ## How To Read With Case Studies
 
@@ -30,4 +31,5 @@
 - อ่าน `01-reactive-signals.md` แล้วดู state/service ในโปรเจกต์จริง
 - อ่าน `05-component-structure-data-flow.md` แล้วดู component ของ `ApoRaviz_Mooping`
 - อ่าน `07-cicd-github-pages.md` แล้วดู workflow deploy ของ repo ลูก
-- อ่าน `08-tailwind-css-v4.md` แล้วดู template ที่ใช้ utility classes
+- อ่าน `10-angular-run-flow-and-angular-json.md` แล้วเปิด `angular.json` ของ Portfolio หรือ MooPing เทียบ flow
+
