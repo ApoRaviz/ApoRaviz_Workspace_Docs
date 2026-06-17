@@ -31,6 +31,7 @@ ApoRaviz_Mooping/docs/            = product spec, implementation plan, command �
 7. [State Modeling สำหรับ Saved Rewards](07-saved-rewards.md)
 8. [MooPing Demo Refactor](08-mooping-demo-refactor.md)
 9. [MooPing Demo Deploy Flow](09-mooping-demo-deploy-flow.md)
+10. [Real Shop Hybrid Reward](10-real-shop-hybrid-reward.md)
 
 ## How To Read
 

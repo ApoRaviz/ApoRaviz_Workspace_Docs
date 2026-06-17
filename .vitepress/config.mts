@@ -107,6 +107,7 @@ export default defineConfig({
           { text: '04 File Backup Safety', link: '/nodejs/teach/04-file-backup-safety' },
           { text: '05 Node Test And Temp Files', link: '/nodejs/teach/05-node-test-temp-files' },
           { text: 'NestJS Hub', link: '/nestjs/' },
+          { text: 'LINE OA Webhook', link: '/backend/line-oa-webhook' },
           { text: 'Fastify', link: '/backend/fastify' },
           { text: 'PostgreSQL Hub', link: '/postgresql/' },
         ],
@@ -141,6 +142,7 @@ export default defineConfig({
               { text: '07 Saved Rewards', link: '/projects/mooping/07-saved-rewards' },
               { text: '08 Demo Refactor', link: '/projects/mooping/08-mooping-demo-refactor' },
               { text: '09 Demo Deploy Flow', link: '/projects/mooping/09-mooping-demo-deploy-flow' },
+              { text: '10 Real Shop Hybrid Reward', link: '/projects/mooping/10-real-shop-hybrid-reward' },
             ],
           },
           {
@@ -191,4 +193,3 @@ export default defineConfig({
     langMenuLabel: 'Change language',
   },
 });
-
