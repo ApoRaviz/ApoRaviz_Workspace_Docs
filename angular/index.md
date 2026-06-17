@@ -29,11 +29,13 @@ commands.md = command กลางของ Angular
 11. [Tailwind CSS v4 ใน Angular](teach/08-tailwind-css-v4.md)
 12. [Angular 22 Baseline](teach/09-angular-22-baseline.md)
 13. [Angular Run Flow And angular.json](teach/10-angular-run-flow-and-angular-json.md)
+14. [Angular Config Files](teach/11-angular-config-files.md)
 
 ## What Belongs Here
 
 - Angular modern concept เช่น `signal`, `computed`, `inject`, `input`, `output`
-- Angular CLI, `package.json`, `angular.json`, `main.ts`, `app.config.ts`
+- Angular run/build flow เช่น `package.json`, `angular.json`, `main.ts`, `app.config.ts`
+- Angular project config เช่น `tsconfig.app.json`, `tsconfig.spec.json`, `.prettierrc`, `.postcssrc.json`, `.vscode/settings.json`
 - Angular latest stable + Node LTS + TypeScript compatibility rules
 - Tailwind CSS v4 setup และ style ownership
 - SSR/prerender/hydration rule
@@ -59,4 +61,3 @@ commands.md = command กลางของ Angular
 เป็น command เฉพาะ repo -> Project/docs/commands.md
 เป็น command pattern กลาง -> angular/commands.md
 ```
-
