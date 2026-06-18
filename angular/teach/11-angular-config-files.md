@@ -196,6 +196,48 @@ Angular รู้ว่าต้องมี entry ฝั่ง browser แล�
 - ต้องปรับ production/development configuration
 - ต้องดูว่า output deploy อยู่ folder ไหน
 
+### Angular CLI Cache
+
+ปกติ Angular CLI ใช้ disk cache เพื่อให้ build ครั้งถัดไปเร็วขึ้น
+
+ตั้งค่าอยู่ใน `angular.json`:
+
+```json
+{
+  "cli": {
+    "cache": {
+      "enabled": false
+    }
+  }
+}
+```
+
+ไม่ควรปิด cache เป็นค่า default ทุกโปรเจกต์ เพราะ cache ช่วยลดเวลา build
+
+แต่ปิดได้เมื่อมีหลักฐานว่า native cache layer มีปัญหา เช่น:
+
+```text
+Node process abort โดยไม่แสดง Angular diagnostic
+macOS crash report ชี้ไปที่ LMDB native addon
+เกิด malloc/double-free ตอน Angular เปิด cache environment
+```
+
+ผลที่ได้:
+
+```text
+ข้อดี = หลีกเลี่ยง native cache crash และ build ต่อได้
+ข้อเสีย = build อาจช้าลง เพราะต้องคำนวณใหม่มากขึ้น
+```
+
+จุดสำคัญคือแยกให้ออกว่า:
+
+```text
+TypeScript/Angular compiler error = code หรือ config compile ไม่ผ่าน
+native cache crash               = process/tooling ล้มก่อนรายงาน code error
+```
+
+ก่อนปิด cache ควรลองตรวจ compiler โดยตรง เช่น `ngc -p tsconfig.app.json` และอ่าน system crash report เพื่อยืนยันต้นเหตุ
+
 ### tsconfig.json
 
 `tsconfig.json` คือกฎ TypeScript กลางของ project

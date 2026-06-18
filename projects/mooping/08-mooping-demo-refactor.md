@@ -43,11 +43,58 @@ LINE OA mock
 3. แยก presentation components
 4. ย้าย layout/style ทั่วไปไปใช้ Tailwind utility classes
 5. เก็บ CSS เฉพาะ animation หรือ visual effect ที่จำเป็นจริง
-6. ค่อยพิจารณา service เมื่อมี data source จริง
+6. ค่อยพิจารณา service เมื่อ state/business action เริ่มถูกใช้ร่วมกัน หรือเริ่มเตรียมต่อ data source จริง
 7. เพิ่ม tests กัน regression
 ```
 
 ถ้าแยก service เร็วเกินไป อาจได้ abstraction ที่ไม่ตรงกับปัญหา
+
+## จุดที่ MooPing ถึงเวลามี Store Service
+
+ช่วงแรก `App` เป็น container ที่เหมาะสม เพราะ flow ยังเล็กและกำลังค้นหา product direction
+
+หลังจากเพิ่ม Quick Sale, Member Sale, reward claim, undo, customer search และ LINE message state แล้ว `App` ต้องรับผิดชอบหลายเรื่องพร้อมกัน:
+
+```text
+App
+├─ UI composition
+├─ customer state
+├─ pending sale state
+├─ reward calculation
+├─ confirm/undo actions
+└─ message history
+```
+
+จุดนี้ service เริ่มลดความสับสนได้จริง จึงแยกเป็น:
+
+```text
+App
+└─ composition + event forwarding
+
+LoyaltyStoreService
+└─ shared state + business actions
+
+reward-calculation.ts
+└─ pure calculation ที่ไม่ผูกกับ Angular/UI
+```
+
+ผลที่ได้:
+
+- `App` อ่านแล้วเห็นโครงหน้าจอและ event wiring
+- business state อยู่จุดเดียว
+- pure helper test กรณี 9, 10, 20 และ 7 + 5 ไม้ได้ตรง ๆ
+- เตรียมแยก mock repository และ HTTP adapter ได้ง่ายขึ้น
+
+จากนั้นแยก presentation ตาม flow:
+
+```text
+PosPanelComponent
+├─ shared quantity/confirm/undo controls
+├─ QuickSalePanelComponent
+└─ MemberSalePanelComponent
+```
+
+เหตุผลที่ไม่แยกปุ่มจำนวนและยืนยันซ้ำเข้าไปทั้งสอง panel คือทั้ง Quick Sale และ Member Sale ใช้ interaction ชุดเดียวกัน ต่างกันเฉพาะ customer context และคำอธิบาย flow การแยกแบบนี้จึงลด duplication มากกว่าการสร้างสองหน้าที่เหมือนกันเกือบทั้งหมด
 
 ## ทำไมไม่ควรปล่อย app.css ใหญ่เกินไป
 
