@@ -105,6 +105,26 @@ App
 
 `ShiftStatusPanelComponent` รับค่าที่คำนวณเสร็จแล้วจาก parent เช่น mode, status label และ progress message โดยไม่ inject store เอง ทำให้ presentation component ไม่รู้ว่า state มาจาก mock data, local storage หรือ backend
 
+## Repository Contract ก่อนต่อ Backend
+
+เมื่อ store ยังถือ mock customer array เอง store จะรู้ทั้ง business flow และรู้ว่าข้อมูลถูกสร้างจากที่ไหน
+
+จึงเพิ่ม boundary:
+
+```text
+LoyaltyStoreService
+        |
+        v
+CustomerRepository contract
+        |
+        v
+MockCustomerRepository
+```
+
+store อ่าน `customers` และขอให้ repository อัปเดตข้อมูลผ่าน contract เดียว ภายหลังสามารถเปลี่ยน provider เป็น HTTP/NestJS adapter ได้โดย component และ store action ไม่ต้องรู้ URL หรือรูปแบบ transport
+
+ใน Angular interface ของ TypeScript ไม่มีตัวตนตอน runtime จึงใช้ `InjectionToken<CustomerRepository>` เป็น token สำหรับ Dependency Injection
+
 ## ทำไมไม่ควรปล่อย app.css ใหญ่เกินไป
 
 ตอน prototype อาจรวม style ไว้ที่ `app.css` เพื่อเห็นภาพเร็ว
