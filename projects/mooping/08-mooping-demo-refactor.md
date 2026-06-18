@@ -125,6 +125,19 @@ store อ่าน `customers` และขอให้ repository อัปเ�
 
 ใน Angular interface ของ TypeScript ไม่มีตัวตนตอน runtime จึงใช้ `InjectionToken<CustomerRepository>` เป็น token สำหรับ Dependency Injection
 
+## SSR-safe Prototype Persistence
+
+Mock repository สามารถเก็บ customer state ใน `localStorage` เพื่อให้ refresh แล้วข้อมูลทดลองไม่หาย แต่ต้อง guard ก่อนใช้ browser API:
+
+```text
+browser -> อ่าน/เขียน localStorage
+SSR     -> ใช้ initial mock data และไม่แตะ window
+```
+
+ข้อมูลที่เก็บต้องเป็นข้อมูล prototype ที่ไม่มี secret เท่านั้น และต้อง validate JSON ก่อนนำกลับเข้า state เพราะ localStorage อาจเก่าหรือถูกแก้จาก DevTools
+
+ปุ่ม reset ควรคืนทั้ง repository data และ transient store state เช่น pending sale, selected mode, reward credits และ undo history เพื่อไม่ให้ state คนละส่วนขัดกัน
+
 ## ทำไมไม่ควรปล่อย app.css ใหญ่เกินไป
 
 ตอน prototype อาจรวม style ไว้ที่ `app.css` เพื่อเห็นภาพเร็ว
