@@ -92,9 +92,18 @@ PosPanelComponent
 ├─ shared quantity/confirm/undo controls
 ├─ QuickSalePanelComponent
 └─ MemberSalePanelComponent
+
+App
+├─ ShiftStatusPanelComponent
+├─ PosPanelComponent
+├─ DisplayPanelComponent
+├─ RewardPanelComponent
+└─ LinePanelComponent
 ```
 
 เหตุผลที่ไม่แยกปุ่มจำนวนและยืนยันซ้ำเข้าไปทั้งสอง panel คือทั้ง Quick Sale และ Member Sale ใช้ interaction ชุดเดียวกัน ต่างกันเฉพาะ customer context และคำอธิบาย flow การแยกแบบนี้จึงลด duplication มากกว่าการสร้างสองหน้าที่เหมือนกันเกือบทั้งหมด
+
+`ShiftStatusPanelComponent` รับค่าที่คำนวณเสร็จแล้วจาก parent เช่น mode, status label และ progress message โดยไม่ inject store เอง ทำให้ presentation component ไม่รู้ว่า state มาจาก mock data, local storage หรือ backend
 
 ## ทำไมไม่ควรปล่อย app.css ใหญ่เกินไป
 
