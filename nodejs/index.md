@@ -41,6 +41,7 @@ node:test = test runner ที่มากับ Node.js
 4. [03 CLI Arguments And Errors](teach/03-cli-arguments-and-errors.md)
 5. [04 File Backup Safety](teach/04-file-backup-safety.md)
 6. [05 Node Test And Temp Files](teach/05-node-test-temp-files.md)
+7. [06 Node And npm Version Check](teach/06-node-npm-version-check.md)
 
 ## Node.js กับ NestJS/Fastify ต่างกันยังไง
 
@@ -71,4 +72,3 @@ Fastify = เคาน์เตอร์ API ที่เบาและตร�
 ```text
 Node.js = JavaScript/TypeScript หลังบ้านที่แตะไฟล์ รัน CLI และเป็นฐานให้ backend ได้
 ```
-

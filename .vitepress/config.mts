@@ -106,6 +106,7 @@ export default defineConfig({
           { text: '03 CLI Arguments And Errors', link: '/nodejs/teach/03-cli-arguments-and-errors' },
           { text: '04 File Backup Safety', link: '/nodejs/teach/04-file-backup-safety' },
           { text: '05 Node Test And Temp Files', link: '/nodejs/teach/05-node-test-temp-files' },
+          { text: '06 Node And npm Version Check', link: '/nodejs/teach/06-node-npm-version-check' },
           { text: 'NestJS Hub', link: '/nestjs/' },
           { text: 'LINE OA Webhook', link: '/backend/line-oa-webhook' },
           { text: 'Fastify', link: '/backend/fastify' },

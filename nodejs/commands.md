@@ -9,14 +9,21 @@
 ```bash
 node -v
 npm -v
+which node
+which npm
+node -p "process.versions"
 ```
 
 workspace นี้ยึด Node 24+ เป็นค่า default สำหรับ Angular, VitePress, Node CLI และ backend
 
+`node -v` และ `npm -v` ใช้ดู version ส่วน `which node` และ `which npm` ใช้ดูว่า command ทั้งสองมาจาก Node installation ชุดเดียวกันหรือไม่
+
+อ่าน flow เต็ม: [Node And npm Version Check](teach/06-node-npm-version-check.md)
+
 บน Windows ถ้า shell ยังชี้ไป Node เก่า:
 
 ```powershell
-$env:PATH='C:\Users\tanon\AppData\Local\nvm\v24.16.0;' + $env:PATH
+$env:PATH='C:\Users\[[Windows username]]\AppData\Local\nvm\v24.16.0;' + $env:PATH
 node -v
 ```
 
@@ -109,4 +116,3 @@ package.json scripts
 ```text
 Node.js CLI = package.json script + process.argv + fs/stream + test
 ```
-
