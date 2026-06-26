@@ -12,6 +12,9 @@ Angular รุ่นใหม่ไม่จำเป็นต้องใช้
 src/app/app.config.ts
 src/app/app.config.server.ts
 src/app/app.routes.ts
+src/app/app.routes.server.ts
+src/main.server.ts
+src/server.ts
 ```
 
 ตัวอย่าง:
@@ -20,9 +23,15 @@ src/app/app.routes.ts
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideClientHydration(withEventReplay()),
+    provideClientHydration(),
   ],
 };
+```
+
+ถ้าต้องการ event replay เพิ่ม อาจเห็น:
+
+```ts
+provideClientHydration(withEventReplay())
 ```
 
 ## provideRouter()
@@ -67,6 +76,93 @@ ng build
 - product demo
 - document-like page
 - app ที่หน้าแรกไม่ต้องดึงข้อมูล real-time ก่อนแสดง
+
+## Server Routes รุ่นใหม่
+
+Angular SSR รุ่นใหม่อาจมีไฟล์ `src/app/app.routes.server.ts` เพื่อบอกฝั่ง server ว่าแต่ละ route ควร render แบบไหน:
+
+```ts
+import { RenderMode, ServerRoute } from '@angular/ssr';
+
+export const serverRoutes: ServerRoute[] = [
+  {
+    path: '**',
+    renderMode: RenderMode.Prerender,
+  },
+];
+```
+
+ความหมาย:
+
+```text
+ServerRoute = route rule สำหรับฝั่ง server
+path: '**' = ทุก path ที่เหลือ
+RenderMode.Prerender = ให้สร้าง HTML ล่วงหน้าตอน build เมื่อทำได้
+```
+
+`app.config.server.ts` จะเอา server routes ไปลงทะเบียน:
+
+```ts
+provideServerRendering(withRoutes(serverRoutes))
+```
+
+ภาพจำ:
+
+```text
+app.routes.ts = URL นี้แสดง component ไหน
+app.routes.server.ts = URL นี้ให้ server render แบบไหน
+```
+
+## server.ts กับ main.server.ts
+
+เมื่อเปิด SSR จะเห็นไฟล์ฝั่ง server เพิ่ม เช่น:
+
+```text
+src/main.server.ts
+src/server.ts
+```
+
+`main.server.ts` ใช้ bootstrap Angular app ฝั่ง server:
+
+```ts
+const bootstrap = (context: BootstrapContext) =>
+  bootstrapApplication(App, config, context);
+
+export default bootstrap;
+```
+
+`server.ts` เป็น Node/Express server ที่รับ HTTP request และส่งต่อให้ Angular SSR engine:
+
+```ts
+const app = express();
+const angularApp = new AngularNodeAppEngine();
+
+app.use((req, res, next) => {
+  angularApp
+    .handle(req)
+    .then((response) =>
+      response ? writeResponseToNodeResponse(response, res) : next(),
+    )
+    .catch(next);
+});
+```
+
+จุดที่มักงง:
+
+```text
+server.ts ไม่ได้ import main.server.ts ตรง ๆ
+```
+
+Angular build จะสร้าง server bundle/manifest ที่บอก SSR runtime ว่าต้อง bootstrap จาก `main.server.mjs` ซึ่งมาจาก `src/main.server.ts`
+
+จำสั้น ๆ:
+
+```text
+server.ts = รับ HTTP request
+AngularNodeAppEngine = ส่ง request เข้า Angular SSR
+main.server.ts = bootstrap Angular app ฝั่ง server
+manifest/server bundle = wiring ที่ Angular build สร้างให้
+```
 
 ## SSR Safety Rule
 

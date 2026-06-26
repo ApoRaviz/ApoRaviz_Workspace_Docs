@@ -217,6 +217,43 @@ src/main.ts
 -> Angular render template และผูก event/state
 ```
 
+### index.html กับ root selector
+
+`src/index.html` เป็น HTML shell ของทั้งหน้า และมีจุดที่ Angular จะ mount แอป:
+
+```html
+<body>
+  <app-root></app-root>
+</body>
+```
+
+tag นี้ต้องตรงกับ `selector` ของ root component:
+
+```ts
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.html',
+})
+export class App {}
+```
+
+flow:
+
+```text
+index.html มี <app-root>
+-> App component มี selector: 'app-root'
+-> main.ts bootstrap App
+-> Angular เอา app.html ไป render ในตำแหน่ง <app-root>
+```
+
+จำสั้น ๆ:
+
+```text
+index.html = กรอบ HTML ทั้งหน้า
+selector = ชื่อ tag ที่ Angular ใช้จับ component
+app.html = template ที่ถูก render ข้างใน root component
+```
+
 ถ้าโปรเจกต์ใช้ routing:
 
 ```text
@@ -354,4 +391,3 @@ build/serve/test = target
 configuration = โหมด
 main.ts = จุดเริ่ม app ฝั่ง browser
 ```
-

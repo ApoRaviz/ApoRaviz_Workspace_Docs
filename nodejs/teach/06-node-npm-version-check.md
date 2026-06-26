@@ -166,6 +166,24 @@ npm  -> .../v20.x.x/bin/npm
 
 อาจทำให้ install/build script ใช้เครื่องมือคนละชุด เกิด error แปลก ๆ หรือผลลัพธ์ไม่เหมือนเครื่องอื่น
 
+ถ้าใช้ `nvm` แล้วพบว่า shell หลุดไป Node version เก่า ให้สลับกลับมา baseline ก่อนรัน Angular/NestJS command:
+
+```bash
+nvm use 24
+node -v
+npm -v
+which node
+which npm
+```
+
+ตัวอย่างเหตุการณ์จริง:
+
+```text
+Angular CLI 22 ต้องการ Node ^22.22.3 หรือ ^24.15.0 หรือ >=26.0.0
+แต่ shell ใช้ Node v22.14.0 อยู่
+แก้โดย nvm use 24 แล้วตรวจ node/npm/path ซ้ำ
+```
+
 ## Chrome, V8, Node.js ต่างกันยังไง
 
 ```text

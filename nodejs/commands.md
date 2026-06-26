@@ -20,6 +20,18 @@ workspace นี้ยึด Node 24+ เป็นค่า default สำหร
 
 อ่าน flow เต็ม: [Node And npm Version Check](teach/06-node-npm-version-check.md)
 
+ถ้าใช้ `nvm` และ shell หลุดไป Node version เก่า ให้สลับกลับมา Node 24:
+
+```bash
+nvm use 24
+node -v
+npm -v
+which node
+which npm
+```
+
+คาดหวังให้ `node` และ `npm` ชี้ไป path ของ Node 24 ชุดเดียวกัน เช่น `.../.nvm/versions/node/v24.16.0/bin/...`
+
 บน Windows ถ้า shell ยังชี้ไป Node เก่า:
 
 ```powershell

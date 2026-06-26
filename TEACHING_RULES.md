@@ -173,6 +173,32 @@ signal = กล่องค่าที่ Angular track ได้
 set    = ตั้งค่าใหม่ตรง ๆ
 update = เปลี่ยนจากค่าเดิม
 ```
+
+## File Map Recap Rule
+
+ถ้าบทเรียนมีไฟล์หรือ config หลายไฟล์ เช่น Angular scaffold, SSR files, `tsconfig*.json`, `package.json`, `angular.json` ให้ recap แผนที่ไฟล์ก่อนถาม Knowledge Check
+
+เป้าหมายคือเช็กความเข้าใจ ไม่ใช่เช็กว่าผู้เรียนจำชื่อไฟล์จำนวนมากได้หมดในหัวหรือไม่
+
+รูปแบบที่ควรใช้:
+
+```text
+แผนที่ก่อนตอบ:
+package.json = npm scripts/dependencies
+angular.json = Angular build/serve/test config
+src/main.ts = browser entry
+src/main.server.ts = server bootstrap
+src/server.ts = Node/Express SSR server
+```
+
+แล้วค่อยถาม:
+
+```text
+จากแผนที่นี้ ถ้า npm run build ต้องรู้ entry browser จากไฟล์ไหน
+```
+
+ถ้าผู้เรียนตอบไม่ได้เพราะไฟล์เยอะ ให้ย้อนกลับไปที่ file map ก่อน ไม่รีบสรุปว่าไม่เข้าใจ concept
+
 ## VitePress Markdown Rule
 
 - ห้ามใช้ placeholder แบบ `<...>` นอก code fence เพราะ VitePress/Vue จะมองเป็น HTML tag และอาจ build fail
