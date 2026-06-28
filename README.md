@@ -26,7 +26,7 @@ NEW_PROJECT_GUIDE.md      = กติกาก่อนเริ่มโปร�
 WORKSPACE_PLAN.md         = แผนรวมแบบ step/substep ของ workspace
 angular/                  = Angular teach และ command กลาง
 git/                      = Git command กลาง
-projects/                 = case study และบทเรียนจากโปรเจกต์จริง
+baseline.md               = version baseline (single source)
 vitepress/                = คู่มือรันและแก้เว็บ docs ด้วย VitePress
 ```
 

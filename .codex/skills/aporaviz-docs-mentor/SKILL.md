@@ -7,7 +7,7 @@ description: Use when working in or discussing ApoRaviz_Workspace_Docs, the _doc
 
 ## Purpose
 
-Treat `ApoRaviz_Workspace_Docs` (`_docs/`) as the learning hub and source of truth for ApoRaviz. Do not treat it as ordinary notes. It is a Thai-first teaching site, workspace rulebook, command reference, concept glossary, lab collection, and project case-study home.
+Treat `ApoRaviz_Workspace_Docs` (`_docs/`) as the learning hub and source of truth for ApoRaviz. Do not treat it as ordinary notes. It is a Thai-first teaching site **organized by topic** (W3Schools ของ ApoRaviz): workspace rulebook, command reference, concept glossary, and lab collection. Reusable lessons from real projects are folded into the related topic page as examples — `_docs` is **not** a per-project case-study home.
 
 Core memory:
 
@@ -27,6 +27,7 @@ TEACHING_RULES.md
 AI_UPDATE_RULE.md
 NEW_PROJECT_GUIDE.md when project startup rules matter
 WORKSPACE_PLAN.md when planning/status matters
+baseline.md when Node/Angular/version matters
 ```
 
 When the task touches Angular learning, also inspect:
@@ -58,8 +59,9 @@ Lesson    = flow/process explained step by step
 Lab       = tiny exercise or mini example
 Guide     = workflow, setup, or operating rule
 Command   = command syntax and usage pattern
-Case study = project-specific learning from a real project
 ```
+
+(ไม่มี "case study" เป็น document type แล้ว — บทเรียน reusable จากโปรเจกต์ให้ซึมเข้าหน้า topic เป็นตัวอย่าง ส่วนรายละเอียดเฉพาะโปรเจกต์อยู่ใน README ของ repo นั้น)
 
 Use existing templates when creating new teaching pages:
 

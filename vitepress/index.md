@@ -116,8 +116,7 @@ package-lock.json         = ล็อก version ของ dependency
 index.md                  = หน้าแรกของเว็บ docs
 public/                   = asset ที่อยากให้ copy ไปเว็บแบบชื่อเดิม
 angular/                  = บทเรียน Angular/Tailwind
-projects/                 = case study จากโปรเจกต์จริง
-templates/                = template สำหรับเขียนบทเรียน
+templates/                = template สำหรับเขียนบทเรียน + project bootstrap
 ```
 
 ## ก่อนรันต้องใช้ Node 24+

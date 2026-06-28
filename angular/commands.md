@@ -37,7 +37,7 @@ npm run build
 - Angular project ใน workspace นี้ยึด Node ตาม [`baseline.md`](../baseline.md)
 - ถ้า Angular major ใหม่ต้องใช้ Node ต่ำสุดสูงขึ้น ให้เช็ก `angular.dev/reference/versions` ก่อนสร้าง project
 - ถ้า build ผ่านในเครื่องแต่ fail ใน CI ให้เช็ก Node version ก่อน
-- command ที่ส่งให้ Codex ใช้ควรระบุ Node path เมื่อ project เคยมีปัญหา version ไม่ตรง
+- ถ้า version ไม่ตรง ให้สั่ง `nvm use` (เช็ก `.nvmrc`) ก่อนรัน อย่า hardcode path เต็มของ Node
 
 ## Version Checks
 

@@ -79,16 +79,11 @@ AI_UPDATE_RULE.md
 
 ### Step 2 - Foundation
 
-- [ ] 2.1 สร้าง Angular latest stable project ด้วย Node LTS และ Tailwind CSS v4
-- [ ] 2.2 เพิ่ม project-specific skill ใน `.codex/skills/<project>/SKILL.md`
-- [ ] 2.3 เพิ่ม `README.md`
-- [ ] 2.4 เพิ่ม `progress.md`
-- [ ] 2.5 เพิ่ม `docs/product-spec.md`
-- [ ] 2.6 เพิ่ม `docs/design-direction.md`
-- [ ] 2.7 เพิ่ม `docs/architecture.md`
-- [ ] 2.8 เพิ่ม `docs/implementation-plan.md`
-- [ ] 2.9 เพิ่ม `docs/commands.md`
-- [ ] 2.10 ถ้ามีบทเรียน reusable จากโปรเจกต์จริง ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `_docs` เป็นตัวอย่าง
+- [ ] 2.1 สร้าง Angular latest stable project ตาม `baseline.md` (Tailwind CSS เป็น styling หลัก)
+- [ ] 2.2 stamp bootstrap templates จาก `templates/project-bootstrap/` (AGENTS.md/CLAUDE.md/README.md) + เพิ่ม `.nvmrc`
+- [ ] 2.3 `README.md` บังคับ; docs อื่น (progress/product-spec/implementation-plan/commands/design-direction/architecture) = optional เพิ่มเมื่อจำเป็น
+- [ ] 2.4 เพิ่ม project-specific skill ใน `.codex/skills/<project>/SKILL.md` เฉพาะเมื่อมี domain rule สำคัญ
+- [ ] 2.5 ถ้ามีบทเรียน reusable จากโปรเจกต์จริง ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `_docs` เป็นตัวอย่าง
 
 ### Step 3 - MVP
 

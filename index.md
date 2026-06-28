@@ -4,7 +4,7 @@ layout: home
 hero:
   name: ApoRaviz Workspace Docs
   text: เว็บกลางสำหรับเรียน Angular, NestJS, Node.js และ Tailwind CSS แบบภาษาไทย
-  tagline: อ่าน concept กลาง ทำ lab สั้น ๆ แล้วต่อยอดเป็น case study จากโปรเจกต์จริง
+  tagline: ความรู้กลางจัดตาม topic แบบ W3Schools ของ ApoRaviz — อ่าน concept, ทำ lab สั้น ๆ, เปิดใช้ตอนทำงานจริง
   actions:
     - theme: brand
       text: เริ่มอ่าน
@@ -20,6 +20,6 @@ features:
     details: สอน Angular คู่กับ Tailwind CSS เพราะเป็น stack default ของ ApoRaviz
   - title: Backend Path
     details: ถ้ามีหลังบ้าน ใช้ NestJS + PostgreSQL/Supabase เป็นแนวทางหลัก
-  - title: Project Case Studies
-    details: ความรู้จากโปรเจกต์จริงจะกลับมาเป็นบทเรียนกลาง ไม่หายอยู่ใน repo ลูก
+  - title: Topic-first
+    details: ความรู้ reusable จากงานจริงซึมเข้าหน้า topic เป็นตัวอย่าง ไม่หายอยู่ใน repo ลูกหรือในแชท
 ---

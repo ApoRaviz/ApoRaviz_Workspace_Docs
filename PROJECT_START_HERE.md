@@ -11,7 +11,7 @@
 5. `NEW_PROJECT_GUIDE.md`
 6. `WORKSPACE_PLAN.md`
 7. `angular/index.md` ถ้างานเกี่ยวกับ Angular/Tailwind
-8. `projects/index.md` ถ้าต้องการดู case study จากโปรเจกต์จริง
+8. `baseline.md` ถ้าต้องรู้ version Node/Angular ปัจจุบัน
 9. `vitepress/index.md` ถ้าต้องการรันหรือแก้เว็บ docs
 
 ## Current Roles
@@ -29,13 +29,9 @@ ApoRaviz_Mooping        = app project ที่พักไว้ก่อน
 - [ ] ระบุว่าโปรเจกต์นี้แก้ปัญหาอะไร
 - [ ] ระบุ user หลัก
 - [ ] ระบุ first usable flow
-- [ ] เขียน `README.md`
-- [ ] เขียน `progress.md`
-- [ ] เขียน `docs/product-spec.md`
-- [ ] เขียน `docs/implementation-plan.md`
-- [ ] เขียน `docs/commands.md`
-- [ ] ถ้าเป็น UI app ให้เขียน `docs/design-direction.md`
-- [ ] ถ้า architecture เริ่มซับซ้อน ให้เขียน `docs/architecture.md`
+- [ ] stamp bootstrap templates (`AGENTS.md`/`CLAUDE.md`/`README.md`) จาก `templates/project-bootstrap/` + เพิ่ม `.nvmrc`
+- [ ] `README.md` บังคับ (ทำอะไร / รันยังไง / สถานะ)
+- [ ] docs อื่น (`progress.md`, `docs/product-spec.md`, `implementation-plan.md`, `commands.md`, `design-direction.md`, `architecture.md`) = optional เพิ่มเมื่อจำเป็น (ดู `NEW_PROJECT_GUIDE.md`)
 - [ ] ถ้ามีบทเรียน reusable จากงานจริง ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `ApoRaviz_Workspace_Docs` เป็นตัวอย่าง
 
 ## Do Not
