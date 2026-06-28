@@ -14,7 +14,7 @@ which npm
 node -p "process.versions"
 ```
 
-workspace นี้ยึด Node 24+ เป็นค่า default สำหรับ Angular, VitePress, Node CLI และ backend
+workspace นี้ยึด Node ตาม [`baseline.md`](../baseline.md) สำหรับ Angular, VitePress, Node CLI และ backend
 
 `node -v` และ `npm -v` ใช้ดู version ส่วน `which node` และ `which npm` ใช้ดูว่า command ทั้งสองมาจาก Node installation ชุดเดียวกันหรือไม่
 

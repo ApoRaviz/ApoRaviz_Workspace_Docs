@@ -8,7 +8,7 @@
 Angular frontend
 -> NestJS backend
 -> PostgreSQL/Supabase database
--> Node.js 24+ runtime
+-> Node runtime (ตาม baseline.md)
 ```
 
 Fastify ใช้ได้เมื่อ scope เล็กหรือเป็น prototype API/webhook แต่ต้องเขียนเหตุผลไว้ใน project docs

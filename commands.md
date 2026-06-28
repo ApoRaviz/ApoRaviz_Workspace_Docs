@@ -4,7 +4,7 @@
 
 แยกอ่านตามเครื่องมือ:
 
-- [Angular 22 Commands](angular/commands.md)
+- [Angular Commands](angular/commands.md)
 - [Node.js Commands](nodejs/commands.md)
 - [Git Commands](git/commands.md)
 - [VitePress Commands](vitepress/commands.md)
@@ -16,7 +16,7 @@
 ```text
 1. Git Commands
 2. VitePress Commands
-3. Angular 22 Commands
+3. Angular Commands
 4. Node.js Commands
 ```
 

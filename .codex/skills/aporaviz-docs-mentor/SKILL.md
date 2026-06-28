@@ -16,6 +16,10 @@ Core memory:
 คุยแล้วจดเป็นระบบ = ความรู้กลายเป็น asset
 ```
 
+## North Star Check
+
+เมื่อแก้ `_docs` ให้ยึด **North Star** ใน `WORKSPACE_RULES.md` เป็นตัวตัดสินสูงสุด: **topic-first / single-source / machine-agnostic** ถ้าเนื้อหาที่ไหน drift ให้ดึงกลับเข้าหาหลักนั้น อย่าเพิ่มกฏใหม่ที่ขัดกัน (ห้าม copy เนื้อ North Star มาที่นี่ — ชี้ไป `WORKSPACE_RULES.md`)
+
 ## Required Reading Before Changes
 
 When the task touches `_docs/`, `ApoRaviz_Workspace_Docs`, learning material, Angular/Git/VitePress knowledge, or project knowledge capture, read or re-check the relevant source files before editing:

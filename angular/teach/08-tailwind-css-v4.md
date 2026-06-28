@@ -1,5 +1,7 @@
 # Tailwind CSS v4 ใน Angular
 
+> เลข version จริง (source หลัก) อยู่ที่ [`baseline.md`](../../baseline.md) — บทนี้เป็นคำอธิบาย/snapshot ของ Tailwind ใน baseline นั้น
+
 บทนี้สรุปการใช้ Tailwind CSS v4 ใน Angular workspace `ApoRaviz` และบทบาทที่ยังเหลือของ CSS file
 
 ## ทำไม Tailwind เป็น default

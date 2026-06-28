@@ -119,7 +119,7 @@ angular/                  = บทเรียน Angular/Tailwind
 templates/                = template สำหรับเขียนบทเรียน + project bootstrap
 ```
 
-## ก่อนรันต้องใช้ Node 24+
+## ก่อนรันต้องเลือก Node ให้ตรง baseline
 
 PowerShell:
 
@@ -137,8 +137,8 @@ v24.16.0
 จำสั้น ๆ:
 
 ```text
-Angular 22 และ VitePress ใน repo นี้ใช้ Node 24+
-ถ้า shell เป็น Node 22.14 ให้สลับก่อนรัน
+Angular และ VitePress ใน repo นี้ใช้ Node ตาม baseline.md
+ถ้า shell เป็น Node version เก่า ให้สลับก่อนรัน
 ```
 
 ## ติดตั้ง dependency ครั้งแรก

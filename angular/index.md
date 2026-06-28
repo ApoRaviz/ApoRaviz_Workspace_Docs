@@ -28,8 +28,8 @@ commands.md = command กลางของ Angular
 - Angular modern concept เช่น `signal`, `computed`, `inject`, `input`, `output`
 - Angular run/build flow เช่น `package.json`, `angular.json`, `main.ts`, `app.config.ts`
 - Angular project config เช่น `tsconfig.app.json`, `tsconfig.spec.json`, `.prettierrc`, `.postcssrc.json`, `.vscode/settings.json`
-- Angular latest stable + Node LTS + TypeScript compatibility rules
-- Tailwind CSS v4 setup และ style ownership
+- Angular latest stable + Node LTS + TypeScript compatibility rules (เลข version ดู `baseline.md`)
+- Tailwind CSS setup และ style ownership
 - SSR/prerender/hydration rule
 - Browser API safety เช่น `window`, `document`, `IntersectionObserver`, `localStorage`
 - Component ownership และ one-way data flow

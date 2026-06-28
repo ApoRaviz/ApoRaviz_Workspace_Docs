@@ -1,20 +1,12 @@
 # Angular Commands
 
-ไฟล์นี้คือ command กลางสำหรับ Angular latest stable + Node LTS + Tailwind CSS v4 ใน workspace `ApoRaviz`
+ไฟล์นี้คือ command กลางของ Angular ใน workspace `ApoRaviz` — เลข version (Angular/Node/TS/Tailwind) ดูที่ [`baseline.md`](../baseline.md) ที่เดียว
 
 ถ้า command มี path, port, repo URL, base-href หรือ output folder เฉพาะโปรเจกต์ ให้เก็บรายละเอียดจริงไว้ใน `Project/docs/commands.md`
 
 ## Runtime Baseline
 
-ณ 2026-06-06:
-
-```text
-Angular CLI/Core        = 22.0.0
-Node.js production/dev  = Node 24 LTS
-TypeScript              = 6.0.x สำหรับ Angular 22
-Tailwind CSS            = 4.3.0
-@tailwindcss/postcss    = 4.3.0
-```
+เลข version จริง (Angular/Node/TypeScript/Tailwind) อยู่ที่ [`baseline.md`](../baseline.md) เป็น single source — ไฟล์นี้ไม่ระบุเลขซ้ำ
 
 ใช้ Node LTS เป็น default แม้จะมี Node Current ที่ใหม่กว่า เพราะ Node official แนะนำให้ production ใช้ Active LTS หรือ Maintenance LTS
 
@@ -59,7 +51,7 @@ npm outdated
 
 - ใช้ `npx ng version` เพื่อให้ Angular CLI ตรงกับ dependency ในโปรเจกต์
 - `npm outdated` ใช้ดูของที่มี version ใหม่ แต่ไม่ควรอัปเดตทันทีโดยไม่อ่าน breaking change
-- Angular 22 ใน workspace นี้คู่กับ Node 24 LTS และ TypeScript 6.0.x
+- Angular/Node/TypeScript ใน workspace นี้จับคู่กันตาม [`baseline.md`](../baseline.md)
 
 ## Install Dependencies
 

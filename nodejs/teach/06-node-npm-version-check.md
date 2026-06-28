@@ -147,9 +147,11 @@ which npm
 ตัวอย่างผลลัพธ์ที่ดี:
 
 ```text
-/Users/aporaviz/.nvm/versions/node/v24.16.0/bin/node
-/Users/aporaviz/.nvm/versions/node/v24.16.0/bin/npm
+/Users/<you>/.nvm/versions/node/v24.x/bin/node
+/Users/<you>/.nvm/versions/node/v24.x/bin/npm
 ```
+
+(path จริงต่างกันตามเครื่อง — Mac กับ Windows ไม่เหมือนกัน อย่าจด path เต็มเป็นค่าตายตัว)
 
 แปลว่า:
 
