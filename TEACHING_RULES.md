@@ -174,21 +174,31 @@ set    = ตั้งค่าใหม่ตรง ๆ
 update = เปลี่ยนจากค่าเดิม
 ```
 
-## File Map Recap Rule
+## File Map Rule
 
-ถ้าบทเรียนมีไฟล์หรือ config หลายไฟล์ เช่น Angular scaffold, SSR files, `tsconfig*.json`, `package.json`, `angular.json` ให้ recap แผนที่ไฟล์ก่อนถาม Knowledge Check
+เมื่อบทเรียนต้องแนะนำไฟล์หรือโฟลเดอร์จำนวนมากพร้อมกัน เช่น Angular scaffold, SSR files, `tsconfig*.json`, `package.json`, `angular.json` ห้ามไล่ทีละไฟล์รวดเดียวแล้วถาม Knowledge Check ทันที
 
-เป้าหมายคือเช็กความเข้าใจ ไม่ใช่เช็กว่าผู้เรียนจำชื่อไฟล์จำนวนมากได้หมดในหัวหรือไม่
+ให้ทำ File Map ก่อน:
+
+- จัดไฟล์เป็นกลุ่มตามหน้าที่ เช่น docs, dependency, config, source, tooling, generated/cache/output
+- ให้ one-liner ว่าแต่ละไฟล์หรือกลุ่มไฟล์คืออะไร
+- แยกให้ชัดว่าไฟล์ไหนคือ source of truth และไฟล์ไหนเป็น generated/cache/output ที่สร้างใหม่ได้
+- ค่อยถาม Knowledge Check ทีละกลุ่ม ไม่ถามรวบทุกไฟล์
+
+เป้าหมายคือเช็กความเข้าใจ ไม่ใช่เช็กว่าผู้เรียนจำชื่อไฟล์จำนวนมากได้หมดในหัวหรือไม่ และลด cognitive load ตอนเจอ scaffold ที่มีไฟล์เยอะ
 
 รูปแบบที่ควรใช้:
 
 ```text
 แผนที่ก่อนตอบ:
+package.json + package-lock.json = source of truth ของ dependency
 package.json = npm scripts/dependencies
 angular.json = Angular build/serve/test config
 src/main.ts = browser entry
 src/main.server.ts = server bootstrap
 src/server.ts = Node/Express SSR server
+node_modules = generated dependency folder
+dist = generated build output
 ```
 
 แล้วค่อยถาม:
