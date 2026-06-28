@@ -1,5 +1,7 @@
 # Angular 22 Baseline
 
+> เลข version จริง (source หลัก) อยู่ที่ [`baseline.md`](../../baseline.md) — บทนี้เป็น **คำอธิบาย/snapshot** ของ baseline นั้น ถ้า bump version ให้แก้ `baseline.md` ก่อน แล้วค่อยปรับคำอธิบายในบทนี้
+
 บทนี้สรุป baseline ปัจจุบันของ Angular workspace `ApoRaviz`
 
 ใช้ไฟล์นี้เมื่อ:

@@ -65,7 +65,7 @@ folder/index.md       = หน้าแรกของโฟลเดอร์�
 VitePress ช่วยให้:
 
 - เปิดอ่านเหมือนเว็บจริง
-- แบ่งหมวด Angular, Labs, Projects, Rules ได้
+- แบ่งหมวด Angular, Labs, Commands, Rules ได้
 - search ใน docs ได้
 - build เป็น HTML static สำหรับ deploy ได้
 - ไม่ต้องสร้าง Angular app เพื่อทำเว็บเอกสาร

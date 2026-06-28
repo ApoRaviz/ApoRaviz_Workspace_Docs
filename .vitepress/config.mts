@@ -2,10 +2,12 @@ import { defineConfig } from 'vitepress';
 
 export default defineConfig({
   title: 'ApoRaviz Workspace Docs',
-  description: 'Thai-first learning hub for ApoRaviz Angular, Node.js, backend, and project case studies.',
+  description: 'Thai-first, topic-organized learning hub for ApoRaviz Angular, Node.js, backend, and tooling.',
   base: '/ApoRaviz_Workspace_Docs/',
   cleanUrls: true,
   lastUpdated: true,
+  // ไม่ render bootstrap template files เป็นหน้าเว็บ (มี [[placeholder]]) แต่เก็บ index.md ไว้อธิบายวิธีใช้
+  srcExclude: ['templates/project-bootstrap/*.template.md'],
   themeConfig: {
     logo: '/aporaviz-docs-logo.svg',
     nav: [

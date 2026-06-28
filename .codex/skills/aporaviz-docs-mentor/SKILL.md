@@ -193,7 +193,9 @@ git status --short --branch
 git diff --cached --stat
 ```
 
-5. If the user asked to push, or has established that `_docs` changes should be pushed when ready, commit and push only intentional `_docs` changes.
+5. If you edit version-controlled skill files in `_docs/.codex/skills/`, sync the same files to the global Codex skill directory (`~/.codex/skills/`) before finishing, then verify the repo copy and global copy are identical. This prevents Codex from loading stale skill instructions in the next session.
+
+6. If the user asked to push, or has established that `_docs` changes should be pushed when ready, commit and push only intentional `_docs` changes.
 
 Never stage unrelated modified files such as a stray `package-lock.json` diff unless the task requires it.
 
