@@ -125,7 +125,7 @@ templates/                = template สำหรับเขียนบทเ�
 PowerShell:
 
 ```powershell
-$env:PATH='C:\Users\tanon\AppData\Local\nvm\v24.16.0;' + $env:PATH
+nvm use 24   # version ตาม baseline.md (macOS: nvm use)
 node -v
 ```
 
@@ -222,7 +222,7 @@ PROJECT_START_HERE.md                 -> /PROJECT_START_HERE
 angular/index.md                      -> /angular/
 angular/concepts/signal.md            -> /angular/concepts/signal
 angular/labs/01-signal-counter.md     -> /angular/labs/01-signal-counter
-projects/mooping/index.md             -> /projects/mooping/
+nodejs/index.md             -> /nodejs/
 ```
 
 เพราะ config เปิด `cleanUrls: true` จึงไม่ต้องใส่ `.html` ตอนเปิดหน้า
@@ -236,7 +236,7 @@ projects/mooping/index.md             -> /projects/mooping/
 ```text
 /vitepress/
 /angular/
-/projects/mooping/
+/nodejs/
 ```
 
 ให้ใช้ไฟล์:
@@ -244,7 +244,7 @@ projects/mooping/index.md             -> /projects/mooping/
 ```text
 vitepress/index.md
 angular/index.md
-projects/mooping/index.md
+nodejs/index.md
 ```
 
 ภาพจำง่าย ๆ:
@@ -381,7 +381,7 @@ Angular CLI requires a minimum Node.js version...
 แก้:
 
 ```powershell
-$env:PATH='C:\Users\tanon\AppData\Local\nvm\v24.16.0;' + $env:PATH
+nvm use 24   # version ตาม baseline.md (macOS: nvm use)
 node -v
 ```
 
@@ -453,7 +453,7 @@ angular/labs/01-signal-counter.md
 
 ```powershell
 # ใช้ Node 24
-$env:PATH='C:\Users\tanon\AppData\Local\nvm\v24.16.0;' + $env:PATH
+nvm use 24   # version ตาม baseline.md (macOS: nvm use)
 node -v
 npm -v
 

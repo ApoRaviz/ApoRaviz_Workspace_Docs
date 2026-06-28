@@ -15,7 +15,6 @@ export default defineConfig({
       { text: 'Backend', link: '/backend/' },
       { text: 'Labs', link: '/angular/labs/' },
       { text: 'Commands', link: '/commands' },
-      { text: 'Projects', link: '/projects/' },
       { text: 'Rules', link: '/WORKSPACE_RULES' },
     ],
     sidebar: [
@@ -23,7 +22,9 @@ export default defineConfig({
         text: 'Start Here',
         items: [
           { text: 'Home', link: '/' },
+          { text: 'README', link: '/README' },
           { text: 'Project Start Here', link: '/PROJECT_START_HERE' },
+          { text: 'Workspace Baseline', link: '/baseline' },
           { text: 'Workspace Plan', link: '/WORKSPACE_PLAN' },
           { text: 'New Project Guide', link: '/NEW_PROJECT_GUIDE' },
         ],
@@ -81,13 +82,13 @@ export default defineConfig({
               { text: '08 Tailwind CSS v4', link: '/angular/teach/08-tailwind-css-v4' },
               { text: '09 Angular 22 Baseline', link: '/angular/teach/09-angular-22-baseline' },
               { text: '10 Angular Run Flow And angular.json', link: '/angular/teach/10-angular-run-flow-and-angular-json' },
+              { text: '11 Angular Config Files', link: '/angular/teach/11-angular-config-files' },
             ],
           },
           {
             text: 'Reference',
             collapsed: true,
             items: [
-              { text: 'Lessons Hub', link: '/angular/lessons/' },
               { text: 'Tailwind CSS', link: '/angular/tailwind/' },
               { text: 'Angular Commands', link: '/angular/commands' },
             ],
@@ -122,48 +123,6 @@ export default defineConfig({
           { text: 'Node.js Commands', link: '/nodejs/commands' },
           { text: 'Git Commands', link: '/git/commands' },
           { text: 'VitePress Commands', link: '/vitepress/commands' },
-        ],
-      },
-      {
-        text: 'Project Case Studies',
-        collapsed: false,
-        items: [
-          { text: 'Case Studies', link: '/projects/' },
-          {
-            text: 'MooPing Reward',
-            collapsed: true,
-            items: [
-              { text: 'MooPing Index', link: '/projects/mooping/' },
-              { text: '01 Project Idea', link: '/projects/mooping/01-project-idea' },
-              { text: '02 Screen Structure', link: '/projects/mooping/02-mooping-screen-structure' },
-              { text: '03 Loyalty Logic', link: '/projects/mooping/03-loyalty-logic' },
-              { text: '04 LINE OA Concept', link: '/projects/mooping/04-line-oa-concept' },
-              { text: '05 Portfolio Case Study', link: '/projects/mooping/05-portfolio-case-study' },
-              { text: '06 POS Correction Flow', link: '/projects/mooping/06-pos-correction-flow' },
-              { text: '07 Saved Rewards', link: '/projects/mooping/07-saved-rewards' },
-              { text: '08 Demo Refactor', link: '/projects/mooping/08-mooping-demo-refactor' },
-              { text: '09 Demo Deploy Flow', link: '/projects/mooping/09-mooping-demo-deploy-flow' },
-              { text: '10 Real Shop Hybrid Reward', link: '/projects/mooping/10-real-shop-hybrid-reward' },
-            ],
-          },
-          {
-            text: 'ApoRaviz Tools',
-            collapsed: true,
-            items: [
-              { text: 'Tools Index', link: '/projects/tools/' },
-              { text: '01 Split Order TXT Case Study', link: '/projects/tools/01-split-order-txt-case-study' },
-              { text: 'Split Order Requirement Note', link: '/projects/tools/split-order-tool-requirement' },
-            ],
-          },
-        ],
-      },
-      {
-        text: 'Docs Site',
-        collapsed: true,
-        items: [
-          { text: 'VitePress Guide', link: '/vitepress/' },
-          { text: 'VitePress Commands', link: '/vitepress/commands' },
-          { text: 'README', link: '/README' },
         ],
       },
     ],

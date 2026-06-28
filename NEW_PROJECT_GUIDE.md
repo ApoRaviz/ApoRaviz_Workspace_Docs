@@ -5,9 +5,10 @@
 ## Core Rule
 
 ```text
-ApoRaviz_Workspace_Docs = learning hub, static docs site, shared rules, case studies
-ApoRaviz_Portfolio      = profile/showcase/job site, link hub
-ApoRaviz_Mooping        = MooPing Reward app project
+ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แบบ W3Schools / shared rules
+ApoRaviz_DevEng         = โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง
+ApoRaviz_Portfolio      = profile/showcase/job site, link hub — โชว์ผลงานอย่างเดียว
+ApoRaviz_Mooping        = MooPing Reward app project (พักไว้)
 ApoRaviz_Tools          = tools/CLI/file processing project
 ApoRaviz_*              = future project repos
 ```
@@ -39,7 +40,7 @@ postgresql/index.md
 ## Default Frontend Stack
 
 - Angular latest stable
-- Node 24+ เป็นค่า default ของ workspace
+- Node ตาม [`baseline.md`](baseline.md)
 - TypeScript strict
 - Tailwind CSS latest stable
 - Standalone components
@@ -57,7 +58,7 @@ Angular app ของ ApoRaviz ใช้ Tailwind CSS เป็น styling syste
 Angular frontend
 -> NestJS backend API
 -> PostgreSQL/Supabase database
--> Node.js 24+ runtime
+-> Node runtime (ตาม baseline.md)
 ```
 
 ใช้ NestJS เมื่อ:
@@ -99,33 +100,32 @@ Angular frontend
 
 ## Default Project Docs
 
-โปรเจกต์ลูกควรมีเอกสารที่จำเป็นต่อการทำงานของ app:
+โปรเจกต์ลูกต้องมีอย่างน้อย `README.md` ที่บอกว่า **โปรเจกต์นี้ทำอะไร / รันยังไง / สถานะ** ส่วนเอกสารอื่นเพิ่มเมื่อจำเป็นเท่านั้น
 
 ```text
-README.md
-progress.md
+README.md            = บังคับ (ทำอะไร, รันยังไง, สถานะ)
+progress.md          = optional เมื่ออยากเก็บความคืบหน้า
 docs/
-  architecture.md
-  commands.md
-  design-direction.md
-  implementation-plan.md
-  product-spec.md
+  product-spec.md       = optional เมื่อ scope เริ่มใหญ่
+  implementation-plan.md = optional เมื่อมีแผนหลาย step
+  commands.md            = optional เมื่อมี command เฉพาะ repo
+  design-direction.md    = optional สำหรับ UI app
+  architecture.md        = optional เมื่อ architecture ซับซ้อน
 .codex/
-  skills/<project-name>/SKILL.md
+  skills/<project-name>/SKILL.md = optional เมื่อมี domain rule สำคัญ
 ```
 
-ไม่สร้าง `docs/teach/` เป็น default ในโปรเจกต์ลูกแล้ว
+ไม่สร้าง `docs/teach/` เป็น default ในโปรเจกต์ลูก — บทเรียน reusable ไปอยู่ใน Workspace Docs ตาม topic แทน
 
-ถ้ามีบทเรียนที่ใช้สอนได้ ให้เก็บที่:
+ถ้ามีบทเรียน reusable ที่ใช้สอนได้ ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง:
 
 ```text
-projects/<project-name>/ = case study จากโปรเจกต์จริง
-angular/                 = Angular/Tailwind concept กลาง
-nodejs/                  = Node.js/CLI/file processing concept กลาง
-backend/                 = backend architecture กลาง
-nestjs/                  = NestJS pattern
-postgresql/              = PostgreSQL/Supabase concept
-git/                     = Git command กลาง
+angular/      = Angular/Tailwind concept กลาง
+nodejs/       = Node.js/CLI/file processing concept กลาง
+backend/      = backend architecture กลาง
+nestjs/       = NestJS pattern
+postgresql/   = PostgreSQL/Supabase concept
+git/          = Git command กลาง
 ```
 
 ## What Goes Where
@@ -139,8 +139,8 @@ NestJS backend pattern              -> nestjs/
 Fastify decision/pattern            -> backend/fastify.md
 PostgreSQL/Supabase concept         -> postgresql/
 Git command pattern                 -> git/
-Business/UX lesson จากโปรเจกต์จริง  -> projects/<project-name>/
-Product spec / implementation plan  -> repo ของโปรเจกต์นั้น
+บทเรียน reusable จากโปรเจกต์จริง    -> ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
+Product spec / implementation plan  -> repo ของโปรเจกต์นั้น (README เป็นหลัก)
 Repo URL / port / base-href command -> repo ของโปรเจกต์นั้น docs/commands.md
 Portfolio showcase                  -> ApoRaviz_Portfolio
 ```

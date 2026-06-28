@@ -41,16 +41,7 @@ repo นี้เก็บเฉพาะความรู้กลางขอ
 
 ## How To Use
 
-ก่อนเริ่มงานแต่ละวัน ให้อ่านตามลำดับ:
-
-1. `_docs/README.md`
-2. `_docs/PROJECT_START_HERE.md` ถ้าเริ่มโปรเจกต์ใหม่
-3. `_docs/NEW_PROJECT_GUIDE.md`
-4. `_docs/WORKSPACE_PLAN.md`
-5. `_docs/angular/index.md` ถ้างานเกี่ยวกับ Angular
-6. เอกสารในโปรเจกต์จริง เช่น `ApoRaviz_Mooping/docs/implementation-plan.md`
-7. `projects/` ถ้าต้องการอ่าน case study จากโปรเจกต์จริง
-8. `vitepress/index.md` ถ้าต้องการรันหรือแก้เว็บ docs
+ลำดับการอ่านเริ่มงาน (read order) เก็บไว้ที่เดียวใน [`PROJECT_START_HERE.md`](./PROJECT_START_HERE.md) เพื่อไม่ให้ลำดับซ้ำและขัดกันหลายไฟล์
 
 ## Static Site
 
@@ -76,11 +67,7 @@ vitepress/index.md
 
 ## Project Roles
 
-```text
-_docs/                 = ความจำกลาง ใช้กับทุกโปรเจกต์ในอนาคต
-ApoRaviz_Portfolio/    = profile หลักและ hub ที่ link ไปโปรเจกต์ต่าง ๆ
-ApoRaviz_Mooping/     = โปรเจกต์ลูกตัวแรก ระบบขาย/สะสมสิทธิ์หมูปิ้ง
-```
+ตาราง role/status ของทุก repo เก็บไว้ที่เดียวใน [`WORKSPACE_PLAN.md`](./WORKSPACE_PLAN.md) หัวข้อ Project Registry เพื่อไม่ให้ข้อมูลโปรเจกต์ซ้ำหลายไฟล์
 
 ## Ownership Rule
 
@@ -91,9 +78,9 @@ ApoRaviz_Mooping/     = โปรเจกต์ลูกตัวแรก ร�
 - Angular commands กลางอยู่ใน `_docs/angular/commands.md`
 - Git commands กลางอยู่ใน `_docs/git/commands.md`
 - Skills กลางอธิบายใน `_docs/NEW_PROJECT_GUIDE.md`; skill เฉพาะโปรเจกต์อยู่ใน `.codex/skills/<project>/SKILL.md`
-- Angular teach กลางอยู่ใน `_docs/angular/teach/`; case study จากโปรเจกต์จริงอยู่ใน `_docs/projects/`
+- Angular teach กลางอยู่ใน `_docs/angular/teach/`; บทเรียน reusable จากโปรเจกต์จริงให้ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
 - แผนละเอียดของโปรเจกต์ต้องอยู่ใน `docs/implementation-plan.md` และใช้ checkbox `[x]`
-- Project repo ไม่ควรมี learning docs แยกยาว ๆ ถ้าจะใช้สอน ให้ย้ายหรือสรุปกลับมาไว้ที่ `_docs/projects/` หรือ `_docs/angular/`
+- Project repo ไม่ควรมี learning docs แยกยาว ๆ ถ้าจะใช้สอน ให้สรุปกลับมาเป็นความรู้ตาม topic ที่ `_docs/angular/`, `_docs/nodejs/` ฯลฯ
 
 ## Rule
 
@@ -114,7 +101,7 @@ teach = เรื่องนี้สอนอะไร
 - ถ้าเป็น Angular command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `_docs/angular/commands.md`
 - ถ้าเป็น Git command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `_docs/git/commands.md`
 - ถ้าเป็นบทเรียน Angular/SSR/testing/component/CI ที่ใช้ได้ทุกโปรเจกต์ ให้เพิ่มใน `_docs/angular/teach/`
-- ถ้าเป็นบทเรียนเฉพาะ domain, UX, business rule หรือ bug ของโปรเจกต์ที่ใช้สอนได้ ให้เพิ่มใน `_docs/projects/<project>/`
+- ถ้าเป็นบทเรียน reusable จากโปรเจกต์ (เช่น UX, bug, decision ที่ใช้ซ้ำได้) ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `_docs` เป็นตัวอย่าง ส่วนที่เฉพาะโปรเจกต์ให้อยู่ใน README ของ repo นั้น
 - ถ้าบทเรียนหรือ command ใช้ได้ทุกโปรเจกต์และเป็น rule สั้น ๆ ให้สรุปใน `_docs/NEW_PROJECT_GUIDE.md`
 - ถ้า project repo เริ่มมีบทเรียนยาว ให้ย้ายกลับ `_docs` แล้วเหลือในโปรเจกต์แค่ product spec, implementation plan, commands หรือ system docs ที่จำเป็นต่อ app นั้น
 - ถ้าเป็นสิ่งที่ทำเสร็จแล้ว ให้เพิ่มใน `progress.md`

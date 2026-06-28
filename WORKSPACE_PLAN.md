@@ -12,7 +12,7 @@ TEACHING_RULES.md
 AI_UPDATE_RULE.md
 ```
 
-เป้าหมายถัดไปคือจัดโครงบทเรียน Angular ให้เป็น `concepts`, `lessons`, และ `labs` ก่อนเริ่มทำ VitePress
+เป้าหมายถัดไปคือจัดโครงบทเรียน Angular ให้เป็น `concepts`, `teach`, และ `labs` ก่อนเริ่มทำ VitePress
 
 ไฟล์นี้เป็น project registry และแผนรวมของ workspace `ApoRaviz` ใช้ดูภาพใหญ่ว่ามีโปรเจกต์อะไร กำลังทำอะไร และโปรเจกต์ใหม่ควรเข้าระบบอย่างไร
 
@@ -31,10 +31,11 @@ AI_UPDATE_RULE.md
 
 | Project | GitHub Repo | Role | Status | Source Of Truth |
 |---|---|---|---|---|
-| `_docs` | `ApoRaviz_Workspace_Docs` | เอกสารกลางของ workspace | Active | `_docs/WORKSPACE_PLAN.md` |
-| `ApoRaviz_Portfolio` | `ApoRaviz_Portfolio` | Profile หลักและ project hub | Active | `ApoRaviz_Portfolio/docs/implementation-plan.md` |
-| `ApoRaviz_Mooping` | `ApoRaviz_Mooping` | โปรเจกต์ลูกตัวแรก: ระบบขาย/สะสมสิทธิ์หมูปิ้ง | Active | `ApoRaviz_Mooping/docs/implementation-plan.md` |
-| Future project | `ApoRaviz_ProjectName` | เพิ่มเมื่อเริ่มโปรเจกต์ใหม่ | Backlog | `Project/docs/implementation-plan.md` |
+| `_docs` | `ApoRaviz_Workspace_Docs` | ความรู้กลางตาม topic แบบ W3Schools | Active | `_docs/WORKSPACE_PLAN.md` |
+| `ApoRaviz_DevEng` | `ApoRaviz_DevEng` | โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง | Active | `ApoRaviz_DevEng/README.md` |
+| `ApoRaviz_Portfolio` | `ApoRaviz_Portfolio` | โชว์ผลงาน/สมัครงาน/link hub อย่างเดียว | Active | `ApoRaviz_Portfolio/README.md` |
+| `ApoRaviz_Mooping` | `ApoRaviz_Mooping` | ระบบขาย/สะสมสิทธิ์หมูปิ้ง | Paused | `ApoRaviz_Mooping/README.md` |
+| Future project | `ApoRaviz_ProjectName` | เพิ่มเมื่อเริ่มโปรเจกต์ใหม่ | Backlog | `Project/README.md` |
 
 ## Current Focus
 
@@ -87,7 +88,7 @@ AI_UPDATE_RULE.md
 - [ ] 2.7 เพิ่ม `docs/architecture.md`
 - [ ] 2.8 เพิ่ม `docs/implementation-plan.md`
 - [ ] 2.9 เพิ่ม `docs/commands.md`
-- [ ] 2.10 ถ้ามีบทเรียนจากโปรเจกต์จริง ให้เพิ่มที่ `projects/<project-name>/`
+- [ ] 2.10 ถ้ามีบทเรียน reusable จากโปรเจกต์จริง ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `_docs` เป็นตัวอย่าง
 
 ### Step 3 - MVP
 

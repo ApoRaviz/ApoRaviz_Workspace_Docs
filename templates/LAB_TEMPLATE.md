@@ -9,7 +9,7 @@
 ## ก่อนเริ่มต้องรู้
 
 - [[Concept]]: `../concepts/concept-file.md`
-- [[Lesson]]: `../lessons/lesson-file.md`
+- [[Lesson]]: `../teach/lesson-file.md`
 
 ## ภาพจำง่าย ๆ
 

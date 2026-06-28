@@ -25,15 +25,16 @@ npm -v
 npx ng version
 ```
 
-ถ้า command ใน sandbox หรือ automation หา Node ไม่เจอ ให้บังคับ path แบบชัดเจน:
+ถ้า command หา Node ไม่เจอ ให้เลือก version ก่อน (machine-agnostic ใช้ได้ทั้ง PC/Mac):
 
 ```bash
-PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH npm run build
+# macOS: nvm use   |  Windows: nvm use <version จาก .nvmrc>
+npm run build
 ```
 
 บทเรียน:
 
-- Angular project ใน workspace นี้ยึด Node 24 LTS เป็นค่าเริ่มต้น
+- Angular project ใน workspace นี้ยึด Node ตาม [`baseline.md`](../baseline.md)
 - ถ้า Angular major ใหม่ต้องใช้ Node ต่ำสุดสูงขึ้น ให้เช็ก `angular.dev/reference/versions` ก่อนสร้าง project
 - ถ้า build ผ่านในเครื่องแต่ fail ใน CI ให้เช็ก Node version ก่อน
 - command ที่ส่งให้ Codex ใช้ควรระบุ Node path เมื่อ project เคยมีปัญหา version ไม่ตรง
@@ -251,7 +252,8 @@ npm test
 ## Angular CLI New Project
 
 ```bash
-PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH \
+# เลือก Node version ก่อน: macOS `nvm use`, Windows `nvm use <version>`
+# ใช้ Angular version ตาม baseline.md (ปัจจุบัน 22)
 npx -y @angular/cli@22.0.0 new New_Project_Name --routing --style css --ssr --skip-git --package-manager npm
 ```
 

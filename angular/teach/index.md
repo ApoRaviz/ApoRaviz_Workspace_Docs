@@ -18,13 +18,13 @@
 10. [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
 11. [Angular Config Files](11-angular-config-files.md)
 
-## How To Read With Case Studies
+## How To Read With Real Projects
 
 ```text
 อ่าน concept กลางใน angular/teach/
--> เปิด projects/<project-name>/ เพื่อดูตัวอย่างจริง
+-> เปิด repo ของโปรเจกต์จริง (เช่น ApoRaviz_DevEng, ApoRaviz_Portfolio) เพื่อดูตัวอย่าง
 -> เปิด source code ของโปรเจกต์ถ้าต้องการดู implementation
--> ถ้าเจอ rule ที่ใช้ซ้ำได้ ให้กลับมาอัปเดต angular/
+-> ถ้าเจอ rule reusable ให้กลับมาเพิ่มเป็นตัวอย่างในหน้า topic ของ angular/
 ```
 
 ตัวอย่าง:

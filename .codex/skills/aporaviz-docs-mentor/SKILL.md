@@ -81,9 +81,10 @@ Git term/concept              -> git/concepts/<term>.md, create index if missing
 VitePress/docs-site concept   -> vitepress/concepts/<term>.md, create index if missing
 Tailwind concept/pattern      -> angular/tailwind/ or angular/concepts/ depending on scope
 Command syntax/pattern        -> relevant commands.md, with links to concept pages
-Flow/process                  -> lessons/ or teach/ page
+Flow/process                  -> teach/ page
 Small exercise                -> labs/
-Project-specific teaching     -> projects/<project-name>/
+Reusable lesson from a project -> fold into the related topic page as an example
+Project-specific detail        -> that project repo README/docs
 ```
 
 Every concept page should be one concept only and include:
@@ -177,10 +178,10 @@ Before finishing `_docs` work:
 
 1. Check whether new terms need concept pages.
 2. Check whether new pages need index/sidebar links.
-3. Run VitePress build with Node 24 when files changed:
+3. Run VitePress build with the baseline Node (see `baseline.md`) when files changed. Select the version machine-agnostically (macOS `nvm use`, Windows `nvm use <version>`), then:
 
 ```bash
-PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH npm run docs:build
+npm run docs:build
 ```
 
 4. Check git status inside `_docs`:

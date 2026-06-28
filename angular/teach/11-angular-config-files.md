@@ -51,6 +51,147 @@ Prettier     = code หน้าตาแบบไหน
 VS Code      = editor ใช้เครื่องมืออะไร
 ```
 
+## Angular Scaffold File Map
+
+เวลา `ng new` สร้าง project ใหม่ อย่าเริ่มจากการเปิด `src/app` ทันที ให้แยกไฟล์ระดับ root เป็นกลุ่มก่อน:
+
+```text
+Project docs
+- README.md
+- AGENTS.md
+- CLAUDE.md
+
+npm/dependency
+- package.json
+- package-lock.json
+- node_modules/
+
+Angular/TypeScript config
+- angular.json
+- tsconfig.json
+- tsconfig.app.json
+- tsconfig.spec.json
+
+Source/assets
+- src/
+- public/
+
+Tooling/editor/git
+- .editorconfig
+- .prettierrc
+- .gitignore
+- .vscode/
+
+Generated/cache/output
+- .angular/
+- dist/
+```
+
+ภาพจำ:
+
+```text
+root project = แผงควบคุมและกติกาของบ้าน
+src/         = ห้องที่เราเขียน code app จริง
+public/      = ชั้นวาง static asset ที่ copy ไปกับ build เช่น favicon หรือรูป
+node_modules = dependency ที่ npm ดาวน์โหลดมา
+dist/        = output ที่สร้างจาก npm run build
+```
+
+จุดสำคัญ:
+
+```text
+package.json + package-lock.json = source of truth ของ dependency
+node_modules = ของที่ติดตั้งจาก source of truth นั้น
+
+src + angular.json + tsconfig* = source/config ที่ใช้ build app
+dist = ผลลัพธ์หลัง build ไม่ใช่ไฟล์ที่เราแก้เอง
+```
+
+ดังนั้นตอนอ่าน project ใหม่รอบแรก ควร exclude `node_modules/` และ `dist/` ออกจากแผนที่ก่อน เพราะสองโฟลเดอร์นี้ใหญ่และสร้างใหม่ได้
+
+ตัวอย่างคำสั่ง:
+
+```bash
+find . -maxdepth 2 -not -path './node_modules*' -not -path './dist*' -print | sort
+```
+
+ถ้าต้องการดู flow ว่า command ไปอ่าน `package.json`, `angular.json`, `main.ts` อย่างไร ให้อ่านต่อที่ [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
+
+ถ้าต้องการดู SSR files เช่น `main.server.ts`, `server.ts`, `app.routes.server.ts` ให้อ่านต่อที่ [App Config, SSR และ Hydration](03-app-config-ssr-hydration.md)
+
+### src/app File Map
+
+ใน Angular standalone app ที่ `ng new` สร้างมา `src/app` มักมีไฟล์เป็นครอบครัวเดียวกัน:
+
+```text
+src/app/app.ts
+src/app/app.html
+src/app/app.css
+src/app/app.spec.ts
+src/app/app.config.ts
+src/app/app.config.server.ts
+src/app/app.routes.ts
+src/app/app.routes.server.ts
+```
+
+ให้แยกเป็น 2 กลุ่มก่อน:
+
+```text
+Root component family
+- app.ts
+- app.html
+- app.css
+- app.spec.ts
+
+App setup family
+- app.config.ts
+- app.config.server.ts
+- app.routes.ts
+- app.routes.server.ts
+```
+
+ความหมายแบบจำง่าย:
+
+```text
+app.ts   = component class, selector, imports, state
+app.html = template ของ root component
+app.css  = style เฉพาะ root component
+app.spec.ts = test ของ root component
+
+app.config.ts = provider/config ฝั่ง browser
+app.config.server.ts = provider/config ฝั่ง server
+app.routes.ts = client route config
+app.routes.server.ts = server render route config
+```
+
+จุดที่มักงง:
+
+```text
+app.ts ไม่ใช่ไฟล์ test
+app.spec.ts คือไฟล์ test ที่ทดสอบ app.ts/app.html behavior
+```
+
+ใน standalone component ถ้า template ใช้ component/directive อื่น เช่น `<router-outlet />` ต้องมี import ใน component:
+
+```ts
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.css',
+})
+export class App {}
+```
+
+อ่านว่า:
+
+```text
+imports: [RouterOutlet]
+= app.html ใช้ <router-outlet /> ได้
+```
+
+ถ้าต้องการดูว่า `<app-root>` ใน `index.html` จับกับ `selector: 'app-root'` อย่างไร ให้อ่านต่อที่ [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
+
 ## Flow เวลาเรารัน command
 
 ตัวอย่าง:

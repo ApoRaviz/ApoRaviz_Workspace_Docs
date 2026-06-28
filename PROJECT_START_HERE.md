@@ -17,9 +17,10 @@
 ## Current Roles
 
 ```text
-ApoRaviz_Workspace_Docs = learning hub และ source of truth
-ApoRaviz_Portfolio      = profile/showcase/link hub
-ApoRaviz_Mooping        = app project ที่หยุดไว้ก่อน
+ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แบบ W3Schools / source of truth
+ApoRaviz_DevEng         = โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง
+ApoRaviz_Portfolio      = profile/showcase/link hub — โชว์ผลงานอย่างเดียว
+ApoRaviz_Mooping        = app project ที่พักไว้ก่อน
 ```
 
 ## Before Coding A New Project
@@ -35,7 +36,7 @@ ApoRaviz_Mooping        = app project ที่หยุดไว้ก่อน
 - [ ] เขียน `docs/commands.md`
 - [ ] ถ้าเป็น UI app ให้เขียน `docs/design-direction.md`
 - [ ] ถ้า architecture เริ่มซับซ้อน ให้เขียน `docs/architecture.md`
-- [ ] ถ้ามีบทเรียน/case study ให้เพิ่มที่ `ApoRaviz_Workspace_Docs/projects/<project-name>/`
+- [ ] ถ้ามีบทเรียน reusable จากงานจริง ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `ApoRaviz_Workspace_Docs` เป็นตัวอย่าง
 
 ## Do Not
 

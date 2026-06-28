@@ -16,20 +16,12 @@ commands.md = command กลางของ Angular
 
 ## Recommended Order
 
-1. [Angular Commands](commands.md)
-2. [Angular Teach Index](teach/)
-3. [Angular Concepts](concepts/)
-4. [Reactive State และ Signals](teach/01-reactive-signals.md)
-5. [Services และ Dependency Injection](teach/02-services-dependency-injection.md)
-6. [App Config, SSR และ Hydration](teach/03-app-config-ssr-hydration.md)
-7. [Browser APIs และ SSR Safety](teach/04-browser-apis-ssr-safety.md)
-8. [Component Structure และ Data Flow](teach/05-component-structure-data-flow.md)
-9. [Unit Test และ Regression Safety](teach/06-unit-test-regression.md)
-10. [CI/CD และ GitHub Pages](teach/07-cicd-github-pages.md)
-11. [Tailwind CSS v4 ใน Angular](teach/08-tailwind-css-v4.md)
-12. [Angular 22 Baseline](teach/09-angular-22-baseline.md)
-13. [Angular Run Flow And angular.json](teach/10-angular-run-flow-and-angular-json.md)
-14. [Angular Config Files](teach/11-angular-config-files.md)
+1. [Angular Commands](commands.md) — command พื้นฐานก่อนลงมือ
+2. [Angular Teach Index](teach/) — บทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 01–11 อยู่ที่นี่ที่เดียว)
+3. [Angular Concepts](concepts/) — เปิดดูศัพท์/แนวคิดเป็นเรื่อง ๆ ตอนติด
+4. [Angular Labs](labs/) — ลองทำ lab สั้น ๆ หลังอ่าน concept
+
+> ลำดับบทเรียนเต็มเก็บไว้ที่ [Angular Teach Index](teach/) ที่เดียว เพื่อไม่ให้เลขบทเรียนซ้ำซ้อนและ drift กันหลายหน้า
 
 ## What Belongs Here
 
@@ -56,8 +48,8 @@ commands.md = command กลางของ Angular
 ## Update Rule
 
 ```text
-ใช้ได้โปรเจกต์เดียวและเป็น case study -> projects/<name>/
-ใช้ได้ทุก Angular app -> angular/
+เฉพาะโปรเจกต์เดียว -> README/docs ของ repo นั้น
+ใช้ได้ทุก Angular app -> angular/ (ซึมบทเรียนจากงานจริงเป็นตัวอย่างในหน้า topic)
 เป็น command เฉพาะ repo -> Project/docs/commands.md
 เป็น command pattern กลาง -> angular/commands.md
 ```

@@ -6,21 +6,23 @@
 
 ## Core Direction
 
-`ApoRaviz_Workspace_Docs` คือศูนย์กลางความรู้ การเรียน การสอน และกติกาการเริ่มโปรเจกต์ของ `ApoRaviz_*`
+`ApoRaviz_Workspace_Docs` คือ **ความรู้กลางตาม topic แบบ W3Schools ของ ApoRaviz** — เว็บอ้างอิงไว้เรียน/เปิดย้อนหลังเรื่อง Angular, Tailwind, Node.js, backend, database, Git และ command ของตัวเอง
 
 repo นี้ต้องเป็น:
 
-- เอกสารกลางสำหรับตัวเอง
+- เอกสารกลางจัด**ตาม topic** ไม่ใช่ตามโปรเจกต์หรือตามเวลา
 - เว็บ static สำหรับอ่านและเรียนรู้
 - source of truth สำหรับ Angular, Tailwind CSS, Node.js, backend, database, command, workflow และ project startup rule
-- ที่เก็บ case study จากโปรเจกต์จริง
+
+ความรู้ reusable จากโปรเจกต์จริงให้**ซึมเข้าหน้า topic เป็นตัวอย่าง** (เช่น "เจอตอนทำ Portfolio") ไม่เก็บเป็น case study แยกตามโปรเจกต์
 
 ## Project Roles
 
 ```text
-ApoRaviz_Workspace_Docs = learning hub, teaching site, workspace rules, shared knowledge
-ApoRaviz_Portfolio      = profile, resume, showcase, job application site, link hub
-ApoRaviz_Mooping        = MooPing Reward app project
+ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แบบ W3Schools / source of truth / workspace rules
+ApoRaviz_DevEng         = โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง (hands-on)
+ApoRaviz_Portfolio      = profile / showcase / job site / link hub — โชว์ผลงานอย่างเดียว ไม่ใช่ที่เรียน
+ApoRaviz_Mooping        = MooPing Reward app (พักไว้)
 ApoRaviz_Tools          = tools/CLI/file processing project
 ApoRaviz_*              = future project repos that must follow workspace rules
 ```
@@ -41,6 +43,8 @@ Portfolio ไม่ควร:
 - เก็บ Angular/Node/backend concept กลางซ้ำ
 - เป็นแหล่งอ้างอิงหลักของบทเรียน
 - บังคับให้คนเรียนต้องอ่าน code ใน Portfolio เพื่อเข้าใจ concept กลาง
+
+การเรียน/ฝึก dev จริงจังย้ายไปทำที่ `ApoRaviz_DevEng` แล้ว Portfolio เหลือหน้าที่โชว์ผลงานอย่างเดียว
 
 ## Workspace Docs Rule
 
@@ -107,7 +111,7 @@ Standalone components
 Angular Router
 Angular signals
 SSR/prerender เมื่อเหมาะกับงาน
-Node.js 24+
+Node = ตาม baseline.md
 ```
 
 Angular กับ Tailwind ต้องเรียนคู่กัน เพราะโปรเจกต์จริงของ ApoRaviz ใช้ Tailwind CSS เป็น styling system หลัก
@@ -120,7 +124,7 @@ Angular กับ Tailwind ต้องเรียนคู่กัน เพ�
 Frontend = Angular + Tailwind CSS
 Backend  = NestJS
 Database = PostgreSQL หรือ Supabase
-Runtime  = Node.js 24+
+Runtime  = Node (ตาม baseline.md)
 ```
 
 เหตุผล:
@@ -143,15 +147,16 @@ Fastify ใช้ได้เมื่อ:
 
 ## Node Rule
 
-ทุก Angular/VitePress/Node/backend command ใน workspace นี้ต้องใช้ Node 24+ เป็นค่า default
+ทุก Angular/VitePress/Node/backend command ใช้ Node version ตาม **baseline ปัจจุบัน** ดู [`baseline.md`](baseline.md)
 
-สำหรับเครื่อง Windows นี้ ถ้า shell ยังชี้ไป Node เก่า ให้ prepend path ของ Node 24 ก่อนรันคำสั่ง:
+เลือก version แบบ machine-agnostic (ใช้ได้ทั้ง PC และ Mac) ผ่าน `.nvmrc` ของ repo:
 
-```powershell
-$env:PATH='C:\Users\tanon\AppData\Local\nvm\v24.16.0;' + $env:PATH
+```bash
+# macOS:   nvm use            (อ่าน .nvmrc)
+# Windows: nvm use <version>  (nvm-windows ไม่อ่าน .nvmrc)
 ```
 
-เหตุผลคือ Angular 22 ต้องการ Node ที่รองรับตาม range ใหม่ และ workspace นี้ล็อกแนวทางไว้ที่ Node 24 LTS
+**ห้าม hardcode path เต็มของ Node** ในกฏ/บทเรียน/สคริปต์ เพราะ PC กับ Mac path ต่างกัน — `.nvmrc` + `baseline.md` คือความจริงเดียว
 
 ## Learning Capture Rule
 
@@ -168,8 +173,8 @@ NestJS pattern                           -> nestjs/
 Fastify decision/pattern                 -> backend/fastify.md
 PostgreSQL/Supabase concept              -> postgresql/
 Git workflow                             -> git/commands.md
-business/UX case study จากโปรเจกต์จริง  -> projects/<project-name>/
-product spec/plan/command เฉพาะ app      -> repo ของโปรเจกต์นั้น
+บทเรียน reusable จากโปรเจกต์จริง        -> ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
+product spec/plan/command เฉพาะ app      -> repo ของโปรเจกต์นั้น (README เป็นหลัก)
 portfolio showcase                       -> ApoRaviz_Portfolio
 ```
 

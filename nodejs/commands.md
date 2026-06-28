@@ -30,12 +30,13 @@ which node
 which npm
 ```
 
-คาดหวังให้ `node` และ `npm` ชี้ไป path ของ Node 24 ชุดเดียวกัน เช่น `.../.nvm/versions/node/v24.16.0/bin/...`
+คาดหวังให้ `node` และ `npm` ชี้ไป Node version เดียวกันตาม [`baseline.md`](../baseline.md)
 
-บน Windows ถ้า shell ยังชี้ไป Node เก่า:
+ถ้า shell ชี้ไป Node เก่า ให้เลือก version (machine-agnostic):
 
-```powershell
-$env:PATH='C:\Users\[[Windows username]]\AppData\Local\nvm\v24.16.0;' + $env:PATH
+```bash
+# macOS:   nvm use            (อ่าน .nvmrc)
+# Windows: nvm use <version>  (nvm-windows ไม่อ่าน .nvmrc)
 node -v
 ```
 

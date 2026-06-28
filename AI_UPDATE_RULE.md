@@ -38,9 +38,10 @@ ApoRaviz_Workspace_Docs/postgresql/index.md
 ## Source Of Truth
 
 ```text
-ApoRaviz_Workspace_Docs = ความรู้กลางและบทเรียน
-ApoRaviz_Portfolio      = เว็บ profile/showcase/link hub
-ApoRaviz_Mooping        = app project MooPing Reward
+ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แบบ W3Schools / source of truth
+ApoRaviz_DevEng         = โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง
+ApoRaviz_Portfolio      = เว็บ profile/showcase/link hub — โชว์ผลงานอย่างเดียว
+ApoRaviz_Mooping        = app project MooPing Reward (พักไว้)
 ApoRaviz_Tools          = tools project และ CLI/file processing project
 ```
 
@@ -83,8 +84,8 @@ AI ต้องพิจารณาอัปเดต docs กลางเม�
 เจอ step เริ่มงาน                       -> PROJECT_START_HERE.md
 เจอแผนระดับ workspace                  -> WORKSPACE_PLAN.md
 เจอ teaching pattern ใหม่               -> TEACHING_RULES.md
-เจอ project-specific business rule      -> docs ของโปรเจกต์นั้น
-เจอ project case study ที่ใช้สอนได้     -> projects/<project-name>/
+เจอ project-specific business rule      -> README/docs ของโปรเจกต์นั้น
+เจอบทเรียน reusable จากโปรเจกต์จริง     -> ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
 เจอ portfolio showcase content          -> ApoRaviz_Portfolio
 ```
 

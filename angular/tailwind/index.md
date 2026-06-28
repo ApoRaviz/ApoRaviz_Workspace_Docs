@@ -87,7 +87,7 @@ Tailwind class = สติกเกอร์คำสั่งเล็ก ๆ �
 
 ```text
 angular/tailwind/concepts/
-angular/tailwind/lessons/
+angular/tailwind/teach/
 angular/tailwind/labs/
 ```
 

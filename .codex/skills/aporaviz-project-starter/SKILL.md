@@ -73,26 +73,26 @@ _docs/TEACHING_RULES.md when reusable learning appears
 
 For a new `ApoRaviz_*` project, do this in order:
 
-1. Confirm or infer the project name, user, problem, and first usable flow.
+1. Confirm or infer the project name, user, problem, first usable flow, and **Project Mode** (`learning` or `build`).
 2. Check `_docs/NEW_PROJECT_GUIDE.md` for the current baseline.
 3. Decide what belongs in the project repo vs `_docs`.
 4. Scaffold the repo/app only after the purpose and docs shape are clear.
-5. Create project docs before or alongside code.
+5. **Stamp the bootstrap templates** from `_docs/templates/project-bootstrap/` into the new repo: `AGENTS.template.md` -> `AGENTS.md`, `CLAUDE.template.md` -> `CLAUDE.md`, `README.template.md` -> `README.md`. Fill every `[[placeholder]]` and add a `.nvmrc` (major version only, e.g. `24`).
 6. Run build/test when possible.
-7. Update `_docs` if new reusable learning appears.
+7. Update `_docs` only when genuinely new reusable learning appears (more in learning mode, deltas-only in build mode).
 
 ## Default Project Docs
 
-A new app repo should have project-specific docs such as:
+A new app repo requires only `README.md` (what it does, how to run, status). Add other docs only when the project actually needs them:
 
 ```text
-README.md
-progress.md
-docs/product-spec.md
-docs/implementation-plan.md
-docs/commands.md
-docs/design-direction.md for UI apps
-docs/architecture.md when architecture is nontrivial
+README.md                = required (what it does, how to run, status)
+progress.md              = optional
+docs/product-spec.md     = optional, when scope grows
+docs/implementation-plan.md = optional, when there are multi-step plans
+docs/commands.md         = optional, for repo-specific commands
+docs/design-direction.md = optional, for UI apps
+docs/architecture.md     = optional, when architecture is nontrivial
 ```
 
 Project docs should store project-specific details:
@@ -113,9 +113,9 @@ For frontend projects in this workspace, default to:
 
 ```text
 Angular latest stable
-Node 24 LTS
+Node = per _docs/baseline.md
 TypeScript strict
-Tailwind CSS v4
+Tailwind CSS latest stable
 Standalone components
 Angular Router
 Angular signals
@@ -123,15 +123,18 @@ SSR/prerender when appropriate for public/demo apps
 npm package manager
 ```
 
-Use the current command pattern from `_docs/angular/commands.md`. Do not rely on stale remembered versions.
+Use exact versions from `_docs/baseline.md` and command patterns from `_docs/angular/commands.md`. Do not rely on stale remembered versions.
 
 ## Angular Project Creation
 
 When scaffolding an Angular app, prefer the workspace pattern:
 
 ```bash
-PATH=/Users/aporaviz/.nvm/versions/node/v24.16.0/bin:$PATH npx -y @angular/cli@<current-baseline> new ApoRaviz_ProjectName --routing --style css --ssr --skip-git --package-manager npm
+# เลือก Node version ก่อน (machine-agnostic): macOS `nvm use`, Windows `nvm use <version>`
+npx -y @angular/cli@<current-baseline> new ApoRaviz_ProjectName --routing --style css --ssr --skip-git --package-manager npm
 ```
+
+อย่า hardcode path เต็มของ Node (เช่น `/Users/.../v24.16.0/bin`) เพราะ PC กับ Mac path ต่างกัน — ใช้ `.nvmrc` + `nvm use` เป็นความจริงเดียว
 
 Then verify:
 
@@ -148,15 +151,15 @@ During project work, actively check for reusable learning:
 
 ```text
 new Angular term/API          -> _docs/angular/concepts/
-new Angular flow              -> _docs/angular/lessons/ or _docs/angular/teach/
+new Angular flow              -> _docs/angular/teach/
 small reusable exercise        -> _docs/angular/labs/
 Tailwind pattern               -> _docs/angular/tailwind/
 Git concept                    -> _docs/git/concepts/ if present, otherwise create the structure
 Git command pattern            -> _docs/git/commands.md
 VitePress concept              -> _docs/vitepress/concepts/ if present, otherwise create the structure
 VitePress command pattern      -> _docs/vitepress/commands.md
-project business lesson        -> _docs/projects/<project-name>/
-project-specific detail        -> project repo docs/
+reusable lesson from a project -> fold into the related _docs topic page as an example
+project-specific detail        -> project repo README/docs
 ```
 
 Never leave useful knowledge only in chat.

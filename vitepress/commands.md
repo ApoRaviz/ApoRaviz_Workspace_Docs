@@ -6,12 +6,12 @@
 
 ## Runtime Check
 
-repo นี้ใช้ Node 24+
+repo นี้ใช้ Node ตาม [`baseline.md`](../baseline.md)
 
-PowerShell:
+เลือก version (machine-agnostic — Windows ใช้ `nvm use <version>`, macOS ใช้ `nvm use`):
 
-```powershell
-$env:PATH='C:\Users\tanon\AppData\Local\nvm\v24.16.0;' + $env:PATH
+```bash
+nvm use
 node -v
 npm -v
 ```
@@ -149,7 +149,7 @@ rg "^## " angular/labs/03-basic-form-input.md
 เช็ก path ใน sidebar:
 
 ```bash
-rg "/angular/labs|/angular/concepts|/projects/mooping" .vitepress/config.mts
+rg "/angular/labs|/angular/concepts|/nodejs" .vitepress/config.mts
 ```
 
 กติกา route:
@@ -159,7 +159,7 @@ index.md                              -> /
 vitepress/index.md                    -> /vitepress/
 vitepress/commands.md                 -> /vitepress/commands
 angular/labs/03-basic-form-input.md   -> /angular/labs/03-basic-form-input
-projects/mooping/index.md             -> /projects/mooping/
+nodejs/index.md             -> /nodejs/
 ```
 
 ## Sidebar And Nav
