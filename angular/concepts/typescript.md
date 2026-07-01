@@ -56,9 +56,9 @@ signal.set() = เปลี่ยนของที่อยู่ในกล�
 
 ## อ่านต่อ
 
-- [Reactive State และ Signals](../teach/01-reactive-signals.md)
-- [Angular Config Files](../teach/11-angular-config-files.md)
-- [TypeScript ใน Angular](../teach/12-typescript-in-angular.md)
+- [Reactive State และ Signals](../teach/reactive-signals.md)
+- [Angular Config Files](../teach/angular-config-files.md)
+- [TypeScript ใน Angular](../teach/typescript-in-angular.md)
 
 ## เช็กตัวเอง
 

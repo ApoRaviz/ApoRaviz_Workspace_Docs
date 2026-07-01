@@ -52,7 +52,7 @@ server render HTML
 
 ## อ่านต่อ
 
-- [App Config, SSR และ Hydration](../teach/03-app-config-ssr-hydration.md)
+- [App Config, SSR และ Hydration](../teach/app-config-ssr-hydration.md)
 
 ## สรุปจำสั้น ๆ
 

@@ -367,14 +367,14 @@ rg "isPlatformBrowser|PLATFORM_ID" src
 
 - Angular SSR/prerender อาจรัน code บน server ก่อน browser
 - ถ้าแตะ browser API ต้องมี guard
-- อ่านต่อที่ `angular/teach/04-browser-apis-ssr-safety.md`
+- อ่านต่อที่ `angular/teach/browser-apis-ssr-safety.md`
 
 ## Inspect Project Config
 
 อ่าน core flow ของ `package.json -> Angular CLI -> angular.json -> main.ts` ได้ที่:
 
 ```text
-angular/teach/10-angular-run-flow-and-angular-json.md
+angular/teach/angular-run-flow-and-angular-json.md
 ```
 
 ดู scripts:

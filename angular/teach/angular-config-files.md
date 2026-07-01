@@ -115,9 +115,9 @@ dist = ผลลัพธ์หลัง build ไม่ใช่ไฟล์ท
 find . -maxdepth 2 -not -path './node_modules*' -not -path './dist*' -print | sort
 ```
 
-ถ้าต้องการดู flow ว่า command ไปอ่าน `package.json`, `angular.json`, `main.ts` อย่างไร ให้อ่านต่อที่ [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
+ถ้าต้องการดู flow ว่า command ไปอ่าน `package.json`, `angular.json`, `main.ts` อย่างไร ให้อ่านต่อที่ [Angular Run Flow And angular.json](angular-run-flow-and-angular-json.md)
 
-ถ้าต้องการดู SSR files เช่น `main.server.ts`, `server.ts`, `app.routes.server.ts` ให้อ่านต่อที่ [App Config, SSR และ Hydration](03-app-config-ssr-hydration.md)
+ถ้าต้องการดู SSR files เช่น `main.server.ts`, `server.ts`, `app.routes.server.ts` ให้อ่านต่อที่ [App Config, SSR และ Hydration](app-config-ssr-hydration.md)
 
 ### src/app File Map
 
@@ -190,7 +190,7 @@ imports: [RouterOutlet]
 = app.html ใช้ <router-outlet /> ได้
 ```
 
-ถ้าต้องการดูว่า `<app-root>` ใน `index.html` จับกับ `selector: 'app-root'` อย่างไร ให้อ่านต่อที่ [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
+ถ้าต้องการดูว่า `<app-root>` ใน `index.html` จับกับ `selector: 'app-root'` อย่างไร ให้อ่านต่อที่ [Angular Run Flow And angular.json](angular-run-flow-and-angular-json.md)
 
 ## Flow เวลาเรารัน command
 
@@ -428,7 +428,7 @@ tsconfig.json มักเป็นแม่
 tsconfig.app.json และ tsconfig.spec.json มัก extends จากไฟล์นี้
 ```
 
-ถ้าต้องการเข้าใจภาพรวมว่า TypeScript อยู่ตรงไหนใน Angular flow ให้อ่านต่อที่ [TypeScript ใน Angular](12-typescript-in-angular.md)
+ถ้าต้องการเข้าใจภาพรวมว่า TypeScript อยู่ตรงไหนใน Angular flow ให้อ่านต่อที่ [TypeScript ใน Angular](typescript-in-angular.md)
 
 ### tsconfig.app.json
 
@@ -737,8 +737,8 @@ diff จาก format ลดความสับสน
 
 ## อ่านต่อ
 
-- [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
-- [Angular 22 Baseline](09-angular-22-baseline.md)
+- [Angular Run Flow And angular.json](angular-run-flow-and-angular-json.md)
+- [Angular 22 Baseline](angular-22-baseline.md)
 - [Angular Commands](../commands.md)
 
 ## สรุปจำสั้น ๆ

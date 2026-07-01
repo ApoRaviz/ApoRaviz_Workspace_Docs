@@ -4,20 +4,36 @@
 
 เป้าหมายคือเริ่มเรียนจากที่เดียวก่อน แล้วเปิด repo โปรเจกต์จริงดูตัวอย่างประกอบ
 
-## Lessons
+## Lessons — ลำดับที่ควรอ่าน
 
-1. [Reactive State และ Signals](01-reactive-signals.md)
-2. [Services และ Dependency Injection](02-services-dependency-injection.md)
-3. [App Config, SSR และ Hydration](03-app-config-ssr-hydration.md)
-4. [Browser APIs และ SSR Safety](04-browser-apis-ssr-safety.md)
-5. [Component Structure และ Data Flow](05-component-structure-data-flow.md)
-6. [Unit Test และ Regression Safety](06-unit-test-regression.md)
-7. [CI/CD และ GitHub Pages](07-cicd-github-pages.md)
-8. [Tailwind CSS v4 ใน Angular](08-tailwind-css-v4.md)
-9. [Angular 22 Baseline](09-angular-22-baseline.md)
-10. [Angular Run Flow And angular.json](10-angular-run-flow-and-angular-json.md)
-11. [Angular Config Files](11-angular-config-files.md)
-12. [TypeScript ใน Angular](12-typescript-in-angular.md)
+> ชื่อไฟล์ไม่มีเลขนำหน้า (เป็น topic slug ล้วน) — **ลำดับการอ่านคือ 1-12 ตาม stage ด้านล่าง** ที่จัดไว้ในหน้านี้ + sidebar เท่านั้น ลำดับอยู่ที่ presentation ไม่ผูกกับชื่อไฟล์ เวลาจัดใหม่จึงแก้แค่ที่นี่ (ดู No Number Prefix Rule ใน `../../TEACHING_RULES.md`)
+
+**Stage 1 — Foundation (เข้าใจโปรเจกต์ก่อนเขียน code)**
+
+1. [Angular 22 Baseline](angular-22-baseline.md) — version/stack ที่ workspace ยึด
+2. [TypeScript ใน Angular](typescript-in-angular.md) — ภาษาที่ใช้เขียน + tsconfig
+3. [Angular Run Flow And angular.json](angular-run-flow-and-angular-json.md) — โปรเจกต์รัน/build ยังไง
+4. [Angular Config Files](angular-config-files.md) — ไฟล์ config แต่ละตัวทำอะไร
+
+**Stage 2 — Build Components (เริ่มเขียนของจริง)**
+
+5. [Component Structure และ Data Flow](component-structure-data-flow.md)
+6. [Reactive State และ Signals](reactive-signals.md)
+7. [Services และ Dependency Injection](services-dependency-injection.md)
+
+**Stage 3 — Rendering / SSR**
+
+8. [App Config, SSR และ Hydration](app-config-ssr-hydration.md)
+9. [Browser APIs และ SSR Safety](browser-apis-ssr-safety.md)
+
+**Stage 4 — Styling**
+
+10. [Tailwind CSS v4 ใน Angular](tailwind-css-v4.md)
+
+**Stage 5 — Quality & Ops**
+
+11. [Unit Test และ Regression Safety](unit-test-regression.md)
+12. [CI/CD และ GitHub Pages](cicd-github-pages.md)
 
 ## How To Read With Real Projects
 
@@ -30,9 +46,9 @@
 
 ตัวอย่าง:
 
-- อ่าน `01-reactive-signals.md` แล้วดู state/service ในโปรเจกต์จริง
-- อ่าน `05-component-structure-data-flow.md` แล้วดู component ของ `ApoRaviz_Mooping`
-- อ่าน `07-cicd-github-pages.md` แล้วดู workflow deploy ของ repo ลูก
-- อ่าน `10-angular-run-flow-and-angular-json.md` แล้วเปิด `angular.json` ของ Portfolio หรือ MooPing เทียบ flow
-- อ่าน `11-angular-config-files.md` แล้วเปิดไฟล์ config เช่น `tsconfig.app.json`, `.prettierrc`, `.vscode/settings.json` เทียบกับ repo จริง
-- อ่าน `12-typescript-in-angular.md` แล้วเปิด `app.ts`, `package.json`, `tsconfig.json` เทียบว่า TypeScript อยู่ตรงไหนของ Angular flow
+- อ่าน `reactive-signals.md` แล้วดู state/service ในโปรเจกต์จริง
+- อ่าน `component-structure-data-flow.md` แล้วดู component ของ `ApoRaviz_Mooping`
+- อ่าน `cicd-github-pages.md` แล้วดู workflow deploy ของ repo ลูก
+- อ่าน `angular-run-flow-and-angular-json.md` แล้วเปิด `angular.json` ของ Portfolio หรือ MooPing เทียบ flow
+- อ่าน `angular-config-files.md` แล้วเปิดไฟล์ config เช่น `tsconfig.app.json`, `.prettierrc`, `.vscode/settings.json` เทียบกับ repo จริง
+- อ่าน `typescript-in-angular.md` แล้วเปิด `app.ts`, `package.json`, `tsconfig.json` เทียบว่า TypeScript อยู่ตรงไหนของ Angular flow

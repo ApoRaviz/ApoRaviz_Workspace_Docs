@@ -65,7 +65,7 @@ export class ThemeComponent {
 
 ## อ่านต่อ
 
-- [Browser APIs และ SSR Safety](../teach/04-browser-apis-ssr-safety.md)
+- [Browser APIs และ SSR Safety](../teach/browser-apis-ssr-safety.md)
 
 ## สรุปจำสั้น ๆ
 

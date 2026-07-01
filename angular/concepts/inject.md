@@ -58,7 +58,7 @@ constructor(private readonly data: PortfolioDataService) {}
 
 ## อ่านต่อ
 
-- [Services และ Dependency Injection](../teach/02-services-dependency-injection.md)
+- [Services และ Dependency Injection](../teach/services-dependency-injection.md)
 
 ## สรุปจำสั้น ๆ
 

@@ -70,7 +70,7 @@ parent ใช้แบบนี้:
 
 ## อ่านต่อ
 
-- [Component Structure และ Data Flow](../teach/05-component-structure-data-flow.md)
+- [Component Structure และ Data Flow](../teach/component-structure-data-flow.md)
 
 ## สรุปจำสั้น ๆ
 

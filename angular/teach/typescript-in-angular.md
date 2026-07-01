@@ -110,7 +110,7 @@ this.title = 'New title'; // ไม่ได้ เพราะกำลัง a
 }
 ```
 
-`baseline.md` คือ source of truth ของเลข version ที่ workspace ยึด อ่านคำอธิบายเต็มและตารางเทียบ Angular/Node/TypeScript ต่อได้ที่ [Angular 22 Baseline](09-angular-22-baseline.md)
+`baseline.md` คือ source of truth ของเลข version ที่ workspace ยึด อ่านคำอธิบายเต็มและตารางเทียบ Angular/Node/TypeScript ต่อได้ที่ [Angular 22 Baseline](angular-22-baseline.md)
 
 เหตุผล:
 

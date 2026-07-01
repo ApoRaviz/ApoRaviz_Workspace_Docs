@@ -49,8 +49,8 @@ If the project is Angular/frontend, also read:
 ```text
 angular/index.md
 angular/commands.md
-angular/teach/09-angular-22-baseline.md
-angular/teach/08-tailwind-css-v4.md
+angular/teach/angular-22-baseline.md
+angular/teach/tailwind-css-v4.md
 ```
 
 If the task may create teaching material, also read:

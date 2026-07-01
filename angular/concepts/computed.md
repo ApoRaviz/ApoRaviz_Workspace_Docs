@@ -55,7 +55,7 @@ readonly total = computed(() => this.quantity() * this.price());
 ## ศัพท์ที่เกี่ยวข้อง
 
 - [`signal`](signal.md)
-- [`Reactive State และ Signals`](../teach/01-reactive-signals.md)
+- [`Reactive State และ Signals`](../teach/reactive-signals.md)
 
 ## เช็กตัวเอง
 

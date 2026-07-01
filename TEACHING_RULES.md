@@ -228,3 +228,20 @@ dist = generated build output
 - ห้ามใช้ placeholder แบบ `<...>` นอก code fence เพราะ VitePress/Vue จะมองเป็น HTML tag และอาจ build fail
 - ให้ใช้ placeholder แบบ `[[...]]` แทน เช่น `[[ชื่อ Concept]]`, `[[คำถาม 1]]`
 - ใน template ห้ามทำ markdown link ปลอมไปยังไฟล์ที่ยังไม่มีจริง เพราะ VitePress จะตรวจ dead link ตอน build ให้เขียนเป็น path ใน backtick ก่อน
+
+## No Number Prefix Rule
+
+**ห้ามใส่เลขนำหน้าชื่อไฟล์บทเรียน** (`teach/`, `concepts/`, `labs/`) เช่น `09-angular-22-baseline.md` — ใช้ **topic slug ล้วน** เช่น `angular-22-baseline.md`
+
+เหตุผล:
+
+- เลขในชื่อไฟล์สื่อว่า "นี่คือลำดับการอ่าน" แต่ลำดับเปลี่ยนได้ (เพิ่มบท/จัดใหม่) — ทุกครั้งที่เปลี่ยนต้อง rename ไฟล์ + ไล่แก้ทุก link ซ้ำ = เปราะ
+- ลำดับการอ่านอยู่ที่ **presentation อย่างเดียว**: `angular/teach/index.md` (canonical) + sidebar ใน `.vitepress/config.mts` — จัดใหม่แก้แค่ 2 ที่นี้ ไม่ต้องแตะไฟล์/URL
+- ชื่อไฟล์ = topic ID นิ่ง, URL ไม่เปลี่ยนเวลาจัดลำดับใหม่
+
+กติกา:
+
+- ตั้งชื่อไฟล์ตาม topic เป็น kebab-case ไม่มีเลข (`services-dependency-injection.md`)
+- ลำดับการอ่านกำหนดใน index + sidebar เท่านั้น
+- ถ้าอยากโชว์เลขลำดับให้ผู้เรียน ใส่ใน label ของ index/sidebar ได้ (`1 Angular 22 Baseline`) แต่ **ไม่ใส่ในชื่อไฟล์**
+- ไฟล์เก่าที่ยังมีเลข (`nodejs/teach/`, `angular/labs/`) = ทยอย migrate เป็น slug ล้วนภายหลัง

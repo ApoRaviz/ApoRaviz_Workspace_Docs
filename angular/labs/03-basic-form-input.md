@@ -18,7 +18,7 @@ flow ที่ต้องเห็น:
 
 - [`signal`](../concepts/signal.md)
 - [`computed`](../concepts/computed.md)
-- [`Reactive State และ Signals`](../teach/01-reactive-signals.md)
+- [`Reactive State และ Signals`](../teach/reactive-signals.md)
 
 ## ภาพจำง่าย ๆ
 
