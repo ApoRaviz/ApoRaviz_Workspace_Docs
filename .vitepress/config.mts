@@ -50,6 +50,7 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Concept Index', link: '/angular/concepts/' },
+              { text: 'TypeScript', link: '/angular/concepts/typescript' },
               { text: 'Signal', link: '/angular/concepts/signal' },
               { text: 'Computed', link: '/angular/concepts/computed' },
               { text: 'input() And output()', link: '/angular/concepts/input-output' },
@@ -85,6 +86,7 @@ export default defineConfig({
               { text: '09 Angular 22 Baseline', link: '/angular/teach/09-angular-22-baseline' },
               { text: '10 Angular Run Flow And angular.json', link: '/angular/teach/10-angular-run-flow-and-angular-json' },
               { text: '11 Angular Config Files', link: '/angular/teach/11-angular-config-files' },
+              { text: '12 TypeScript In Angular', link: '/angular/teach/12-typescript-in-angular' },
             ],
           },
           {

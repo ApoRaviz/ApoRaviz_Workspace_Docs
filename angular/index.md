@@ -17,7 +17,7 @@ commands.md = command กลางของ Angular
 ## Recommended Order
 
 1. [Angular Commands](commands.md) — command พื้นฐานก่อนลงมือ
-2. [Angular Teach Index](teach/) — บทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 01–11 อยู่ที่นี่ที่เดียว)
+2. [Angular Teach Index](teach/) — บทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 01–12 อยู่ที่นี่ที่เดียว)
 3. [Angular Concepts](concepts/) — เปิดดูศัพท์/แนวคิดเป็นเรื่อง ๆ ตอนติด
 4. [Angular Labs](labs/) — ลองทำ lab สั้น ๆ หลังอ่าน concept
 

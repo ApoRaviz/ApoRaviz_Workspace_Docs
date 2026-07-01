@@ -388,12 +388,16 @@ native cache crash               = process/tooling ล้มก่อนรา�
 ```json
 {
   "compilerOptions": {
-    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "target": "ES2022",
     "module": "preserve"
   },
   "angularCompilerOptions": {
-    "strictTemplates": true
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true
   }
 }
 ```
@@ -401,10 +405,14 @@ native cache crash               = process/tooling ล้มก่อนรา�
 ตั้งแบบนี้แล้วได้อะไร:
 
 ```text
-strict = TypeScript ตรวจเข้มขึ้น ลด bug จากชนิดข้อมูลหลวม
+noImplicitOverride = override method ต้องเขียนให้ชัด
+noPropertyAccessFromIndexSignature = property ที่มาจาก index signature ต้องอ่านแบบ bracket ให้ชัด
+noImplicitReturns = function ที่ควร return ต้อง return ให้ครบทุกทาง
+noFallthroughCasesInSwitch = กันลืม break/return ใน switch case
 target = JavaScript version ที่ compile ไปหา
 module = รูปแบบ module ที่ toolchain ใช้ต่อ
-strictTemplates = Angular ตรวจ template เข้มขึ้น เช่น binding/type ใน HTML
+strictInjectionParameters = Angular ตรวจ dependency injection ให้ชัดขึ้น
+strictInputAccessModifiers = Angular ตรวจ input access modifier ให้ตรงกติกา
 ```
 
 ควรแก้ไฟล์นี้เมื่อ:
@@ -419,6 +427,8 @@ strictTemplates = Angular ตรวจ template เข้มขึ้น เช�
 tsconfig.json มักเป็นแม่
 tsconfig.app.json และ tsconfig.spec.json มัก extends จากไฟล์นี้
 ```
+
+ถ้าต้องการเข้าใจภาพรวมว่า TypeScript อยู่ตรงไหนใน Angular flow ให้อ่านต่อที่ [TypeScript ใน Angular](12-typescript-in-angular.md)
 
 ### tsconfig.app.json
 
