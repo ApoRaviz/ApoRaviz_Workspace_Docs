@@ -415,6 +415,26 @@ strictInjectionParameters = Angular ตรวจ dependency injection ให้�
 strictInputAccessModifiers = Angular ตรวจ input access modifier ให้ตรงกติกา
 ```
 
+เรื่อง `strict`:
+
+```text
+Angular schematic strict option = option ตอน generate project
+TypeScript "strict": true = เปิดชุด strict family หลายข้อพร้อมกัน
+strict family = ความเข้มเรื่อง type/null เช่น strictNullChecks, noImplicitAny
+additional checks = กันพลาด logic คนละแกน เช่น noImplicitReturns, noFallthroughCasesInSwitch
+```
+
+ใน Angular CLI 22 ที่ใช้กับ `ApoRaviz_DevEng` ตัวเลือก schematic `strict` มีค่า default เป็น `true` แต่ template ที่ generate ออกมาไม่ได้ใส่ TypeScript `"strict": true` แบบ umbrella ลงใน `tsconfig.json`
+
+ดังนั้น scaffold นี้ยังไม่ได้เปิด strict family ทั้งชุด เช่น `strictNullChecks` หรือ `noImplicitAny` ผ่าน umbrella flag แต่เปิด additional checks รายตัว เช่น `noImplicitReturns`, `noFallthroughCasesInSwitch`, `noImplicitOverride` และ Angular strict options เพื่อจับ bug สำคัญก่อน build/deploy
+
+จำสั้น ๆ:
+
+```text
+ไม่มี "strict": true ไม่ได้แปลว่าไม่ตรวจเข้มเลย แต่ก็ไม่ได้แปลว่าได้ strict family ครบ
+ให้ดู compilerOptions และ angularCompilerOptions ว่าเปิด safety flags อะไรไว้
+```
+
 ควรแก้ไฟล์นี้เมื่อ:
 
 - ต้องเปลี่ยน TypeScript rule ระดับทั้ง project
@@ -458,6 +478,23 @@ rootDir = บอก TypeScript ว่า source หลักเริ่มท�
 types   = โหลด type definition เพิ่ม เช่น node
 include = ไฟล์ที่ app compiler ควรอ่าน
 exclude = ไฟล์ที่ app compiler ไม่ควรเอาเข้า app build เช่น spec
+```
+
+pattern ที่เจอบ่อย:
+
+```text
+*  = match แค่ชั้นเดียว
+** = match ได้หลายชั้นลึกลงไปเรื่อย ๆ
+
+src/*.ts    = ไฟล์ .ts ที่อยู่ตรงใต้ src เท่านั้น
+src/**/*.ts = ไฟล์ .ts ทุกระดับใต้ src
+```
+
+ดังนั้น:
+
+```text
+src/**/*.ts      = app source ทุกชั้นใต้ src
+src/**/*.spec.ts = test files ทุกชั้นใต้ src
 ```
 
 ภาพจำของ `rootDir` และ `outDir`:
@@ -507,6 +544,7 @@ output layout คาดเดาได้มากขึ้น
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
+    "rootDir": "./src",
     "types": ["vitest/globals"]
   },
   "include": ["src/**/*.d.ts", "src/**/*.spec.ts"]
@@ -520,6 +558,15 @@ test compiler อ่านเฉพาะไฟล์ test และ type declar
 types ของ test เช่น vitest/globals ทำให้ describe, it, expect ใช้ได้
 outDir แยกจาก app เพื่อไม่ปนกัน
 ```
+
+`.d.ts` คือ type declaration file:
+
+```text
+.ts   = ไฟล์ code ที่มี logic
+.d.ts = ไฟล์ประกาศ type ให้ TypeScript รู้จักของบางอย่าง
+```
+
+ใน test config จึงมัก include `.d.ts` ด้วย เพื่อให้ test compiler รู้จัก type เพิ่มเติมที่ test หรือ tooling ต้องใช้
 
 ควรแก้ไฟล์นี้เมื่อ:
 
