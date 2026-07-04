@@ -51,6 +51,7 @@ export default defineConfig({
             items: [
               { text: 'Concept Index', link: '/angular/concepts/' },
               { text: 'TypeScript', link: '/angular/concepts/typescript' },
+              { text: 'Environment Files', link: '/angular/concepts/environment-files' },
               { text: 'Signal', link: '/angular/concepts/signal' },
               { text: 'Computed', link: '/angular/concepts/computed' },
               { text: 'input() And output()', link: '/angular/concepts/input-output' },

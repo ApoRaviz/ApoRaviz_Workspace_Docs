@@ -7,6 +7,7 @@
 ## Current Concepts
 
 - [`TypeScript`](typescript.md)
+- [Environment Files](environment-files.md)
 - [`signal`](signal.md)
 - [`computed`](computed.md)
 - [`input()` และ `output()`](input-output.md)

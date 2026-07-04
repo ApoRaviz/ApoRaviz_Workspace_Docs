@@ -376,6 +376,77 @@ Angular รู้ว่าต้องมี entry ฝั่ง browser แล�
 - ต้องปรับ production/development configuration
 - ต้องดูว่า output deploy อยู่ folder ไหน
 
+### Environment files
+
+Environment files คือไฟล์ config ฝั่ง frontend ที่ใช้แยกค่า public config ตาม environment เช่น development กับ production
+
+อ่าน concept สั้น ๆ ได้ที่ [Environment Files](../concepts/environment-files.md)
+
+ภาพจำ:
+
+```text
+environment.ts             = base/default config สำหรับ production
+environment.development.ts = config สำหรับ development
+```
+
+ตัวอย่าง:
+
+```ts
+// src/environments/environment.ts
+export const environment = {
+  production: true,
+  apiBaseUrl: 'https://api.example.com',
+};
+```
+
+```ts
+// src/environments/environment.development.ts
+export const environment = {
+  production: false,
+  apiBaseUrl: 'http://localhost:3000',
+};
+```
+
+ใน Angular 22 ให้ใช้ command นี้เพื่อ scaffold `src/environments/` และให้ CLI ตั้ง `fileReplacements` ให้:
+
+```bash
+ng generate environments
+```
+
+ถ้าต้องสลับไฟล์ตอน build จะตั้งใน `angular.json` ด้วย `fileReplacements` โดย development configuration จะ replace base file ด้วยไฟล์ development:
+
+```json
+"configurations": {
+  "development": {
+    "fileReplacements": [
+      {
+        "replace": "src/environments/environment.ts",
+        "with": "src/environments/environment.development.ts"
+      }
+    ]
+  }
+}
+```
+
+แปลเป็น flow:
+
+```text
+ng build --configuration development
+-> Angular CLI อ่าน angular.json
+-> เจอ fileReplacements ใน development
+-> ใช้ environment.development.ts แทน environment.ts ตอน build
+```
+
+จุดที่ต้องจำ:
+
+- Angular environment files ถูก bundle ไปอยู่ใน JavaScript ฝั่ง browser ได้
+- ใส่ได้เฉพาะ public config เช่น API base URL, feature flag ที่ไม่ลับ
+- ห้ามใส่ password, private token, secret key หรือ credential จริง
+- Angular 22 ใช้ `environment.ts` เป็น base/default production และใช้ `environment.development.ts` สำหรับ development override
+- ถ้าโปรเจกต์ยังไม่มี backend/API จริง อาจยังไม่ต้องมี environment files
+
+ใน Angular scaffold บางโปรเจกต์อาจยังไม่มี `src/environments/` และยังไม่มี `fileReplacements` ใน `angular.json` จนกว่าเราจะต้องแยกค่า dev/prod จริง
+
 ### Angular CLI Cache
 
 ปกติ Angular CLI ใช้ disk cache เพื่อให้ build ครั้งถัดไปเร็วขึ้น
@@ -725,6 +796,7 @@ editor.defaultFormatter = ใช้ Prettier เป็น formatter กลาง
 ng build/serve/test อ่านผิด flow   -> angular.json
 asset ไม่ออก dist                  -> angular.json assets
 CSS/Tailwind ไม่ทำงาน              -> .postcssrc.json, styles ใน angular.json
+API base URL dev/prod ต่างกัน      -> environment files + angular.json fileReplacements
 TypeScript rule ทั้ง project       -> tsconfig.json
 app build type warning             -> tsconfig.app.json
 test type warning                  -> tsconfig.spec.json
@@ -820,6 +892,8 @@ diff จาก format ลดความสับสน
 - ถ้า TypeScript เตือนเรื่อง `rootDir` ควรแก้ไฟล์ไหน
 - ถ้า `expect` ใน test หา type ไม่เจอ ควรดูไฟล์ไหน
 - ถ้า Format Document ไม่ใช้ Prettier ควรดูไฟล์ไหน
+- ถ้า API base URL ของ dev/prod ไม่เหมือนกัน ควรคิดถึงไฟล์กลุ่มไหน
+- ทำไมไม่ควรใส่ secret key ไว้ใน Angular environment files
 
 ## อ่านต่อ
 
@@ -832,6 +906,7 @@ diff จาก format ลดความสับสน
 ```text
 package.json        = ปุ่ม command
 angular.json        = วิธีที่ Angular CLI ทำงาน
+environment files   = public config ฝั่ง frontend แยก dev/prod
 tsconfig.json       = กฎ TypeScript กลาง
 tsconfig.app.json   = กฎ TypeScript ของ app
 tsconfig.spec.json  = กฎ TypeScript ของ test
