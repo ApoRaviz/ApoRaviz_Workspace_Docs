@@ -77,13 +77,15 @@ npm ci      = ใช้ใน automation/CI
 npm install -D = เพิ่ม dev dependency
 ```
 
-ล้างและติดตั้งใหม่เมื่อ dependency แปลก:
+ล้าง `node_modules` และติดตั้งใหม่จาก lockfile เมื่อ dependency แปลก:
 
 ```bash
 npm ci
 ```
 
-ถ้าจำเป็นต้องล้าง `node_modules` ให้ทำอย่างตั้งใจในโปรเจกต์นั้น และอย่าลบไฟล์ที่ไม่เกี่ยว
+`npm ci` จะลบ `node_modules` แล้ว install ใหม่จาก `package-lock.json` ในคำสั่งเดียว และจะ fail ถ้า `package.json` กับ `package-lock.json` ไม่ sync กัน แทนที่จะปรับ lockfile ให้เองเหมือน workflow พัฒนา
+
+อย่าลบ `package-lock.json` เป็นท่าแรก เพราะ lockfile คือ source of truth ของ version จริงที่ทีม/CI ใช้ร่วมกัน ลบเฉพาะเมื่อตั้งใจให้ npm resolve dependency graph ใหม่ และต้อง review diff + run build/test หลังจากนั้น
 
 ## Dev Server
 

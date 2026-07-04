@@ -256,6 +256,45 @@ package.json ไม่ได้บอก build detail ทั้งหมด
 detail ส่วนใหญ่ไปอยู่ที่ angular.json
 ```
 
+### package-lock.json
+
+`package-lock.json` คือไฟล์ล็อก dependency version จริงที่ npm ติดตั้ง
+
+ภาพจำ:
+
+```text
+package.json      = ใบสั่งของ ว่าอยากได้ package อะไรและช่วง version ไหน
+package-lock.json = ใบเสร็จละเอียด ว่าติดตั้ง package version จริงอะไร
+node_modules/     = ของที่ npm ดาวน์โหลดมาตาม lockfile
+```
+
+ตัวอย่าง:
+
+```text
+package.json      = "@angular/core": "^22.0.0"
+package-lock.json = "@angular/core": "22.0.2"
+```
+
+ความหมาย:
+
+```text
+^22.0.0 = range หรือช่วง version ที่ยอมรับได้
+22.0.2  = version จริงที่ lock แล้ว
+```
+
+`package-lock.json` ยังช่วยล็อก dependency ลูก, download URL (`resolved`) และ hash ตรวจความถูกต้อง (`integrity`) เพื่อให้เครื่อง dev/CI ติดตั้ง dependency ได้ตรงกัน
+
+จุดที่มักงง:
+
+```text
+ลบ node_modules      = ลบของที่ติดตั้งไว้ npm สร้างใหม่ได้
+ลบ package-lock.json = ขอ npm resolve dependency graph ใหม่ทั้งชุด
+```
+
+ดังนั้นถ้า dependency เพี้ยน ให้เริ่มจาก `npm ci` ก่อน เพราะคำสั่งนี้ลบ `node_modules` แล้ว install ใหม่จาก `package-lock.json` ในคำสั่งเดียว และจะ fail ถ้า `package.json` กับ lockfile ไม่ sync กัน
+
+ไม่ควรลบ `package-lock.json` เป็นท่าแรก ยกเว้นตั้งใจ refresh dependency graph และพร้อม review diff + run build/test
+
 ### angular.json
 
 `angular.json` คือแผงควบคุมหลักของ Angular CLI
