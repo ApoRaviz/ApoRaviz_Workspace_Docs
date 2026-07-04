@@ -1,0 +1,66 @@
+/**
+ * ApoRaviz Workspace Docs — brand theme
+ * โทน Indigo → Cyan (calm / modern / เป็นกลางกับทุก stack)
+ * แก้เฉพาะ presentation ผ่าน CSS variables ของ VitePress default theme
+ */
+
+:root {
+  /* Brand palette (light mode) */
+  --vp-c-brand-1: #4f46e5; /* indigo-600 — ใช้กับ link/ตัวหนังสือ ต้อง contrast ดีบนพื้นขาว */
+  --vp-c-brand-2: #6366f1; /* indigo-500 */
+  --vp-c-brand-3: #6366f1; /* solid accent */
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.14);
+
+  /* Brand buttons */
+  --vp-button-brand-bg: #4f46e5;
+  --vp-button-brand-hover-bg: #4338ca;
+  --vp-button-brand-active-bg: #3730a3;
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-active-border: transparent;
+
+  /* Home hero — ไล่สีชื่อ + เงา blur ด้านหลังโลโก้ */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #6366f1 30%, #06b6d4);
+  --vp-home-hero-image-background-image: linear-gradient(120deg, #6366f1 30%, #06b6d4);
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+.dark {
+  /* Brand palette (dark mode) — ใช้เฉดอ่อนขึ้นเพื่อ contrast บนพื้นเข้ม */
+  --vp-c-brand-1: #a5b4fc; /* indigo-300 */
+  --vp-c-brand-2: #818cf8; /* indigo-400 */
+  --vp-c-brand-3: #6366f1;
+  --vp-c-brand-soft: rgba(129, 140, 248, 0.16);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+/* Feature cards — เส้นขอบนุ่มขึ้น + ยกตัวเล็กน้อยตอน hover */
+.VPFeature {
+  transition:
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.VPFeature:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -12px var(--vp-c-brand-soft);
+}
+
+/* ไอคอน feature ให้มีพื้นวงกลมนุ่ม ๆ */
+.VPFeature .icon {
+  background-color: var(--vp-c-brand-soft) !important;
+}

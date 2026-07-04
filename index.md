@@ -14,12 +14,16 @@ hero:
       link: /angular/labs/01-signal-counter
 
 features:
-  - title: Thai-first
+  - icon: 💬
+    title: Thai-first
     details: เริ่มจากภาพจำง่าย ๆ ก่อน technical term เพื่อให้คนธรรมดาเข้าใจได้
-  - title: Angular + Tailwind
+  - icon: 🎨
+    title: Angular + Tailwind
     details: สอน Angular คู่กับ Tailwind CSS เพราะเป็น stack default ของ ApoRaviz
-  - title: Backend Path
+  - icon: 🗄️
+    title: Backend Path
     details: ถ้ามีหลังบ้าน ใช้ NestJS + PostgreSQL/Supabase เป็นแนวทางหลัก
-  - title: Topic-first
+  - icon: 🧭
+    title: Topic-first
     details: ความรู้ reusable จากงานจริงซึมเข้าหน้า topic เป็นตัวอย่าง ไม่หายอยู่ใน repo ลูกหรือในแชท
 ---
