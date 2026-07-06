@@ -18,13 +18,7 @@ Tailwind เป็น utility-first CSS framework
 
 ## Setup ใน Angular
 
-หลังสร้าง Angular project ให้รัน:
-
-```bash
-ng add tailwindcss
-```
-
-ถ้าต้อง setup เอง:
+สำหรับ workspace นี้ให้ setup Tailwind CSS v4 แบบ manual:
 
 ```bash
 npm install tailwindcss @tailwindcss/postcss postcss
@@ -45,6 +39,57 @@ npm install tailwindcss @tailwindcss/postcss postcss
 ```css
 @import "tailwindcss";
 ```
+
+ใน flow นี้ไม่ใช้ schematic command เป็นคำสั่งหลัก เพราะ Tailwind CSS v4 setup ที่ใช้จริงคือเพิ่ม package, PostCSS plugin และ import เองตามไฟล์ด้านบน
+
+## Pipeline เบื้องหลัง
+
+ภาพรวมการทำงาน:
+
+```text
+src/styles.css
+-> Angular build อ่าน global styles จาก angular.json
+-> PostCSS อ่าน .postcssrc.json
+-> ใช้ plugin @tailwindcss/postcss
+-> แปลง @import "tailwindcss" และ utility classes เป็น CSS output
+-> browser โหลด CSS ที่ build แล้ว
+```
+
+แปลเป็นภาษาคน:
+
+```text
+styles.css = จุดเรียก Tailwind เข้ามาใน app
+.postcssrc.json = ใบสั่งงานว่า CSS ต้องผ่าน plugin อะไร
+@tailwindcss/postcss = plugin ที่รู้วิธีแปลง Tailwind v4
+browser = ไม่รู้จัก Tailwind โดยตรง แต่รู้จัก CSS output
+```
+
+## ตรวจว่า Tailwind ทำงานจริง
+
+หลัง setup อย่าตรวจแค่ build อย่างเดียว ให้ตรวจ 2 ชั้น:
+
+```text
+build check  = Angular + PostCSS + Tailwind compile ผ่าน
+visual check = Tailwind utility class แสดงผลจริงบนหน้าเว็บ
+```
+
+รัน build:
+
+```bash
+npm run build
+```
+
+จากนั้นเปิด dev server แล้วใส่ marker ชั่วคราวใน template เช่น:
+
+```html
+<div class="fixed left-4 top-4 rounded-lg bg-sky-600 px-4 py-2 text-sm font-bold text-white shadow-lg">
+  Tailwind OK
+</div>
+```
+
+ถ้าเห็นกล่องสีฟ้าบนหน้าเว็บ แปลว่า Tailwind utility class ถูกแปลงและโหลดเข้าหน้าจอจริง
+
+หลังตรวจเสร็จให้ลบ marker นี้ออก แล้ว build อีกครั้งก่อนจบ step
 
 ## styles.css ใช้ทำอะไร
 
@@ -109,4 +154,5 @@ mobile/tablet/desktop ต้องเป็น design เดียวกัน�
 Tailwind = default styling language ของ Angular frontend ใน workspace นี้
 styles.css = Tailwind import, theme, global base
 component.css = animation หรือ style เฉพาะที่ Tailwind ไม่เหมาะ
+build check + visual check = setup ผ่านจริงทั้ง compile และหน้าจอ
 ```
