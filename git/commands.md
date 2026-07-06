@@ -4,6 +4,42 @@
 
 รายละเอียด remote URL หรือ commit message จริงให้ดูใน repo นั้น
 
+## Init And First Status
+
+เริ่ม Git repository ในโฟลเดอร์ปัจจุบัน:
+
+```bash
+git init
+git status
+git status --short
+```
+
+ถ้าเห็น:
+
+```text
+fatal: not a git repository (or any of the parent directories): .git
+```
+
+แปลว่า Git หา `.git/` ไม่เจอ โฟลเดอร์นี้จึงยังไม่เป็น repository
+
+หลัง `git init` ถ้าเห็น:
+
+```text
+No commits yet
+?? README.md
+```
+
+แปลว่า repository ถูกสร้างแล้ว แต่ยังไม่มี commit แรก และไฟล์ `README.md` ยังเป็น untracked file
+
+บทเรียน:
+
+- `.git/` คือ database ประวัติของ Git repository
+- `.gitignore` คือรายการไฟล์ที่ Git ควรเมิน ไม่ใช่ตัวสร้าง repository
+- `??` ใน `git status --short` แปลว่า untracked
+- VS Code Source Control แสดงสถานะเดียวกับ `git status` ในรูปแบบ UI
+
+อ่าน concept: [Git Repository](concepts/git-repository.md)
+
 ## Daily Status
 
 ```bash

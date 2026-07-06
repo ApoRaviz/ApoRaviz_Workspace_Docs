@@ -64,6 +64,46 @@ styles.css = จุดเรียก Tailwind เข้ามาใน app
 browser = ไม่รู้จัก Tailwind โดยตรง แต่รู้จัก CSS output
 ```
 
+Angular build ไม่ต้องเขียน path ไปหา `.postcssrc.json` ใน `angular.json` เพราะ PostCSS tooling รู้จักชื่อไฟล์ config นี้ตาม convention เหมือนที่ npm รู้จัก `package.json` หรือ TypeScript รู้จัก `tsconfig.json`
+
+## Tailwind config ใน v4 อยู่ตรงไหน
+
+ใน Tailwind CSS v4 โปรเจกต์อาจไม่มี `tailwind.config.js` หรือ `tailwind.config.ts` ก็ได้
+
+สำหรับ setup นี้ ไฟล์สำคัญคือ:
+
+```text
+.postcssrc.json = บอก PostCSS ให้ใช้ plugin @tailwindcss/postcss
+src/styles.css  = import Tailwind และเก็บ theme/global CSS
+```
+
+ถ้าต้องตั้ง theme token กลาง เช่นสี brand หรือ font token ให้เริ่มคิดที่ `src/styles.css` ด้วย `@theme`:
+
+```css
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #2563eb;
+}
+```
+
+แต่ยังไม่ควรใส่ token จริงแบบเดาสุ่มถ้ายังไม่มี design decision
+
+```text
+design decision = การตัดสินใจด้านหน้าตา/ประสบการณ์ใช้งานที่จะใช้เป็นกติกากลางของ app
+```
+
+ตัวอย่าง design decision:
+
+```text
+สีหลักคืออะไร
+font หลักคืออะไร
+ปุ่มควรโค้งแค่ไหน
+spacing ของ panel/card ใช้ pattern ไหน
+```
+
+ถ้ายังไม่ตัดสินใจ ให้ `src/styles.css` มีแค่ `@import "tailwindcss";` ก่อน
+
 ## ตรวจว่า Tailwind ทำงานจริง
 
 หลัง setup อย่าตรวจแค่ build อย่างเดียว ให้ตรวจ 2 ชั้น:
@@ -155,4 +195,5 @@ Tailwind = default styling language ของ Angular frontend ใน workspace 
 styles.css = Tailwind import, theme, global base
 component.css = animation หรือ style เฉพาะที่ Tailwind ไม่เหมาะ
 build check + visual check = setup ผ่านจริงทั้ง compile และหน้าจอ
+Tailwind v4 อาจไม่มี tailwind.config.*; theme token อยู่ใน @theme ได้
 ```

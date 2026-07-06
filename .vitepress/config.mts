@@ -130,6 +130,15 @@ export default defineConfig({
           { text: 'VitePress Commands', link: '/vitepress/commands' },
         ],
       },
+      {
+        text: 'Git Learning',
+        collapsed: true,
+        items: [
+          { text: 'Git Commands', link: '/git/commands' },
+          { text: 'Git Concepts', link: '/git/concepts/' },
+          { text: 'Git Repository', link: '/git/concepts/git-repository' },
+        ],
+      },
     ],
     socialLinks: [
       { icon: 'github', link: 'https://github.com/ApoRaviz/ApoRaviz_Workspace_Docs' },
