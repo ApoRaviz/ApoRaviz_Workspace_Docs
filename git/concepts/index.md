@@ -5,6 +5,7 @@
 ## Current Concepts
 
 - [Git Repository](git-repository.md)
+- [.gitignore](gitignore.md)
 
 ## Terms To Add Later
 
@@ -16,4 +17,3 @@
 - remote
 - HEAD
 - reflog
-

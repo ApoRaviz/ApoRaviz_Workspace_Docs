@@ -40,6 +40,47 @@ No commits yet
 
 อ่าน concept: [Git Repository](concepts/git-repository.md)
 
+## Ignore Files
+
+ดู ignored files:
+
+```bash
+git status --ignored --short
+```
+
+ผลลัพธ์เช่น:
+
+```text
+!! node_modules/
+!! dist/
+```
+
+แปลว่าไฟล์หรือโฟลเดอร์นั้นถูก ignore ด้วย `.gitignore`
+
+ดูว่า path หนึ่งถูก ignore เพราะ rule ไหน:
+
+```bash
+git check-ignore -v node_modules
+git check-ignore -v dist
+```
+
+ผลลัพธ์เช่น:
+
+```text
+.gitignore:10:/node_modules     node_modules
+```
+
+แปลว่า `node_modules` ถูก ignore เพราะ `.gitignore` บรรทัดที่ 10
+
+บทเรียน:
+
+- `.gitignore` บอก Git ว่าอะไรไม่ต้อง track เข้า history
+- `!!` ใน `git status --ignored --short` แปลว่า ignored
+- `!` หน้า pattern ใน `.gitignore` แปลว่ายกเลิก ignore สำหรับ path นั้น
+- ของที่สร้างใหม่ได้ เช่น `node_modules/`, `dist/`, cache ไม่ควร commit
+
+อ่าน concept: [.gitignore](concepts/gitignore.md)
+
 ## Daily Status
 
 ```bash

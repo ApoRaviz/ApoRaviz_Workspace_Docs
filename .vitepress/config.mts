@@ -137,6 +137,7 @@ export default defineConfig({
           { text: 'Git Commands', link: '/git/commands' },
           { text: 'Git Concepts', link: '/git/concepts/' },
           { text: 'Git Repository', link: '/git/concepts/git-repository' },
+          { text: '.gitignore', link: '/git/concepts/gitignore' },
         ],
       },
     ],
