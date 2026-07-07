@@ -155,6 +155,93 @@ git diff -- path/to/file.md
 git diff --cached -- path/to/file.md
 ```
 
+อ่าน concept:
+
+- [Working Tree](concepts/working-tree.md)
+- [Staging Area](concepts/staging-area.md)
+
+## Working Tree, Stage, Commit
+
+ดูสถานะพร้อม branch:
+
+```bash
+git status --short --branch
+```
+
+อ่านรหัสสองคอลัมน์:
+
+```text
+?? README.md = untracked file ยังไม่เคยถูก track
+ M README.md = modified ใน working tree แต่ยังไม่ staged
+M  README.md = modified และ staged แล้ว
+```
+
+ถ้า untracked folder ถูกย่อ เช่น `?? src/` แต่ VS Code แสดงไฟล์ลูกหลายไฟล์ ให้ใช้:
+
+```bash
+git status --short --untracked-files=all
+```
+
+ดู change ที่ยังไม่ staged:
+
+```bash
+git diff -- README.md
+```
+
+stage ไฟล์เดียว:
+
+```bash
+git add README.md
+```
+
+stage ทุก change ใต้โฟลเดอร์ปัจจุบัน:
+
+```bash
+git add .
+```
+
+ควรใช้ `git add .` เมื่อมั่นใจว่า change ทั้งหมดตั้งใจจะ commit รอบเดียวกัน
+
+ดู change ที่ staged แล้ว:
+
+```bash
+git diff --cached -- README.md
+git diff --cached --stat
+```
+
+เอาไฟล์ออกจาก staging area หลังมี commit แรกแล้ว:
+
+```bash
+git restore --staged README.md
+```
+
+ถ้ายังไม่มี commit แรกและเจอ `fatal: could not resolve HEAD` ให้ใช้:
+
+```bash
+git rm --cached README.md
+```
+
+commit สิ่งที่ staged แล้ว:
+
+```bash
+git commit -m "Describe the change"
+```
+
+ดูประวัติ commit แบบสั้น:
+
+```bash
+git log --oneline
+```
+
+ถ้า output เปิดใน pager แล้วเห็น `END` ให้กด `q` เพื่อออก
+
+อ่าน concept:
+
+- [Working Tree](concepts/working-tree.md)
+- [Staging Area](concepts/staging-area.md)
+- [Commit](concepts/commit.md)
+- [HEAD](concepts/head.md)
+
 ## Fetch And Compare
 
 ```bash

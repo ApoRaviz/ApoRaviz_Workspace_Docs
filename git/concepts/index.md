@@ -6,14 +6,15 @@
 
 - [Git Repository](git-repository.md)
 - [.gitignore](gitignore.md)
+- [Working Tree](working-tree.md)
+- [Staging Area](staging-area.md)
+- [Commit](commit.md)
+- [HEAD](head.md)
 
 ## Terms To Add Later
 
-- staging area
-- commit
 - branch
 - merge
 - conflict
 - remote
-- HEAD
 - reflog
