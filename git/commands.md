@@ -283,6 +283,33 @@ git switch main
 git switch feature/name
 ```
 
+สร้าง branch เอกสารสำหรับงานเล็ก:
+
+```bash
+git switch -c docs/branching-practice
+```
+
+ดู history แบบเห็น branch graph:
+
+```bash
+git log --oneline --graph --decorate --all
+```
+
+merge branch งานกลับเข้า `main`:
+
+```bash
+git switch main
+git merge docs/branching-practice
+```
+
+ลบ branch local ที่ merge แล้ว:
+
+```bash
+git branch -d docs/branching-practice
+```
+
+`-d` เป็น delete แบบปลอดภัย ถ้า branch ยังไม่ถูก merge Git จะเตือนและไม่ลบง่าย ๆ
+
 อัปเดต `main` จาก remote:
 
 ```bash
@@ -294,8 +321,18 @@ git pull --ff-only origin main
 บทเรียน:
 
 - `switch -c` = สร้าง branch ใหม่แล้วเข้า branch นั้น
+- `git merge X` = เอา `X` เข้ามาหา branch ที่เรายืนอยู่ตอนนี้
+- ก่อน merge ให้ `git switch` ไป branch ปลายทางก่อน
+- `Fast-forward` = branch ปลายทางไม่มี commit ใหม่ขวาง Git จึงเลื่อน pointer ไปข้างหน้าได้ตรง ๆ
+- ใน VS Code Source Control เมนู `...` -> `Merge Branch...` ใช้ได้เหมือน command
+- ใน VS Code คำว่า `Select a branch or tag to merge from` ให้เลือก branch ต้นทาง ไม่ใช่ปลายทาง
 - `pull --ff-only` = รับเฉพาะกรณีที่เลื่อน commit ไปข้างหน้าได้ตรง ๆ
 - ถ้า pull แล้วมี conflict ให้หยุดอ่าน message ก่อน ไม่แก้มั่ว
+
+อ่าน concept:
+
+- [Branch](concepts/branch.md)
+- [Merge](concepts/merge.md)
 
 ## Stage And Commit
 

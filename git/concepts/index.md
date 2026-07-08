@@ -10,11 +10,11 @@
 - [Staging Area](staging-area.md)
 - [Commit](commit.md)
 - [HEAD](head.md)
+- [Branch](branch.md)
+- [Merge](merge.md)
 
 ## Terms To Add Later
 
-- branch
-- merge
 - conflict
 - remote
 - reflog

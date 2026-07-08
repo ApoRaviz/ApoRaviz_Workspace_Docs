@@ -142,6 +142,8 @@ export default defineConfig({
           { text: 'Staging Area', link: '/git/concepts/staging-area' },
           { text: 'Commit', link: '/git/concepts/commit' },
           { text: 'HEAD', link: '/git/concepts/head' },
+          { text: 'Branch', link: '/git/concepts/branch' },
+          { text: 'Merge', link: '/git/concepts/merge' },
         ],
       },
     ],
