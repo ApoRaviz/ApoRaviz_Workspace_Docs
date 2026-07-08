@@ -12,9 +12,9 @@
 - [HEAD](head.md)
 - [Branch](branch.md)
 - [Merge](merge.md)
+- [Merge Conflict](merge-conflict.md)
 
 ## Terms To Add Later
 
-- conflict
 - remote
 - reflog

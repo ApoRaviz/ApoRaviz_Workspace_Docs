@@ -333,6 +333,86 @@ git pull --ff-only origin main
 
 - [Branch](concepts/branch.md)
 - [Merge](concepts/merge.md)
+- [Merge Conflict](concepts/merge-conflict.md)
+
+## Merge Conflict
+
+ตั้งใจ merge branch เข้าหา branch ปัจจุบัน:
+
+```bash
+git switch main
+git merge docs/conflict-practice
+```
+
+ถ้า Git รวมให้เองไม่ได้ อาจเห็น:
+
+```text
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+ดูสถานะ:
+
+```bash
+git status --short --branch
+```
+
+ผลลัพธ์เช่น:
+
+```text
+## main
+UU README.md
+```
+
+`UU` แปลว่าไฟล์นั้นยัง unresolved conflict
+
+หลังแก้ marker ในไฟล์และ save แล้ว:
+
+```bash
+git add README.md
+git status
+```
+
+ถ้าเห็น:
+
+```text
+All conflicts fixed but you are still merging.
+```
+
+ให้ commit เพื่อปิด merge:
+
+```bash
+git commit -m "Merge conflict practice branch"
+```
+
+ดู graph หลัง merge:
+
+```bash
+git log --oneline --graph --decorate --all -5
+```
+
+ลบ branch local ที่ merge แล้ว:
+
+```bash
+git branch -d docs/conflict-practice
+```
+
+ถ้าติด Vim ตอน Git เปิด commit message:
+
+```text
+:wq   = save แล้วออก
+:qa!  = ออกแบบทิ้ง buffer
+```
+
+VS Code Source Control:
+
+```text
+Accept Current Change  = ฝั่ง branch ที่เรายืนอยู่
+Accept Incoming Change = ฝั่ง branch ที่ merge เข้ามา
+Accept Both Changes    = เก็บทั้งสองฝั่ง
+```
+
+อ่าน concept: [Merge Conflict](concepts/merge-conflict.md)
 
 ## Stage And Commit
 
