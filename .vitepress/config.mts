@@ -145,6 +145,7 @@ export default defineConfig({
           { text: 'Branch', link: '/git/concepts/branch' },
           { text: 'Merge', link: '/git/concepts/merge' },
           { text: 'Merge Conflict', link: '/git/concepts/merge-conflict' },
+          { text: 'Undo In Git', link: '/git/concepts/undo-in-git' },
         ],
       },
     ],

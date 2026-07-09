@@ -13,6 +13,7 @@
 - [Branch](branch.md)
 - [Merge](merge.md)
 - [Merge Conflict](merge-conflict.md)
+- [Undo In Git](undo-in-git.md)
 
 ## Terms To Add Later
 

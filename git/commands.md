@@ -414,6 +414,76 @@ Accept Both Changes    = เก็บทั้งสองฝั่ง
 
 อ่าน concept: [Merge Conflict](concepts/merge-conflict.md)
 
+## Undo
+
+ดูสถานะก่อนย้อนทุกครั้ง:
+
+```bash
+git status --short --branch
+```
+
+ทิ้ง change ที่ยังไม่ staged:
+
+```bash
+git restore README.md
+```
+
+VS Code Source Control:
+
+```text
+README.md ใน Changes -> Discard Changes
+```
+
+เอาไฟล์ออกจาก staging แต่เก็บเนื้อหาที่แก้ไว้:
+
+```bash
+git restore --staged README.md
+```
+
+VS Code Source Control:
+
+```text
+README.md ใน Staged Changes -> Unstage
+```
+
+แก้ commit ล่าสุด ถ้ายังไม่ได้ push:
+
+```bash
+git commit --amend -m "Better commit message"
+```
+
+ย้อน commit แบบเก็บ history เดิม:
+
+```bash
+git revert <commit>
+```
+
+ดู commit ก่อนตัดสินใจ revert:
+
+```bash
+git log --oneline -5
+git show --stat <commit>
+```
+
+ระวัง merge commit:
+
+```text
+revert merge commit ต้องรู้ mainline/parent ก่อน เช่น -m 1
+อย่าสุ่ม revert merge commit
+```
+
+รู้จัก reset แบบภาพรวม:
+
+```bash
+git reset --soft <commit>
+git reset --mixed <commit>
+git reset --hard <commit>
+```
+
+ใช้ `--hard` ด้วยความระวังมาก เพราะทิ้ง change ใน working tree ได้จริง
+
+อ่าน concept: [Undo In Git](concepts/undo-in-git.md)
+
 ## Stage And Commit
 
 ```bash
