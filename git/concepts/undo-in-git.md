@@ -64,6 +64,14 @@ Discard Changes ทิ้งไฟล์ที่ยังไม่ commit จ�
 Unstage ไม่ลบงาน แค่ย้ายกลับไป Changes
 ```
 
+ถ้า VS Code Graph ไม่มีเมนู `Reset Current Branch to Commit` ให้ใช้ Graph เพื่อเลือก commit แล้ว `Copy Commit Hash` จากนั้นค่อยใช้ terminal:
+
+```bash
+git reset --hard <copied-commit-hash>
+```
+
+เพราะ `reset` เป็นคำสั่งที่เปลี่ยน branch pointer จริง ต้องเห็นชัดว่ากำลังยืน branch ไหนก่อนทำ
+
 ## Revert ต่างจาก Reset
 
 `git revert`:
@@ -89,6 +97,67 @@ revert = เขียนหน้าสมุดใหม่ว่า “ขอ�
 reset  = ย้ายที่คั่นหนังสือกลับไปหน้าเก่า
 ```
 
+## Revert Commit เก่าที่ไม่ใช่ HEAD
+
+`git revert <old-hash>` ไม่ได้พา branch กลับไปยืนที่ commit เก่านั้น
+
+มันทำแบบนี้:
+
+```text
+เอา patch ของ commit ที่เลือก
+กลับด้าน patch นั้น
+แล้วสร้าง commit ใหม่ที่ปลาย branch ปัจจุบัน
+```
+
+ตัวอย่าง:
+
+```text
+D Add D line
+C Add C line
+B Add B line
+A Add A line
+```
+
+ถ้ารัน:
+
+```bash
+git revert B
+```
+
+Git จะพยายาม “ลบผลของ B” ไม่ใช่ “กลับไปสภาพหลัง B”
+
+ถ้า B เพิ่มบรรทัด `B` และ commit หลังจากนั้นเพิ่ม `C`/`D` ในบริเวณเดียวกัน Git อาจ conflict เพราะไม่แน่ใจว่าควรลบแค่ `B` หรือควรตัด context รอบนั้นมากกว่านั้น
+
+เมื่อเกิด conflict แล้ว final content เป็นสิ่งที่มนุษย์ตัดสินใจเอง เช่น:
+
+```text
+A
+C
+D
+```
+
+หรือใน lab อาจตั้งใจแก้เป็น:
+
+```text
+A
+E
+F
+```
+
+จากนั้นต้อง mark resolved:
+
+```bash
+git add <file>
+git revert --continue
+```
+
+จำให้แม่น:
+
+```text
+revert <hash> = เอา “ผลตรงข้ามของ commit นั้น” มาสร้าง commit ใหม่
+ไม่ใช่เอา “สภาพของ commit นั้น” มาอยู่บนสุด
+```
+
 ## Reset แต่ละแบบ
 
 ```text
@@ -104,13 +173,42 @@ git reset --hard
 
 `--hard` อันตรายที่สุด เพราะงานที่ยังไม่ commit อาจหายจริง
 
+## Backup Branch ก่อน Reset
+
+ก่อนใช้ `git reset --hard <hash>` ใน branch ฝึกหรือ branch ที่ยังไม่มั่นใจ สร้าง branch สำรองไว้ที่จุดปัจจุบันก่อนได้:
+
+```bash
+git branch backup/name-before-reset
+```
+
+ภาพจำ:
+
+```text
+ก่อน reset:
+docs/practice  -> commit ล่าสุด
+backup/practice-before-reset -> commit ล่าสุด
+
+หลัง reset docs/practice กลับไป B:
+docs/practice  -> B
+backup/practice-before-reset -> commit ล่าสุดเดิม
+```
+
+branch สำรองเป็น pointer อีกอันที่ยังชี้ commit เดิม จึง switch กลับไปดูหรือกู้งานหลัง reset ได้:
+
+```bash
+git switch backup/name-before-reset
+```
+
 ## จุดที่มักงง
 
 - `git restore file` ทิ้งเนื้อหาที่แก้ใน working tree
 - `git restore --staged file` ไม่ทิ้งเนื้อหา แค่เอาออกจาก staging
 - `git commit --amend` เขียน commit ล่าสุดใหม่ จึงไม่ควรทำกับ commit ที่ push แล้วโดยไม่เข้าใจ
 - `git revert` เพิ่ม commit ใหม่ ไม่ลบ commit เก่า
+- `git revert <old-hash>` ย้อนผลของ commit เก่า ไม่ได้ย้าย branch กลับไป commit เก่านั้น
+- ตอน revert conflict คุณต้องลบ conflict marker และกำหนด final content เอง
 - `git reset --hard` ไม่ใช่ undo เล่น ๆ เพราะทิ้งงานในไฟล์จริงได้
+- backup branch ช่วยให้ commit หลังจุด reset ยังมี pointer ชี้อยู่ ไม่หลุดหายจาก branch ทั้งหมด
 
 ## ศัพท์ที่เกี่ยวข้อง
 
@@ -126,6 +224,8 @@ git reset --hard
 - ถ้าไฟล์อยู่ใน Staged Changes แต่อยากเอาออกมาแก้ต่อ ใช้อะไร
 - `commit --amend` เหมาะกับกรณีไหน
 - ทำไม `revert` ปลอดภัยกว่า `reset` หลัง push
+- ถ้า `git revert <old-hash>` เกิด conflict ใครเป็นคนกำหนด final content
+- backup branch ช่วยอะไรตอนใช้ `reset --hard`
 - `reset --hard` อันตรายเพราะอะไร
 
 ## จำสั้น ๆ
@@ -134,6 +234,7 @@ git reset --hard
 restore = ย้อนไฟล์
 restore --staged = ย้อน staging
 amend = แก้ commit ล่าสุด
-revert = ย้อนด้วย commit ใหม่
-reset = ย้าย pointer กลับ ต้องระวังมาก
+revert = เอาผลตรงข้ามของ commit มาสร้าง commit ใหม่
+reset = ย้าย branch pointer กลับ ต้องระวังมาก
+backup branch = หมุดกันหลงก่อน reset
 ```

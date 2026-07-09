@@ -458,6 +458,14 @@ git commit --amend -m "Better commit message"
 git revert <commit>
 ```
 
+ย้อน commit เก่าที่ไม่ใช่ `HEAD`:
+
+```bash
+git revert 5a5e3fc
+```
+
+คำสั่งนี้ไม่ได้พา branch กลับไป `5a5e3fc` แต่สร้าง commit ใหม่ที่ย้อนผลของ `5a5e3fc`
+
 ดู commit ก่อนตัดสินใจ revert:
 
 ```bash
@@ -465,11 +473,46 @@ git log --oneline -5
 git show --stat <commit>
 ```
 
+ถ้า revert แล้ว conflict:
+
+```bash
+git status --short --branch
+cat path/to/conflicted-file
+```
+
+แก้ไฟล์ให้เหลือ final content ที่ต้องการ ลบ marker เหล่านี้ออกให้หมด:
+
+```text
+[[conflict start: HEAD]]
+[[conflict separator]]
+[[conflict end: incoming/commit]]
+```
+
+จากนั้น mark resolved และให้ revert ทำต่อ:
+
+```bash
+git add path/to/conflicted-file
+git revert --continue
+```
+
+ถ้ารู้ว่าต้องการยกเลิก revert operation:
+
+```bash
+git revert --abort
+```
+
 ระวัง merge commit:
 
 ```text
 revert merge commit ต้องรู้ mainline/parent ก่อน เช่น -m 1
 อย่าสุ่ม revert merge commit
+```
+
+สร้าง branch สำรองก่อน reset:
+
+```bash
+git branch backup/revert-a-practice-before-reset
+git branch -v
 ```
 
 รู้จัก reset แบบภาพรวม:
@@ -481,6 +524,25 @@ git reset --hard <commit>
 ```
 
 ใช้ `--hard` ด้วยความระวังมาก เพราะทิ้ง change ใน working tree ได้จริง
+
+reset branch ปัจจุบันกลับไป commit ที่เลือก:
+
+```bash
+git reset --hard 5a5e3fc
+```
+
+VS Code Graph บางเครื่องไม่มีเมนู reset โดยตรง ให้ใช้เมนู `Copy Commit Hash` จาก commit ที่เลือก แล้วนำ hash มาใช้กับ terminal:
+
+```bash
+git reset --hard <copied-commit-hash>
+```
+
+เช็กหลัง reset:
+
+```bash
+git branch -v
+cat path/to/file
+```
 
 อ่าน concept: [Undo In Git](concepts/undo-in-git.md)
 
