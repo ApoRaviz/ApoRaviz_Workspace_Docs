@@ -646,6 +646,12 @@ git stash push -m "Describe temporary work"
 git stash list
 ```
 
+ดูว่า stash เก็บ diff อะไร:
+
+```bash
+git stash show -p stash@{0}
+```
+
 เอา stash ล่าสุดกลับมา:
 
 ```bash
@@ -658,11 +664,93 @@ git stash pop
 git stash apply stash@{0}
 ```
 
+เอา stash กลับมาและลบ stash ออกจาก list ถ้าสำเร็จ:
+
+```bash
+git stash pop stash@{0}
+```
+
 บทเรียน:
 
 - stash เหมาะเมื่ออยากสลับ branch แต่ยังไม่พร้อม commit
+- `apply` เอากลับมาแต่ stash ยังอยู่
+- `pop` เอากลับมาแล้วลบ stash ถ้าสำเร็จ
 - ก่อน `stash pop` ควรเช็ก `git status --short --branch`
 - ถ้ามี conflict หลัง pop ให้แก้เหมือน conflict ปกติ
+
+อ่าน concept: [Stash](concepts/stash.md)
+
+## Reflog
+
+ดูประวัติการขยับของ `HEAD` ในเครื่องนี้:
+
+```bash
+git reflog --oneline -10
+```
+
+สร้าง branch ใหม่กลับไปชี้ commit ที่เจอใน reflog:
+
+```bash
+git branch recovered/from-reflog 78019fa
+```
+
+switch ไปดู branch ที่กู้:
+
+```bash
+git switch recovered/from-reflog
+```
+
+กลับ main แล้วลบ branch กู้คืนเมื่อไม่ต้องใช้:
+
+```bash
+git switch main
+git branch -d recovered/from-reflog
+```
+
+ถ้าเป็น branch lab ที่ไม่ต้องเก็บและ Git บอก not fully merged:
+
+```bash
+git branch -D recovered/from-reflog
+```
+
+อ่าน concept: [Reflog](concepts/reflog.md)
+
+## Cherry-pick
+
+หยิบ commit เฉพาะอันมาใส่ branch ปัจจุบัน:
+
+```bash
+git cherry-pick <commit>
+```
+
+ตัวอย่าง:
+
+```bash
+git cherry-pick 2666935
+```
+
+ดูผลหลัง cherry-pick:
+
+```bash
+git log --oneline -4
+cat cherry-pick-practice.txt
+```
+
+เลือกหลาย commit ทีละตัว:
+
+```bash
+git cherry-pick <commit-a>
+git cherry-pick <commit-c>
+git cherry-pick <commit-e>
+```
+
+เลือก range ที่ต่อเนื่องกัน:
+
+```bash
+git cherry-pick <first-commit>^..<last-commit>
+```
+
+อ่าน concept: [Cherry-pick](concepts/cherry-pick.md)
 
 ## Tag
 

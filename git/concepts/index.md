@@ -14,8 +14,10 @@
 - [Merge](merge.md)
 - [Merge Conflict](merge-conflict.md)
 - [Undo In Git](undo-in-git.md)
+- [Reflog](reflog.md)
+- [Stash](stash.md)
+- [Cherry-pick](cherry-pick.md)
 
 ## Terms To Add Later
 
 - remote
-- reflog
