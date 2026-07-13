@@ -17,6 +17,7 @@
 - [Reflog](reflog.md)
 - [Stash](stash.md)
 - [Cherry-pick](cherry-pick.md)
+- [Commit Message Convention](commit-message-convention.md)
 
 ## Terms To Add Later
 

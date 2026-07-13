@@ -576,11 +576,33 @@ git show --name-only
 git commit --amend -m "Better commit message"
 ```
 
+ใช้ commit message convention:
+
+```bash
+git commit -m "docs(git): add commit message practice note"
+```
+
+รูปแบบ:
+
+```text
+type(scope): summary
+```
+
+ตัวอย่าง:
+
+```text
+docs(readme): add setup instructions
+chore(gitignore): ignore dist output
+feat(login-form): add login form component
+fix(login): redirect after successful login
+```
+
 บทเรียน:
 
 - ใช้ `git add path/to/file.md` เมื่อไม่อยาก stage ทุกไฟล์
 - ใช้ `git add -A` เฉพาะเมื่อมั่นใจว่าทุก change เกี่ยวกับงานเดียวกัน
 - อย่า amend commit ที่ push แล้ว ถ้าไม่ได้คุยกับทีมก่อน
+- อ่าน concept: [Commit Message Convention](concepts/commit-message-convention.md)
 
 ## Push
 
