@@ -261,6 +261,88 @@ git log --oneline --left-right HEAD...origin/main
 ถ้าเลขซ้ายมากกว่า 0 แปลว่า local ahead  
 ถ้าเลขขวามากกว่า 0 แปลว่า remote ahead
 
+## Daily Pull/Push Workflow
+
+เริ่มงานด้วยการเช็กว่า local กับ remote sync กันไหม:
+
+```bash
+git status --short --branch
+```
+
+ถ้าเห็นแบบนี้:
+
+```text
+## main...origin/main
+```
+
+แปลว่า local branch `main` รู้จัก upstream เป็น `origin/main` และตอนนี้ยังไม่มี commit ที่ ahead/behind กัน
+
+อัปเดตภาพของ remote ลงมาในเครื่องก่อนอ่าน `origin/main`:
+
+```bash
+git fetch origin
+```
+
+ดูภาพรวม local/remote หลัง fetch:
+
+```bash
+git log --oneline --decorate --graph --all -8
+```
+
+ถ้าแก้ไฟล์แล้ว commit ใน local:
+
+```bash
+git add README.md
+git commit -m "docs(git): add daily workflow sync note"
+```
+
+เช็กอีกครั้ง:
+
+```bash
+git status --short --branch
+```
+
+ถ้าเห็นแบบนี้:
+
+```text
+## main...origin/main [ahead 1]
+```
+
+แปลว่า local มี commit ใหม่ 1 อันที่ `origin/main` ยังไม่มี
+
+push ขึ้น remote:
+
+```bash
+git push
+```
+
+ถ้าเคยตั้ง upstream แล้วด้วยคำสั่งนี้:
+
+```bash
+git push -u origin main
+```
+
+ครั้งถัดไปจึงใช้ `git push` เฉย ๆ ได้ เพราะ Git รู้แล้วว่า local `main` ต้อง push ไปหา `origin/main`
+
+ตรวจหลัง push:
+
+```bash
+git status --short --branch
+git log --oneline --decorate -3
+```
+
+ถ้าเห็น commit เดียวกันมีทั้ง `HEAD -> main`, `origin/main`, และ `origin/HEAD` เช่น:
+
+```text
+0dfe8eb (HEAD -> main, origin/main, origin/HEAD) docs(git): add daily workflow sync note
+```
+
+แปลว่า local กับ remote sync กันแล้ว
+
+อ่าน concept:
+
+- [Remote](concepts/remote.md)
+
 ## Branch
 
 ดู branch ทั้งหมด:
