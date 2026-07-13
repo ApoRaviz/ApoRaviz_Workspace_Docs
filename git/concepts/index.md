@@ -18,7 +18,8 @@
 - [Stash](stash.md)
 - [Cherry-pick](cherry-pick.md)
 - [Commit Message Convention](commit-message-convention.md)
+- [Remote](remote.md)
 
 ## Terms To Add Later
 
-- remote
+_(ครบชุด Git พื้นฐานของ Phase 0.4 แล้ว — เพิ่มศัพท์ใหม่ที่นี่เมื่อเจอในงานจริง)_

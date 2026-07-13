@@ -814,6 +814,12 @@ git push origin --delete v0.1.0
 git remote -v
 ```
 
+เพิ่ม remote หลักชื่อ `origin`:
+
+```bash
+git remote add origin https://github.com/ApoRaviz/ApoRaviz_DevEng.git
+```
+
 เปลี่ยน remote:
 
 ```bash
@@ -821,6 +827,65 @@ git remote set-url origin https://github.com/ApoRaviz/Repo_Name.git
 ```
 
 ใช้เมื่อ rename repo หรือย้าย repo ปลายทาง
+
+เช็กว่า GitHub repo มี branch/commit อยู่แล้วไหม โดยถาม remote ตรง ๆ:
+
+```bash
+git ls-remote --heads https://github.com/ApoRaviz/ApoRaviz_DevEng.git
+```
+
+ดึงข้อมูล remote มาอัปเดต `origin/main` ในเครื่อง:
+
+```bash
+git fetch origin
+```
+
+ดู local `main`:
+
+```bash
+git log --oneline --decorate main -5
+```
+
+ดู remote-tracking branch หลัง fetch:
+
+```bash
+git log --oneline --decorate origin/main -5
+```
+
+ดูว่า remote commit มีไฟล์อะไร:
+
+```bash
+git show --stat --oneline origin/main
+git show --name-only --oneline origin/main
+```
+
+merge remote history ที่ถูกสร้างคนละต้นกับ local:
+
+```bash
+git merge origin/main --allow-unrelated-histories
+```
+
+ใช้เฉพาะเมื่อเข้าใจแล้วว่า local repo กับ remote repo มี history คนละต้นจริง และต้องการรวมกัน
+
+push ครั้งแรกพร้อมตั้ง upstream:
+
+```bash
+git push -u origin main
+```
+
+หลัง push สำเร็จ:
+
+```bash
+git status --short --branch
+```
+
+ควรเห็น:
+
+```text
+## main...origin/main
+```
+
+อ่าน concept: [Remote](concepts/remote.md)
 
 ## Troubleshooting
 

@@ -150,6 +150,7 @@ export default defineConfig({
           { text: 'Stash', link: '/git/concepts/stash' },
           { text: 'Cherry-pick', link: '/git/concepts/cherry-pick' },
           { text: 'Commit Message Convention', link: '/git/concepts/commit-message-convention' },
+          { text: 'Remote', link: '/git/concepts/remote' },
         ],
       },
     ],
