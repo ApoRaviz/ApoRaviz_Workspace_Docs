@@ -17,6 +17,7 @@ export default defineConfig({
       { text: 'Backend', link: '/backend/' },
       { text: 'Labs', link: '/angular/labs/' },
       { text: 'Commands', link: '/commands' },
+      { text: 'Claude', link: '/claude/' },
       { text: 'Rules', link: '/WORKSPACE_RULES' },
     ],
     sidebar: [
@@ -38,6 +39,13 @@ export default defineConfig({
           { text: 'Workspace Rules', link: '/WORKSPACE_RULES' },
           { text: 'Teaching Rules', link: '/TEACHING_RULES' },
           { text: 'AI Update Rule', link: '/AI_UPDATE_RULE' },
+        ],
+      },
+      {
+        text: 'Claude Code',
+        collapsed: false,
+        items: [
+          { text: 'คำสั่งและความสามารถ', link: '/claude/' },
         ],
       },
       {
