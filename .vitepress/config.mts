@@ -117,6 +117,7 @@ export default defineConfig({
           { text: 'Node.js Commands', link: '/nodejs/commands' },
           { text: 'Node.js Concepts', link: '/nodejs/concepts/' },
           { text: 'Environment Variable', link: '/nodejs/concepts/environment-variable' },
+          { text: '.env File', link: '/nodejs/concepts/dotenv-file' },
           { text: 'Secret', link: '/nodejs/concepts/secret' },
           { text: '01 Node.js CLI File Processing', link: '/nodejs/teach/01-cli-file-processing' },
           { text: '02 Node Stream And Backpressure', link: '/nodejs/teach/02-node-stream-backpressure' },

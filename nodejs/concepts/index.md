@@ -5,10 +5,10 @@
 ## Current Concepts
 
 - [Environment Variable](environment-variable.md)
+- [.env File](dotenv-file.md)
 - [Secret](secret.md)
 
 ## อ่านคู่กับ
 
 - [Node.js Commands](../commands.md)
 - [Node And npm Version Check](../teach/06-node-npm-version-check.md)
-

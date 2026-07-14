@@ -38,13 +38,14 @@ node:test = test runner ที่มากับ Node.js
 1. [Node.js Commands](commands.md)
 2. [Node.js Concepts](concepts/index.md)
 3. [Environment Variable](concepts/environment-variable.md)
-4. [Secret](concepts/secret.md)
-5. [01 CLI File Processing](teach/01-cli-file-processing.md)
-6. [02 Node Stream And Backpressure](teach/02-node-stream-backpressure.md)
-7. [03 CLI Arguments And Errors](teach/03-cli-arguments-and-errors.md)
-8. [04 File Backup Safety](teach/04-file-backup-safety.md)
-9. [05 Node Test And Temp Files](teach/05-node-test-temp-files.md)
-10. [06 Node And npm Version Check](teach/06-node-npm-version-check.md)
+4. [.env File](concepts/dotenv-file.md)
+5. [Secret](concepts/secret.md)
+6. [01 CLI File Processing](teach/01-cli-file-processing.md)
+7. [02 Node Stream And Backpressure](teach/02-node-stream-backpressure.md)
+8. [03 CLI Arguments And Errors](teach/03-cli-arguments-and-errors.md)
+9. [04 File Backup Safety](teach/04-file-backup-safety.md)
+10. [05 Node Test And Temp Files](teach/05-node-test-temp-files.md)
+11. [06 Node And npm Version Check](teach/06-node-npm-version-check.md)
 
 ## Node.js กับ NestJS/Fastify ต่างกันยังไง
 

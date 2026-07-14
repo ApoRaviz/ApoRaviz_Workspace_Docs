@@ -66,6 +66,21 @@ Git ใช้ pattern ในไฟล์นี้ตอนคำนวณ `git s
 
 จุดสำคัญ: ถ้า ignore parent directory ทั้งก้อน เช่น `.vscode/` Git อาจไม่เดินเข้าไปดูไฟล์ลูกให้ unignore ดังนั้น scaffold มักใช้ `.vscode/*` แล้วค่อย `!.vscode/settings.json`
 
+อีกตัวอย่างที่เจอบ่อยกับไฟล์ environment:
+
+```text
+.env
+.env.*
+!.env.example
+```
+
+แปลว่า:
+
+```text
+เมิน .env และ .env.* เพราะอาจมี secret จริง
+แต่ไม่เมิน .env.example เพราะเป็น template ที่ไม่มีค่าจริงและควร commit ได้
+```
+
 ## Flow ทีละขั้น
 
 1. Git อ่านไฟล์ใน working tree
@@ -120,6 +135,7 @@ node_modules ถูก ignore เพราะ .gitignore บรรทัดท�
 ## ศัพท์ที่เกี่ยวข้อง
 
 - [Git Repository](git-repository.md)
+- [Node.js .env File](../../nodejs/concepts/dotenv-file.md)
 - คำสั่ง Git: [Git Commands](../commands.md)
 
 ## เช็กตัวเอง

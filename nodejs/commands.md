@@ -89,6 +89,87 @@ nvm use                  = เปลี่ยน PATH ของ shell รอบ�
 - [Environment Variable](concepts/environment-variable.md)
 - [Secret](concepts/secret.md)
 
+## Local .env Files
+
+เช็กก่อนว่า `.gitignore` มี rule กัน `.env` หรือยัง:
+
+```bash
+grep -n '^\\.env' .gitignore
+```
+
+ตัวอย่าง rule ที่ควรมี:
+
+```text
+# Environment files
+.env
+.env.*
+!.env.example
+```
+
+สร้างไฟล์ `.env` เปล่า:
+
+```bash
+touch .env
+```
+
+สร้าง `.env` จาก template:
+
+```bash
+cp .env.example .env
+```
+
+ตรวจว่า `.env` มีอยู่จริง:
+
+```bash
+ls -la .env .env.example
+```
+
+ถาม Git ว่า `.env` ถูก ignore ด้วย rule ไหน:
+
+```bash
+git check-ignore -v .env
+```
+
+ตรวจว่า `.env.example` ถูกยกเว้นจาก ignore rule:
+
+```bash
+git check-ignore -v .env.example
+```
+
+ดู status ก่อน commit:
+
+```bash
+git status --short
+```
+
+ควรเห็นเฉพาะไฟล์ที่ commit ได้:
+
+```text
+ M .gitignore
+?? .env.example
+```
+
+หลัง stage แล้วดู staged diff:
+
+```bash
+git add .gitignore .env.example
+git diff --cached -- .gitignore .env.example
+```
+
+จำสั้น ๆ:
+
+```text
+.env = local secret/config ห้าม commit
+.env.example = template ไม่มีค่าจริง commit ได้
+git check-ignore -v = ตรวจว่า ignore จาก rule ไหน
+```
+
+อ่าน concept:
+
+- [.env File](concepts/dotenv-file.md)
+- [Secret](concepts/secret.md)
+- [Git .gitignore](../git/concepts/gitignore.md)
+
 ## Install
 
 ```bash

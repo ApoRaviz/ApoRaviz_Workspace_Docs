@@ -104,6 +104,8 @@ server/hosting -> secret setting ของ platform
 CI/CD          -> repository secrets
 ```
 
+อ่านต่อ: [.env File](dotenv-file.md)
+
 ภาพจำ:
 
 ```text
@@ -171,6 +173,7 @@ secret จริงควรอยู่ฝั่ง backend/server/CI/CD ไม
 ## ศัพท์ที่เกี่ยวข้อง
 
 - [Environment Variable](environment-variable.md)
+- [.env File](dotenv-file.md)
 - [Angular Environment Files](../../angular/concepts/environment-files.md)
 - [Git .gitignore](../../git/concepts/gitignore.md)
 - [Git Commit](../../git/concepts/commit.md)
@@ -190,4 +193,3 @@ secret = ค่าที่คนอื่นเห็นแล้วเอา�
 ห้าม commit secret
 ถ้าหลุด ให้ rotate/revoke ไม่ใช่แค่ลบไฟล์
 ```
-

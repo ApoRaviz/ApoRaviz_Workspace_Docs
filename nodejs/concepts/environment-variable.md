@@ -173,6 +173,8 @@ code จึงรู้แค่ว่า "ต้องอ่านค่า `DA
 
 อ่านต่อ: [Secret](secret.md)
 
+ถ้าต้องจัด env หลายตัวบนเครื่อง local ตอนพัฒนา อ่านต่อ: [.env File](dotenv-file.md)
+
 ## จุดที่มักงง
 
 - environment variable ไม่ได้ใช้เฉพาะการเขียนโปรแกรม แต่ shell, OS, dev tools, server และ CI/CD ใช้ด้วย
@@ -184,6 +186,7 @@ code จึงรู้แค่ว่า "ต้องอ่านค่า `DA
 ## ศัพท์ที่เกี่ยวข้อง
 
 - [Secret](secret.md)
+- [.env File](dotenv-file.md)
 - [Angular Environment Files](../../angular/concepts/environment-files.md)
 - [Node And npm Version Check](../teach/06-node-npm-version-check.md)
 
