@@ -40,6 +40,55 @@ which npm
 node -v
 ```
 
+อ่าน concept:
+
+- [Environment Variable](concepts/environment-variable.md)
+
+## Environment Variables
+
+ดูค่า environment variable ที่มีอยู่ใน shell:
+
+```bash
+printenv HOME
+printenv PATH
+```
+
+อ่านค่าเดียวกันผ่าน Node.js:
+
+```bash
+node -p "process.env.HOME"
+node -p "process.env.PATH"
+```
+
+ตรวจว่า `PATH` พา shell ไปเจอ `node` ตัวไหน:
+
+```bash
+which node
+node -v
+```
+
+ถ้าอยากให้ shell ใช้ Node ตาม baseline ของ workspace:
+
+```bash
+nvm use 24
+which node
+node -v
+```
+
+จำสั้น ๆ:
+
+```text
+printenv HOME            = shell อ่าน env
+node -p "process.env.X"  = Node.js อ่าน env
+PATH                     = env ที่ช่วย shell หา command
+nvm use                  = เปลี่ยน PATH ของ shell รอบนั้น
+```
+
+อ่าน concept:
+
+- [Environment Variable](concepts/environment-variable.md)
+- [Secret](concepts/secret.md)
+
 ## Install
 
 ```bash
