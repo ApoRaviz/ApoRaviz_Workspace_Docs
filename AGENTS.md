@@ -17,7 +17,7 @@ ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แ�
 
 ## North Star + Public-Repo Warning
 
-North Star ของ workspace (**topic-first / single-source / machine-agnostic**) เป็น canonical อยู่ที่ [`WORKSPACE_RULES.md`](./WORKSPACE_RULES.md#north-star) — ยึดที่นั่น **อย่า restate ที่นี่**
+North Star ของ workspace (**topic-first / single-source / machine-agnostic**) เป็น canonical อยู่ที่ [Workspace Rules](./WORKSPACE_RULES.md#north-star) — ยึดที่นั่น **อย่า restate ที่นี่**
 
 operating warning ที่เพิ่มเฉพาะ repo นี้ (ยังไม่ canonical ที่อื่น):
 
@@ -31,11 +31,11 @@ PUBLIC repo = ทุกไฟล์ที่ commit คนนอกอ่าน�
 
 ไฟล์นี้เป็นแค่ hook ให้ auto-discover — กฎจริงอยู่ในไฟล์เดิม อ่านตามลำดับ:
 
-1. [`PROJECT_START_HERE.md`](./PROJECT_START_HERE.md) = ลำดับอ่าน + checklist (entry point ทางการ)
-2. [`WORKSPACE_RULES.md`](./WORKSPACE_RULES.md) = บทบาท repo + boundary
-3. [`TEACHING_RULES.md`](./TEACHING_RULES.md) = วิธีเขียนบทเรียน (ภาพจำ → term → flow → code)
-4. [`AI_UPDATE_RULE.md`](./AI_UPDATE_RULE.md) = ความรู้ไหนไปไหน (Decision Table) + Date Check Rule
-5. [`NEW_PROJECT_GUIDE.md`](./NEW_PROJECT_GUIDE.md) / [`WORKSPACE_PLAN.md`](./WORKSPACE_PLAN.md) = เริ่มโปรเจกต์ + แผน workspace
+1. [Project Start Here](./PROJECT_START_HERE.md) = ลำดับอ่าน + checklist (entry point ทางการ)
+2. [Workspace Rules](./WORKSPACE_RULES.md) = บทบาท repo + boundary
+3. [Teaching Rules](./TEACHING_RULES.md) = วิธีเขียนบทเรียน (ภาพจำ → term → flow → code)
+4. [AI Update Rule](./AI_UPDATE_RULE.md) = ความรู้ไหนไปไหน (Decision Table) + Date Check Rule
+5. [New Project Guide](./NEW_PROJECT_GUIDE.md) / [Workspace Plan](./WORKSPACE_PLAN.md) = เริ่มโปรเจกต์ + แผน workspace
 6. [`baseline.md`](./baseline.md) = version baseline (Node/Angular/Tailwind/TS) — single source
 
 ## What Belongs Here / What Doesn't
@@ -47,12 +47,12 @@ PUBLIC repo = ทุกไฟล์ที่ commit คนนอกอ่าน�
                 case study แยกตามโปรเจกต์ (route projects/<name>/ ยกเลิกแล้ว)
 ```
 
-เนื้อหาไหนไปไฟล์ไหน ให้ยึด Decision Table ใน [`AI_UPDATE_RULE.md`](./AI_UPDATE_RULE.md)
+เนื้อหาไหนไปไฟล์ไหน ให้ยึด Decision Table ใน [AI Update Rule](./AI_UPDATE_RULE.md)
 
 ## Knowledge Sync (เนื้อหาจากโปรเจกต์เรียนไหลเข้ามายังไง)
 
 - Codex เขียนร่างความรู้ reusable เข้า repo นี้หน้างาน → Claude (Reviewer/QA) ตรวจก่อนถือว่า sync เสร็จ
-- ก่อนแก้หัวข้อที่มีวันที่/สถานะ ให้ทำตาม **Date Check Rule** ใน [`AI_UPDATE_RULE.md`](./AI_UPDATE_RULE.md#date-check-rule) (เช็ควันจริงก่อน ห้าม copy วันเก่า)
+- ก่อนแก้หัวข้อที่มีวันที่/สถานะ ให้ทำตาม **Date Check Rule** ใน [AI Update Rule](./AI_UPDATE_RULE.md#date-check-rule) (เช็ควันจริงก่อน ห้าม copy วันเก่า)
 
 ## Commands (machine-agnostic — PC/Mac)
 

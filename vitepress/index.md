@@ -217,14 +217,16 @@ VitePress ใช้ file-based routing
 
 ```text
 index.md                              -> /
-PROJECT_START_HERE.md                 -> /PROJECT_START_HERE
+PROJECT_START_HERE.md                 -> /project-start-here (ผ่าน rewrites)
 angular/index.md                      -> /angular/
 angular/concepts/signal.md            -> /angular/concepts/signal
 angular/labs/01-signal-counter.md     -> /angular/labs/01-signal-counter
-nodejs/index.md             -> /nodejs/
+nodejs/index.md                       -> /nodejs/
 ```
 
 เพราะ config เปิด `cleanUrls: true` จึงไม่ต้องใส่ `.html` ตอนเปิดหน้า
+
+ถ้าต้องคงชื่อไฟล์จริงไว้ เช่น `PROJECT_START_HERE.md` แต่ไม่อยากให้ URL public เป็นตัวพิมพ์ใหญ่ ให้ตั้งค่า `rewrites` ใน `.vitepress/config.mts` เพื่อ map source file ไปเป็น lowercase URL
 
 ## ทำไมใช้ `index.md` แทน `README.md`
 

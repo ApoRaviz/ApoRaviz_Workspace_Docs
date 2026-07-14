@@ -41,7 +41,7 @@ repo นี้เก็บเฉพาะความรู้กลางขอ
 
 ## How To Use
 
-ลำดับการอ่านเริ่มงาน (read order) เก็บไว้ที่เดียวใน [`PROJECT_START_HERE.md`](./PROJECT_START_HERE.md) เพื่อไม่ให้ลำดับซ้ำและขัดกันหลายไฟล์
+ลำดับการอ่านเริ่มงาน (read order) เก็บไว้ที่เดียวใน [Project Start Here](./PROJECT_START_HERE.md) เพื่อไม่ให้ลำดับซ้ำและขัดกันหลายไฟล์
 
 ## Static Site
 
@@ -67,7 +67,7 @@ vitepress/index.md
 
 ## Project Roles
 
-ตาราง role/status ของทุก repo เก็บไว้ที่เดียวใน [`WORKSPACE_PLAN.md`](./WORKSPACE_PLAN.md) หัวข้อ Project Registry เพื่อไม่ให้ข้อมูลโปรเจกต์ซ้ำหลายไฟล์
+ตาราง role/status ของทุก repo เก็บไว้ที่เดียวใน [Workspace Plan](./WORKSPACE_PLAN.md) หัวข้อ Project Registry เพื่อไม่ให้ข้อมูลโปรเจกต์ซ้ำหลายไฟล์
 
 ## Ownership Rule
 

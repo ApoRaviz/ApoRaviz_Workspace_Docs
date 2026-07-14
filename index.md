@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: เริ่มอ่าน
-      link: /PROJECT_START_HERE
+      link: /project-start-here
     - theme: alt
       text: ลอง Lab แรก
       link: /angular/labs/01-signal-counter
