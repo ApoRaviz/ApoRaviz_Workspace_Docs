@@ -124,6 +124,9 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Backend Stack', link: '/backend/' },
+          { text: 'Backend Concepts', link: '/backend/concepts/' },
+          { text: 'API Contract', link: '/backend/concepts/api-contract' },
+          { text: 'Privilege Escalation', link: '/backend/concepts/privilege-escalation' },
           { text: 'Node.js Hub', link: '/nodejs/' },
           { text: 'Node.js Commands', link: '/nodejs/commands' },
           { text: 'Node.js Concepts', link: '/nodejs/concepts/' },

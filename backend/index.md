@@ -27,6 +27,7 @@ Fastify ใช้ได้เมื่อ scope เล็กหรือเป�
 ```text
 Frontend = client-side app ที่ user เห็น
 Backend API = server-side app ที่รับ HTTP request
+API Contract = ข้อตกลงว่า frontend ต้องเรียก endpoint ไหน ส่งอะไร และ backend จะตอบอะไร
 Database = ที่เก็บข้อมูลถาวร
 Controller = class หรือ handler ที่รับ route/request
 Service = class ที่เก็บ business logic
@@ -61,7 +62,10 @@ Angular + NestJS + PostgreSQL/Supabase
 - อยากเรียน HTTP request/response แบบตรง
 - ยังไม่ต้องมี structure ใหญ่แบบ NestJS
 
-อ่านต่อ: [Fastify In ApoRaviz Workspace](fastify.md)
+อ่านต่อ:
+
+- [API Contract](concepts/api-contract.md)
+- [Fastify In ApoRaviz Workspace](fastify.md)
 
 ## Flow ตัวอย่างจาก MooPing Reward
 
@@ -105,6 +109,8 @@ Angular upload page
 
 - [Node.js Learning Hub](../nodejs/)
 - [Node.js Commands](../nodejs/commands.md)
+- [Backend Concepts](concepts/)
+- [API Contract](concepts/api-contract.md)
 - [LINE OA Webhook And Messaging API](line-oa-webhook.md)
 - [NestJS Learning Hub](../nestjs/)
 - [Fastify In ApoRaviz Workspace](fastify.md)
