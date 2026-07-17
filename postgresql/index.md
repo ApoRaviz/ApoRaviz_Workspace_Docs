@@ -32,6 +32,8 @@ column = ช่องข้อมูล เช่น name, phone
 primary key = id หลักของ row
 foreign key = id ที่อ้างไป table อื่น
 index = ตัวช่วยค้นหาเร็วขึ้น
+unique constraint = กติกาห้ามค่าซ้ำ
+check constraint = กติกาว่าค่าต้องอยู่ในเงื่อนไขที่กำหนด
 transaction = ชุดคำสั่ง database ที่ต้องสำเร็จหรือ fail พร้อมกัน
 migration = ไฟล์เปลี่ยน schema แบบมีประวัติ
 schema = โครงสร้าง table/column/relationship
@@ -139,15 +141,29 @@ Supabase   = service ที่ให้ PostgreSQL พร้อมเครื�
 - ทุก table ควรมี `id`
 - ข้อมูลเวลาใช้ `created_at`, `updated_at`
 - ความสัมพันธ์ใช้ foreign key เช่น `customer_id`
+- ค่าที่ห้ามซ้ำใช้ unique constraint เช่น email ที่ normalize แล้ว
+- query ที่ใช้บ่อยค่อยออกแบบ index ตาม query นั้น
+- ค่าที่ต้องอยู่ในกติกาชัดเจนใช้ check constraint เช่น role ที่มีได้เฉพาะบางค่า
 - field ที่เป็นเงิน/จำนวนต้องระวัง type
 - business rule สำคัญควร test ทั้ง backend และ database transaction
 - secret และ service role key ต้องอยู่ฝั่ง backend เท่านั้น
+
+## Concepts
+
+- [Primary Key](concepts/primary-key.md)
+- [Foreign Key](concepts/foreign-key.md)
+- [Unique Constraint](concepts/unique-constraint.md)
+- [Index](concepts/database-index.md)
+- [Check Constraint](concepts/check-constraint.md)
 
 ## จุดที่มักงง
 
 - PostgreSQL ไม่ใช่ backend API ต้องมี backend เช่น NestJS คุยกับ database
 - Supabase ไม่ได้แปลว่าไม่ต้องเข้าใจ SQL เพราะแกนยังเป็น PostgreSQL
 - foreign key คือการบอกว่า row นี้อ้างถึง row ในอีก table
+- unique constraint กันค่าซ้ำ ส่วน primary key คือ identity หลักของ row
+- index ช่วยค้นหา/เรียงข้อมูล แต่ไม่ฟรี ต้องสร้างตาม query ที่ใช้จริง
+- check constraint กันค่าที่ผิดกติกา ไม่ได้ช่วยให้ query เร็วขึ้น
 - transaction ใน database ไม่ใช่ transaction รายการขาย แต่ชื่อ concept ซ้ำกัน
 - migration คือประวัติการเปลี่ยน schema ไม่ใช่ไฟล์ backup ข้อมูล
 
@@ -167,4 +183,3 @@ Supabase   = service ที่ให้ PostgreSQL พร้อมเครื�
 PostgreSQL = ตารางข้อมูลจริงและความสัมพันธ์
 Supabase = PostgreSQL แบบ managed พร้อมเครื่องมือช่วยเริ่มเร็ว
 ```
-
