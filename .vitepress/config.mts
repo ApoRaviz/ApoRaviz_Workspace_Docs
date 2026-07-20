@@ -143,6 +143,12 @@ export default defineConfig({
           { text: 'LINE OA Webhook', link: '/backend/line-oa-webhook' },
           { text: 'Fastify', link: '/backend/fastify' },
           { text: 'PostgreSQL Hub', link: '/postgresql/' },
+          { text: 'PostgreSQL Concepts', link: '/postgresql/concepts/' },
+          { text: 'Primary Key', link: '/postgresql/concepts/primary-key' },
+          { text: 'Foreign Key', link: '/postgresql/concepts/foreign-key' },
+          { text: 'Unique Constraint', link: '/postgresql/concepts/unique-constraint' },
+          { text: 'Index', link: '/postgresql/concepts/database-index' },
+          { text: 'Check Constraint', link: '/postgresql/concepts/check-constraint' },
         ],
       },
       {
