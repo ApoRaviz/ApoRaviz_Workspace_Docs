@@ -6,6 +6,8 @@
 
 - [API Contract](api-contract.md)
 - [Privilege Escalation](privilege-escalation.md)
+- [Sequence Diagram](sequence-diagram.md)
+- [Race Condition](race-condition.md)
 
 ## Terms To Add Later
 

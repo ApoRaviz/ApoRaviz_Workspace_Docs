@@ -26,6 +26,32 @@ SSR       = server render HTML ให้ก่อน
 Hydration = browser รับ HTML นั้นมาต่อให้ interactive
 ```
 
+## Interactive Session Rule
+
+เวลาเรียนแบบโต้ตอบ ให้เลือกวิธีลงมือตามทักษะเป้าหมายของบท ไม่บังคับให้ทุกบทเริ่มจากหน้าว่างเหมือนกัน
+
+```text
+อธิบาย Why และภาพจำ
+-> ให้ตัวอย่างที่ copy/run/apply ได้
+-> learner ส่งผลหรืออธิบายความเข้าใจกลับมา
+-> AI อธิบายผลและเกลาคำตอบ
+-> Knowledge Check
+-> ค่อยเพิ่มความยาก
+```
+
+รูปแบบตามชนิดงาน:
+
+```text
+Git/command    = AI ให้ command -> learner รัน -> ส่ง output -> AI อธิบาย
+เขียน code     = AI ให้ snippet เล็ก -> อธิบาย -> learner ทดลอง -> ส่งผล build/runtime
+ออกแบบระบบ     = ออกแบบร่วมกัน -> learner ตอบ decision สำคัญ -> AI ร่าง artifact -> learner ตรวจความเข้าใจ
+Knowledge Sync = Codex ร่าง docs -> Claude review/QA ตามข้อตกลงของโปรเจกต์
+```
+
+อย่าให้ learner สร้างไฟล์หรือ artifact จาก blank page เพียงเพื่อให้ดูเหมือนได้ลงมือ ถ้าการสร้างโครงนั้นไม่ใช่ทักษะเป้าหมายของบท
+
+ก่อนสร้าง project artifact ต้องอธิบายว่าไฟล์นั้นจำเป็นต่อ step ปัจจุบันอย่างไร และแยกให้ชัดจาก reusable knowledge ที่ต้องกลับมาที่ Workspace Docs
+
 ## Do Not Start With Technical Definition
 
 ห้ามเริ่มบทด้วยนิยามแบบแข็ง ๆ เช่น:

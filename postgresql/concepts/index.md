@@ -9,10 +9,10 @@
 - [Unique Constraint](unique-constraint.md)
 - [Index](database-index.md)
 - [Check Constraint](check-constraint.md)
+- [Database Transaction](database-transaction.md)
 
 ## Terms To Add Later
 
-- transaction
 - migration
 - schema
 - relationship

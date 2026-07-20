@@ -127,6 +127,8 @@ export default defineConfig({
           { text: 'Backend Concepts', link: '/backend/concepts/' },
           { text: 'API Contract', link: '/backend/concepts/api-contract' },
           { text: 'Privilege Escalation', link: '/backend/concepts/privilege-escalation' },
+          { text: 'Sequence Diagram', link: '/backend/concepts/sequence-diagram' },
+          { text: 'Race Condition', link: '/backend/concepts/race-condition' },
           { text: 'Node.js Hub', link: '/nodejs/' },
           { text: 'Node.js Commands', link: '/nodejs/commands' },
           { text: 'Node.js Concepts', link: '/nodejs/concepts/' },
@@ -149,6 +151,7 @@ export default defineConfig({
           { text: 'Unique Constraint', link: '/postgresql/concepts/unique-constraint' },
           { text: 'Index', link: '/postgresql/concepts/database-index' },
           { text: 'Check Constraint', link: '/postgresql/concepts/check-constraint' },
+          { text: 'Database Transaction', link: '/postgresql/concepts/database-transaction' },
         ],
       },
       {

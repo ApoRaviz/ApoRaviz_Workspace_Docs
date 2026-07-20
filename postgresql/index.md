@@ -100,6 +100,8 @@ database transaction ช่วยให้:
 
 สำหรับระบบขายจริง เรื่องนี้สำคัญมาก
 
+อ่านรายละเอียดเรื่อง `BEGIN`, `COMMIT`, `ROLLBACK` และการใช้ร่วมกับ conditional update ที่ [Database Transaction](concepts/database-transaction.md)
+
 ## Supabase คืออะไร
 
 Supabase ใช้ PostgreSQL เป็นแกน แล้วเพิ่มเครื่องมือให้เริ่มเร็ว:
@@ -155,6 +157,7 @@ Supabase   = service ที่ให้ PostgreSQL พร้อมเครื�
 - [Unique Constraint](concepts/unique-constraint.md)
 - [Index](concepts/database-index.md)
 - [Check Constraint](concepts/check-constraint.md)
+- [Database Transaction](concepts/database-transaction.md)
 
 ## จุดที่มักงง
 
