@@ -15,6 +15,7 @@
 - [SSR Browser Guard](ssr-browser-guard.md)
 - [Hydration](hydration.md)
 - [ViewEncapsulation](view-encapsulation.md)
+- [Wireframe](wireframe.md)
 
 ## Terms To Add Later
 

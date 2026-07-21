@@ -78,6 +78,7 @@ export default defineConfig({
               { text: 'SSR Browser Guard', link: '/angular/concepts/ssr-browser-guard' },
               { text: 'Hydration', link: '/angular/concepts/hydration' },
               { text: 'ViewEncapsulation', link: '/angular/concepts/view-encapsulation' },
+              { text: 'Wireframe', link: '/angular/concepts/wireframe' },
             ],
           },
           {
