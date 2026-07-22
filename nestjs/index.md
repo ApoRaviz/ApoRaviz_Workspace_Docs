@@ -11,6 +11,11 @@ NestJS controller/service/module
 
 แนวคิดหลายอย่างต่อยอดจาก Angular ได้ง่าย เพราะมี TypeScript, dependency injection และการแยก responsibility ชัด
 
+## เริ่มเรียน
+
+- [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md)
+- [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
+
 ## ทำไม ApoRaviz ใช้ NestJS เป็น default
 
 ใน workspace นี้ ถ้าโปรเจกต์ต้องมี backend ระยะยาว เราจะเริ่มจาก:
@@ -112,4 +117,3 @@ NestJS = หลังบ้าน
 PostgreSQL/Supabase = ฐานข้อมูล
 Node.js = runtime ที่ NestJS ใช้ทำงาน
 ```
-

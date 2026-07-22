@@ -142,6 +142,7 @@ export default defineConfig({
               { text: 'Privilege Escalation', link: '/backend/concepts/privilege-escalation' },
               { text: 'Sequence Diagram', link: '/backend/concepts/sequence-diagram' },
               { text: 'Race Condition', link: '/backend/concepts/race-condition' },
+              { text: 'Monorepo', link: '/backend/concepts/monorepo' },
             ],
           },
           {
@@ -179,6 +180,7 @@ export default defineConfig({
             collapsed: true,
             items: [
               { text: 'NestJS', link: '/nestjs/' },
+              { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
               { text: 'Fastify', link: '/backend/fastify' },
               { text: 'LINE OA Webhook', link: '/backend/line-oa-webhook' },
             ],

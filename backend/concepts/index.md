@@ -8,6 +8,7 @@
 - [Privilege Escalation](privilege-escalation.md)
 - [Sequence Diagram](sequence-diagram.md)
 - [Race Condition](race-condition.md)
+- [Monorepo และ Managed Monorepo](monorepo.md)
 
 ## Terms To Add Later
 
