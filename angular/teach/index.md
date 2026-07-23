@@ -35,7 +35,7 @@
 11. [Unit Test และ Regression Safety](unit-test-regression.md)
 12. [CI/CD และ GitHub Pages](cicd-github-pages.md)
 
-## How To Read With Real Projects
+## How to Read with Real Projects
 
 ```text
 อ่าน concept กลางใน angular/teach/

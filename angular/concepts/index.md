@@ -10,6 +10,7 @@
 - [Environment Files](environment-files.md)
 - [`signal`](signal.md)
 - [`computed`](computed.md)
+- [Form Input Data Flow](form-input-data-flow.md)
 - [`input()` และ `output()`](input-output.md)
 - [`inject()`](inject.md)
 - [SSR Browser Guard](ssr-browser-guard.md)
@@ -17,7 +18,7 @@
 - [ViewEncapsulation](view-encapsulation.md)
 - [Wireframe](wireframe.md)
 
-## Terms To Add Later
+## Terms to Add Later
 
 - `effect`
 - `provider`

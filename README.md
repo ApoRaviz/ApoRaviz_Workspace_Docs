@@ -10,7 +10,7 @@
 WORKSPACE_RULES.md = บทบาทของแต่ละ repo และ source of truth
 TEACHING_RULES.md  = วิธีเขียนบทเรียนแบบภาพจำง่าย ๆ -> technical term -> flow -> code
 AI_UPDATE_RULE.md  = กติกาให้ AI อัปเดตความรู้กลับมา repo นี้โดยไม่ต้องสั่งซ้ำ
-templates/         = template สำหรับ concept, lesson, lab
+templates/         = template สำหรับ concept และ lesson
 ```
 
 `ApoRaviz_Portfolio` เป็น profile/showcase/link hub เท่านั้น ไม่ใช่แหล่งบทเรียนกลางอีกต่อไป
@@ -24,8 +24,12 @@ README.md                = แผนที่ของเอกสารกล�
 PROJECT_START_HERE.md     = ลำดับอ่านและ checklist สำหรับเริ่มโปรเจกต์ใหม่
 NEW_PROJECT_GUIDE.md      = กติกาก่อนเริ่มโปรเจกต์ใหม่
 WORKSPACE_PLAN.md         = แผนรวมแบบ step/substep ของ workspace
-angular/                  = Angular teach และ command กลาง
-git/                      = Git command กลาง
+angular/                  = Angular concepts, lessons และ commands
+backend/                  = Backend concepts และ integrations
+nodejs/                   = Node.js concepts, lessons และ commands
+nestjs/                   = NestJS concepts และ commands
+postgresql/               = Database concepts
+git/                      = Git concepts และ commands
 baseline.md               = version baseline (single source)
 vitepress/                = คู่มือรันและแก้เว็บ docs ด้วย VitePress
 ```
@@ -39,7 +43,7 @@ Local path  = /Users/aporaviz/ApoRaviz/_docs
 
 repo นี้เก็บเฉพาะความรู้กลางของ workspace ไม่เก็บ code ของโปรเจกต์ใดโปรเจกต์หนึ่ง
 
-## How To Use
+## How to Use
 
 ลำดับการอ่านเริ่มงาน (read order) เก็บไว้ที่เดียวใน [Project Start Here](./PROJECT_START_HERE.md) เพื่อไม่ให้ลำดับซ้ำและขัดกันหลายไฟล์
 
@@ -53,10 +57,11 @@ npm run docs:dev
 npm run docs:build
 ```
 
-ตัวอย่างบทเรียนแรกสำหรับทดสอบรูปแบบคือ:
+ตัวอย่างหน้าสำหรับทดสอบรูปแบบคือ:
 
 ```text
-angular/labs/01-signal-counter.md
+angular/concepts/signal.md
+angular/memory-aids.md
 ```
 
 ถ้ายังไม่เคยใช้ VitePress ให้อ่าน:

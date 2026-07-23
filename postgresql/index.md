@@ -10,6 +10,12 @@ Angular frontend
 -> PostgreSQL/Supabase database
 ```
 
+## Recommended Order
+
+1. [ภาพจำง่าย ๆ](memory-aids.md) — ทบทวนศัพท์ Database แบบเร็ว
+2. [PostgreSQL Concepts](concepts/) — อ่านแนวคิดทีละเรื่อง
+3. กลับมาใช้หน้านี้เป็นภาพรวมตอนออกแบบ schema ของโปรเจกต์ใหม่
+
 ## ภาพจำง่าย ๆ
 
 PostgreSQL เหมือนสมุดบัญชีที่มีหลายตาราง:

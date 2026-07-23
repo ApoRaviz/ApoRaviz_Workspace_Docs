@@ -1,4 +1,4 @@
-# Node And npm Version Check
+# Node and npm Version Check
 
 บทนี้สรุป Step 0.1.1 จาก `ApoRaviz_DevEng`: Node.js & npm คืออะไร และทำไมต้องเลือกเวอร์ชันให้ถูกก่อนเริ่ม Angular/NestJS
 

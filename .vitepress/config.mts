@@ -26,8 +26,9 @@ export default defineConfig({
         text: 'Learning',
         items: [
           { text: 'Angular', link: '/angular/' },
-          { text: 'Backend & Node.js', link: '/backend/' },
-          { text: 'Git', link: '/git/concepts/' },
+          { text: 'Backend', link: '/backend/' },
+          { text: 'Database', link: '/postgresql/' },
+          { text: 'Git', link: '/git/' },
         ],
       },
       {
@@ -73,6 +74,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Overview', link: '/angular/' },
+          { text: 'ภาพจำง่าย ๆ', link: '/angular/memory-aids' },
           {
             text: 'Concepts',
             collapsed: true,
@@ -82,6 +84,7 @@ export default defineConfig({
               { text: 'Environment Files', link: '/angular/concepts/environment-files' },
               { text: 'Signal', link: '/angular/concepts/signal' },
               { text: 'Computed', link: '/angular/concepts/computed' },
+              { text: 'Form Input Data Flow', link: '/angular/concepts/form-input-data-flow' },
               { text: 'input() and output()', link: '/angular/concepts/input-output' },
               { text: 'inject()', link: '/angular/concepts/inject' },
               { text: 'SSR Browser Guard', link: '/angular/concepts/ssr-browser-guard' },
@@ -91,17 +94,7 @@ export default defineConfig({
             ],
           },
           {
-            text: 'Labs',
-            collapsed: true,
-            items: [
-              { text: 'All Labs', link: '/angular/labs/' },
-              { text: '01 Signal Counter', link: '/angular/labs/01-signal-counter' },
-              { text: '02 Computed Total Price', link: '/angular/labs/02-computed-total-price' },
-              { text: '03 Basic Form Input', link: '/angular/labs/03-basic-form-input' },
-            ],
-          },
-          {
-            text: 'Core Lessons',
+            text: 'Lessons',
             collapsed: true,
             items: [
               { text: 'All Lessons', link: '/angular/teach/' },
@@ -134,8 +127,9 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Overview', link: '/backend/' },
+          { text: 'ภาพจำง่าย ๆ', link: '/backend/memory-aids' },
           {
-            text: 'Backend Concepts',
+            text: 'Concepts',
             collapsed: true,
             items: [
               { text: 'All Concepts', link: '/backend/concepts/' },
@@ -163,7 +157,7 @@ export default defineConfig({
                 ],
               },
               {
-                text: 'Practice Lessons',
+                text: 'Lessons',
                 collapsed: true,
                 items: [
                   { text: '01 CLI File Processing', link: '/nodejs/teach/01-cli-file-processing' },
@@ -177,23 +171,36 @@ export default defineConfig({
             ],
           },
           {
-            text: 'Frameworks & Integrations',
+            text: 'NestJS',
             collapsed: true,
             items: [
-              { text: 'NestJS', link: '/nestjs/' },
-              { text: 'NestJS Commands', link: '/nestjs/commands' },
-              { text: 'NestJS Concepts', link: '/nestjs/concepts/' },
+              { text: 'Overview', link: '/nestjs/' },
+              { text: 'Commands', link: '/nestjs/commands' },
+              { text: 'All Concepts', link: '/nestjs/concepts/' },
               { text: 'Module', link: '/nestjs/concepts/module' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
+            ],
+          },
+          {
+            text: 'Integrations',
+            collapsed: true,
+            items: [
               { text: 'Fastify', link: '/backend/fastify' },
               { text: 'LINE OA Webhook', link: '/backend/line-oa-webhook' },
             ],
           },
+        ],
+      },
+      {
+        text: 'Database',
+        collapsed: true,
+        items: [
+          { text: 'Overview', link: '/postgresql/' },
+          { text: 'ภาพจำง่าย ๆ', link: '/postgresql/memory-aids' },
           {
-            text: 'PostgreSQL',
+            text: 'Concepts',
             collapsed: true,
             items: [
-              { text: 'Overview', link: '/postgresql/' },
               { text: 'All Concepts', link: '/postgresql/concepts/' },
               { text: 'Primary Key', link: '/postgresql/concepts/primary-key' },
               { text: 'Foreign Key', link: '/postgresql/concepts/foreign-key' },
@@ -209,6 +216,8 @@ export default defineConfig({
         text: 'Git',
         collapsed: true,
         items: [
+          { text: 'Overview', link: '/git/' },
+          { text: 'ภาพจำง่าย ๆ', link: '/git/memory-aids' },
           { text: 'Commands', link: '/git/commands' },
           {
             text: 'Foundations',

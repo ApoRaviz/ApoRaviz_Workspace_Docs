@@ -38,13 +38,57 @@ readonly total = computed(() => this.quantity() * this.price());
 
 เมื่อ `quantity` หรือ `price` เปลี่ยน `total()` จะได้ค่าใหม่ตาม
 
+## ตัวอย่างอ่านประกอบ: ยอดรวมร้านหมูปิ้ง
+
+```ts
+import { Component, computed, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-total-price',
+  template: `
+    <p>จำนวน: {{ quantity() }} ไม้</p>
+    <p>ราคาไม้ละ: {{ pricePerStick() }} บาท</p>
+    <p>ยอดรวม: {{ totalPrice() }} บาท</p>
+
+    <button type="button" (click)="addOne()">เพิ่ม 1 ไม้</button>
+  `
+})
+export class TotalPriceComponent {
+  readonly quantity = signal(1);
+  readonly pricePerStick = signal(15);
+  readonly totalPrice = computed(
+    () => this.quantity() * this.pricePerStick()
+  );
+
+  addOne(): void {
+    this.quantity.update((current) => current + 1);
+  }
+}
+```
+
+ภาพจำของตัวอย่าง:
+
+```text
+จำนวนไม้  = quantity
+ราคาไม้ละ = pricePerStick
+ยอดรวม    = totalPrice
+```
+
 ## Flow ทีละขั้น
 
-1. component สร้าง `quantity` และ `price`
-2. `computed()` อ่าน `quantity()` และ `price()`
+1. component สร้าง `quantity` และ `pricePerStick`
+2. `computed()` อ่าน `quantity()` และ `pricePerStick()`
 3. Angular จำว่า `total` พึ่งพา signal สองตัวนี้
-4. เมื่อ signal ต้นทางเปลี่ยน `total()` จะคำนวณใหม่
-5. template ที่อ่าน `total()` แสดงผลใหม่
+4. ตอนเริ่ม `1 × 15` ทำให้ `totalPrice()` เป็น `15`
+5. เมื่อ user กดเพิ่มจำนวน `quantity` เปลี่ยนเป็น `2`
+6. `totalPrice()` คำนวณใหม่เป็น `30`
+7. template ที่อ่าน `totalPrice()` แสดงผลใหม่
+
+## ทำไมไม่เก็บยอดรวมเป็น Signal อีกตัว
+
+ถ้าเก็บ `quantity`, `pricePerStick` และ `totalPrice` เป็น signal แยกกัน เราต้องอัปเดตยอดรวมเองทุกครั้งที่ค่าต้นทางเปลี่ยน
+
+ถ้าลืมเพียงจุดเดียว จำนวนกับยอดรวมอาจไม่ตรงกัน จึงควรใช้ `computed()` กับค่าที่คำนวณใหม่ได้เสมอ
 
 ## จุดที่มักงง
 
@@ -56,6 +100,7 @@ readonly total = computed(() => this.quantity() * this.price());
 
 - [`signal`](signal.md)
 - [`Reactive State และ Signals`](../teach/reactive-signals.md)
+- [`Form Input Data Flow`](form-input-data-flow.md)
 
 ## เช็กตัวเอง
 

@@ -10,9 +10,12 @@
 4. `AI_UPDATE_RULE.md`
 5. `NEW_PROJECT_GUIDE.md`
 6. `WORKSPACE_PLAN.md`
-7. `angular/index.md` ถ้างานเกี่ยวกับ Angular/Tailwind
-8. `baseline.md` ถ้าต้องรู้ version Node/Angular ปัจจุบัน
-9. `vitepress/index.md` ถ้าต้องการรันหรือแก้เว็บ docs
+7. `angular/index.md` + `angular/memory-aids.md` ถ้างานเกี่ยวกับ Angular/Tailwind
+8. `backend/index.md` + `backend/memory-aids.md` ถ้างานมี API, Node.js หรือ NestJS
+9. `postgresql/index.md` + `postgresql/memory-aids.md` ถ้างานมี database
+10. `git/index.md` + `git/memory-aids.md` เพื่อทบทวน workflow ก่อนเริ่มแก้ repo
+11. `baseline.md` ถ้าต้องรู้ version Node/Angular ปัจจุบัน
+12. `vitepress/index.md` ถ้าต้องการรันหรือแก้เว็บ docs
 
 ## Current Roles
 
@@ -23,9 +26,10 @@ ApoRaviz_Portfolio      = profile/showcase/link hub — โชว์ผลงา
 ApoRaviz_Mooping        = app project ที่พักไว้ก่อน
 ```
 
-## Before Coding A New Project
+## Before Coding a New Project
 
 - [ ] อ่านกติกากลางครบ
+- [ ] อ่าน Overview และภาพจำง่าย ๆ ของ stack ที่โปรเจกต์ใช้
 - [ ] ระบุว่าโปรเจกต์นี้แก้ปัญหาอะไร
 - [ ] ระบุ user หลัก
 - [ ] ระบุ first usable flow

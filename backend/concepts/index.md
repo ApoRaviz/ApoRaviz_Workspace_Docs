@@ -2,6 +2,8 @@
 
 หน้านี้รวมศัพท์และแนวคิด backend ที่ใช้ซ้ำได้ในหลายโปรเจกต์ของ ApoRaviz
 
+ถ้าต้องการทบทวนแบบสั้นก่อน ให้เปิด [ภาพจำง่าย ๆ — Backend](../memory-aids.md)
+
 ## Current Concepts
 
 - [API Contract](api-contract.md)
@@ -10,7 +12,7 @@
 - [Race Condition](race-condition.md)
 - [Monorepo และ Managed Monorepo](monorepo.md)
 
-## Terms To Add Later
+## Terms to Add Later
 
 - endpoint
 - HTTP method

@@ -1,4 +1,4 @@
-# Node Stream And Backpressure
+# Node Stream and Backpressure
 
 บทนี้สรุปสิ่งที่เจอจาก `ApoRaviz_Tools/split-order-txt`: อ่านไฟล์ใหญ่ทีละส่วน และเขียนไฟล์ output โดยไม่ยัดทุกอย่างเข้า memory พร้อมกัน
 
@@ -142,4 +142,3 @@ stream = อ่าน/เขียนทีละส่วน
 backpressure = writer บอกให้รอก่อน
 drain = writer พร้อมไปต่อ
 ```
-

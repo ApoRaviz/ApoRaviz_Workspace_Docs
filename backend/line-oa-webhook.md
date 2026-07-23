@@ -1,4 +1,4 @@
-# LINE OA Webhook And Messaging API
+# LINE OA Webhook and Messaging API
 
 บทนี้อธิบาย LINE OA สำหรับระบบจริง เช่น MooPing Reward ที่ต้องแจ้งเตือนลูกค้าผ่าน LINE แต่ยังต้องปลอดภัยและไม่ทำให้ frontend เก็บ secret
 
@@ -213,4 +213,3 @@ Webhook = LINE เรียกกลับมาหา backend
 Push message = backend ส่งข้อความไปหาลูกค้า
 Secret/token = อยู่ backend เท่านั้น
 ```
-

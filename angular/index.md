@@ -9,19 +9,20 @@
 ```text
 concepts/   = ศัพท์และแนวคิดทีละเรื่อง
 teach/      = บทเรียนแบบ flow ทีละขั้น
-labs/       = แบบฝึกหัดเล็ก ๆ ที่ลองทำตามได้
 tailwind/   = Tailwind CSS ที่ใช้คู่กับ Angular
 commands.md = command กลางของ Angular
 ```
 
 ## Recommended Order
 
-1. [Angular Commands](commands.md) — command พื้นฐานก่อนลงมือ
-2. [Angular Teach Index](teach/) — บทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 01–12 อยู่ที่นี่ที่เดียว)
-3. [Angular Concepts](concepts/) — เปิดดูศัพท์/แนวคิดเป็นเรื่อง ๆ ตอนติด
-4. [Angular Labs](labs/) — ลองทำ lab สั้น ๆ หลังอ่าน concept
+1. [ภาพจำง่าย ๆ](memory-aids.md) — เปิดทบทวนเร็วเมื่อจำศัพท์หรือ flow ไม่ได้
+2. [Angular Concepts](concepts/) — อ่านศัพท์และตัวอย่างขนาดเล็กเป็นเรื่อง ๆ
+3. [Angular Teach Index](teach/) — อ่านบทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 01–12 อยู่ที่นี่ที่เดียว)
+4. [Angular Commands](commands.md) — เปิดใช้ตอนตั้งต้นหรือดูแลโปรเจกต์
 
 > ลำดับบทเรียนเต็มเก็บไว้ที่ [Angular Teach Index](teach/) ที่เดียว เพื่อไม่ให้เลขบทเรียนซ้ำซ้อนและ drift กันหลายหน้า
+
+เอกสารชุดนี้เน้นการอ่านและใช้อ้างอิงตอนเริ่มหรือดูแลโปรเจกต์ `ApoRaviz_*` ตัวอย่าง code จึงอยู่ใน Concept/Lesson ที่เกี่ยวข้องโดยตรง ไม่แยกเป็นแบบฝึกหัดอีกต่อไป
 
 ## What Belongs Here
 
@@ -37,7 +38,7 @@ commands.md = command กลางของ Angular
 - CI/CD concept เช่น `npm ci`, GitHub Actions, artifact, GitHub Pages `base-href`
 - Command pattern ที่ใช้ได้หลายโปรเจกต์
 
-## What Stays In Project Docs
+## What Stays in Project Docs
 
 - business rule เฉพาะโปรเจกต์ เช่น loyalty reward, POS, saved rewards
 - design direction เฉพาะเว็บ

@@ -4,7 +4,7 @@
 
 รายละเอียด remote URL หรือ commit message จริงให้ดูใน repo นั้น
 
-## Init And First Status
+## Init and First Status
 
 เริ่ม Git repository ในโฟลเดอร์ปัจจุบัน:
 
@@ -97,7 +97,7 @@ git log --oneline -5
 - ไฟล์ที่ staged แล้ว
 - commit ล่าสุด 5 อัน
 
-## Clone And First Setup
+## Clone and First Setup
 
 ```bash
 git clone https://github.com/ApoRaviz/Repo_Name.git
@@ -242,7 +242,7 @@ git log --oneline
 - [Commit](concepts/commit.md)
 - [HEAD](concepts/head.md)
 
-## Fetch And Compare
+## Fetch and Compare
 
 ```bash
 git fetch origin
@@ -628,7 +628,7 @@ cat path/to/file
 
 อ่าน concept: [Undo In Git](concepts/undo-in-git.md)
 
-## Stage And Commit
+## Stage and Commit
 
 ```bash
 git add -A
@@ -707,7 +707,7 @@ git status --short --branch
 
 และไม่มีไฟล์ต่อท้าย แปลว่า clean และ sync แล้ว
 
-## Restore And Unstage
+## Restore and Unstage
 
 ยกเลิก staged แต่ยังเก็บไฟล์ที่แก้ไว้:
 

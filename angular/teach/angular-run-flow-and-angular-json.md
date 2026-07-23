@@ -1,4 +1,4 @@
-# Angular Run Flow And angular.json
+# Angular Run Flow and angular.json
 
 บทนี้อธิบาย core การทำงานหลักของโปรเจกต์ Angular เวลาเรา run, build, หรือ test
 

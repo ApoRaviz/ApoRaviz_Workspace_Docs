@@ -1,4 +1,4 @@
-# Node Test And Temp Files
+# Node Test and Temp Files
 
 บทนี้สรุป pattern การ test Node.js CLI/file processing จาก `ApoRaviz_Tools/split-order-txt`
 
@@ -124,4 +124,3 @@ await assert.rejects(
 ```text
 test งานไฟล์ = สร้าง temp input -> run -> assert output/backup/error -> ไม่แตะไฟล์จริง
 ```
-

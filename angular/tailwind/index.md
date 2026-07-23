@@ -1,4 +1,4 @@
-# Tailwind CSS With Angular
+# Tailwind CSS with Angular
 
 โฟลเดอร์นี้เก็บบทเรียน Tailwind CSS ที่ใช้คู่กับ Angular ใน ecosystem `ApoRaviz`
 
@@ -88,7 +88,6 @@ Tailwind class = สติกเกอร์คำสั่งเล็ก ๆ �
 ```text
 angular/tailwind/concepts/
 angular/tailwind/teach/
-angular/tailwind/labs/
 ```
 
 ถ้าบทเรียนยังเล็ก ให้เก็บในโฟลเดอร์นี้ก่อนเพื่อไม่ให้แตกไฟล์เร็วเกินไป

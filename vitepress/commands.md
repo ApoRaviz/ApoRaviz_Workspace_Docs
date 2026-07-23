@@ -125,7 +125,7 @@ npx vitepress preview --host 127.0.0.1
 
 ใช้เมื่ออยากดูเว็บใกล้เคียง production หลัง build แล้ว
 
-## Route And Link Checks
+## Route and Link Checks
 
 ดูไฟล์ Markdown ทั้งหมด:
 
@@ -143,13 +143,13 @@ rg --files angular
 
 ```bash
 rg "^## " vitepress/index.md
-rg "^## " angular/labs/03-basic-form-input.md
+rg "^## " angular/concepts/form-input-data-flow.md
 ```
 
 เช็ก path ใน sidebar:
 
 ```bash
-rg "/angular/labs|/angular/concepts|/nodejs" .vitepress/config.mts
+rg "/angular/memory-aids|/angular/concepts|/nodejs" .vitepress/config.mts
 ```
 
 กติกา route:
@@ -158,11 +158,11 @@ rg "/angular/labs|/angular/concepts|/nodejs" .vitepress/config.mts
 index.md                              -> /
 vitepress/index.md                    -> /vitepress/
 vitepress/commands.md                 -> /vitepress/commands
-angular/labs/03-basic-form-input.md   -> /angular/labs/03-basic-form-input
-nodejs/index.md             -> /nodejs/
+angular/memory-aids.md                -> /angular/memory-aids
+nodejs/index.md                       -> /nodejs/
 ```
 
-## Sidebar And Nav
+## Sidebar and Nav
 
 เปิด config:
 

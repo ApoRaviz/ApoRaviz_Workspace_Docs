@@ -1,4 +1,4 @@
-# input() And output()
+# input() and output()
 
 `input()` และ `output()` คือวิธีสื่อสารระหว่าง component ใน Angular รุ่นใหม่
 

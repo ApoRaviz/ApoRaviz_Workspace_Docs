@@ -65,7 +65,7 @@ folder/index.md       = หน้าแรกของโฟลเดอร์�
 VitePress ช่วยให้:
 
 - เปิดอ่านเหมือนเว็บจริง
-- แบ่งหมวด Angular, Labs, Commands, Rules ได้
+- แบ่งหมวด Angular, Backend, Database, Git, Commands และ Rules ได้
 - search ใน docs ได้
 - build เป็น HTML static สำหรับ deploy ได้
 - ไม่ต้องสร้าง Angular app เพื่อทำเว็บเอกสาร
@@ -92,19 +92,13 @@ Tailwind CSS = วิธีแต่งหน้าตาของ Angular app
 
 ตอนนี้ VitePress แสดง code ให้เราอ่าน แต่ไม่ได้เอา Angular component ไปรันจริงในหน้านั้น
 
-ดังนั้นหน้า `angular/labs/01-signal-counter.md` ตอนนี้ถูกต้องแล้วที่ยังไม่มีปุ่มให้กดจริง เพราะมันเป็นบทเรียนแบบอ่าน flow + อ่าน code ก่อน
+ดังนั้นหน้า Concept/Lesson ใน repo นี้จึงแสดง flow และ code สำหรับอ่าน ไม่ได้ทำหน้าที่เป็น Angular live demo
 
-ถ้าต้องการ "ปุ่ม Angular จริงที่กดแล้ว signal เปลี่ยนจริง" เราจะต้องเพิ่มระบบ demo แยก เช่น:
-
-- ทำ Angular mini demo แล้ว link หรือ embed เข้ามา
-- ทำ StackBlitz สำหรับกดเล่น
-- ทำ HTML/JavaScript simulation ใน VitePress แล้วเขียนชัด ๆ ว่าเป็น simulation ไม่ใช่ Angular จริง
-
-กติกาตอนนี้:
+กติกาปัจจุบัน:
 
 ```text
-ช่วงแรก = ทำ VitePress ให้เข้าใจก่อน
-ช่วงถัดไป = ค่อยเพิ่ม Angular demo ที่กดได้จริง
+Workspace Docs = เน้นอ่าน ทบทวน และเป็น source of truth
+Angular app    = ที่รัน UI และ interaction จริง
 ```
 
 ## ไฟล์สำคัญใน repo นี้
@@ -220,7 +214,7 @@ index.md                              -> /
 PROJECT_START_HERE.md                 -> /project-start-here (ผ่าน rewrites)
 angular/index.md                      -> /angular/
 angular/concepts/signal.md            -> /angular/concepts/signal
-angular/labs/01-signal-counter.md     -> /angular/labs/01-signal-counter
+angular/memory-aids.md                -> /angular/memory-aids
 nodejs/index.md                       -> /nodejs/
 ```
 
@@ -304,10 +298,11 @@ sidebar อยู่ใน:
 
 ```ts
 {
-  text: 'Angular Learning',
+  text: 'Angular',
   items: [
+    { text: 'Overview', link: '/angular/' },
+    { text: 'ภาพจำง่าย ๆ', link: '/angular/memory-aids' },
     { text: 'Signal Concept', link: '/angular/concepts/signal' },
-    { text: 'Signal Counter Lab', link: '/angular/labs/01-signal-counter' }
   ]
 }
 ```
@@ -438,14 +433,14 @@ dead link(s) found
 - technical term
 - flow ทีละขั้น
 - code ตัวอย่าง
-- expected result
+- ผลที่ควรเข้าใจจากตัวอย่าง
 - self-check
 - link ไป concept ที่เกี่ยวข้อง
 
-ถ้าเป็น lab ให้ดูตัวอย่างแรก:
+ตัวอย่างหน้า Concept:
 
 ```text
-angular/labs/01-signal-counter.md
+angular/concepts/signal.md
 ```
 
 ## คำสั่งที่ใช้บ่อย

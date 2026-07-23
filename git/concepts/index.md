@@ -2,6 +2,8 @@
 
 โฟลเดอร์นี้เก็บศัพท์ Git ทีละเรื่อง เพื่อให้กลับมาเปิดอ่านได้เร็วตอนทำงานจริง
 
+ถ้าต้องการทบทวนแบบสั้นก่อน ให้เปิด [ภาพจำง่าย ๆ — Git](../memory-aids.md)
+
 ## Current Concepts
 
 - [Git Repository](git-repository.md)
@@ -20,6 +22,6 @@
 - [Commit Message Convention](commit-message-convention.md)
 - [Remote](remote.md)
 
-## Terms To Add Later
+## Terms to Add Later
 
 _(ครบชุด Git พื้นฐานของ Phase 0.4 แล้ว — เพิ่มศัพท์ใหม่ที่นี่เมื่อเจอในงานจริง)_

@@ -1,4 +1,4 @@
-# CLI Arguments And Errors
+# CLI Arguments and Errors
 
 บทนี้สรุปวิธีคิดของ Node.js CLI จาก `ApoRaviz_Tools/split-order-txt`: รับ argument จาก terminal, แปลงเป็น options, เรียก core logic, แล้วรายงาน error ให้คนใช้เข้าใจ
 
@@ -170,4 +170,3 @@ CLI layer = รับคำสั่งจากคน
 core layer = ทำงานจริง
 แยกกันไว้ จะ test ง่าย และย้ายไป NestJS ได้ง่าย
 ```
-

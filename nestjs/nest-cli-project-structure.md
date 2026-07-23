@@ -144,7 +144,7 @@ npm run build
 
 แก้ source ใน `src` แล้ว build ใหม่เสมอ อย่าแก้ไฟล์ใน `dist` ด้วยมือ
 
-## Source Of Truth กับสิ่งที่สร้างใหม่ได้
+## Source of Truth กับสิ่งที่สร้างใหม่ได้
 
 ต้อง commit:
 

@@ -165,7 +165,7 @@ npm run build -- --configuration production
 - ถ้าโปรเจกต์ใช้ SSR/prerender ต้องดูว่ามีข้อความ prerender สำเร็จ
 - build ผ่านคือขั้นต่ำก่อน push งานที่แตะ code หรือ route
 
-## Type Check And Format Checks
+## Type Check and Format Checks
 
 Angular build จะช่วยตรวจ template และ TypeScript หลายอย่างอยู่แล้ว
 
@@ -351,7 +351,7 @@ npm run build
 - หลัง update ให้ commit แยกจาก feature งานอื่น
 - ถ้า workspace baseline เปลี่ยน ต้องอัปเดต docs กลางด้วย
 
-## SSR And Browser API Checks
+## SSR and Browser API Checks
 
 ค้นหา browser API ที่ต้อง guard:
 
@@ -423,7 +423,7 @@ git diff --cached --stat
 - `git diff --check` ใช้จับ whitespace error
 - `git diff --cached --stat` ใช้ดู staged files ก่อน commit
 
-## Search And Read
+## Search and Read
 
 ```bash
 rg "search text"

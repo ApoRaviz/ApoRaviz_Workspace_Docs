@@ -13,6 +13,14 @@ Angular frontend
 
 Fastify ใช้ได้เมื่อ scope เล็กหรือเป็น prototype API/webhook แต่ต้องเขียนเหตุผลไว้ใน project docs
 
+## Recommended Order
+
+1. [ภาพจำง่าย ๆ](memory-aids.md) — ทบทวน Backend, Node.js และ NestJS แบบเร็ว
+2. [Backend Concepts](concepts/) — อ่านแนวคิดของระบบหลังบ้าน
+3. [Node.js Learning Hub](../nodejs/) — อ่าน runtime, file, CLI และ environment
+4. [NestJS Learning Hub](../nestjs/) — อ่าน framework หลักของ backend
+5. [Integrations](line-oa-webhook.md) — เปิดเมื่อทำ webhook หรือระบบภายนอก
+
 ## ความหมายแบบคนธรรมดา
 
 - Angular = หน้าจอที่ user ใช้งาน

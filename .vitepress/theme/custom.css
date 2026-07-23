@@ -64,3 +64,29 @@
 .VPFeature .icon {
   background-color: var(--vp-c-brand-soft) !important;
 }
+
+/*
+ * Sidebar typography
+ * ทำให้ชื่อกลุ่ม เช่น Start a Project / Angular ใหญ่กว่าหน้าย่อยอย่างชัดเจน
+ * และทำให้ subgroup แยกชั้นจาก link ปลายทางโดยไม่ต้องเพิ่มสีหรือเส้นเกินจำเป็น
+ */
+.VPSidebar .VPSidebarItem.level-0 > .item > .text {
+  font-size: 15.5px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+}
+
+.VPSidebar .VPSidebarItem.level-1 > .item .text {
+  font-size: 14px;
+}
+
+.VPSidebar .VPSidebarItem.level-1.collapsible > .item > .text {
+  color: var(--vp-c-text-1);
+  font-weight: 650;
+}
+
+.VPSidebar .VPSidebarItem.level-2 > .item .text,
+.VPSidebar .VPSidebarItem.level-3 > .item .text {
+  font-size: 13.5px;
+  line-height: 22px;
+}
