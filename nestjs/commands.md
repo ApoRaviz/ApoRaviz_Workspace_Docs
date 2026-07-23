@@ -12,6 +12,12 @@ generate ส่วนประกอบ     = รันจาก root ของ 
 
 ถ้า Nest CLI อยู่ใน `devDependencies` ของ project แล้ว `npx nest` จะเลือก binary จาก `node_modules` ของ project ก่อน จึงไม่จำเป็นต้องติดตั้ง CLI แบบ global
 
+ตรวจ version ของ Nest CLI ที่ project ปัจจุบันใช้:
+
+```bash
+npx nest --version
+```
+
 ## สร้าง NestJS Project
 
 ดูผลล่วงหน้าโดยยังไม่เขียนไฟล์:
@@ -68,6 +74,38 @@ CLI จะสร้าง feature module และเพิ่ม module นั�
 
 คำสั่งแบบย่อมีอยู่ แต่ช่วงเรียนพื้นฐานใช้ชื่อเต็ม `generate module` ก่อนเพื่อให้อ่านแล้วรู้หน้าที่ทันที
 
+## สร้าง Controller
+
+ดูผลล่วงหน้า:
+
+```bash
+npx nest generate controller health --dry-run
+```
+
+สร้างจริง:
+
+```bash
+npx nest generate controller health
+```
+
+รูปแบบทั่วไป:
+
+```text
+npx nest generate controller [[ชื่อ feature]]
+```
+
+ผลที่คาด:
+
+```text
+CREATE src/health/health.controller.ts
+CREATE src/health/health.controller.spec.ts
+UPDATE src/health/health.module.ts
+```
+
+CLI สร้าง Controller กับ unit test เริ่มต้น และเพิ่ม Controller เข้า `controllers` ของ Module ที่เกี่ยวข้อง แต่ยังไม่สร้าง route handler ให้ ต้องเพิ่ม `@Get()`, `@Post()` หรือ HTTP method อื่นตาม API contract เอง
+
+อ่าน concept: [Controller](concepts/controller.md)
+
 ## ตรวจผลหลัง Generate
 
 ```bash
@@ -86,11 +124,13 @@ npm run build
 - ต้องรัน `generate` ใน NestJS project ไม่ใช่ root ของ frontend ที่ไม่มี `nest-cli.json`
 - `npx nest` ใช้ CLI ของ project ได้ ไม่จำเป็นต้องพึ่ง version global
 - Module ที่ generate แล้วอาจยังไม่มี route เพราะต้องมี Controller ก่อน
+- Controller ที่ generate แล้วเป็น class เปล่า จึงยังไม่มี route จนกว่าจะเพิ่ม HTTP method decorator
 
 ## เช็กตัวเอง
 
 - ถ้าต้องการดูว่า CLI จะแก้ไฟล์อะไรโดยยังไม่เขียนจริง ต้องเพิ่ม option ใด?
 - `nest new` กับ `nest generate module` ต่างกันอย่างไร?
+- `nest generate controller` สร้างและ update ไฟล์ใดบ้าง?
 - หลัง generate แล้ว เหตุใดต้องดู `git diff` อีกครั้ง?
 
 ## จำสั้น ๆ
@@ -101,4 +141,3 @@ generate     = เพิ่มส่วนประกอบ
 --dry-run    = ดูก่อน ยังไม่เขียน
 git diff     = ตรวจสิ่งที่ CLI เปลี่ยนจริง
 ```
-

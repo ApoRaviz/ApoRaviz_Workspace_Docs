@@ -88,6 +88,34 @@ flow ที่ใช้จริง:
 
 ## ลงมือเช็กทีละ command
 
+ก่อนเช็กให้แยกว่าแต่ละคำสั่งกำลังถาม version ของเครื่องมือคนละชั้น:
+
+| คำสั่ง | สิ่งที่ตรวจ |
+|---|---|
+| `node -v` | Node.js runtime |
+| `nvm version` (Windows) / `nvm --version` (macOS/Linux) | โปรแกรม NVM ที่ใช้จัดการ Node.js |
+| `npm -v` | npm package manager |
+| `npx tsc --version` | TypeScript ของ npm project ปัจจุบัน |
+| `npx ng version` | Angular CLI, Angular packages, Node และ TypeScript ฝั่ง Angular |
+| `npx nest --version` | Nest CLI ของ npm project ปัจจุบัน |
+
+`npx` จะหา binary จาก `node_modules` ของ project ปัจจุบันก่อน ดังนั้นให้เข้าโฟลเดอร์ที่มี `package.json` ของ project ที่ต้องการตรวจ
+
+ดู TypeScript version ที่ npm ติดตั้งไว้ตรงระดับ project:
+
+```bash
+npm ls typescript --depth=0
+```
+
+ถ้า repository เดียวมี frontend และ backend แยก `package.json` กัน ทั้งสองส่วนสามารถใช้ TypeScript คนละ version ได้:
+
+```text
+frontend/package.json -> TypeScript ช่วงที่ frontend framework รองรับ
+backend/package.json  -> TypeScript ช่วงที่ backend framework รองรับ
+```
+
+ไม่จำเป็นต้องบังคับให้เลขเท่ากัน ให้ยึด compatibility ของแต่ละ project และ version จริงใน `package-lock.json`
+
 เช็ก Node version:
 
 ```bash

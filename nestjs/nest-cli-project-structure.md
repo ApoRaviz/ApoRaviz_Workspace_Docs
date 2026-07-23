@@ -67,6 +67,7 @@ api/
 ├─ End-to-end tests
 │  └─ test/
 │     ├─ jest-e2e.json
+│     ├─ tsconfig.json (เพิ่มเมื่อ test ต้องมี TypeScript config แยก)
 │     └─ app.e2e-spec.ts
 │
 └─ Generated/local output
@@ -88,6 +89,53 @@ node_modules/     = dependencies ที่ติดตั้งใหม่ไ�
 dist/             = build output ที่สร้างใหม่ได้
 coverage/         = test report ที่สร้างใหม่ได้
 ```
+
+## `jest-e2e.json` กับ `test/tsconfig.json` ทำคนละหน้าที่
+
+```text
+jest-e2e.json      = บอก Jest ว่าจะค้นหาและรัน E2E test อย่างไร
+test/tsconfig.json = บอก TypeScript/IDE ว่าจะตรวจ type ของไฟล์ test อย่างไร
+```
+
+ถ้า E2E test รันผ่าน แต่ VS Code ขีดแดงที่ `describe`, `it`, `beforeEach` หรือ `afterEach` ทั้งที่ติดตั้ง `@types/jest` แล้ว อาจเพิ่ม TypeScript config เฉพาะโฟลเดอร์ test:
+
+```json
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "incremental": false,
+    "rootDir": "..",
+    "types": ["node", "jest"]
+  },
+  "include": ["./**/*.ts", "../src/**/*.ts"]
+}
+```
+
+เหตุผลที่ `rootDir` ต้องครอบคลุมทั้ง `src/` และ `test/` คือ E2E test มัก import root Module จาก `src/` ถ้ากำหนดขอบเขตไว้แค่ `test/` TypeScript จะรายงานว่า source file อยู่นอก `rootDir`
+
+ตรวจ config นี้โดยไม่สร้าง JavaScript:
+
+```bash
+npx tsc --noEmit --project test/tsconfig.json
+```
+
+อย่าเพิ่ม config นี้โดยอัตโนมัติทุก project ถ้า editor และ test ทำงานถูกอยู่แล้ว ให้เพิ่มเมื่อมีเหตุผลและตรวจด้วย compiler จริง
+
+## เมื่อ IDE กับ Project ใช้ TypeScript คนละ Version
+
+repository เดียวอาจมี frontend ที่ root และ NestJS backend ในโฟลเดอร์ย่อย โดยแต่ละส่วนมี `package.json` และ `node_modules` ของตัวเอง IDE จึงอาจแสดง warning จาก TypeScript อีก version หนึ่งได้
+
+ตรวจจากโฟลเดอร์ของ project ที่กำลังทำ:
+
+```bash
+npx tsc --version
+npm ls typescript --depth=0
+```
+
+ถ้า IDE เตือนว่า compiler option เก่ากำลัง deprecated ให้ตรวจว่า project ใช้ option นั้นจริงหรือไม่ก่อนเพิ่ม `ignoreDeprecations`
+
+ตัวอย่าง: ถ้ามี `baseUrl` แต่ไม่มี path alias หรือ non-relative import ที่พึ่งพา option นี้ สามารถลบ `baseUrl` แล้วรัน lint/build/test ยืนยันได้ การเพิ่ม `ignoreDeprecations` จะเพียงซ่อน warning และเลื่อนการแก้ปัญหาออกไป
 
 ## Entry Point: `main.ts`
 
