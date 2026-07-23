@@ -1,6 +1,14 @@
 # New Project Guide
 
-ไฟล์นี้คือกติกากลางก่อนเริ่มโปรเจกต์ใหม่ใน ecosystem `ApoRaviz_*`
+ไฟล์นี้คือกติกากลางสำหรับตั้งต้นทุก repo ใน ecosystem ที่ชื่อ `ApoRaviz_*`
+
+ใช้ไฟล์นี้ทั้งตอน:
+
+- สร้าง `ApoRaviz_*` repo ใหม่
+- เพิ่ม frontend, backend หรือ database ให้ repo เดิม
+- ตรวจว่าเอกสารและโครงสร้างเริ่มต้นยังตรงกับ workspace หรือไม่
+
+ลำดับการอ่านทั้งหมดอยู่ที่ [Project Start Here](PROJECT_START_HERE.md) เพียงจุดเดียว ไฟล์นี้รับหน้าที่อธิบาย “วิธีเริ่มโปรเจกต์” โดยไม่สร้าง Read Order ซ้ำ
 
 ## Core Rule
 
@@ -14,28 +22,6 @@ ApoRaviz_*              = future project repos
 ```
 
 โปรเจกต์ใหม่ทุกตัวต้องเริ่มจาก `ApoRaviz_Workspace_Docs` ก่อน ไม่เริ่มจากการ copy บทเรียนใน Portfolio หรือโปรเจกต์ลูก
-
-## Read First
-
-```text
-README.md
-WORKSPACE_RULES.md
-TEACHING_RULES.md
-AI_UPDATE_RULE.md
-PROJECT_START_HERE.md
-WORKSPACE_PLAN.md
-angular/index.md
-commands.md
-```
-
-ถ้าเป็น backend หรือ CLI ให้อ่านเพิ่ม:
-
-```text
-nodejs/index.md
-backend/index.md
-nestjs/index.md
-postgresql/index.md
-```
 
 ## Default Frontend Stack
 
@@ -140,6 +126,7 @@ Fastify decision/pattern            -> backend/fastify.md
 PostgreSQL/Supabase concept         -> postgresql/
 Git command pattern                 -> git/
 บทเรียน reusable จากโปรเจกต์จริง    -> ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
+ภาพจำใหม่ที่ใช้ทบทวนได้เร็ว          -> หน้าเนื้อหาหลัก + Quick Recall ของ topic
 Product spec / implementation plan  -> repo ของโปรเจกต์นั้น (README เป็นหลัก)
 Repo URL / port / base-href command -> repo ของโปรเจกต์นั้น docs/commands.md
 Portfolio showcase                  -> ApoRaviz_Portfolio
@@ -152,8 +139,8 @@ Portfolio showcase                  -> ApoRaviz_Portfolio
 - [ ] ระบุ user หลัก
 - [ ] ระบุ workflow หลัก
 - [ ] เลือก stack ตาม default frontend/backend rule
-- [ ] สร้าง docs ขั้นต่ำของโปรเจกต์
-- [ ] สร้าง implementation plan แบบ step/substep
+- [ ] สร้าง `README.md` ขั้นต่ำของโปรเจกต์
+- [ ] สร้าง implementation plan แบบ step/substep เมื่อ scope มีหลายขั้น
 - [ ] สร้าง project-specific skill ถ้ามี domain rule สำคัญ
 - [ ] ถ้าเป็น Angular app ให้ติดตั้ง Tailwind CSS
 - [ ] รัน build/test ครั้งแรก

@@ -15,7 +15,7 @@ Fastify ใช้ได้เมื่อ scope เล็กหรือเป�
 
 ## Recommended Order
 
-1. [ภาพจำง่าย ๆ](memory-aids.md) — ทบทวน Backend, Node.js และ NestJS แบบเร็ว
+1. [Quick Recall](memory-aids.md) — ทบทวน Backend, Node.js และ NestJS แบบเร็ว
 2. [Backend Concepts](concepts/) — อ่านแนวคิดของระบบหลังบ้าน
 3. [Node.js Learning Hub](../nodejs/) — อ่าน runtime, file, CLI และ environment
 4. [NestJS Learning Hub](../nestjs/) — อ่าน framework หลักของ backend

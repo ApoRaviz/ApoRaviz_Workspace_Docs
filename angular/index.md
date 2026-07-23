@@ -15,7 +15,7 @@ commands.md = command กลางของ Angular
 
 ## Recommended Order
 
-1. [ภาพจำง่าย ๆ](memory-aids.md) — เปิดทบทวนเร็วเมื่อจำศัพท์หรือ flow ไม่ได้
+1. [Quick Recall](memory-aids.md) — เปิดทบทวนเร็วเมื่อจำศัพท์หรือ flow ไม่ได้
 2. [Angular Concepts](concepts/) — อ่านศัพท์และตัวอย่างขนาดเล็กเป็นเรื่อง ๆ
 3. [Angular Teach Index](teach/) — อ่านบทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 01–12 อยู่ที่นี่ที่เดียว)
 4. [Angular Commands](commands.md) — เปิดใช้ตอนตั้งต้นหรือดูแลโปรเจกต์

@@ -1,4 +1,4 @@
-# ภาพจำง่าย ๆ — Database
+# Quick Recall — Database
 
 หน้านี้รวมเฉพาะภาพจำสั้น ๆ สำหรับทบทวน PostgreSQL และ Database โดยไม่ต้องอ่านบทเต็ม
 

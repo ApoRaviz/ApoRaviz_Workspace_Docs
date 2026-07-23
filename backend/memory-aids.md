@@ -1,4 +1,4 @@
-# ภาพจำง่าย ๆ — Backend
+# Quick Recall — Backend
 
 หน้านี้รวมเฉพาะภาพจำสั้น ๆ สำหรับทบทวน Backend, Node.js และ NestJS โดยไม่ต้องอ่านบทเต็ม
 

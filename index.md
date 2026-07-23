@@ -10,12 +10,12 @@ hero:
       text: เริ่มอ่าน
       link: /project-start-here
     - theme: alt
-      text: ดูภาพจำง่าย ๆ
+      text: เปิด Quick Recall
       link: /angular/memory-aids
 
 features:
   - icon: 💬
-    title: ภาพจำง่าย ๆ
+    title: Quick Recall
     details: เปิดทบทวน Angular, Backend, Database และ Git ได้โดยไม่ต้องอ่านบทเต็ม
   - icon: 🎨
     title: Angular + Tailwind

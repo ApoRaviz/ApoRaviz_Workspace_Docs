@@ -2,7 +2,7 @@
 
 หน้านี้รวมศัพท์และแนวคิด backend ที่ใช้ซ้ำได้ในหลายโปรเจกต์ของ ApoRaviz
 
-ถ้าต้องการทบทวนแบบสั้นก่อน ให้เปิด [ภาพจำง่าย ๆ — Backend](../memory-aids.md)
+ถ้าต้องการทบทวนแบบสั้นก่อน ให้เปิด [Quick Recall — Backend](../memory-aids.md)
 
 ## Current Concepts
 

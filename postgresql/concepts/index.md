@@ -2,7 +2,7 @@
 
 หน้านี้รวมศัพท์และแนวคิด PostgreSQL/database ที่ใช้ซ้ำได้ในหลายโปรเจกต์ของ ApoRaviz
 
-ถ้าต้องการทบทวนแบบสั้นก่อน ให้เปิด [ภาพจำง่าย ๆ — Database](../memory-aids.md)
+ถ้าต้องการทบทวนแบบสั้นก่อน ให้เปิด [Quick Recall — Database](../memory-aids.md)
 
 ## Current Concepts
 

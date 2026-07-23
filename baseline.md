@@ -1,6 +1,23 @@
 # Workspace Baseline (Single Source)
 
-ไฟล์นี้คือ **ที่เดียว** ที่บอก version baseline ของ workspace `ApoRaviz` — ไฟล์อื่นห้าม hardcode เลข version ให้เขียน "ใช้ baseline ปัจจุบัน ดู `baseline.md`" แทน
+ไฟล์นี้คือ **ที่เดียว** ที่บอก version baseline สำหรับตั้งต้นโปรเจกต์ใหม่ใน workspace `ApoRaviz`
+
+ทุก repo ใหม่ที่ชื่อ `ApoRaviz_*` ต้องเปิดไฟล์นี้ก่อนเลือก Node.js, Angular, Tailwind CSS และ TypeScript
+
+## ไฟล์นี้ทำหน้าที่อะไร
+
+```text
+Workspace Baseline = version แนะนำสำหรับสร้างโปรเจกต์ใหม่
+.nvmrc              = Node version ที่ repo นั้นเลือกใช้จริง
+package.json        = dependency และ engine ที่ repo นั้นใช้จริง
+```
+
+กติกา:
+
+- โปรเจกต์ใหม่เริ่มจาก baseline ปัจจุบันในไฟล์นี้
+- หลังสร้างแล้ว ให้ `.nvmrc` และ `package.json` ของ repo เป็นความจริงของโปรเจกต์นั้น
+- repo เดิมไม่ต้องอัปเกรดตาม baseline ทันที ให้อัปเกรดเมื่อพร้อมและตรวจ breaking change
+- ไฟล์อื่นไม่ hardcode เลข version ซ้ำ ให้เขียนว่า “ใช้ baseline ปัจจุบัน ดู `baseline.md`”
 
 ## Current Baseline
 
@@ -13,6 +30,15 @@
 | Package manager | npm | |
 
 > เลขนี้เป็น **คำแนะนำสำหรับโปรเจกต์ใหม่** ส่วน repo เดิมยึด `.nvmrc` / `package.json` ของตัวเอง (อัปเกรดทีละ repo ตามสะดวก ไม่ต้อง bump พร้อมกัน)
+
+## เมื่อเริ่มโปรเจกต์ `ApoRaviz_*`
+
+1. อ่านตาราง Current Baseline
+2. สร้าง `.nvmrc` ที่ root ของ repo
+3. กำหนด `engines.node` ใน `package.json` ให้ตรงกับ Node ที่เลือก
+4. เลือก dependency ตาม stack ของโปรเจกต์
+5. บันทึก version จริงไว้ใน lockfile ด้วย `npm install`
+6. รัน build/test แรกเพื่อยืนยันว่า tooling ชุดนี้ทำงานร่วมกันได้
 
 ## เลือก Node version แบบ machine-agnostic (PC + Mac)
 

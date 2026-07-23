@@ -77,7 +77,7 @@ vitepress/index.md
 ## Ownership Rule
 
 - Concept ที่ใช้เริ่มโปรเจกต์ใหม่อยู่ใน `_docs/NEW_PROJECT_GUIDE.md`
-- ลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่อยู่ใน `_docs/PROJECT_START_HERE.md`
+- ลำดับอ่านสำหรับโปรเจกต์ใหม่อยู่ใน `_docs/PROJECT_START_HERE.md`
 - Design direction กลางอยู่ใน `_docs/NEW_PROJECT_GUIDE.md`; design เฉพาะ portfolio อยู่ใน `ApoRaviz_Portfolio/docs/design-direction.md`
 - Commands กลางที่ใช้ซ้ำอยู่ใน `_docs/NEW_PROJECT_GUIDE.md`; commands เฉพาะโปรเจกต์อยู่ใน `docs/commands.md`
 - Angular commands กลางอยู่ใน `_docs/angular/commands.md`

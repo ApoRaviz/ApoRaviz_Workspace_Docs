@@ -74,12 +74,12 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Overview', link: '/angular/' },
-          { text: 'ภาพจำง่าย ๆ', link: '/angular/memory-aids' },
+          { text: 'Quick Recall', link: '/angular/memory-aids' },
           {
-            text: 'Concepts',
+            text: 'Core Concepts',
             collapsed: true,
             items: [
-              { text: 'All Concepts', link: '/angular/concepts/' },
+              { text: 'All Core Concepts', link: '/angular/concepts/' },
               { text: 'TypeScript', link: '/angular/concepts/typescript' },
               { text: 'Environment Files', link: '/angular/concepts/environment-files' },
               { text: 'Signal', link: '/angular/concepts/signal' },
@@ -94,10 +94,10 @@ export default defineConfig({
             ],
           },
           {
-            text: 'Lessons',
+            text: 'Learning Guides',
             collapsed: true,
             items: [
-              { text: 'All Lessons', link: '/angular/teach/' },
+              { text: 'All Learning Guides', link: '/angular/teach/' },
               { text: '1 Angular 22 Baseline', link: '/angular/teach/angular-22-baseline' },
               { text: '2 TypeScript in Angular', link: '/angular/teach/typescript-in-angular' },
               { text: '3 Angular Run Flow and angular.json', link: '/angular/teach/angular-run-flow-and-angular-json' },
@@ -127,12 +127,12 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Overview', link: '/backend/' },
-          { text: 'ภาพจำง่าย ๆ', link: '/backend/memory-aids' },
+          { text: 'Quick Recall', link: '/backend/memory-aids' },
           {
-            text: 'Concepts',
+            text: 'Core Concepts',
             collapsed: true,
             items: [
-              { text: 'All Concepts', link: '/backend/concepts/' },
+              { text: 'All Core Concepts', link: '/backend/concepts/' },
               { text: 'API Contract', link: '/backend/concepts/api-contract' },
               { text: 'Privilege Escalation', link: '/backend/concepts/privilege-escalation' },
               { text: 'Sequence Diagram', link: '/backend/concepts/sequence-diagram' },
@@ -147,17 +147,17 @@ export default defineConfig({
               { text: 'Overview', link: '/nodejs/' },
               { text: 'Commands', link: '/nodejs/commands' },
               {
-                text: 'Concepts',
+                text: 'Core Concepts',
                 collapsed: true,
                 items: [
-                  { text: 'All Concepts', link: '/nodejs/concepts/' },
+                  { text: 'All Core Concepts', link: '/nodejs/concepts/' },
                   { text: 'Environment Variable', link: '/nodejs/concepts/environment-variable' },
                   { text: '.env File', link: '/nodejs/concepts/dotenv-file' },
                   { text: 'Secret', link: '/nodejs/concepts/secret' },
                 ],
               },
               {
-                text: 'Lessons',
+                text: 'Learning Guides',
                 collapsed: true,
                 items: [
                   { text: '01 CLI File Processing', link: '/nodejs/teach/01-cli-file-processing' },
@@ -176,7 +176,7 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/nestjs/' },
               { text: 'Commands', link: '/nestjs/commands' },
-              { text: 'All Concepts', link: '/nestjs/concepts/' },
+              { text: 'All Core Concepts', link: '/nestjs/concepts/' },
               { text: 'Module', link: '/nestjs/concepts/module' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
             ],
@@ -196,12 +196,12 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Overview', link: '/postgresql/' },
-          { text: 'ภาพจำง่าย ๆ', link: '/postgresql/memory-aids' },
+          { text: 'Quick Recall', link: '/postgresql/memory-aids' },
           {
-            text: 'Concepts',
+            text: 'Core Concepts',
             collapsed: true,
             items: [
-              { text: 'All Concepts', link: '/postgresql/concepts/' },
+              { text: 'All Core Concepts', link: '/postgresql/concepts/' },
               { text: 'Primary Key', link: '/postgresql/concepts/primary-key' },
               { text: 'Foreign Key', link: '/postgresql/concepts/foreign-key' },
               { text: 'Unique Constraint', link: '/postgresql/concepts/unique-constraint' },
@@ -217,13 +217,13 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Overview', link: '/git/' },
-          { text: 'ภาพจำง่าย ๆ', link: '/git/memory-aids' },
+          { text: 'Quick Recall', link: '/git/memory-aids' },
           { text: 'Commands', link: '/git/commands' },
           {
             text: 'Foundations',
             collapsed: true,
             items: [
-              { text: 'All Concepts', link: '/git/concepts/' },
+              { text: 'All Core Concepts', link: '/git/concepts/' },
               { text: 'Git Repository', link: '/git/concepts/git-repository' },
               { text: '.gitignore', link: '/git/concepts/gitignore' },
               { text: 'Working Tree', link: '/git/concepts/working-tree' },

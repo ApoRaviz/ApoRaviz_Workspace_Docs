@@ -13,7 +13,7 @@ remote       = บ้านอีกหลังบน GitHub
 
 ## Recommended Order
 
-1. [ภาพจำง่าย ๆ](memory-aids.md) — ทบทวนคำสำคัญแบบเร็ว
+1. [Quick Recall](memory-aids.md) — ทบทวนคำสำคัญแบบเร็ว
 2. [Git Concepts](concepts/) — อ่านแนวคิดทีละเรื่อง
 3. [Git Commands](commands.md) — เปิดใช้ตอนทำงานจริง
 

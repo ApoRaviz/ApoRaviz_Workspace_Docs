@@ -12,7 +12,7 @@ Angular frontend
 
 ## Recommended Order
 
-1. [ภาพจำง่าย ๆ](memory-aids.md) — ทบทวนศัพท์ Database แบบเร็ว
+1. [Quick Recall](memory-aids.md) — ทบทวนศัพท์ Database แบบเร็ว
 2. [PostgreSQL Concepts](concepts/) — อ่านแนวคิดทีละเรื่อง
 3. กลับมาใช้หน้านี้เป็นภาพรวมตอนออกแบบ schema ของโปรเจกต์ใหม่
 
