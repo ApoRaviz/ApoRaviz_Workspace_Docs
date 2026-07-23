@@ -106,7 +106,7 @@ void bootstrap();
 อธิบายทีละส่วน:
 
 - `NestFactory` สร้าง Nest application
-- `AppModule` เป็น root module ที่ Nest ใช้เริ่มสร้าง application graph
+- `AppModule` เป็น [root module](concepts/module.md) ที่ Nest ใช้เริ่มสร้าง application graph
 - `app.listen(...)` เปิด HTTP server โดยใช้ `PORT` ถ้ามี มิฉะนั้นใช้ `3000`
 - `void bootstrap()` เรียกฟังก์ชันเริ่มระบบและระบุชัดว่าไม่ได้นำค่าจาก Promise ไปใช้ตรงนั้น
 
@@ -204,6 +204,8 @@ npm run test:e2e
 - `package-lock.json` ต้อง commit แต่ `node_modules` ไม่ต้อง commit
 - Git repo เดียวที่มีหลาย application ไม่ได้แปลว่าต้องใช้ Nx ทันที อ่านต่อที่ [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
 - ต้องรัน `npm install` ใน project ที่ import package นั้น ถ้า frontend กับ backend มี `package.json` แยกกัน
+
+คำสั่งที่ใช้ในบทนี้รวมไว้ที่ [NestJS Commands](commands.md)
 
 ## ลองทำเอง
 

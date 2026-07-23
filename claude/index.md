@@ -4,6 +4,8 @@
 
 > รายการ built-in/skill ดึงจาก **docs ทางการ** (<https://code.claude.com/docs/en/commands>) — ของจริงในเครื่องคุณดูได้โดย **พิมพ์ `/` ในช่องแชท** แล้วเลื่อนเมนู (ต่างกันได้ตามเวอร์ชัน/plugin)
 
+> อยากรู้ว่า **skill / plugin / MCP ต่างกันยังไง** (เช่น Superpowers, Context7, Claude-Mem ไม่ใช่ skill ทั้งหมด)? อ่าน [Claude Extensions — Skill/Plugin/MCP](./extensions.md)
+
 ## ภาพจำ — มี 3 ชั้น อย่าสับสน
 
 ```text

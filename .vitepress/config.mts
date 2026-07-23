@@ -65,6 +65,7 @@ export default defineConfig({
           { text: 'AI Update Rule', link: '/ai-update-rule' },
           { text: 'Workspace Plan', link: '/workspace-plan' },
           { text: 'Claude Code', link: '/claude/' },
+          { text: 'Claude Extensions (Skill/Plugin/MCP)', link: '/claude/extensions' },
         ],
       },
       {
@@ -180,6 +181,9 @@ export default defineConfig({
             collapsed: true,
             items: [
               { text: 'NestJS', link: '/nestjs/' },
+              { text: 'NestJS Commands', link: '/nestjs/commands' },
+              { text: 'NestJS Concepts', link: '/nestjs/concepts/' },
+              { text: 'Module', link: '/nestjs/concepts/module' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
               { text: 'Fastify', link: '/backend/fastify' },
               { text: 'LINE OA Webhook', link: '/backend/line-oa-webhook' },
