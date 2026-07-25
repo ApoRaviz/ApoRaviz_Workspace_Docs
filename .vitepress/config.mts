@@ -179,6 +179,7 @@ export default defineConfig({
               { text: 'All Core Concepts', link: '/nestjs/concepts/' },
               { text: 'Module', link: '/nestjs/concepts/module' },
               { text: 'Controller', link: '/nestjs/concepts/controller' },
+              { text: 'Service', link: '/nestjs/concepts/service' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
             ],
           },

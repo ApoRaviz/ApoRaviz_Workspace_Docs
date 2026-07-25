@@ -184,6 +184,7 @@ Nest CLI scaffold อาจมี `AppController` ที่สร้าง `GET 
 
 ## อ่านต่อ
 
+- [Service](service.md)
 - [Module](module.md)
 - [NestJS Commands](../commands.md)
 - [NestJS Controllers — Official Documentation](https://docs.nestjs.com/controllers)

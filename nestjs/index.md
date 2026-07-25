@@ -17,6 +17,7 @@ NestJS controller/service/module
 - [NestJS Concepts](concepts/)
 - [Module](concepts/module.md)
 - [Controller](concepts/controller.md)
+- [Service](concepts/service.md)
 - [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md)
 - [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
 

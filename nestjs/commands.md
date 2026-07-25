@@ -106,6 +106,38 @@ CLI สร้าง Controller กับ unit test เริ่มต้น แ�
 
 อ่าน concept: [Controller](concepts/controller.md)
 
+## สร้าง Service
+
+ดูผลล่วงหน้า:
+
+```bash
+npx nest generate service health --dry-run
+```
+
+สร้างจริง:
+
+```bash
+npx nest generate service health
+```
+
+รูปแบบทั่วไป:
+
+```text
+npx nest generate service [[ชื่อ feature]]
+```
+
+ผลที่คาด:
+
+```text
+CREATE src/health/health.service.ts
+CREATE src/health/health.service.spec.ts
+UPDATE src/health/health.module.ts
+```
+
+CLI สร้าง Service ที่มี `@Injectable()` กับ unit test เริ่มต้น และเพิ่ม Service เข้า `providers` ของ Module ที่เกี่ยวข้อง แต่ยังไม่เพิ่ม business method หรือทำให้ Controller เรียก Service อัตโนมัติ
+
+อ่าน concept: [Service](concepts/service.md)
+
 ## ตรวจผลหลัง Generate
 
 ```bash
@@ -125,12 +157,14 @@ npm run build
 - `npx nest` ใช้ CLI ของ project ได้ ไม่จำเป็นต้องพึ่ง version global
 - Module ที่ generate แล้วอาจยังไม่มี route เพราะต้องมี Controller ก่อน
 - Controller ที่ generate แล้วเป็น class เปล่า จึงยังไม่มี route จนกว่าจะเพิ่ม HTTP method decorator
+- Service ที่ generate แล้วเป็น class เปล่า และต้องมีผู้เรียก method จึงจะเกิด behavior
 
 ## เช็กตัวเอง
 
 - ถ้าต้องการดูว่า CLI จะแก้ไฟล์อะไรโดยยังไม่เขียนจริง ต้องเพิ่ม option ใด?
 - `nest new` กับ `nest generate module` ต่างกันอย่างไร?
 - `nest generate controller` สร้างและ update ไฟล์ใดบ้าง?
+- `nest generate service` ลงทะเบียน class ใหม่ไว้ใน metadata ช่องใด?
 - หลัง generate แล้ว เหตุใดต้องดู `git diff` อีกครั้ง?
 
 ## จำสั้น ๆ
