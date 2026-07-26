@@ -224,6 +224,7 @@ Service ไม่จำเป็นต้องเขียน query database �
 
 - [Controller](controller.md)
 - [Module](module.md)
+- [Dependency Injection](dependency-injection.md)
 - [NestJS Commands](../commands.md)
 - [NestJS Providers — Official Documentation](https://docs.nestjs.com/providers)
 

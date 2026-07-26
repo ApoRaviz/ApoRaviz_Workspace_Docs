@@ -213,6 +213,7 @@ syntax ส่วนนี้ควรเรียนพร้อมบทเช�
 
 ## อ่านต่อ
 
+- [Dependency Injection](dependency-injection.md)
 - [NestJS Commands](../commands.md)
 - [Nest CLI และโครงสร้างโปรเจกต์](../nest-cli-project-structure.md)
 - [NestJS Modules — Official Documentation](https://docs.nestjs.com/modules)
@@ -234,4 +235,3 @@ constructor = ขอใช้ dependency
 exports     = เจ้าของเปิด Provider
 imports     = ผู้ใช้นำ Module เจ้าของเข้ามา
 ```
-

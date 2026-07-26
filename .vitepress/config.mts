@@ -180,6 +180,7 @@ export default defineConfig({
               { text: 'Module', link: '/nestjs/concepts/module' },
               { text: 'Controller', link: '/nestjs/concepts/controller' },
               { text: 'Service', link: '/nestjs/concepts/service' },
+              { text: 'Dependency Injection', link: '/nestjs/concepts/dependency-injection' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
             ],
           },
