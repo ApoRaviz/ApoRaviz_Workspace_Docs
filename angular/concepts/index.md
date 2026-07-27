@@ -7,6 +7,7 @@
 ## Current Concepts
 
 - [`TypeScript`](typescript.md)
+- [TypeScript Generic](typescript-generics.md)
 - [Environment Files](environment-files.md)
 - [`signal`](signal.md)
 - [`computed`](computed.md)

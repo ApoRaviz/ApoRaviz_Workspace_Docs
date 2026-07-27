@@ -138,6 +138,40 @@ CLI สร้าง Service ที่มี `@Injectable()` กับ unit test 
 
 อ่าน concept: [Service](concepts/service.md)
 
+## สร้าง Exception Filter
+
+ดูผลล่วงหน้าโดยยังไม่เขียนไฟล์:
+
+```bash
+npx nest generate filter common/filters/http-exception --no-spec --flat --dry-run
+```
+
+สร้างจริง:
+
+```bash
+npx nest generate filter common/filters/http-exception --no-spec --flat
+```
+
+option ที่ใช้:
+
+```text
+--no-spec = ไม่สร้างไฟล์ test จาก generator
+--flat    = สร้างไฟล์ตรงใน path ที่ระบุ ไม่สร้างโฟลเดอร์ชื่อ artifact ซ้อน
+--dry-run = แสดงไฟล์ที่จะเปลี่ยนโดยยังไม่เขียนจริง
+```
+
+ผลที่คาด:
+
+```text
+CREATE src/common/filters/http-exception.filter.ts
+```
+
+คำว่า `filter` หลัง `generate` คือชนิด artifact หรือ schematic ที่ Nest CLI ใช้เลือก template ไม่ใช่คำสั่งค้นหา ถ้าไม่ระบุชนิด artifact CLI จะไม่รู้ว่าต้องสร้างโครงแบบ Module, Controller, Service หรือ Filter
+
+CLI สร้างโครง `@Catch()` และ `implements ExceptionFilter` ให้ตามชนิด artifact และใช้ชื่อท้ายไฟล์ `.filter.ts` จาก schematic ส่วน exception ที่ต้องจับ, response shape และจุดลงทะเบียนยังต้องออกแบบและเพิ่มเอง
+
+อ่าน concept: [Exception Filter](concepts/exception-filter.md)
+
 ## ตรวจผลหลัง Generate
 
 ```bash
@@ -158,6 +192,7 @@ npm run build
 - Module ที่ generate แล้วอาจยังไม่มี route เพราะต้องมี Controller ก่อน
 - Controller ที่ generate แล้วเป็น class เปล่า จึงยังไม่มี route จนกว่าจะเพิ่ม HTTP method decorator
 - Service ที่ generate แล้วเป็น class เปล่า และต้องมีผู้เรียก method จึงจะเกิด behavior
+- Filter ที่ generate แล้วเป็นเพียง class scaffold ยังไม่ทำงานจนกว่าจะกำหนด catch behavior และลงทะเบียน
 
 ## เช็กตัวเอง
 

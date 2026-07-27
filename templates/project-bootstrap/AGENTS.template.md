@@ -4,56 +4,57 @@
 
 ไฟล์นี้เป็น shared working agreement สำหรับ Codex, Claude และ AI ตัวอื่น ให้ **อ่านไฟล์นี้ก่อนแก้ code หรือ docs เสมอ**
 
-## Project Mode
+## Default Working Mode
 
 ```text
-[[learning | build]]
+[[teach | execute]]
 ```
 
-- `learning` = เน้นเรียนให้เข้าใจทุกบรรทัด ใช้ Learning Loop + Explanation Protocol, capture ความรู้กลับ `../_docs` เยอะ (เช่น `ApoRaviz_DevEng`)
-- `build` = เน้น ship งานจริง ถือว่า stack เข้าใจแล้ว, capture **เฉพาะของใหม่จริง** ที่ `../_docs` ยังไม่มี
+- `teach` = AI สอนระหว่างสร้าง ให้ learner ลงมือผ่าน Learning Loop + Explanation Protocol และ capture ความรู้ reusable กลับ `../ApoRaviz_Workspace_Docs`
+- `execute` = AI implement, validate และส่งมอบงานให้ครบ ถือว่า stack พื้นฐานเข้าใจแล้ว และ capture เฉพาะของใหม่จริงที่ `../ApoRaviz_Workspace_Docs` ยังไม่มี
+- `walkthrough` = follow-up เมื่อมี code/artifact แล้วและผู้ใช้ขอให้พาไล่อธิบาย ไม่ใช้เป็น Default Working Mode
 
 ## Project Snapshot
 
 - ทำอะไร: [[หนึ่งบรรทัดว่าโปรเจกต์นี้แก้ปัญหาอะไร]]
-- Stack: [[ยึด default จาก ../_docs/WORKSPACE_RULES.md — Angular + Tailwind / NestJS / PostgreSQL ฯลฯ]]
+- Stack: [[ยึด default จาก ../ApoRaviz_Workspace_Docs/WORKSPACE_RULES.md — Angular + Tailwind / NestJS / PostgreSQL ฯลฯ]]
 - สถานะ: [[phase/step ปัจจุบัน]]
 
 รายละเอียดเต็มอยู่ใน `README.md`
 
 ## Workspace Rule (อ่าน doc กลางเสมอ)
 
-โปรเจกต์นี้เป็น child repo ของ workspace `ApoRaviz` ต้องยึดกฏกลางจาก `../_docs` เสมอ:
+โปรเจกต์นี้เป็น child repo ของ workspace `ApoRaviz` ต้องยึดกฏกลางจาก `../ApoRaviz_Workspace_Docs` เสมอ:
 
-- `../_docs/WORKSPACE_RULES.md` = บทบาท repo + stack default + boundary (source of truth)
-- `../_docs/AI_UPDATE_RULE.md` = ความรู้ไหนไปไหน (Decision Table)
-- `../_docs/NEW_PROJECT_GUIDE.md` = กติกาเริ่มโปรเจกต์
-- `../_docs/PROJECT_START_HERE.md` = ลำดับการอ่าน
-- ถ้าเป็น learning project: `../_docs/TEACHING_RULES.md`
+- `../ApoRaviz_Workspace_Docs/WORKSPACE_RULES.md` = บทบาท repo + stack default + boundary (source of truth)
+- `../ApoRaviz_Workspace_Docs/AI_UPDATE_RULE.md` = ความรู้ไหนไปไหน (Decision Table)
+- `../ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md` = กติกาเริ่มโปรเจกต์
+- `../ApoRaviz_Workspace_Docs/PROJECT_START_HERE.md` = ลำดับการอ่าน
+- ถ้า Default Working Mode เป็น `teach` หรือผู้ใช้ขอ `walkthrough`: `../ApoRaviz_Workspace_Docs/TEACHING_RULES.md`
 
-ถ้าเปิด `../_docs` ไม่ได้ (คนละเครื่อง / CI) ให้ดู repo กลาง: https://github.com/ApoRaviz/ApoRaviz_Workspace_Docs
+ถ้าเปิด `../ApoRaviz_Workspace_Docs` ไม่ได้ (คนละเครื่อง / CI) ให้ดู repo กลาง: https://github.com/ApoRaviz/ApoRaviz_Workspace_Docs
 
 หลักที่ห้ามลืม:
 
-- `../_docs` = ความรู้กลางจัด**ตาม topic** (W3Schools ของ ApoRaviz)
-- ความรู้ reusable -> ซึมเข้าหน้า topic ใน `../_docs` เป็นตัวอย่าง ไม่ทำ case study แยก
+- `../ApoRaviz_Workspace_Docs` = ความรู้กลางจัด**ตาม topic** (W3Schools ของ ApoRaviz)
+- ความรู้ reusable -> ซึมเข้าหน้า topic ใน `../ApoRaviz_Workspace_Docs` เป็นตัวอย่าง ไม่ทำ case study แยก
 - รายละเอียดเฉพาะโปรเจกต์ -> repo นี้ (README เป็นหลัก)
 - อย่าปล่อยความรู้ใหม่ไว้แค่ใน chat
 
-## Capture Rule (แปรผันตาม Project Mode)
+## Capture Rule (แปรผันตาม Default Working Mode)
 
-- `learning` mode: เจอ concept / flow / pattern ที่ใช้ซ้ำได้ -> ซึมเข้า `../_docs` หน้า topic ที่เกี่ยวข้อง
-- `build` mode: capture เฉพาะ "ของใหม่จริง" (lib ใหม่, pattern ที่ยังไม่เคยจด, gotcha, version bump) ที่เหลือถือว่า `../_docs` มีแล้ว เปิดอ่านเอา
+- `teach`: เจอ concept / flow / pattern ที่ใช้ซ้ำได้ -> ซึมเข้า `../ApoRaviz_Workspace_Docs` หน้า topic ที่เกี่ยวข้อง
+- `execute`: capture เฉพาะ "ของใหม่จริง" (lib ใหม่, pattern ที่ยังไม่เคยจด, gotcha, version bump) ที่เหลือถือว่า `../ApoRaviz_Workspace_Docs` มีแล้ว เปิดอ่านเอา
 
 ## Stack & Conventions
 
-ยึด default stack จาก `../_docs/WORKSPACE_RULES.md`:
+ยึด default stack จาก `../ApoRaviz_Workspace_Docs/WORKSPACE_RULES.md`:
 
 - Frontend: Angular latest stable + Tailwind CSS (styling หลัก) + standalone components + signals + SSR เมื่อเหมาะ
 - Backend (ถ้ามี): NestJS + PostgreSQL/Supabase
 - Runtime: Node ตามเลขใน `.nvmrc` ของ repo นี้
 
-ระวัง SSR: อย่าเรียก `window` / `document` / `localStorage` ตรง ๆ ใน code ที่อาจรันฝั่ง server — ถ้าจำเป็นให้ guard ด้วย platform-safe pattern แล้วจดความรู้ที่ใช้ซ้ำได้กลับ `../_docs`
+ระวัง SSR: อย่าเรียก `window` / `document` / `localStorage` ตรง ๆ ใน code ที่อาจรันฝั่ง server — ถ้าจำเป็นให้ guard ด้วย platform-safe pattern แล้วจดความรู้ที่ใช้ซ้ำได้กลับ `../ApoRaviz_Workspace_Docs`
 
 ## Commands (machine-agnostic — ใช้ได้ทั้ง PC และ Mac)
 
@@ -73,10 +74,10 @@ npm test -- --watch=false
 ## Before Finishing
 
 - build/test รันแล้ว หรือบอกเหตุผลสั้น ๆ ว่าทำไมยังไม่ได้รัน
-- ความรู้ reusable ไม่ค้างใน chat (ตาม Capture Rule + Project Mode)
+- ความรู้ reusable ไม่ค้างใน chat (ตาม Capture Rule + Default Working Mode)
 - handoff ให้ agent ถัดไปเข้าใจสถานะจากไฟล์ใน repo ไม่ใช่จากความจำใน chat
 
 ---
 
-> ถ้า Project Mode = `learning` ให้เพิ่มหัวข้อด้านล่างตาม `../_docs/TEACHING_RULES.md` และ source documents ของโปรเจกต์:
+> ถ้า Default Working Mode = `teach` ให้เพิ่มหัวข้อด้านล่างตาม `../ApoRaviz_Workspace_Docs/TEACHING_RULES.md` และ source documents ของโปรเจกต์:
 > Learning Protocol (Learning Loop + Explanation Protocol + No Black Box), Mentor stance, role division (Claude = Designer/Reviewer, Codex = Hands-on Tutor) — ดูตัวอย่างเต็มใน `ApoRaviz_DevEng/AGENTS.md`

@@ -20,18 +20,18 @@ AI_UPDATE_RULE.md
 
 ## Planning Rules
 
-- `_docs/WORKSPACE_PLAN.md` เก็บภาพรวมระดับ workspace เท่านั้น
+- `ApoRaviz_Workspace_Docs/WORKSPACE_PLAN.md` เก็บภาพรวมระดับ workspace เท่านั้น
 - โปรเจกต์ใหม่เพิ่มเป็นแถวใหม่ใน `Project Registry`
 - แผนละเอียดของโปรเจกต์ไม่ควรย้ายมาไว้กลาง ให้ link ไปที่ `docs/implementation-plan.md`
 - ทุก plan ใช้ checkbox `[ ]` / `[x]`
 - ติ๊ก `[x]` เมื่อทำเสร็จจริงและตรวจแล้ว เช่น build/test ผ่าน หรือ docs link ครบ
-- ถ้าเจอ rule ที่ใช้ได้ทุกโปรเจกต์ ให้ย้ายไป `_docs/NEW_PROJECT_GUIDE.md`
+- ถ้าเจอ rule ที่ใช้ได้ทุกโปรเจกต์ ให้ย้ายไป `ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md`
 
 ## Project Registry
 
 | Project | GitHub Repo | Role | Status | Source Of Truth |
 |---|---|---|---|---|
-| `_docs` | `ApoRaviz_Workspace_Docs` | ความรู้กลางตาม topic แบบ W3Schools | Active | `_docs/WORKSPACE_PLAN.md` |
+| `ApoRaviz_Workspace_Docs` | `ApoRaviz_Workspace_Docs` | ความรู้กลางตาม topic แบบ W3Schools | Active | `ApoRaviz_Workspace_Docs/WORKSPACE_PLAN.md` |
 | `ApoRaviz_DevEng` | `ApoRaviz_DevEng` | โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง | Active | `ApoRaviz_DevEng/README.md` |
 | `ApoRaviz_Portfolio` | `ApoRaviz_Portfolio` | โชว์ผลงาน/สมัครงาน/link hub อย่างเดียว | Active | `ApoRaviz_Portfolio/README.md` |
 | `ApoRaviz_Mooping` | `ApoRaviz_Mooping` | ระบบขาย/สะสมสิทธิ์หมูปิ้ง | Paused | `ApoRaviz_Mooping/README.md` |
@@ -39,7 +39,7 @@ AI_UPDATE_RULE.md
 
 ## Current Focus
 
-- [x] 0.1 จัด `_docs` ให้เหลือเอกสารกลางที่จำเป็น
+- [x] 0.1 จัด `ApoRaviz_Workspace_Docs` ให้เหลือเอกสารกลางที่จำเป็น
 - [x] 0.2 ย่อ `NEW_PROJECT_GUIDE.md` ให้เป็น concept กลางสำหรับโปรเจกต์ใหม่
 - [x] 0.3 ตั้งมาตรฐานว่าโปรเจกต์ใหม่ใช้ `docs/product-spec.md` ก่อน ไม่แตกไฟล์เล็กเกินจำเป็น
 - [x] 0.4 ตั้งมาตรฐานว่าโปรเจกต์ใหม่ต้องมี `docs/implementation-plan.md`
@@ -48,17 +48,17 @@ AI_UPDATE_RULE.md
 - [x] 0.7 ตรวจและ clean docs ที่เหลือหลัง refactor
 - [x] 0.8 ย้าย Portfolio project skill เข้า `.codex/skills/angular-portfolio-mentor`
 - [x] 0.9 ลบ generic UI skill copy ที่ซ้ำในแต่ละโปรเจกต์
-- [x] 0.10 แยก `_docs` เป็น repo กลาง `ApoRaviz_Workspace_Docs`
+- [x] 0.10 แยก `ApoRaviz_Workspace_Docs` เป็น repo กลาง `ApoRaviz_Workspace_Docs`
 - [x] 0.11 เปลี่ยน repo ของ MooPing เป็น `ApoRaviz_Mooping`
-- [x] 0.12 แยก Angular teach/commands กลางไว้ที่ `_docs/angular/`
-- [x] 0.13 แยก Git commands กลางไว้ที่ `_docs/git/commands.md`
+- [x] 0.12 แยก Angular teach/commands กลางไว้ที่ `ApoRaviz_Workspace_Docs/angular/`
+- [x] 0.13 แยก Git commands กลางไว้ที่ `ApoRaviz_Workspace_Docs/git/commands.md`
 - [x] 0.14 เพิ่ม rule ว่า project teach เก็บตัวอย่างเฉพาะโปรเจกต์ ส่วน common Angular concept อยู่กลาง
 - [x] 0.15 ลบ Angular teach กลางที่ซ้ำใน Portfolio และย้ายการเรียนกลับมา Workspace Docs
 - [x] 0.16 ปรับ README ของ Portfolio และ MooPing ให้บอกว่าโปรเจกต์ทำอะไรอย่างชัดเจน
-- [x] 0.17 เพิ่ม `_docs/PROJECT_START_HERE.md` เป็นลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่
+- [x] 0.17 เพิ่ม `ApoRaviz_Workspace_Docs/PROJECT_START_HERE.md` เป็นลำดับอ่าน 1-2-3-4 สำหรับโปรเจกต์ใหม่
 - [x] 0.18 ตั้ง `ApoRaviz_Portfolio` เป็น default structure reference สำหรับโปรเจกต์ถัดไป
 - [x] 0.19 เพิ่ม Tailwind CSS v4 เป็น frontend default ของโปรเจกต์ Angular ใหม่
-- [x] 0.20 เพิ่ม Angular 22 baseline note ไว้ใน `_docs/angular/teach/`
+- [x] 0.20 เพิ่ม Angular 22 baseline note ไว้ใน `ApoRaviz_Workspace_Docs/angular/teach/`
 - [x] 0.21 เพิ่ม backend default stack เป็น Angular + NestJS + PostgreSQL/Supabase
 - [x] 0.22 เพิ่มบทเรียน Angular run flow และ `angular.json` core model
 - [x] 0.23 เพิ่ม Node.js CLI, stream, backpressure, backup safety และ test temp files จาก `ApoRaviz_Tools`
@@ -83,7 +83,7 @@ AI_UPDATE_RULE.md
 - [ ] 2.2 stamp bootstrap templates จาก `templates/project-bootstrap/` (AGENTS.md/CLAUDE.md/README.md) + เพิ่ม `.nvmrc`
 - [ ] 2.3 `README.md` บังคับ; docs อื่น (progress/product-spec/implementation-plan/commands/design-direction/architecture) = optional เพิ่มเมื่อจำเป็น
 - [ ] 2.4 เพิ่ม project-specific skill ใน `.codex/skills/<project>/SKILL.md` เฉพาะเมื่อมี domain rule สำคัญ
-- [ ] 2.5 ถ้ามีบทเรียน reusable จากโปรเจกต์จริง ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `_docs` เป็นตัวอย่าง
+- [ ] 2.5 ถ้ามีบทเรียน reusable จากโปรเจกต์จริง ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `ApoRaviz_Workspace_Docs` เป็นตัวอย่าง
 
 ### Step 3 - MVP
 

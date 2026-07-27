@@ -1,10 +1,10 @@
 # AGENTS.md
 
-คู่มือทำงานร่วมกันของ AI agents ในrepo `ApoRaviz_Workspace_Docs` (โฟลเดอร์ `_docs`)
+คู่มือทำงานร่วมกันของ AI agents ในrepo `ApoRaviz_Workspace_Docs` (โฟลเดอร์ `ApoRaviz_Workspace_Docs`)
 
 ไฟล์นี้เป็น **entry point** สำหรับ Codex, Claude และ AI ตัวอื่นที่เข้ามาแก้เอกสารใน repo นี้ ให้อ่านไฟล์นี้ก่อนแตะ content
 
-> repo นี้ต่างจาก child project (`ApoRaviz_DevEng` ฯลฯ) — child ชี้ **ออก** มาที่ `../_docs` เพื่อยึดกฎกลาง แต่ repo นี้**คือ** ตัวกฎกลางเอง path ในไฟล์นี้จึงเป็น internal (ไม่มี `../_docs` ให้ชี้ตัวเอง)
+> repo นี้ต่างจาก child project (`ApoRaviz_DevEng` ฯลฯ) — child ชี้ **ออก** มาที่ `../ApoRaviz_Workspace_Docs` เพื่อยึดกฎกลาง แต่ repo นี้**คือ** ตัวกฎกลางเอง path ในไฟล์นี้จึงเป็น internal (ไม่มี `../ApoRaviz_Workspace_Docs` ให้ชี้ตัวเอง)
 
 ## Repo Identity
 

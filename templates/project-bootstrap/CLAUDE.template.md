@@ -8,6 +8,6 @@
 
 ## Claude-specific notes
 
-- ยึด Project Mode ใน `AGENTS.md` (`learning` = เน้นเข้าใจ + Learning Loop / `build` = เน้น ship + capture เฉพาะของใหม่)
-- ยึด workspace rules ที่ `../_docs` เสมอ (ดู section Workspace Rule ใน `AGENTS.md`)
-- [[ถ้าเป็น learning project: ระบุบทบาท Claude = Designer/Reviewer และ source documents ของโปรเจกต์]]
+- ยึด Default Working Mode ใน `AGENTS.md` (`teach` = สอนระหว่างสร้าง / `execute` = ทำให้ครบ / `walkthrough` = อธิบาย artifact ที่มีอยู่เมื่อผู้ใช้ขอ)
+- ยึด workspace rules ที่ `../ApoRaviz_Workspace_Docs` เสมอ (ดู section Workspace Rule ใน `AGENTS.md`)
+- [[ถ้า Default Working Mode เป็น teach: ระบุบทบาท Claude = Designer/Reviewer และ source documents ของโปรเจกต์]]

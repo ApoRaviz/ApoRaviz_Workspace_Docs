@@ -19,6 +19,7 @@ NestJS controller/service/module
 - [Controller](concepts/controller.md)
 - [Service](concepts/service.md)
 - [Dependency Injection](concepts/dependency-injection.md)
+- [Exception Filter](concepts/exception-filter.md)
 - [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md)
 - [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
 
@@ -47,6 +48,7 @@ module     = รวม controller/service เป็น feature
 provider   = class ที่ NestJS สร้างและส่งให้ใช้ผ่าน dependency injection
 guard      = ตรวจสิทธิ์หรือเงื่อนไขก่อนเข้า route
 pipe       = แปลงหรือตรวจข้อมูลเข้า route
+filter     = จัดรูปแบบ response เมื่อเกิด exception ที่ตรงเงื่อนไข
 ```
 
 ## ตัวอย่างจาก split-order-txt

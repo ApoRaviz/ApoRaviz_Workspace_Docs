@@ -15,7 +15,7 @@ templates/         = template สำหรับ concept และ lesson
 
 `ApoRaviz_Portfolio` เป็น profile/showcase/link hub เท่านั้น ไม่ใช่แหล่งบทเรียนกลางอีกต่อไป
 
-เอกสารใน `_docs/` คือความจำระดับ workspace ใช้กับทุกโปรเจกต์ใน `/Users/aporaviz/ApoRaviz`
+เอกสารใน `ApoRaviz_Workspace_Docs/` คือความจำระดับ workspace ใช้กับทุกโปรเจกต์ใน `/Users/aporaviz/ApoRaviz`
 
 ## Document Types
 
@@ -38,7 +38,7 @@ vitepress/                = คู่มือรันและแก้เว�
 
 ```text
 GitHub repo = https://github.com/ApoRaviz/ApoRaviz_Workspace_Docs
-Local path  = /Users/aporaviz/ApoRaviz/_docs
+Local path  = /Users/aporaviz/ApoRaviz/ApoRaviz_Workspace_Docs
 ```
 
 repo นี้เก็บเฉพาะความรู้กลางของ workspace ไม่เก็บ code ของโปรเจกต์ใดโปรเจกต์หนึ่ง
@@ -76,16 +76,16 @@ vitepress/index.md
 
 ## Ownership Rule
 
-- Concept ที่ใช้เริ่มโปรเจกต์ใหม่อยู่ใน `_docs/NEW_PROJECT_GUIDE.md`
-- ลำดับอ่านสำหรับโปรเจกต์ใหม่อยู่ใน `_docs/PROJECT_START_HERE.md`
-- Design direction กลางอยู่ใน `_docs/NEW_PROJECT_GUIDE.md`; design เฉพาะ portfolio อยู่ใน `ApoRaviz_Portfolio/docs/design-direction.md`
-- Commands กลางที่ใช้ซ้ำอยู่ใน `_docs/NEW_PROJECT_GUIDE.md`; commands เฉพาะโปรเจกต์อยู่ใน `docs/commands.md`
-- Angular commands กลางอยู่ใน `_docs/angular/commands.md`
-- Git commands กลางอยู่ใน `_docs/git/commands.md`
-- Skills กลางอธิบายใน `_docs/NEW_PROJECT_GUIDE.md`; skill เฉพาะโปรเจกต์อยู่ใน `.codex/skills/<project>/SKILL.md`
-- Angular teach กลางอยู่ใน `_docs/angular/teach/`; บทเรียน reusable จากโปรเจกต์จริงให้ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
+- Concept ที่ใช้เริ่มโปรเจกต์ใหม่อยู่ใน `ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md`
+- ลำดับอ่านสำหรับโปรเจกต์ใหม่อยู่ใน `ApoRaviz_Workspace_Docs/PROJECT_START_HERE.md`
+- Design direction กลางอยู่ใน `ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md`; design เฉพาะ portfolio อยู่ใน `ApoRaviz_Portfolio/docs/design-direction.md`
+- Commands กลางที่ใช้ซ้ำอยู่ใน `ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md`; commands เฉพาะโปรเจกต์อยู่ใน `docs/commands.md`
+- Angular commands กลางอยู่ใน `ApoRaviz_Workspace_Docs/angular/commands.md`
+- Git commands กลางอยู่ใน `ApoRaviz_Workspace_Docs/git/commands.md`
+- Skills กลางอธิบายใน `ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md`; skill เฉพาะโปรเจกต์อยู่ใน `.codex/skills/<project>/SKILL.md`
+- Angular teach กลางอยู่ใน `ApoRaviz_Workspace_Docs/angular/teach/`; บทเรียน reusable จากโปรเจกต์จริงให้ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
 - แผนละเอียดของโปรเจกต์ต้องอยู่ใน `docs/implementation-plan.md` และใช้ checkbox `[x]`
-- Project repo ไม่ควรมี learning docs แยกยาว ๆ ถ้าจะใช้สอน ให้สรุปกลับมาเป็นความรู้ตาม topic ที่ `_docs/angular/`, `_docs/nodejs/` ฯลฯ
+- Project repo ไม่ควรมี learning docs แยกยาว ๆ ถ้าจะใช้สอน ให้สรุปกลับมาเป็นความรู้ตาม topic ที่ `ApoRaviz_Workspace_Docs/angular/`, `ApoRaviz_Workspace_Docs/nodejs/` ฯลฯ
 
 ## Rule
 
@@ -103,16 +103,16 @@ teach = เรื่องนี้สอนอะไร
 ทุกครั้งที่แก้ระบบหรือเจอเรื่องใหม่ที่ควรจำ ต้องอัปเดตเอกสารควบคู่กับ code:
 
 - ถ้าเป็นคำสั่งใหม่ที่มี path, URL, repo, port หรือ base-href เฉพาะโปรเจกต์ ให้เพิ่มใน `docs/commands.md` ของโปรเจกต์นั้น
-- ถ้าเป็น Angular command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `_docs/angular/commands.md`
-- ถ้าเป็น Git command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `_docs/git/commands.md`
-- ถ้าเป็นบทเรียน Angular/SSR/testing/component/CI ที่ใช้ได้ทุกโปรเจกต์ ให้เพิ่มใน `_docs/angular/teach/`
-- ถ้าเป็นบทเรียน reusable จากโปรเจกต์ (เช่น UX, bug, decision ที่ใช้ซ้ำได้) ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `_docs` เป็นตัวอย่าง ส่วนที่เฉพาะโปรเจกต์ให้อยู่ใน README ของ repo นั้น
-- ถ้าบทเรียนหรือ command ใช้ได้ทุกโปรเจกต์และเป็น rule สั้น ๆ ให้สรุปใน `_docs/NEW_PROJECT_GUIDE.md`
-- ถ้า project repo เริ่มมีบทเรียนยาว ให้ย้ายกลับ `_docs` แล้วเหลือในโปรเจกต์แค่ product spec, implementation plan, commands หรือ system docs ที่จำเป็นต่อ app นั้น
+- ถ้าเป็น Angular command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `ApoRaviz_Workspace_Docs/angular/commands.md`
+- ถ้าเป็น Git command pattern ที่ใช้ซ้ำได้ ให้เพิ่มใน `ApoRaviz_Workspace_Docs/git/commands.md`
+- ถ้าเป็นบทเรียน Angular/SSR/testing/component/CI ที่ใช้ได้ทุกโปรเจกต์ ให้เพิ่มใน `ApoRaviz_Workspace_Docs/angular/teach/`
+- ถ้าเป็นบทเรียน reusable จากโปรเจกต์ (เช่น UX, bug, decision ที่ใช้ซ้ำได้) ให้ซึมเข้าหน้า topic ที่เกี่ยวข้องใน `ApoRaviz_Workspace_Docs` เป็นตัวอย่าง ส่วนที่เฉพาะโปรเจกต์ให้อยู่ใน README ของ repo นั้น
+- ถ้าบทเรียนหรือ command ใช้ได้ทุกโปรเจกต์และเป็น rule สั้น ๆ ให้สรุปใน `ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md`
+- ถ้า project repo เริ่มมีบทเรียนยาว ให้ย้ายกลับ `ApoRaviz_Workspace_Docs` แล้วเหลือในโปรเจกต์แค่ product spec, implementation plan, commands หรือ system docs ที่จำเป็นต่อ app นั้น
 - ถ้าเป็นสิ่งที่ทำเสร็จแล้ว ให้เพิ่มใน `progress.md`
 - ถ้าเป็นสิ่งที่ต้องทำต่อ ให้เพิ่มใน `docs/implementation-plan.md`
-- ถ้าเป็นแผนระดับ workspace ให้เพิ่มใน `_docs/WORKSPACE_PLAN.md`
-- ถ้าเป็น coding/commenting convention ที่ใช้ได้หลายโปรเจกต์ ให้เพิ่มใน `_docs/NEW_PROJECT_GUIDE.md` หรือ skill ของโปรเจกต์นั้น
+- ถ้าเป็นแผนระดับ workspace ให้เพิ่มใน `ApoRaviz_Workspace_Docs/WORKSPACE_PLAN.md`
+- ถ้าเป็น coding/commenting convention ที่ใช้ได้หลายโปรเจกต์ ให้เพิ่มใน `ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md` หรือ skill ของโปรเจกต์นั้น
 
 ```text
 แก้ code อย่างเดียว = ความรู้หาย

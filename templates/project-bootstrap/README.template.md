@@ -27,4 +27,4 @@ npm start
 
 ## Workspace
 
-โปรเจกต์นี้เป็น child repo ของ workspace `ApoRaviz` — กฏกลางและความรู้ตาม topic อยู่ที่ `ApoRaviz_Workspace_Docs` (`../_docs`) ดู `AGENTS.md` สำหรับกติกาการทำงานกับ AI agents
+โปรเจกต์นี้เป็น child repo ของ workspace `ApoRaviz` — กฏกลางและความรู้ตาม topic อยู่ที่ `ApoRaviz_Workspace_Docs` (`../ApoRaviz_Workspace_Docs`) ดู `AGENTS.md` สำหรับกติกาการทำงานกับ AI agents

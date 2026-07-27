@@ -166,7 +166,7 @@ Angular 22 ปรับ animation และ browser integration หลายจ�
 - [ ] `npm test` หรือ `npm run test:ci` ผ่าน
 - [ ] `npm run build` ผ่าน
 - [ ] search docs แล้วไม่เหลือ wording ที่ทำให้เข้าใจว่า version เก่าคือ current baseline
-- [ ] ถ้าเจอ Angular concept ใหม่ที่ทุกโปรเจกต์ควรรู้ ให้เพิ่มกลับมาที่ `_docs/angular/teach/`
+- [ ] ถ้าเจอ Angular concept ใหม่ที่ทุกโปรเจกต์ควรรู้ ให้เพิ่มกลับมาที่ `ApoRaviz_Workspace_Docs/angular/teach/`
 
 ## Sources
 

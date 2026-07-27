@@ -81,6 +81,7 @@ export default defineConfig({
             items: [
               { text: 'All Core Concepts', link: '/angular/concepts/' },
               { text: 'TypeScript', link: '/angular/concepts/typescript' },
+              { text: 'TypeScript Generic', link: '/angular/concepts/typescript-generics' },
               { text: 'Environment Files', link: '/angular/concepts/environment-files' },
               { text: 'Signal', link: '/angular/concepts/signal' },
               { text: 'Computed', link: '/angular/concepts/computed' },
@@ -181,6 +182,7 @@ export default defineConfig({
               { text: 'Controller', link: '/nestjs/concepts/controller' },
               { text: 'Service', link: '/nestjs/concepts/service' },
               { text: 'Dependency Injection', link: '/nestjs/concepts/dependency-injection' },
+              { text: 'Exception Filter', link: '/nestjs/concepts/exception-filter' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
             ],
           },

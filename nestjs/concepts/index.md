@@ -8,3 +8,4 @@
 - [Controller](controller.md)
 - [Service](service.md)
 - [Dependency Injection](dependency-injection.md)
+- [Exception Filter](exception-filter.md)
