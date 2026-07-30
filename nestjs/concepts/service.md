@@ -190,7 +190,7 @@ Test.createTestingModule({
 });
 ```
 
-บท Unit Test จะเรียนต่อว่าเมื่อใดควรใช้ Service จริง และเมื่อใดควรใช้ mock (ตัวแทนจำลอง) เพื่อแยก Controller ออกจาก Service
+เมื่อเขียน Unit Test ให้ใช้ class ที่กำลังทดสอบเป็นของจริง และพิจารณาใช้ mock กับ dependency ของ class นั้นเพื่อแยกขอบเขต เช่น ทดสอบ Controller อาจใช้ Service mock แต่ทดสอบ Service ต้องใช้ Service จริง อ่านต่อที่ [Unit Test ด้วย Jest](unit-test.md)
 
 ## Service กับ Repository ต่างกันอย่างไร
 
@@ -225,6 +225,7 @@ Service ไม่จำเป็นต้องเขียน query database �
 - [Controller](controller.md)
 - [Module](module.md)
 - [Dependency Injection](dependency-injection.md)
+- [Unit Test ด้วย Jest](unit-test.md)
 - [NestJS Commands](../commands.md)
 - [NestJS Providers — Official Documentation](https://docs.nestjs.com/providers)
 

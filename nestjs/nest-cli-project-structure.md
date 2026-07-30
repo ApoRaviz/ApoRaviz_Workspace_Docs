@@ -238,7 +238,7 @@ npm test -- --runInBand
 npm run test:e2e
 ```
 
-- unit test ตรวจ behavior ของ class หรือหน่วยย่อย
+- unit test ตรวจ behavior ของ class หรือหน่วยย่อย อ่านต่อที่ [Unit Test ด้วย Jest](concepts/unit-test.md)
 - end-to-end test สร้าง application แล้วส่ง HTTP request ผ่าน flow จริงมากขึ้น
 - lint warning ยังควรอ่านและแก้ แม้ command จะจบด้วย exit code สำเร็จ
 

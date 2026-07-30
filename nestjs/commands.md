@@ -172,6 +172,41 @@ CLI สร้างโครง `@Catch()` และ `implements ExceptionFilter
 
 อ่าน concept: [Exception Filter](concepts/exception-filter.md)
 
+## รัน Unit Test ด้วย Jest
+
+รัน test file ที่ได้รับผลกระทบโดยตรง:
+
+```bash
+npm test -- status.service.spec.ts --runInBand
+```
+
+รัน unit test ทั้งชุด:
+
+```bash
+npm test -- --runInBand
+```
+
+ความหมาย:
+
+```text
+npm test              = เรียก script test ซึ่งรัน Jest
+--                    = ตัวคั่นของ npm ส่ง argument หลังจากนี้ต่อให้ Jest
+status.service.spec.ts = pattern เลือก test file ที่ต้องการ
+--runInBand           = รัน test ต่อกันใน process เดียว ไม่แยก worker
+```
+
+`--runInBand` ช่วยให้ output ของ test suite เล็กเรียงตรงและอ่านง่าย แต่ไม่ได้ทำให้ test cases ใช้ Service instance เดียวกัน เพราะ lifecycle ยังขึ้นกับ `beforeEach()` และ test setup
+
+ตรวจ lint เฉพาะ test file โดยไม่แก้อัตโนมัติ:
+
+```bash
+npx eslint src/status/status.service.spec.ts
+```
+
+`npx` เลือก binary จาก `node_modules` ของ project ก่อน คำสั่งนี้ไม่มี `--fix` จึงตรวจอย่างเดียว ไม่เขียนแก้ไฟล์
+
+อ่าน concept: [Unit Test ด้วย Jest](concepts/unit-test.md)
+
 ## ตรวจผลหลัง Generate
 
 ```bash

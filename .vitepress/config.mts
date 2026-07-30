@@ -183,6 +183,7 @@ export default defineConfig({
               { text: 'Service', link: '/nestjs/concepts/service' },
               { text: 'Dependency Injection', link: '/nestjs/concepts/dependency-injection' },
               { text: 'Exception Filter', link: '/nestjs/concepts/exception-filter' },
+              { text: 'Unit Test with Jest', link: '/nestjs/concepts/unit-test' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
             ],
           },
