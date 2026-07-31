@@ -207,6 +207,48 @@ npx eslint src/status/status.service.spec.ts
 
 อ่าน concept: [Unit Test ด้วย Jest](concepts/unit-test.md)
 
+## รัน Backend E2E Test ด้วย Jest และ Supertest
+
+รัน E2E test ตาม script ของ project:
+
+```bash
+npm run test:e2e
+```
+
+ตัวอย่าง script:
+
+```json
+"test:e2e": "jest --config ./test/jest-e2e.json"
+```
+
+`--config` บอก Jest ให้ใช้ E2E configuration ที่ระบุ แทน Unit Test config หลัก
+
+ดูค่าที่ Jest resolve จริงโดยไม่รัน test:
+
+```bash
+npx jest --showConfig --config ./test/jest-e2e.json
+```
+
+```text
+--showConfig = แสดง configuration หลัง resolve
+--config     = เลือก configuration file
+```
+
+ตรวจ type ของ source กับ E2E test โดยไม่สร้าง JavaScript:
+
+```bash
+npx tsc --noEmit -p test/tsconfig.json
+```
+
+```text
+--noEmit = ตรวจ type แต่ไม่สร้าง output
+-p       = รูปย่อของ --project ใช้เลือก tsconfig
+```
+
+E2E file มักตั้งชื่อ `*.e2e-spec.ts` และอยู่ใต้ `test/` ตาม `rootDir`/`testRegex` ของ project ไม่ควรเดาจากชื่อไฟล์อย่างเดียว ให้ตรวจ config จริง
+
+อ่าน concept: [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md)
+
 ## ตรวจผลหลัง Generate
 
 ```bash

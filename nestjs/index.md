@@ -21,6 +21,7 @@ NestJS controller/service/module
 - [Dependency Injection](concepts/dependency-injection.md)
 - [Exception Filter](concepts/exception-filter.md)
 - [Unit Test ด้วย Jest](concepts/unit-test.md)
+- [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md)
 - [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md)
 - [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
 

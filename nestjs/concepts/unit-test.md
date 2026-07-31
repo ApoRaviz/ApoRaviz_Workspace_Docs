@@ -380,6 +380,7 @@ await app.init();
 
 ## อ่านต่อ
 
+- [Backend E2E Test ด้วย Jest และ Supertest](backend-e2e-test.md)
 - [Service](service.md)
 - [Dependency Injection](dependency-injection.md)
 - [NestJS Commands](../commands.md)

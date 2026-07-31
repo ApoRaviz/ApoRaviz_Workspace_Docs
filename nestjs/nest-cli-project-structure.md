@@ -122,6 +122,8 @@ npx tsc --noEmit --project test/tsconfig.json
 
 อย่าเพิ่ม config นี้โดยอัตโนมัติทุก project ถ้า editor และ test ทำงานถูกอยู่แล้ว ให้เพิ่มเมื่อมีเหตุผลและตรวจด้วย compiler จริง
 
+อ่าน flow ตั้งแต่ Jest config, Nest test application ถึง Supertest request ที่ [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md)
+
 ## เมื่อ IDE กับ Project ใช้ TypeScript คนละ Version
 
 repository เดียวอาจมี frontend ที่ root และ NestJS backend ในโฟลเดอร์ย่อย โดยแต่ละส่วนมี `package.json` และ `node_modules` ของตัวเอง IDE จึงอาจแสดง warning จาก TypeScript อีก version หนึ่งได้

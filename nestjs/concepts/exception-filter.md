@@ -195,6 +195,10 @@ moduleFixture.createNestApplication();
 
 ตอนเขียน E2E ต้องทำให้ test bootstrap ใช้ global configuration ชุดเดียวกับ runtime หรือผูก Filter ผ่าน application graph ด้วยวิธีที่เหมาะสม ไม่ควรเห็น test เขียวแล้วสรุปทันทีว่า `main.ts` ถูกทดสอบแล้ว
 
+แนวทางหนึ่งสำหรับ configuration ที่ลงทะเบียนแบบ imperative คือแยก `configureApp(app)` เป็น function กลาง แล้วเรียกหลังสร้าง application ทั้งใน runtime และ E2E ก่อน `listen()` หรือ `init()` วิธีนี้ลด configuration drift แต่ยังไม่ได้ทำให้ E2E รัน `main.ts` หรือพิสูจน์ fixed production port
+
+อ่านต่อ: [Backend E2E Test ด้วย Jest และ Supertest](backend-e2e-test.md)
+
 ## จุดที่มักงง
 
 - `filter` ใน `nest generate filter` คือชนิด artifact ไม่ใช่การค้นหา
