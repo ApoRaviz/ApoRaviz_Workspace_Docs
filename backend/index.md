@@ -18,14 +18,16 @@ Fastify ใช้ได้เมื่อ scope เล็กหรือเป�
 1. [Quick Recall](memory-aids.md) — ทบทวน Backend, Node.js และ NestJS แบบเร็ว
 2. [Backend Concepts](concepts/) — อ่านแนวคิดของระบบหลังบ้าน
 3. [Node.js Learning Hub](../nodejs/) — อ่าน runtime, file, CLI และ environment
-4. [NestJS Learning Hub](../nestjs/) — อ่าน framework หลักของ backend
-5. [Integrations](line-oa-webhook.md) — เปิดเมื่อทำ webhook หรือระบบภายนอก
+4. [NestJS Learning Hub](../nestjs/) — อ่าน framework หลักของ Node.js backend
+5. [ASP.NET Core Learning Hub](../aspnet-core/) — อ่าน C#/.NET, controller-based Web API และ `dotnet` CLI
+6. [Integrations](line-oa-webhook.md) — เปิดเมื่อทำ webhook หรือระบบภายนอก
 
 ## ความหมายแบบคนธรรมดา
 
 - Angular = หน้าจอที่ user ใช้งาน
 - Node.js = runtime ที่ทำให้ JavaScript/TypeScript รันหลังบ้านได้
 - NestJS = backend framework ที่จัด code เป็น controller, service, module
+- ASP.NET Core = web framework บน .NET สำหรับสร้าง middleware pipeline, Controller และ HTTP API
 - Fastify = backend web framework ที่เบาและตรง เหมาะกับ API เล็กหรือ webhook prototype
 - PostgreSQL = database จริงที่เก็บ table และความสัมพันธ์
 - Supabase = PostgreSQL แบบ managed พร้อม auth/storage/dashboard/API
@@ -121,6 +123,7 @@ Angular upload page
 - [API Contract](concepts/api-contract.md)
 - [LINE OA Webhook And Messaging API](line-oa-webhook.md)
 - [NestJS Learning Hub](../nestjs/)
+- [ASP.NET Core Learning Hub](../aspnet-core/)
 - [Fastify In ApoRaviz Workspace](fastify.md)
 - [PostgreSQL Learning Hub](../postgresql/)
 
@@ -129,6 +132,7 @@ Angular upload page
 - Backend ไม่ใช่ database แต่เป็นตัวคุม request/business logic
 - PostgreSQL คือ database ส่วน Supabase คือบริการที่ใช้ PostgreSQL เป็นแกน
 - NestJS และ Fastify รันบน Node.js
+- ASP.NET Core รันบน .NET และใช้ C# เป็นภาษาหลักได้
 - Browser แตะ secret หรือ file system backend โดยตรงไม่ได้
 - CLI file processing เริ่มจาก Node.js ได้ แต่ถ้าจะทำ web ระยะยาวควรแยก core logic ให้ backend ใช้ต่อได้
 

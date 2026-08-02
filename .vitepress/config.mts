@@ -139,6 +139,8 @@ export default defineConfig({
               { text: 'Sequence Diagram', link: '/backend/concepts/sequence-diagram' },
               { text: 'Race Condition', link: '/backend/concepts/race-condition' },
               { text: 'Monorepo', link: '/backend/concepts/monorepo' },
+              { text: 'Web Service, Web API และ REST', link: '/backend/concepts/web-service-and-web-api' },
+              { text: 'HTTPS, TLS & Certificate', link: '/backend/concepts/https-tls-certificate' },
             ],
           },
           {
@@ -186,6 +188,15 @@ export default defineConfig({
               { text: 'Unit Test with Jest', link: '/nestjs/concepts/unit-test' },
               { text: 'Backend E2E Test', link: '/nestjs/concepts/backend-e2e-test' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
+            ],
+          },
+          {
+            text: 'ASP.NET Core',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/aspnet-core/' },
+              { text: 'Commands', link: '/aspnet-core/commands' },
+              { text: 'Foundations & Project Structure', link: '/aspnet-core/foundations-and-project-structure' },
             ],
           },
           {
@@ -275,6 +286,7 @@ export default defineConfig({
           { text: 'All Commands', link: '/commands' },
           { text: 'Angular Commands', link: '/angular/commands' },
           { text: 'Node.js Commands', link: '/nodejs/commands' },
+          { text: 'dotnet CLI Commands', link: '/aspnet-core/commands' },
           { text: 'Git Commands', link: '/git/commands' },
           { text: 'VitePress Guide', link: '/vitepress/' },
           { text: 'VitePress Commands', link: '/vitepress/commands' },

@@ -11,6 +11,8 @@
 - [Sequence Diagram](sequence-diagram.md)
 - [Race Condition](race-condition.md)
 - [Monorepo และ Managed Monorepo](monorepo.md)
+- [Web Service, Web API และ REST](web-service-and-web-api.md)
+- [HTTPS, TLS และ Certificate](https-tls-certificate.md)
 
 ## Terms to Add Later
 
