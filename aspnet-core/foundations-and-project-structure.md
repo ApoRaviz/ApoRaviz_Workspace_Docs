@@ -250,6 +250,135 @@ appsettings.json
 
 template สมัยใหม่ไม่เขียน `static Main()` ให้เห็น เพราะ C# top-level statements ใน `Program.cs` ถูก compiler สร้างเป็น entry-point method ให้
 
+## Top-level statements และ `public partial class Program`
+
+รูปแบบ C# ดั้งเดิมเขียน entry point ไว้ใน class และ `Main()`:
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Hello");
+    }
+}
+```
+
+top-level statements ย่อให้เขียนคำสั่งระดับบนสุดได้โดยไม่ต้องเขียน class/`Main()` เอง:
+
+```csharp
+Console.WriteLine("Hello");
+```
+
+compiler ยังคงสร้าง entry-point `Program` ให้อยู่เบื้องหลัง ดังนั้น `args` ใน `WebApplication.CreateBuilder(args)` ยังมาจาก entry point ไม่ใช่ global variable
+
+เมื่อ integration test อยู่คนละ project และต้องใช้ `WebApplicationFactory<Program>`, test project ต้องเข้าถึง `Program` type ได้ วิธีหนึ่งคือประกาศใต้ top-level statements ทั้งหมด:
+
+```csharp
+public partial class Program
+{
+}
+```
+
+- `public` เปิด type ให้ project อื่นที่มี ProjectReference เข้าถึงได้
+- `partial` รวม declaration หลายส่วนให้เป็น class เดียว
+- declaration นี้ไม่เปิด server เพิ่มและไม่สร้าง `Program` คนละ instance
+- type declaration ที่อยู่ใต้ `app.Run()` ไม่ได้หมายความว่ามันทำงานหลัง server ปิด; compiler อ่าน source ทั้งหมดก่อนสร้าง assembly
+
+อ่าน flow การใช้งานจริงต่อที่ [ASP.NET Core Integration Test ด้วย xUnit และ WebApplicationFactory](integration-testing-with-xunit.md)
+
+## Namespace, using และ dependency
+
+namespace คือที่อยู่เชิงตรรกะของ type:
+
+```csharp
+namespace MyApi.Controllers;
+
+public class HealthController
+{
+}
+```
+
+ชื่อเต็มของ type คือ `MyApi.Controllers.HealthController` การวางไฟล์ใน `Controllers/` ให้ตรง namespace เป็น convention ที่ช่วยค้นหา แต่ compiler ไม่บังคับว่า folder กับ namespace ต้องตรงกัน
+
+`using` ทำให้เรียกชื่อ type ได้สั้นลง:
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+```
+
+มันไม่ดาวน์โหลด package และไม่เพิ่ม project/assembly reference ถ้า dependency ยังไม่มี ต่อให้เขียน `using` ถูก namespace ก็ compile ไม่ผ่าน
+
+dependency อาจมาจากหลายแหล่ง:
+
+```text
+.NET shared framework / SDK reference
+NuGet PackageReference
+ProjectReference
+assembly reference อื่น
+```
+
+เมื่อ `.csproj` เปิด `<ImplicitUsings>enable</ImplicitUsings>`, SDK จะสร้างไฟล์ประมาณ `obj/<Configuration>/<TargetFramework>/*.GlobalUsings.g.cs` ซึ่งมี `global using` ชุดพื้นฐานให้ทุก source file ใน project ใช้ ชุดจริงขึ้นกับ SDK เช่น `Microsoft.NET.Sdk.Web` เพิ่ม namespace web พื้นฐานบางส่วน แต่ไม่ได้รับประกันว่าจะมีทุก namespace เช่น MVC
+
+```text
+dependency/reference = ทำให้ type มีอยู่ให้ compiler ใช้
+using/global using    = ทำให้เรียกชื่อ type ที่มีอยู่แล้วได้สั้นลง
+```
+
+## `:` กับ class และ interface
+
+เครื่องหมาย `:` หลัง class เริ่มรายการ base types แต่ความหมายขึ้นกับ type ด้านขวา:
+
+```csharp
+public class Dog : Animal
+```
+
+ถ้า `Animal` เป็น class หมายถึง inheritance หรือการสืบทอด class ส่วน:
+
+```csharp
+public class FileService : IDisposable
+```
+
+ถ้า `IDisposable` เป็น interface หมายถึง class นี้ implement ข้อตกลงของ interface
+
+C# class สืบทอด base class ได้หนึ่งตัว แต่ implement interface ได้หลายตัว:
+
+```csharp
+public class Dog : Animal, IDisposable, IComparable<Dog>
+```
+
+ชื่อ interface มักขึ้นต้นด้วย `I` ตาม convention แต่ compiler ตัดสินจากชนิดที่ประกาศจริง ไม่ได้ดูตัวอักษรแรกของชื่อ
+
+## record, field และ instance
+
+บรรทัดนี้ประกาศ type ใหม่ แต่ยังไม่สร้าง instance:
+
+```csharp
+private record class HealthResponse(string Status);
+```
+
+`record` ที่ไม่เขียน `struct` คือ record class หรือ reference type รูปแบบ positional ด้านบนช่วยสร้าง constructor, property `Status`, value equality, `ToString()` และความสามารถด้านข้อมูลอื่นให้
+
+ต่างจาก field declaration:
+
+```csharp
+private string _data = "ok";
+```
+
+ซึ่งใช้ type `string`, ประกาศ field `_data` และ assign ค่า ส่วนการสร้าง record instance เขียนได้ว่า:
+
+```csharp
+var response = new HealthResponse("ok");
+```
+
+หรือให้ JSON deserializer สร้างให้:
+
+```csharp
+var response = await content.ReadFromJsonAsync<HealthResponse>();
+```
+
+record เหมาะกับข้อมูลที่สนใจค่าภายใน แต่ไม่ควรเลือกเพียงเพราะ syntax สั้น ต้องดู intent, mutability และ equality ที่ต้องการด้วย
+
 ### ตอน request แรกมาถึง
 
 ```text

@@ -53,6 +53,29 @@ first-run banner, telemetry notice หรือ development certificate setup �
 
 สร้างจริงด้วยคำสั่งเดิมโดยเอา `--dry-run` ออก หลังสร้าง template จะรัน NuGet restore เป็น post-creation action ตามปกติ
 
+## สร้าง API Controller
+
+ตรวจแผนก่อน:
+
+```powershell
+dotnet new apicontroller --name HealthController --output src/MyApi/Controllers --project src/MyApi/MyApi.csproj --dry-run
+```
+
+- `new apicontroller` เลือก template สำหรับ API Controller
+- `--name HealthController` กำหนดชื่อ class/ไฟล์
+- `--output src/MyApi/Controllers` กำหนด directory ปลายทาง และสร้าง subfolder ที่ยังไม่มีให้ได้
+- `--project src/MyApi/MyApi.csproj` ให้ template engine ใช้ project นี้เป็น context; ไม่รับประกันว่า namespace ที่ generator เลือกจะตรงกับ project เสมอ จึงต้องเปิดไฟล์ตรวจ
+- `--dry-run` แสดง file actions โดยยังไม่เขียนไฟล์
+
+สร้างจริงด้วยคำสั่งเดิมโดยเอา `--dry-run` ออก แล้วตรวจอย่างน้อย:
+
+```text
+namespace ตรงกับ project หรือยัง
+[Route(...)] ได้ path ที่ต้องการหรือยัง
+มี [HttpGet]/[HttpPost] action จริงหรือยัง
+using ที่ generator ใส่มามีตัวใดไม่ถูกใช้หรือ implicit อยู่แล้ว
+```
+
 ## Build
 
 ```powershell
@@ -95,5 +118,112 @@ curl.exe -i -L -H "Accept: application/json" http://localhost:5000/example
 ตัวเลือก `-k` หรือ `--insecure` ปิดการตรวจสอบ certificate ของ curl ใช้ได้เฉพาะการวินิจฉัย local ที่เข้าใจความเสี่ยง ไม่ใช่วิธีแก้ certificate หมดอายุหรือไม่น่าเชื่อถือใน production
 
 อ่านเพิ่ม: [HTTPS, TLS และ Certificate](../backend/concepts/https-tls-certificate.md)
+
+## สร้าง xUnit test project
+
+ตรวจแผนก่อน:
+
+```powershell
+dotnet new xunit --output tests/MyApi.Tests --name MyApi.Tests --framework net10.0 --dry-run
+```
+
+- `new xunit` เลือก xUnit test project template
+- `--output tests/MyApi.Tests` กำหนด directory ปลายทาง
+- `--name MyApi.Tests` กำหนดชื่อ project/assembly และ namespace เริ่มต้น
+- `--framework net10.0` กำหนด Target Framework ให้เข้ากับ application ที่ต้องทดสอบ
+- `--dry-run` แสดงไฟล์และ post-creation actions ที่จะเกิดโดยยังไม่เขียนไฟล์
+
+ไฟล์เริ่มต้นที่คาดหวัง:
+
+```text
+tests/MyApi.Tests/
+├─ MyApi.Tests.csproj
+└─ UnitTest1.cs
+```
+
+สร้างจริงด้วยคำสั่งเดิมโดยเอา `--dry-run` ออก template จะ restore test packages ให้ตามปกติ
+
+## เพิ่ม ProjectReference จาก test ไป API
+
+```powershell
+dotnet reference add src/MyApi/MyApi.csproj --project tests/MyApi.Tests/MyApi.Tests.csproj
+```
+
+- `reference add` เพิ่ม project-to-project reference
+- path แรกคือ project ที่ test ต้องการอ้างอิง หรือ API project
+- `--project tests/MyApi.Tests/MyApi.Tests.csproj` ระบุ project ที่จะถูกแก้ หรือ test project
+
+ทิศของ reference คือ:
+
+```text
+tests/MyApi.Tests -> src/MyApi
+```
+
+คำสั่งนี้ไม่มี `--dry-run` ให้เปิด test `.csproj` ตรวจ `<ProjectReference>` หลังรัน
+
+## เพิ่ม ASP.NET Core testing package
+
+ตัวอย่างสำหรับ project ที่ target `net10.0`:
+
+```powershell
+dotnet package add Microsoft.AspNetCore.Mvc.Testing --version 10.0.10 --project tests/MyApi.Tests/MyApi.Tests.csproj
+```
+
+- `package add` เพิ่ม NuGet PackageReference
+- `Microsoft.AspNetCore.Mvc.Testing` ให้ `WebApplicationFactory<TEntryPoint>` และ TestServer integration
+- `--version 10.0.10` pin package version ตัวอย่างที่ target `net10.0`; งานจริงต้องเลือก stable version ที่เข้ากับ Target Framework และ patch policy ของทีม
+- `--project tests/MyApi.Tests/MyApi.Tests.csproj` ระบุ test project ที่จะถูกแก้
+
+คำสั่งนี้ไม่มี `--dry-run` และ restore โดยปกติเพื่อตรวจ compatibility หากต้องการข้าม restore ต้องใช้ `--no-restore` แต่ไม่ควรใช้จนกว่าจะเข้าใจว่ากำลังข้าม compatibility/restore check อะไร
+
+หลังรันให้ตรวจ:
+
+```xml
+<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="10.0.10" />
+```
+
+## ดูตำแหน่ง NuGet global packages cache
+
+```powershell
+dotnet nuget locals global-packages --list
+```
+
+- `nuget locals` จัดการหรือแสดงตำแหน่ง local NuGet caches
+- `global-packages` เลือก cache ที่เก็บ packages ใช้ร่วมกันบนเครื่อง
+- `--list` แสดงตำแหน่งโดยไม่ลบ cache
+
+source of truth ว่า project ต้องการ package ใดอยู่ใน `.csproj` ส่วนไฟล์ package จริงมักอยู่ใน global cache และ dependency graph ที่ restore คำนวณแล้วอยู่ใน `obj/project.assets.json`
+
+## รัน xUnit tests
+
+```powershell
+dotnet test tests/MyApi.Tests/MyApi.Tests.csproj
+```
+
+`test` จะ restore เมื่อจำเป็น, build referenced projects ตาม dependency graph, build test assembly, discover tests แล้วรัน test cases
+
+แสดงชื่อ test ที่ผ่านด้วย detailed console logger:
+
+```powershell
+dotnet test tests/MyApi.Tests/MyApi.Tests.csproj --logger "console;verbosity=detailed"
+```
+
+- `--logger` เลือกตัวรายงานผล test
+- `console` รายงานบน terminal
+- `verbosity=detailed` แสดงรายละเอียดเพิ่ม เช่นชื่อ fully qualified test ที่ PASS
+
+บางชุดของ SDK, test adapter และ detailed console logger อาจพิมพ์ infrastructure/host log ซ้ำในหน้าจอ ข้อความซ้ำอย่างเดียวไม่ได้แปลว่า test รันสองครั้ง ให้ยึดบรรทัด `Passed ...` และ `Total tests` เป็นหลัก
+
+แสดงรายชื่อ test ที่ discover ได้โดยไม่รัน test body:
+
+```powershell
+dotnet test tests/MyApi.Tests/MyApi.Tests.csproj --list-tests
+```
+
+- `--list-tests` build/discover แล้วแสดงรายชื่อ test; ไม่ส่ง HTTP request หรือเรียก assertion ใน test body
+
+เมื่อไม่ใส่ filter, xUnit จะรัน `[Fact]` และ test cases จาก `[Theory]` ที่ discover ได้ทั้งหมดใน test project เป้าหมาย ยกเว้นรายการที่ถูก skip
+
+อ่าน flow ตั้งแต่ `global.json` ถึง assertion ที่ [ASP.NET Core Integration Test ด้วย xUnit และ WebApplicationFactory](integration-testing-with-xunit.md)
 
 อ้างอิงทางการ: [.NET CLI overview](https://learn.microsoft.com/dotnet/core/tools/), [`global.json`](https://learn.microsoft.com/dotnet/core/tools/global-json), [`dotnet restore`](https://learn.microsoft.com/dotnet/core/tools/dotnet-restore)

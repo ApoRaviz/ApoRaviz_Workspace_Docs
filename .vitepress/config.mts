@@ -197,6 +197,7 @@ export default defineConfig({
               { text: 'Overview', link: '/aspnet-core/' },
               { text: 'Commands', link: '/aspnet-core/commands' },
               { text: 'Foundations & Project Structure', link: '/aspnet-core/foundations-and-project-structure' },
+              { text: 'Integration Test with xUnit', link: '/aspnet-core/integration-testing-with-xunit' },
             ],
           },
           {
