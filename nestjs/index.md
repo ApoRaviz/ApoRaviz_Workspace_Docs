@@ -22,6 +22,7 @@ NestJS controller/service/module
 - [Exception Filter](concepts/exception-filter.md)
 - [Unit Test ด้วย Jest](concepts/unit-test.md)
 - [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md)
+- [Middleware และ Request Pipeline](concepts/middleware-and-request-pipeline.md)
 - [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md)
 - [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
 
@@ -48,6 +49,7 @@ controller = รับ request จาก frontend
 service    = ทำ business logic
 module     = รวม controller/service เป็น feature
 provider   = class ที่ NestJS สร้างและส่งให้ใช้ผ่าน dependency injection
+middleware = ทำงานระหว่างทางของ request แล้วเลือก next หรือ short-circuit
 guard      = ตรวจสิทธิ์หรือเงื่อนไขก่อนเข้า route
 pipe       = แปลงหรือตรวจข้อมูลเข้า route
 filter     = จัดรูปแบบ response เมื่อเกิด exception ที่ตรงเงื่อนไข

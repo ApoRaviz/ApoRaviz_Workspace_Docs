@@ -187,6 +187,7 @@ export default defineConfig({
               { text: 'Exception Filter', link: '/nestjs/concepts/exception-filter' },
               { text: 'Unit Test with Jest', link: '/nestjs/concepts/unit-test' },
               { text: 'Backend E2E Test', link: '/nestjs/concepts/backend-e2e-test' },
+              { text: 'Middleware & Request Pipeline', link: '/nestjs/concepts/middleware-and-request-pipeline' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
             ],
           },
