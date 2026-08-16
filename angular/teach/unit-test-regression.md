@@ -71,6 +71,20 @@ const theme = TestBed.inject(ThemeService);
 - service อื่น
 - provider configuration
 
+## HTTP Unit Test
+
+ถ้า Service ใช้ `HttpClient` ให้เปลี่ยน network จริงเป็น testing backend แล้วตรวจ request/response ใน process ของ test:
+
+```text
+Service สร้าง request
+-> testing backend ดักไว้
+-> HttpTestingController หา request
+-> flush() ส่ง response จำลอง
+-> test ตรวจผล
+```
+
+อ่าน flow แบบเต็มใน [HttpClient และ HTTP Unit Test](http-client-and-http-testing.md)
+
 ## Mock Browser API
 
 ถ้า code ใช้ `IntersectionObserver` แต่ test environment ไม่มี API นี้ ต้อง mock

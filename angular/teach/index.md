@@ -6,7 +6,7 @@
 
 ## Lessons — ลำดับที่ควรอ่าน
 
-> ชื่อไฟล์ไม่มีเลขนำหน้า (เป็น topic slug ล้วน) — **ลำดับการอ่านคือ 1-12 ตาม stage ด้านล่าง** ที่จัดไว้ในหน้านี้ + sidebar เท่านั้น ลำดับอยู่ที่ presentation ไม่ผูกกับชื่อไฟล์ เวลาจัดใหม่จึงแก้แค่ที่นี่ (ดู No Number Prefix Rule ใน `../../TEACHING_RULES.md`)
+> ชื่อไฟล์ไม่มีเลขนำหน้า (เป็น topic slug ล้วน) — **ลำดับการอ่านคือ 1-13 ตาม stage ด้านล่าง** ที่จัดไว้ในหน้านี้ + sidebar เท่านั้น ลำดับอยู่ที่ presentation ไม่ผูกกับชื่อไฟล์ เวลาจัดใหม่จึงแก้แค่ที่นี่ (ดู No Number Prefix Rule ใน `../../TEACHING_RULES.md`)
 
 **Stage 1 — Foundation (เข้าใจโปรเจกต์ก่อนเขียน code)**
 
@@ -20,20 +20,21 @@
 5. [Component Structure และ Data Flow](component-structure-data-flow.md)
 6. [Reactive State และ Signals](reactive-signals.md)
 7. [Services และ Dependency Injection](services-dependency-injection.md)
+8. [HttpClient และ HTTP Unit Test](http-client-and-http-testing.md)
 
 **Stage 3 — Rendering / SSR**
 
-8. [App Config, SSR และ Hydration](app-config-ssr-hydration.md)
-9. [Browser APIs และ SSR Safety](browser-apis-ssr-safety.md)
+9. [App Config, SSR และ Hydration](app-config-ssr-hydration.md)
+10. [Browser APIs และ SSR Safety](browser-apis-ssr-safety.md)
 
 **Stage 4 — Styling**
 
-10. [Tailwind CSS v4 ใน Angular](tailwind-css-v4.md)
+11. [Tailwind CSS v4 ใน Angular](tailwind-css-v4.md)
 
 **Stage 5 — Quality & Ops**
 
-11. [Unit Test และ Regression Safety](unit-test-regression.md)
-12. [CI/CD และ GitHub Pages](cicd-github-pages.md)
+12. [Unit Test และ Regression Safety](unit-test-regression.md)
+13. [CI/CD และ GitHub Pages](cicd-github-pages.md)
 
 ## How to Read with Real Projects
 
@@ -52,3 +53,4 @@
 - อ่าน `angular-run-flow-and-angular-json.md` แล้วเปิด `angular.json` ของ Portfolio หรือ MooPing เทียบ flow
 - อ่าน `angular-config-files.md` แล้วเปิดไฟล์ config เช่น `tsconfig.app.json`, `.prettierrc`, `.vscode/settings.json` เทียบกับ repo จริง
 - อ่าน `typescript-in-angular.md` แล้วเปิด `app.ts`, `package.json`, `tsconfig.json` เทียบว่า TypeScript อยู่ตรงไหนของ Angular flow
+- อ่าน `http-client-and-http-testing.md` แล้วตามว่า Service, testing backend และ test ส่ง request/response ต่อกันอย่างไร

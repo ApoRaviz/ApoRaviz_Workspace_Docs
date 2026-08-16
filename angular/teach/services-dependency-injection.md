@@ -7,13 +7,11 @@
 Service คือ class ที่เก็บ data หรือ logic ที่ component หลายตัวใช้ร่วมกันได้
 
 ```ts
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class PortfolioDataService {}
 ```
 
-`providedIn: 'root'` แปลว่า Angular สร้าง service instance เดียวระดับ app
+ใน Angular 22 `@Service()` ทำให้ class เป็น Service ที่ Angular DI สร้างและแจกได้ โดยค่าเริ่มต้นลงทะเบียนระดับ root ของ application
 
 เหมาะกับงานแบบนี้:
 
@@ -39,6 +37,32 @@ export class PortfolioDataService {}
 - component เดียวเป็น owner ชัดเจน
 - abstraction ใหม่ทำให้คนอ่านงงกว่าเดิม
 
+## `@Service()` และ `@Injectable()`
+
+Angular 22 มี `@Service()` สำหรับ class ที่ตั้งใจเป็น Service โดยตรง:
+
+```ts
+import { Service } from '@angular/core';
+
+@Service()
+export class UserApi {}
+```
+
+`@Service()` ลงทะเบียนระดับ root ให้อัตโนมัติโดยค่าเริ่มต้น จึงขอใช้ผ่าน `inject(UserApi)` ได้โดยไม่ต้องเพิ่ม `UserApi` ใน application providers
+
+เอกสารและโปรเจกต์ Angular รุ่นก่อนมักใช้:
+
+```ts
+@Injectable({
+  providedIn: 'root',
+})
+export class UserApi {}
+```
+
+ทั้งสองรูปแบบทำให้ class เข้าร่วม DI ได้ แต่ควรอ่าน version และ convention ของ project ก่อนคัดลอก syntax ข้ามโปรเจกต์
+
+ถ้าใช้ `@Service({ autoProvided: false })` จะปิดการลงทะเบียนอัตโนมัติ และต้องลงทะเบียน Service ใน provider scope ที่ต้องการเอง เรื่องการกำหนด scope แบบละเอียดควรเรียนเมื่อมี use case จริง
+
 ## inject() คืออะไร
 
 `inject()` คือวิธีขอ dependency จาก Angular DI ใน class
@@ -53,6 +77,17 @@ readonly theme = inject(ThemeService);
 - เห็น dependency ใกล้ field ที่ใช้
 - ไม่ต้องเขียน constructor ยาว
 - Angular ยังควบคุม lifecycle และ mock ใน test ได้
+
+ตัวอย่าง Service ที่ขอ `HttpClient`:
+
+```ts
+@Service()
+export class UserApi {
+  private readonly http = inject(HttpClient);
+}
+```
+
+อ่าน flow การเรียก API และ testing backend ต่อใน [HttpClient และ HTTP Unit Test](http-client-and-http-testing.md)
 
 ## ทำไมไม่ใช้ new Service()
 

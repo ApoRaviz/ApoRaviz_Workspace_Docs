@@ -120,6 +120,7 @@ npx ng generate component components/component-name
 สร้าง service:
 
 ```bash
+npx ng generate service services/service-name --dry-run
 npx ng generate service services/service-name
 ```
 
@@ -140,6 +141,7 @@ npx ng g i models/model-name
 บทเรียน:
 
 - ใช้ generator เมื่ออยากให้ Angular สร้างไฟล์และ naming pattern ให้ถูก
+- `--dry-run` แสดงไฟล์ที่จะสร้างโดยยังไม่เขียนลง disk เหมาะตรวจ path และชื่อก่อนสร้างจริง
 - ใน standalone Angular รุ่นใหม่ component ที่ generate จะไม่ต้องอยู่ใน `NgModule`
 - ถ้าเป็นไฟล์ model เล็ก ๆ สร้างเองได้ แต่ต้องวางไว้ใน folder ที่มี owner ชัด
 
@@ -217,6 +219,7 @@ dist/<AngularProjectName>/browser
 
 ```bash
 npm test -- --watch=false
+npm test -- --watch=false --include=src/app/services/service-name.spec.ts
 npm test -- --watch=false --browsers=ChromeHeadless
 ```
 
@@ -229,6 +232,7 @@ npm run test:ci
 บทเรียน:
 
 - `--watch=false` ทำให้ test รันครั้งเดียวแล้วจบ เหมาะกับ CI และก่อน commit
+- `--include=...` เลือกรันเฉพาะ spec ที่กำลังพัฒนา path ต้องเทียบจาก project root
 - ถ้า test เกี่ยวกับ browser API อาจต้อง mock เช่น `IntersectionObserver`
 - ถ้า logic เกี่ยวกับเงิน, reward, auth หรือ data สำคัญ ต้องมี test กัน regression
 
@@ -242,6 +246,27 @@ npm test
 
 - watch mode ดีตอนเขียน code
 - ก่อน commit หรือ CI ใช้ run-once เช่น `--watch=false`
+
+## Prettier
+
+ตรวจรูปแบบโดยไม่แก้ไฟล์:
+
+```bash
+npx prettier src/app/file.ts src/app/file.spec.ts --check
+```
+
+ให้ Prettier เขียนรูปแบบที่แก้แล้วกลับลงไฟล์:
+
+```bash
+npx prettier src/app/file.ts src/app/file.spec.ts --write
+```
+
+บทเรียน:
+
+- ระบุ path ของไฟล์เพื่อจำกัด scope ไม่ให้ formatter แตะไฟล์อื่นโดยไม่ตั้งใจ
+- `--check` ตรวจอย่างเดียว เหมาะกับ validation และ CI
+- `--write` แก้รูปแบบในไฟล์จริง ควรตรวจ diff หลังรัน
+- Prettier ปรับ spacing, line break และ comma ตาม config แต่ไม่ควรใช้แทน test หรือ build
 
 ## Angular CLI New Project
 

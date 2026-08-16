@@ -8,6 +8,8 @@
 
 - [`TypeScript`](typescript.md)
 - [TypeScript Generic](typescript-generics.md)
+- [HttpClient](http-client.md)
+- [Observable](observable.md)
 - [Environment Files](environment-files.md)
 - [`signal`](signal.md)
 - [`computed`](computed.md)
