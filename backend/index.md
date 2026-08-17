@@ -75,6 +75,7 @@ Angular + NestJS + PostgreSQL/Supabase
 อ่านต่อ:
 
 - [API Contract](concepts/api-contract.md)
+- [CORS](concepts/cors.md)
 - [Fastify In ApoRaviz Workspace](fastify.md)
 
 ## Flow ตัวอย่างจาก MooPing Reward

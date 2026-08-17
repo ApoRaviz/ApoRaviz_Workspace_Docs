@@ -23,6 +23,7 @@ NestJS controller/service/module
 - [Unit Test ด้วย Jest](concepts/unit-test.md)
 - [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md)
 - [Middleware และ Request Pipeline](concepts/middleware-and-request-pipeline.md)
+- [ตั้งค่าและทดสอบ CORS](concepts/cors-configuration-and-testing.md)
 - [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md)
 - [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
 

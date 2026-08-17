@@ -138,6 +138,7 @@ export default defineConfig({
             items: [
               { text: 'All Core Concepts', link: '/backend/concepts/' },
               { text: 'API Contract', link: '/backend/concepts/api-contract' },
+              { text: 'CORS', link: '/backend/concepts/cors' },
               { text: 'Privilege Escalation', link: '/backend/concepts/privilege-escalation' },
               { text: 'Sequence Diagram', link: '/backend/concepts/sequence-diagram' },
               { text: 'Race Condition', link: '/backend/concepts/race-condition' },
@@ -191,6 +192,7 @@ export default defineConfig({
               { text: 'Unit Test with Jest', link: '/nestjs/concepts/unit-test' },
               { text: 'Backend E2E Test', link: '/nestjs/concepts/backend-e2e-test' },
               { text: 'Middleware & Request Pipeline', link: '/nestjs/concepts/middleware-and-request-pipeline' },
+              { text: 'CORS Configuration & Testing', link: '/nestjs/concepts/cors-configuration-and-testing' },
               { text: 'Nest CLI & Project Structure', link: '/nestjs/nest-cli-project-structure' },
             ],
           },

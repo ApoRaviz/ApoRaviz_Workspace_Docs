@@ -7,6 +7,7 @@
 ## Current Concepts
 
 - [API Contract](api-contract.md)
+- [CORS](cors.md)
 - [Privilege Escalation](privilege-escalation.md)
 - [Sequence Diagram](sequence-diagram.md)
 - [Race Condition](race-condition.md)

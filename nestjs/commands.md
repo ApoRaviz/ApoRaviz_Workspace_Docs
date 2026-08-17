@@ -249,6 +249,38 @@ E2E file มักตั้งชื่อ `*.e2e-spec.ts` และอยู่
 
 อ่าน concept: [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md)
 
+## ตรวจ CORS Headers ตอน Runtime
+
+จำลอง GET จาก frontend origin และแสดง response headers:
+
+```bash
+curl.exe -i -H "Origin: http://localhost:4200" http://localhost:3000/status
+```
+
+จำลอง origin อื่นเพื่อเปรียบเทียบค่าที่ backend ประกาศว่าอนุญาต:
+
+```bash
+curl.exe -i -H "Origin: http://localhost:4300" http://localhost:3000/status
+```
+
+จำลอง preflight ที่ต้องการส่ง `GET` พร้อม `Authorization` header:
+
+```bash
+curl.exe -i -X OPTIONS -H "Origin: http://localhost:4200" -H "Access-Control-Request-Method: GET" -H "Access-Control-Request-Headers: Authorization" http://localhost:3000/status
+```
+
+option ที่ใช้:
+
+```text
+-i         = แสดง response headers พร้อม body
+-H         = เพิ่ม request header เอง; ใช้ซ้ำได้เมื่อมีหลาย header
+-X OPTIONS = กำหนด HTTP method เป็น OPTIONS เพื่อจำลอง preflight
+```
+
+`curl` ไม่ได้บังคับใช้ CORS แบบ browser จึงยังแสดง status/body แม้ request origin ไม่ตรงกับ `Access-Control-Allow-Origin` คำสั่งเหล่านี้พิสูจน์เฉพาะ request/response headers ที่ server รับและส่ง
+
+อ่านแนวคิดทั่วไปที่ [CORS](../backend/concepts/cors.md) และอ่าน NestJS E2E pattern ที่ [ตั้งค่าและทดสอบ CORS](concepts/cors-configuration-and-testing.md)
+
 ## ตรวจผลหลัง Generate
 
 ```bash

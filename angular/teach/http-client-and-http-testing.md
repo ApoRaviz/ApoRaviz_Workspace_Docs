@@ -312,7 +312,7 @@ afterEach(() => {
 
 - API server เปิดและมี endpoint จริง
 - network เชื่อมต่อได้
-- browser อนุญาต CORS
+- browser อนุญาต [CORS](../../backend/concepts/cors.md)
 - database ทำงาน
 - frontend และ backend เชื่อมกันแบบ end-to-end
 
