@@ -138,6 +138,38 @@ inject(HttpTestingController) = ขอเครื่องมือควบค
 
 ต้องวาง `provideHttpClientTesting()` หลัง `provideHttpClient()` เพราะ provider ตัวหลังเปลี่ยนบางส่วนของ HttpClient configuration ให้ใช้ testing backend
 
+## เมื่อ Service ใช้ Environment
+
+Service สามารถแยก base URL ออกจาก endpoint path:
+
+```ts
+import { environment } from '../../environments/environment';
+
+private readonly statusUrl = `${environment.apiBaseUrl}/status`;
+```
+
+Test ควรสร้าง expected URL จาก config ที่ target นั้นกำลังใช้:
+
+```ts
+const expectedStatusUrl = `${environment.apiBaseUrl}/status`;
+const request = httpTestingController.expectOne(expectedStatusUrl);
+```
+
+ใน Angular 22 `@angular/build:unit-test` ใช้ `build:development` เป็นค่าเริ่มต้นเมื่อ target `test` ไม่ได้กำหนด `buildTarget` เอง ดังนั้น `fileReplacements` ของ development มีผลกับทั้ง Service และ spec ที่ import Environment
+
+สิ่งที่ต้องระวังใน negative control:
+
+```text
+Environment ให้ port 3000
+Service hardcode port 3000
+-> พฤติกรรมยังเท่ากัน Test จึงผ่าน
+
+Service hardcode port 4300
+-> พฤติกรรมต่าง expectOne() จึง fail
+```
+
+Test ตรวจพฤติกรรมที่มองเห็น เช่น URL จริงของ request ไม่ได้ตรวจเจตนาหรือรูปแบบ source code ถ้า negative control ไม่เปลี่ยนพฤติกรรม มันก็ไม่ควรทำให้ test fail
+
 ## Test ครบหนึ่ง Flow
 
 ```ts
@@ -333,6 +365,8 @@ Restore: คืนเป็น ok
 -> test ผ่านอีกครั้ง
 ```
 
+ถ้าต้องการพิสูจน์ว่า Service ผูกกับ Environment ให้เปลี่ยน URL ชั่วคราวเป็นค่าที่ต่างจาก Environment จริง เช่นเปลี่ยน port แล้วคาดว่า `expectOne()` ต้องหา request ไม่พบ จากนั้นคืน source เดิมและ rerun ให้ผ่าน ห้ามปล่อยโค้ดทดลองค้างไว้
+
 ## ศัพท์ที่เจอในบทนี้
 
 ```text
@@ -361,6 +395,7 @@ negative control = จงใจทำ behavior ให้ผิดเพื่อ
 - [`inject()`](../concepts/inject.md)
 - [TypeScript Generic](../concepts/typescript-generics.md)
 - [Unit Test และ Regression Safety](unit-test-regression.md)
+- [Environment Files](../concepts/environment-files.md)
 
 ## จำสั้น ๆ
 

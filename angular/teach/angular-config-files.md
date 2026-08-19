@@ -394,15 +394,13 @@ environment.development.ts = config สำหรับ development
 ```ts
 // src/environments/environment.ts
 export const environment = {
-  production: true,
-  apiBaseUrl: 'https://api.example.com',
+  apiBaseUrl: 'https://api.example.invalid',
 };
 ```
 
 ```ts
 // src/environments/environment.development.ts
 export const environment = {
-  production: false,
   apiBaseUrl: 'http://localhost:3000',
 };
 ```
@@ -412,6 +410,8 @@ export const environment = {
 ```bash
 ng generate environments
 ```
+
+generator ของ Angular 22 สร้าง `environment.ts` และ `environment.development.ts` เป็น `export const environment = {};` ก่อน ชื่อ field เช่น `apiBaseUrl` เป็น config ที่เจ้าของแอปเพิ่มเอง ไม่ใช่ field บังคับของ Angular
 
 ถ้าต้องสลับไฟล์ตอน build จะตั้งใน `angular.json` ด้วย `fileReplacements` โดย development configuration จะ replace base file ด้วยไฟล์ development:
 
@@ -437,12 +437,40 @@ ng build --configuration development
 -> ใช้ environment.development.ts แทน environment.ts ตอน build
 ```
 
+โค้ด application ต้อง import ไฟล์ฐาน ไม่ import development file โดยตรง:
+
+```ts
+import { environment } from '../../environments/environment';
+
+const statusUrl = `${environment.apiBaseUrl}/status`;
+```
+
+แบ่ง ownership แบบนี้:
+
+```text
+Environment = เจ้าของ API base URL
+Service     = เจ้าของ endpoint path เช่น /status
+Angular CLI = เจ้าของการเลือกไฟล์ตาม configuration
+```
+
+ถ้าไม่กำหนด target เพิ่ม Angular 22 scaffold มี flow สำคัญ:
+
+```text
+ng serve = development
+ng build = production เพราะ build.defaultConfiguration เป็น production
+ng test  = development เพราะ unit-test builder ใช้ build:development เป็น default
+```
+
+อย่าสรุปว่า Unit Test ใช้ base production file เพียงเพราะ target `test` ไม่มี `fileReplacements` เขียนอยู่ข้างใน ต้องดู `buildTarget` ที่ unit-test builder เลือกด้วย
+
 จุดที่ต้องจำ:
 
 - Angular environment files ถูก bundle ไปอยู่ใน JavaScript ฝั่ง browser ได้
 - ใส่ได้เฉพาะ public config เช่น API base URL, feature flag ที่ไม่ลับ
 - ห้ามใส่ password, private token, secret key หรือ credential จริง
 - Angular 22 ใช้ `environment.ts` เป็น base/default production และใช้ `environment.development.ts` สำหรับ development override
+- `https://api.example.invalid` ใช้เป็น fail-loud placeholder ได้เมื่อ production domain ยังไม่ถูกกำหนด แต่ต้องเปลี่ยนก่อน deploy
+- Build ผ่านไม่ได้พิสูจน์ว่าค่า config ปรากฏใน bundle เสมอไป ถ้าโค้ดที่ใช้ค่านั้นยังไม่ถูกเรียก Angular อาจตัดออกด้วย tree shaking
 - ถ้าโปรเจกต์ยังไม่มี backend/API จริง อาจยังไม่ต้องมี environment files
 
 ใน Angular scaffold บางโปรเจกต์อาจยังไม่มี `src/environments/` และยังไม่มี `fileReplacements` ใน `angular.json` จนกว่าเราจะต้องแยกค่า dev/prod จริง

@@ -130,6 +130,13 @@ npx ng generate service services/service-name
 npx ng generate interface models/model-name
 ```
 
+สร้าง Environment Files และเพิ่ม `fileReplacements` ใน `angular.json`:
+
+```bash
+npx ng generate environments --dry-run
+npx ng generate environments
+```
+
 แบบย่อ:
 
 ```bash
@@ -142,6 +149,7 @@ npx ng g i models/model-name
 
 - ใช้ generator เมื่ออยากให้ Angular สร้างไฟล์และ naming pattern ให้ถูก
 - `--dry-run` แสดงไฟล์ที่จะสร้างโดยยังไม่เขียนลง disk เหมาะตรวจ path และชื่อก่อนสร้างจริง
+- `ng generate environments` สร้างไฟล์ config เป็น object ว่างก่อน field เช่น `apiBaseUrl` ต้องเพิ่มตาม public config ที่แอปใช้
 - ใน standalone Angular รุ่นใหม่ component ที่ generate จะไม่ต้องอยู่ใน `NgModule`
 - ถ้าเป็นไฟล์ model เล็ก ๆ สร้างเองได้ แต่ต้องวางไว้ใน folder ที่มี owner ชัด
 
@@ -150,6 +158,7 @@ npx ng g i models/model-name
 ```bash
 npm run build
 npm run build -- --configuration production
+npm run build -- --configuration development
 ```
 
 ใช้ตรวจว่า Angular compile, SSR และ prerender ผ่าน
@@ -164,6 +173,7 @@ npm run build -- --configuration production
 บทเรียน:
 
 - `--progress=false` ทำให้ log ใน automation อ่านง่ายขึ้น
+- `--` หลัง npm script ส่ง option ต่อให้ Angular CLI และ `--configuration` เลือก configuration ใน `angular.json`
 - ถ้าโปรเจกต์ใช้ SSR/prerender ต้องดูว่ามีข้อความ prerender สำเร็จ
 - build ผ่านคือขั้นต่ำก่อน push งานที่แตะ code หรือ route
 
