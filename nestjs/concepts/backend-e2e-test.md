@@ -131,6 +131,38 @@ npx.cmd jest --showConfig --config ./test/jest-e2e.json
 
 `--showConfig` แสดง config หลัง resolve โดยไม่รัน test ส่วน `--config` เลือก config file
 
+### Prisma 7 query ล้มใน Jest เพราะ dynamic import
+
+ถ้า E2E ใช้ Prisma 7 กับ PostgreSQL จริง ตัว test อาจประกอบ Nest application ผ่าน แต่ล้มที่ database query แรกด้วยข้อความ:
+
+```text
+A dynamic import callback was invoked without --experimental-vm-modules
+```
+
+กรณีนี้ไม่ใช่ query หรือ schema ผิด แต่ Node process ที่เปิด Jest ยังไม่อนุญาต VM module ที่ Prisma runtime ต้องใช้ ให้เปิด Jest ผ่าน Node โดยตรง:
+
+```json
+{
+  "scripts": {
+    "test:e2e:db": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config ./test/jest-e2e.json --runInBand"
+  }
+}
+```
+
+ถ้า package เป็น workspace ย่อย ให้ปรับ relative path ไปยัง root `node_modules` ตามตำแหน่งจริง เช่น package ที่อยู่ `apps/api` อาจใช้ `../../node_modules/jest/bin/jest.js`
+
+แยกให้ออกสองชั้น:
+
+```text
+Nest app compile ผ่าน แต่ query แรกล้มเรื่อง dynamic import
+-> ตรวจ Node/Jest VM module flag
+
+Prisma query ไปถึง PostgreSQL แล้วตอบ schema/constraint error
+-> ตรวจ migration, schema, seed และ test data
+```
+
+flag นี้ควรจำกัดอยู่ใน test script ที่ต้องใช้จริง และต้องรัน E2E ซ้ำกับ PostgreSQL จริงเพื่อยืนยันว่าไม่ได้เพียงซ่อนปัญหา connection หรือ migration
+
 ## ประกอบ Nest Application สำหรับ Test
 
 ตัวอย่าง setup:

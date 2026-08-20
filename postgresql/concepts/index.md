@@ -12,6 +12,7 @@
 - [Index](database-index.md)
 - [Check Constraint](check-constraint.md)
 - [Database Transaction](database-transaction.md)
+- [Advisory Lock](advisory-lock.md)
 
 ## Terms to Add Later
 

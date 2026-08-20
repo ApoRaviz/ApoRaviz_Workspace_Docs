@@ -31,6 +31,7 @@ AI_UPDATE_RULE.md
 
 | Project | GitHub Repo | Role | Status | Source Of Truth |
 |---|---|---|---|---|
+| `ApoRaviz_Gift` | `ApoRaviz_Gift` | Digital Gift Builder แบบ guest + hosted interactive gift | Active | `ApoRaviz_Gift/spec-summary.md` |
 | `ApoRaviz_Workspace_Docs` | `ApoRaviz_Workspace_Docs` | ความรู้กลางตาม topic แบบ W3Schools | Active | `ApoRaviz_Workspace_Docs/WORKSPACE_PLAN.md` |
 | `ApoRaviz_DevEng` | `ApoRaviz_DevEng` | โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง | Active | `ApoRaviz_DevEng/README.md` |
 | `ApoRaviz_Portfolio` | `ApoRaviz_Portfolio` | โชว์ผลงาน/สมัครงาน/link hub อย่างเดียว | Active | `ApoRaviz_Portfolio/README.md` |

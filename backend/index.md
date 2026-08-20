@@ -116,6 +116,26 @@ Angular upload page
 -> Angular download button
 ```
 
+## Signed direct upload ต้องส่ง parameter ให้ตรงกับตอนเซ็น
+
+เมื่อ backend สร้าง signature สำหรับให้ browser อัปโหลดไฟล์ตรงไปยังผู้ให้บริการภายนอก parameter ที่ส่งจริงต้องตรงกับ parameter ที่นำไปเซ็นทุกตัว
+
+```text
+backend กำหนด signed parameters
+-> สร้าง signature จาก parameter ชุดนั้น
+-> ส่ง signature และ signed parameters ที่ browser ต้องใช้
+-> browser ส่งค่าชุดเดิมไปยัง upload provider
+```
+
+ตัวอย่างเช่น ถ้า signature รวม `public_id`, `timestamp`, `type`, `eager` และ `overwrite=false` request จาก browser ก็ต้องส่งทั้งห้าค่านี้ หากขาด `overwrite=false` แม้เพียงค่าเดียว provider จะคำนวณ signature จากคนละข้อความและตอบ `Invalid Signature`
+
+หลักจำสั้น ๆ:
+
+- เก็บ API secret และการสร้าง signature ไว้ที่ backend เท่านั้น
+- กำหนด signed parameters จากแหล่งเดียว เพื่อลดโอกาสที่ API contract กับ upload form จะไม่ตรงกัน
+- เพิ่ม test ตรวจว่า response มี server-owned parameters ครบ โดยเฉพาะค่าด้านความปลอดภัย เช่น `overwrite=false`
+- อย่าแก้ด้วยการตัด security parameter ออกจาก signature เพียงเพื่อให้ request ผ่าน ให้ส่ง parameter ที่ตั้งใจควบคุมไปกับ request อย่างถูกต้อง
+
 ## อ่านต่อ
 
 - [Node.js Learning Hub](../nodejs/)

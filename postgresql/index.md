@@ -164,6 +164,7 @@ Supabase   = service ที่ให้ PostgreSQL พร้อมเครื�
 - [Index](concepts/database-index.md)
 - [Check Constraint](concepts/check-constraint.md)
 - [Database Transaction](concepts/database-transaction.md)
+- [Advisory Lock](concepts/advisory-lock.md)
 
 ## จุดที่มักงง
 
