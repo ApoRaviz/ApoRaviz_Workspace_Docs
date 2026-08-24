@@ -75,7 +75,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'System Guide', link: '/aporaviz-gift/system-guide/' },
-          { text: 'System Overview', link: '/aporaviz-gift/system-guide/SYSTEM_OVERVIEW' },
+          { text: 'Architecture & Boundaries', link: '/aporaviz-gift/system-guide/SYSTEM_OVERVIEW' },
           { text: 'Screen and Route Flow', link: '/aporaviz-gift/system-guide/SCREEN_AND_ROUTE_FLOW' },
           { text: 'End-to-End System Flow', link: '/aporaviz-gift/system-guide/END_TO_END_SYSTEM_FLOW' },
           { text: 'Code Map', link: '/aporaviz-gift/system-guide/CODE_MAP' },
@@ -84,7 +84,7 @@ export default defineConfig({
           { text: 'Database and Prisma', link: '/aporaviz-gift/system-guide/DATABASE_AND_PRISMA' },
           { text: 'Request Lifecycle', link: '/aporaviz-gift/system-guide/REQUEST_LIFECYCLE' },
           { text: 'Signature and Upload Flow', link: '/aporaviz-gift/system-guide/SIGNATURE_AND_UPLOAD_FLOW' },
-          { text: 'Authentication and Security', link: '/aporaviz-gift/system-guide/AUTHENTICATION_AND_SECURITY' },
+          { text: 'Security & Defensive Controls', link: '/aporaviz-gift/system-guide/AUTHENTICATION_AND_SECURITY' },
           { text: 'Feature Flows', link: '/aporaviz-gift/system-guide/FEATURE_FLOWS' },
           { text: 'Error Handling Flow', link: '/aporaviz-gift/system-guide/ERROR_HANDLING_FLOW' },
           { text: 'Config and Environment', link: '/aporaviz-gift/system-guide/CONFIG_AND_ENVIRONMENT' },

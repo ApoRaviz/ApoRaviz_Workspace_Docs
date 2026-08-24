@@ -1,6 +1,8 @@
-# System Overview
+# System Architecture and Defensive Boundaries
 
 เอกสารนี้อธิบายระบบจาก implementation ที่ตรวจใน `apps/web`, `apps/api`, `packages/contracts`, Prisma schema, migration, seed และ E2E tests ณ วันที่ 20 สิงหาคม 2026 ไม่ได้อนุมานจากชื่อไฟล์เพียงอย่างเดียว
+
+โครงสร้างและ flow ด้านล่างยังคงตรงกับหลักการเดิม โดยเพิ่มมุมมองว่าแต่ละ boundary ต้องป้องกันอะไร เอกสารนี้ไม่บันทึกค่าของ secret, credential หรือ production endpoint จริง
 
 ## ระบบนี้ทำอะไร
 
@@ -31,6 +33,8 @@ flowchart LR
   API -->|create source/charge + verify charge| OPN
   OPN -->|signed webhook| API
 ```
+
+หลักการป้องกันของ architecture นี้คือให้ NestJS API เป็น policy enforcement point: ข้อมูลจาก browser และ webhook ถือว่าไม่เชื่อถือ, frontend validation ใช้เพื่อ UX, และการเปลี่ยน state สำคัญต้องตรวจสิทธิ์กับข้อมูล authoritative ฝั่ง server
 
 ## Technology Stack ที่พบจริง
 
@@ -90,7 +94,7 @@ flowchart LR
 - payment เริ่ม `PENDING`; browser poll เพื่อแสดงผลเท่านั้น
 - การปลดล็อกเกิดใน backend หลัง webhook/reconciliation ดึง charge จาก Opn แล้วตรวจ paid/status/currency/amount/metadata ครบ
 
-## Trust Boundaries
+## Trust Boundaries และ Preventive Controls
 
 ```mermaid
 flowchart TB
@@ -119,6 +123,14 @@ flowchart TB
 - `Authorization: Bearer <edit-token>` เป็นสิทธิ์แก้ guest draft ไม่ใช่ OAuth/JWT
 - `Idempotency-Key` ป้องกันสร้าง payment ซ้ำ แต่ไม่ใช่ credential
 - Cloudinary API key ถูกส่ง browser ได้; `CLOUDINARY_API_SECRET`, `OPN_SECRET_KEY`, `OPN_WEBHOOK_SECRET`, `DATABASE_URL` ต้องอยู่ server เท่านั้น
+
+| Boundary | ความเสี่ยงหลัก | Control ที่ต้องรักษา |
+|---|---|---|
+| Browser → API | input ปลอม, token ผิดเจ้าของ, request ซ้ำ | runtime schema validation, authorization ต่อ resource, expiry/state check, idempotency |
+| Browser → Cloudinary | upload เกินสิทธิ์หรือปลอม metadata | short-lived signed reservation, server-owned public ID, provider-side verification |
+| Opn → API | callback ปลอม, replay, amount mismatch | raw-body HMAC, timestamp window, unique event, server-to-server charge verification |
+| API → PostgreSQL | state race และข้อมูลไม่สอดคล้อง | transaction, constraints, advisory lock, least-privilege DB role |
+| Runtime → Secrets | secret รั่วใน source/log/browser | secret manager, rotation, redaction และ server-only access |
 
 ## State Machines
 
@@ -154,3 +166,11 @@ Payment แยกเป็น `PENDING → SUCCEEDED | FAILED`; renewal ไม�
 - มี 3 Angular routes แต่ builder route เดียวแบ่ง UI เป็น 6 internal steps
 - production deployment และ reverse proxy ไม่อยู่ใน repo
 - external network tests ถูก mock; credentialed Cloudinary/Opn smoke test ไม่ได้อยู่ใน automated flow
+
+## Defensive Review ก่อน Production
+
+- ตรวจ authorization แบบ deny-by-default ครบทุก controller path
+- บังคับ expiry ตอนอ่านและเขียน ไม่ใช้ cleanup เป็น security boundary
+- ทดสอบ concurrent checkout/upload/cleanup และ callback ซ้ำ
+- ตรวจ production TLS, reverse proxy, secret manager, backup/restore และ monitoring ใน private deployment runbook
+- ใช้ sanitized DTO และ log redaction เพื่อไม่ให้ internal field, token หรือ provider payload หลุดออกนอก boundary
