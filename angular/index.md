@@ -17,7 +17,7 @@ commands.md = command กลางของ Angular
 
 1. [Quick Recall](memory-aids.md) — เปิดทบทวนเร็วเมื่อจำศัพท์หรือ flow ไม่ได้
 2. [Angular Concepts](concepts/) — อ่านศัพท์และตัวอย่างขนาดเล็กเป็นเรื่อง ๆ
-3. [Angular Teach Index](teach/) — อ่านบทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 1–13 อยู่ที่นี่ที่เดียว)
+3. [Angular Teach Index](teach/) — อ่านบทเรียนแบบ flow ทีละขั้น (ลำดับเต็ม 1–14 อยู่ที่นี่ที่เดียว)
 4. [Angular Commands](commands.md) — เปิดใช้ตอนตั้งต้นหรือดูแลโปรเจกต์
 
 > ลำดับบทเรียนเต็มเก็บไว้ที่ [Angular Teach Index](teach/) ที่เดียว เพื่อไม่ให้เลขบทเรียนซ้ำซ้อนและ drift กันหลายหน้า
@@ -36,6 +36,7 @@ commands.md = command กลางของ Angular
 - Component ownership และ one-way data flow
 - Unit test concept เช่น `.spec.ts`, `TestBed`, fake timers, mock browser APIs
 - HttpClient, Observable และ HTTP testing flow
+- Data Binding, UI state, change detection และ Component DOM testing
 - CI/CD concept เช่น `npm ci`, GitHub Actions, artifact, GitHub Pages `base-href`
 - Command pattern ที่ใช้ได้หลายโปรเจกต์
 

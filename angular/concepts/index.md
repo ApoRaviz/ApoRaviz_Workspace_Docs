@@ -11,6 +11,8 @@
 - [HttpClient](http-client.md)
 - [Observable](observable.md)
 - [Environment Files](environment-files.md)
+- [Data Binding](data-binding.md)
+- [Change Detection](change-detection.md)
 - [`signal`](signal.md)
 - [`computed`](computed.md)
 - [Form Input Data Flow](form-input-data-flow.md)

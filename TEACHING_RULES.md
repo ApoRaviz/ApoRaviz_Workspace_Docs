@@ -126,8 +126,10 @@ No Black Box หมายถึงไม่มีขั้นตอนสำค�
 Git/command    = AI ให้ command -> learner รัน -> ส่ง output -> AI อธิบาย
 เขียน code     = AI ให้ snippet เล็ก -> อธิบาย -> learner ทดลอง -> ส่งผล build/runtime
 ออกแบบระบบ     = ออกแบบร่วมกัน -> learner ตอบ decision สำคัญ -> AI ร่าง artifact -> learner ตรวจความเข้าใจ
-Knowledge Sync = Codex ร่าง docs -> Claude review/QA ตามข้อตกลงของโปรเจกต์
+Knowledge Sync = Codex ร่าง docs -> Codex review/QA changed files และไฟล์เกี่ยวข้องโดยตรง -> stamp/commit/push
 ```
+
+ตั้งแต่ 26 สิงหาคม 2026 ไม่บังคับส่ง Claude review ก่อนปิด Step แล้ว Codex รับผิดชอบ implementation review, Knowledge Sync review, validation, progress stamp, commit และ push ให้ครบใน flow เดียว ส่วน external second-opinion review ใช้เมื่อผู้ใช้ร้องขอเป็นกรณีไป
 
 ### Start-of-Session Rule
 
