@@ -13,6 +13,18 @@ row        = รายการหนึ่งบรรทัด
 id         = เลขที่ใช้เชื่อมรายการระหว่างสมุด
 ```
 
+## [PostgreSQL ครั้งแรกผ่าน Docker](teach/postgresql-first-run-with-docker.md)
+
+```text
+image     = ต้นแบบ PostgreSQL
+container = server ที่กำลังทำงาน
+volume    = พื้นที่เก็บ database/user/password/data ให้รอดจาก container
+
+127.0.0.1:5433 → container:5432
+Host และ Host port มาจาก container
+database/user/password มาจาก PostgreSQL ใน volume
+```
+
 ## [Primary Key](concepts/primary-key.md)
 
 ```text

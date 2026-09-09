@@ -28,6 +28,7 @@ export default defineConfig({
           { text: 'Angular', link: '/angular/' },
           { text: 'Backend', link: '/backend/' },
           { text: 'Database', link: '/postgresql/' },
+          { text: 'Docker', link: '/docker/' },
           { text: 'Git', link: '/git/' },
         ],
       },
@@ -223,11 +224,30 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Docker',
+        collapsed: true,
+        items: [
+          { text: 'Overview', link: '/docker/' },
+          { text: 'Commands', link: '/docker/commands' },
+          { text: 'Docker Desktop UI', link: '/docker/docker-desktop-ui' },
+        ],
+      },
+      {
         text: 'Database',
         collapsed: true,
         items: [
           { text: 'Overview', link: '/postgresql/' },
           { text: 'Quick Recall', link: '/postgresql/memory-aids' },
+          {
+            text: 'Learning Guides',
+            collapsed: true,
+            items: [
+              {
+                text: 'PostgreSQL ครั้งแรกผ่าน Docker',
+                link: '/postgresql/teach/postgresql-first-run-with-docker',
+              },
+            ],
+          },
           {
             text: 'Core Concepts',
             collapsed: true,
@@ -299,6 +319,7 @@ export default defineConfig({
           { text: 'All Commands', link: '/commands' },
           { text: 'Angular Commands', link: '/angular/commands' },
           { text: 'Node.js Commands', link: '/nodejs/commands' },
+          { text: 'Docker Commands', link: '/docker/commands' },
           { text: 'dotnet CLI Commands', link: '/aspnet-core/commands' },
           { text: 'Git Commands', link: '/git/commands' },
           { text: 'VitePress Guide', link: '/vitepress/' },

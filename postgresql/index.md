@@ -13,8 +13,9 @@ Angular frontend
 ## Recommended Order
 
 1. [Quick Recall](memory-aids.md) — ทบทวนศัพท์ Database แบบเร็ว
-2. [PostgreSQL Concepts](concepts/) — อ่านแนวคิดทีละเรื่อง
-3. กลับมาใช้หน้านี้เป็นภาพรวมตอนออกแบบ schema ของโปรเจกต์ใหม่
+2. [PostgreSQL ครั้งแรกผ่าน Docker](teach/postgresql-first-run-with-docker.md) — เข้าใจ server, container, volume, port, `psql` และ pgAdmin
+3. [PostgreSQL Concepts](concepts/) — อ่านแนวคิดทีละเรื่อง
+4. กลับมาใช้หน้านี้เป็นภาพรวมตอนออกแบบ schema ของโปรเจกต์ใหม่
 
 ## ภาพจำง่าย ๆ
 
@@ -165,6 +166,13 @@ Supabase   = service ที่ให้ PostgreSQL พร้อมเครื�
 - [Check Constraint](concepts/check-constraint.md)
 - [Database Transaction](concepts/database-transaction.md)
 - [Advisory Lock](concepts/advisory-lock.md)
+
+## Learning Guides
+
+- [PostgreSQL ครั้งแรกผ่าน Docker](teach/postgresql-first-run-with-docker.md)
+- [Docker พื้นฐานสำหรับ Local Development](../docker/)
+- [Docker Commands](../docker/commands.md)
+- [Docker Desktop UI](../docker/docker-desktop-ui.md)
 
 ## จุดที่มักงง
 
