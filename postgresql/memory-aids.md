@@ -25,6 +25,16 @@ Host และ Host port มาจาก container
 database/user/password มาจาก PostgreSQL ใน volume
 ```
 
+## [ORM และการเข้าถึงฐานข้อมูล](teach/orm-and-database-access.md)
+
+```text
+Entity = กฎจับคู่ object กับตาราง
+Repository = คำสั่งอ่านเขียนข้อมูล
+DataSource = ดูแลการเชื่อมต่อ
+สร้าง object ≠ บันทึกฐานข้อมูล
+Parameterized Query = แยกคำสั่งออกจากค่าผู้ใช้
+```
+
 ## [Primary Key](concepts/primary-key.md)
 
 ```text

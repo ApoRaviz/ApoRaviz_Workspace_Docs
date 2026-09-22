@@ -246,6 +246,10 @@ export default defineConfig({
                 text: 'PostgreSQL ครั้งแรกผ่าน Docker',
                 link: '/postgresql/teach/postgresql-first-run-with-docker',
               },
+              {
+                text: 'ORM และการเข้าถึงฐานข้อมูล',
+                link: '/postgresql/teach/orm-and-database-access',
+              },
             ],
           },
           {

@@ -83,6 +83,40 @@ Host port: 5433
 
 อย่ากรอก `127.0.0.1:5433` ในช่องที่รับเฉพาะตัวเลข เพราะ UI อาจตัดเครื่องหมายจนกลายเป็นเลข port ที่ไม่ถูกต้อง
 
+## เปลี่ยน Host Port ของ Container เดิม
+
+เปลี่ยนจาก `5433:5432` เป็น `5434:5432` คือเปลี่ยนทางเข้าบน Host ส่วน PostgreSQL ภายใน container ยังฟัง `5432` เหมือนเดิม การเปลี่ยน published port ใช้วิธีสร้าง container ใหม่ ไม่ใช่ Stop/Start ของเดิม
+
+สำหรับ standalone PostgreSQL ที่ข้อมูลอยู่ใน named volume:
+
+1. จด image/tag, ชื่อ named volume และ Container path จาก container เดิมให้ครบก่อนลบ พร้อมเก็บ config อื่นที่จำเป็น
+2. ใน **Containers** กด **Stop** ของตัวเดิม แล้ว **Delete** เฉพาะ container โดยคง named volume ไว้ ข้อมูลที่อยู่นอก volume ใน container จะไม่ตามไปด้วย
+3. ใน **Volumes** ตรวจว่าชื่อเดิมยังอยู่
+4. ไป **Images → postgres:17-alpine → Run → Optional settings**
+5. ใส่ชื่อ container, Host port `5434`, Host path เป็นชื่อ named volume เดิม และ Container path `/var/lib/postgresql/data`
+6. ถ้า volume เดิมมี PostgreSQL initialized แล้ว ใช้ database/user/password เดิมได้ ไม่ต้องตั้ง `POSTGRES_*` ใหม่
+7. กด **Run**, ดู Logs และตรวจ port mapping จากนั้นเปลี่ยน Port ใน pgAdmin เป็น `5434` แล้ว reconnect
+
+อย่าเปิด PostgreSQL สอง container ให้ใช้ data volume เดียวกันพร้อมกัน และใช้ image major version เดิมสำหรับการ recreate นี้
+
+ถ้า UI มีเฉพาะ Host port การกรอก `5434` อาจเปิดเป็น `0.0.0.0:5434` ถ้าต้องการคง local-only `127.0.0.1` ให้สร้างผ่าน CMD หลังนำ container เดิมออกแล้ว
+
+Options: `--name` ตั้งชื่อ, `-p` กำหนด Host IP:Host port:Container port, `-v` ต่อ named volume เดิมเข้าตำแหน่งข้อมูล และ `-d` รันเบื้องหลัง:
+
+```bash
+docker run --name learning-postgres -p 127.0.0.1:5434:5432 -v learning-postgres-data:/var/lib/postgresql/data -d postgres:17-alpine
+```
+
+คำสั่งนี้ใช้เฉพาะ volume ที่มีฐานข้อมูลอยู่แล้ว ตรวจ mapping ด้วยคำสั่งต่อไปนี้ (`5432` คือ Container port ที่ถาม ไม่มี option เพิ่ม):
+
+```bash
+docker port learning-postgres 5432
+```
+
+ผลที่ต้องการคือ `127.0.0.1:5434` ส่วนการตั้งค่าฝั่ง client เช่น pgAdmin และ backend บน Host ต้องเปลี่ยนมาใช้ `5434` ด้วย การเปลี่ยน port ไม่ได้เปลี่ยน database/user/password ใน volume
+
+ถ้าเป็น Compose ให้แก้ port ใน compose file แล้วสั่งให้ Compose สร้าง container ใหม่ตาม config; เพียง restart ยังใช้ mapping เดิม รายละเอียด Compose เรียนแยกจาก standalone flow นี้
+
 ## Start, Stop และ Delete
 
 หน้า **Containers** มี action หลัก:
@@ -178,3 +212,5 @@ named volume = พิมพ์ชื่อที่ Docker ดูแล
 - [Docker Desktop Images](https://docs.docker.com/desktop/use-desktop/images/)
 - [Docker Desktop Containers](https://docs.docker.com/desktop/use-desktop/container/)
 - [Docker Desktop Volumes](https://docs.docker.com/desktop/use-desktop/volumes/)
+- [Docker Port Publishing](https://docs.docker.com/engine/network/port-publishing/)
+- [Containerized Databases และการใช้ volume เดิม](https://docs.docker.com/guides/databases/)

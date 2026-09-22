@@ -14,8 +14,9 @@ Angular frontend
 
 1. [Quick Recall](memory-aids.md) — ทบทวนศัพท์ Database แบบเร็ว
 2. [PostgreSQL ครั้งแรกผ่าน Docker](teach/postgresql-first-run-with-docker.md) — เข้าใจ server, container, volume, port, `psql` และ pgAdmin
-3. [PostgreSQL Concepts](concepts/) — อ่านแนวคิดทีละเรื่อง
-4. กลับมาใช้หน้านี้เป็นภาพรวมตอนออกแบบ schema ของโปรเจกต์ใหม่
+3. [ORM และการเข้าถึงฐานข้อมูล](teach/orm-and-database-access.md) — mapping, persistence, SQL parameters และ TypeORM/Prisma
+4. [PostgreSQL Concepts](concepts/) — อ่านแนวคิดทีละเรื่อง
+5. กลับมาใช้หน้านี้เป็นภาพรวมตอนออกแบบ schema ของโปรเจกต์ใหม่
 
 ## ภาพจำง่าย ๆ
 
@@ -169,6 +170,7 @@ Supabase   = service ที่ให้ PostgreSQL พร้อมเครื�
 
 ## Learning Guides
 
+- [ORM และการเข้าถึงฐานข้อมูล](teach/orm-and-database-access.md)
 - [PostgreSQL ครั้งแรกผ่าน Docker](teach/postgresql-first-run-with-docker.md)
 - [Docker พื้นฐานสำหรับ Local Development](../docker/)
 - [Docker Commands](../docker/commands.md)
