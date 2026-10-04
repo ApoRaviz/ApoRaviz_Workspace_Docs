@@ -137,6 +137,26 @@ tokenHash
 
 ระบบจึงต้องกำหนด `role` เองหลังบ้าน ไม่รับจาก user
 
+## Signed Direct Upload {#signed-direct-upload}
+
+เมื่อ browser อัปโหลดตรงไปยังบริการภายนอก backend อาจออก signature หรือลายเซ็นดิจิทัลของ parameter ที่อนุญาตไว้ API contract ต้องบอกทั้ง signature และค่าที่ browser ต้องส่งตามกติกาของผู้ให้บริการนั้น
+
+```text
+backend กำหนด signed parameters
+-> สร้าง signature จาก parameter ชุดนั้น
+-> ส่ง signature และ signed parameters ที่ browser ต้องใช้
+-> browser ส่งค่าชุดเดิมไปยัง upload provider
+```
+
+ตัวอย่างจากรูปแบบ signed upload ของ Cloudinary: ถ้า backend ใช้ `public_id`, `timestamp`, `type`, `eager` และ `overwrite=false` ในการเซ็น browser ต้องส่งค่าที่สอดคล้องกับชุดนั้น อย่าละ `overwrite=false` ระหว่างประกอบ upload form เพราะจะทำให้ข้อความที่ใช้ตรวจ signature ไม่ตรงกัน รายชื่อ parameter นี้เป็นตัวอย่างเฉพาะ provider ไม่ใช่ข้อกำหนดร่วมของบริการ upload ทุกตัว ดู [Cloudinary — Manually generating authentication signatures](https://cloudinary.com/documentation/authentication_signatures)
+
+หลักจำสั้น ๆ:
+
+- เก็บ API secret และการสร้าง signature ไว้ที่ backend เท่านั้น
+- กำหนด signed parameters จากแหล่งเดียว เพื่อลดโอกาสที่ API contract กับ upload form จะไม่ตรงกัน
+- ตรวจว่า response มี server-owned parameters ครบ โดยเฉพาะค่าที่ backend ตั้งใจควบคุม
+- อย่าตัด parameter ที่ใช้ควบคุมพฤติกรรมออกจาก signature เพียงเพื่อให้ request ผ่าน ให้ส่งค่าตามข้อตกลงของ provider อย่างถูกต้อง
+
 ## Error Response ควรบอกแค่ไหน
 
 Error ที่เป็น validation ควรบอกเหตุผลให้แก้ได้:

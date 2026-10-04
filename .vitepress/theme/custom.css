@@ -1,92 +1,148 @@
-/**
- * ApoRaviz Workspace Docs — brand theme
- * โทน Indigo → Cyan (calm / modern / เป็นกลางกับทุก stack)
- * แก้เฉพาะ presentation ผ่าน CSS variables ของ VitePress default theme
- */
-
 :root {
-  /* Brand palette (light mode) */
-  --vp-c-brand-1: #4f46e5; /* indigo-600 — ใช้กับ link/ตัวหนังสือ ต้อง contrast ดีบนพื้นขาว */
-  --vp-c-brand-2: #6366f1; /* indigo-500 */
-  --vp-c-brand-3: #6366f1; /* solid accent */
-  --vp-c-brand-soft: rgba(99, 102, 241, 0.14);
-
-  /* Brand buttons */
-  --vp-button-brand-bg: #4f46e5;
-  --vp-button-brand-hover-bg: #4338ca;
-  --vp-button-brand-active-bg: #3730a3;
-  --vp-button-brand-border: transparent;
-  --vp-button-brand-hover-border: transparent;
-  --vp-button-brand-active-border: transparent;
-
-  /* Home hero — ไล่สีชื่อ + เงา blur ด้านหลังโลโก้ */
-  --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(120deg, #6366f1 30%, #06b6d4);
-  --vp-home-hero-image-background-image: linear-gradient(120deg, #6366f1 30%, #06b6d4);
-  --vp-home-hero-image-filter: blur(44px);
+  --vp-font-family-base: 'Segoe UI', Tahoma, sans-serif;
+  --vp-c-bg: #faf9f6;
+  --vp-c-bg-alt: #f1f0eb;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f1f0eb;
+  --vp-c-text-1: #262a26;
+  --vp-c-text-2: #5d625c;
+  --vp-c-text-3: #70766e;
+  --vp-c-divider: #dedfd6;
+  --vp-c-brand-1: #a63c14;
+  --vp-c-brand-2: #b64419;
+  --vp-c-brand-3: #a63c14;
+  --vp-c-brand-soft: #a63c1410;
+  --vp-button-brand-bg: #a63c14;
+  --vp-button-brand-hover-bg: #87320f;
+  --vp-button-brand-text: #ffffff;
+  --vp-sidebar-width: 280px;
+  --library-panel: #263b32;
+  --library-panel-text: #f5f4ea;
+  --library-panel-muted: #bccbc0;
+  --library-accent: #e7b36d;
 }
-
 .dark {
-  /* Brand palette (dark mode) — ใช้เฉดอ่อนขึ้นเพื่อ contrast บนพื้นเข้ม */
-  --vp-c-brand-1: #a5b4fc; /* indigo-300 */
-  --vp-c-brand-2: #818cf8; /* indigo-400 */
-  --vp-c-brand-3: #6366f1;
-  --vp-c-brand-soft: rgba(129, 140, 248, 0.16);
+  --vp-c-bg: #1b201d;
+  --vp-c-bg-alt: #171b18;
+  --vp-c-bg-elv: #252c27;
+  --vp-c-bg-soft: #252c27;
+  --vp-c-text-1: #eeeee4;
+  --vp-c-text-2: #b8c0b5;
+  --vp-c-text-3: #9ba596;
+  --vp-c-divider: #394238;
+  --vp-c-brand-1: #efad76;
+  --vp-c-brand-2: #f8bf92;
+  --vp-c-brand-3: #cb8651;
+  --vp-c-brand-soft: #efad7614;
 }
-
-@media (min-width: 640px) {
-  :root {
-    --vp-home-hero-image-filter: blur(56px);
-  }
+a, button { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--vp-c-brand-1);
+  outline-offset: 4px;
 }
-
-@media (min-width: 960px) {
-  :root {
-    --vp-home-hero-image-filter: blur(68px);
-  }
+.VPNavBarTitle .title { letter-spacing: -.4px; font-weight: 750; }
+.VPNavBarTitle .logo { width: 28px; height: 28px; }
+.VPNavBarMenuLink, .VPNavBarMenuGroup .button { font-size: 14px; }
+.VPSidebarItem .text { line-height: 1.65; }
+.VPSidebarItem.level-0 > .item > .text { font-size: 15px; font-weight: 700; }
+.VPSidebarItem .link { border-radius: 5px; }
+.VPSidebarItem.is-active > .item { background: var(--vp-c-brand-soft); border-radius: 5px; }
+.VPDoc .vp-doc { font-size: 16px; line-height: 1.9; }
+.vp-doc p, .vp-doc li { line-height: 1.9; }
+.vp-doc h1 { font-size: clamp(28px, 3vw, 36px); line-height: 1.45; letter-spacing: -.5px; }
+.vp-doc h2 { line-height: 1.55; }
+.vp-doc h3 { line-height: 1.65; }
+.vp-doc :not(pre) > code { overflow-wrap: anywhere; }
+.vp-doc th, .vp-doc td { line-height: 1.7; }
+.vp-doc a { text-underline-offset: 4px; }
+.VPHome { padding-bottom: 0 !important; }
+.knowledge-home { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.library-hero { display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: 64px; padding: 76px 0 64px; }
+.eyebrow { font-size: 11px; line-height: 1.7; font-weight: 700; letter-spacing: 1.6px; color: var(--vp-c-text-2); }
+.hero-copy > .eyebrow { display: flex; align-items: center; gap: 9px; }
+.brand-dot { height: 7px; width: 7px; flex: 0 0 7px; background: var(--vp-c-brand-1); border-radius: 50%; }
+.hero-copy h1 { font-size: clamp(36px, 4vw, 54px); font-weight: 750; line-height: 1.42; letter-spacing: -1.5px; margin: 23px 0 20px; }
+.hero-copy h1 span { color: var(--vp-c-brand-1); }
+.hero-description { font-size: 17px; line-height: 1.9; color: var(--vp-c-text-2); }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.library-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 48px; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; border: 1px solid transparent; transition: background .18s, border-color .18s; }
+.library-button.primary { background: var(--vp-c-brand-1); color: var(--vp-c-bg); }
+.library-button.primary:hover { background: var(--vp-c-brand-2); }
+.library-button.secondary { border-color: var(--vp-c-divider); }
+.library-button.secondary:hover { background: var(--vp-c-bg-alt); border-color: var(--vp-c-text-2); }
+.hero-note { color: var(--vp-c-text-2); font-size: 12px; line-height: 1.8; margin-top: 19px; }
+.start-panel { color: var(--library-panel-text); background: var(--library-panel); border-radius: 12px; padding: 25px 28px 20px; box-shadow: 0 12px 28px #17251a0b; }
+.panel-heading { display: flex; justify-content: space-between; align-items: center; }
+.panel-heading .eyebrow { color: var(--library-panel-muted); font-size: 10px; }
+.panel-symbol { color: var(--library-accent); font-size: 26px; }
+.start-panel h2 { font-size: 23px; font-weight: 600; line-height: 1.6; margin: 10px 0 20px; }
+.start-path { display: grid; grid-template-columns: 23px 1fr 16px; align-items: start; gap: 10px; padding: 16px 0; border-top: 1px solid #ffffff24; }
+.path-number { font-family: monospace; font-size: 11px; color: var(--library-accent); padding-top: 3px; }
+.start-path strong { display: block; font-size: 15px; line-height: 1.7; font-weight: 600; }
+.start-path small { display: block; font-size: 12px; line-height: 1.8; color: var(--library-panel-muted); margin-top: 3px; }
+.path-arrow { color: var(--library-panel-muted); }
+.start-path:hover strong, .start-path:hover .path-arrow { color: var(--library-accent); }
+.start-panel a:focus-visible { outline-color: var(--library-accent); }
+.panel-foot { display: flex; gap: 14px; align-items: center; border-top: 1px solid #ffffff24; margin-top: 4px; padding-top: 17px; font-size: 11px; line-height: 1.7; color: var(--library-panel-muted); }
+.panel-foot > span { font-family: monospace; font-size: 19px; font-weight: 700; color: var(--library-accent); }
+.topic-section { border-top: 1px solid var(--vp-c-divider); padding-top: 35px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.section-heading h2 { font-size: 25px; font-weight: 650; line-height: 1.6; margin-top: 6px; }
+.text-link { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; font-size: 13px; color: var(--vp-c-brand-1); }
+.text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.topic-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.topic-card { border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg-elv); padding: 22px; border-radius: 8px; display: flex; flex-direction: column; min-width: 0; }
+.topic-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26px; }
+.topic-mark { font-family: monospace; color: var(--vp-c-brand-1); font-size: 19px; font-weight: 700; }
+.topic-number { color: var(--vp-c-text-3); font: 11px monospace; }
+.topic-name { font-size: 11px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: var(--vp-c-text-2); }
+.topic-card h3 { font-size: 17px; font-weight: 650; line-height: 1.65; margin: 7px 0 9px; }
+.topic-description { font-size: 13px; line-height: 1.85; color: var(--vp-c-text-2); margin-bottom: 20px; }
+.topic-links { display: flex; flex-wrap: wrap; gap: 0 13px; margin-top: auto; border-top: 1px solid var(--vp-c-divider); padding-top: 9px; }
+.topic-links a { display: inline-flex; gap: 9px; align-items: center; min-height: 44px; font-size: 12px; font-weight: 600; }
+.topic-links a:hover { color: var(--vp-c-brand-1); text-decoration: underline; text-underline-offset: 4px; }
+.topic-links a span { color: var(--vp-c-text-3); }
+.recall-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; background: var(--vp-c-bg-alt); padding: 28px 32px; border-radius: 8px; margin: 32px 0; }
+.recall-strip h2 { font-size: 20px; line-height: 1.7; margin: 5px 0; font-weight: 650; }
+.recall-strip p:not(.eyebrow) { font-size: 13px; line-height: 1.8; color: var(--vp-c-text-2); }
+.recall-links { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 24px; }
+.recall-links a { display: flex; justify-content: space-between; align-items: center; min-height: 44px; border-bottom: 1px solid var(--vp-c-divider); font-size: 13px; font-weight: 600; }
+.recall-links a:hover { color: var(--vp-c-brand-1); }
+.library-resources { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 16px 0 42px; }
+.library-resources > a { display: flex; flex-direction: column; gap: 7px; padding: 6px 0; }
+.library-resources strong { display: flex; justify-content: space-between; gap: 8px; font-weight: 600; font-size: 15px; line-height: 1.8; }
+.library-resources > a > span:last-child { font-size: 12px; line-height: 1.8; color: var(--vp-c-text-2); }
+.library-resources a:hover strong { color: var(--vp-c-brand-1); }
+.library-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--vp-c-divider); padding: 23px 0; font-size: 11px; color: var(--vp-c-text-2); line-height: 1.8; }
+.library-footer > span { font-weight: 700; letter-spacing: 1px; }
+.library-footer a { min-height: 44px; display: inline-flex; align-items: center; }
+@media (max-width: 1100px) {
+  .library-hero { gap: 36px; }
+  .topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .topic-card-top { margin-bottom: 15px; }
 }
-
-/* Feature cards — เส้นขอบนุ่มขึ้น + ยกตัวเล็กน้อยตอน hover */
-.VPFeature {
-  transition:
-    border-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+@media (max-width: 767px) {
+  .knowledge-home { padding: 0 24px; }
+  .library-hero { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
+  .hero-copy h1 { font-size: clamp(34px, 7vw, 46px); letter-spacing: -1px; }
+  .hero-description { font-size: 16px; }
+  .desktop-break { display: none; }
+  .hero-note { font-size: 11px; }
+  .start-panel { padding: 23px; }
+  .section-heading { align-items: start; flex-direction: column; gap: 8px; }
+  .section-heading h2 { font-size: 23px; }
+  .recall-strip { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+  .library-resources { grid-template-columns: 1fr; gap: 20px; }
+  .library-resources > a { border-bottom: 1px solid var(--vp-c-divider); padding-bottom: 20px; }
+  .library-footer { flex-wrap: wrap; }
+  .library-footer p { order: 3; flex-basis: 100%; }
 }
-
-.VPFeature:hover {
-  border-color: var(--vp-c-brand-1);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px -12px var(--vp-c-brand-soft);
+@media (max-width: 479px) {
+  .topic-grid { grid-template-columns: 1fr; }
+  .hero-actions { gap: 8px; }
+  .library-button { font-size: 13px; padding: 10px 13px; gap: 10px; }
+  .hero-copy > .eyebrow { letter-spacing: 1px; font-size: 10px; }
 }
-
-/* ไอคอน feature ให้มีพื้นวงกลมนุ่ม ๆ */
-.VPFeature .icon {
-  background-color: var(--vp-c-brand-soft) !important;
-}
-
-/*
- * Sidebar typography
- * ทำให้ชื่อกลุ่ม เช่น Start a Project / Angular ใหญ่กว่าหน้าย่อยอย่างชัดเจน
- * และทำให้ subgroup แยกชั้นจาก link ปลายทางโดยไม่ต้องเพิ่มสีหรือเส้นเกินจำเป็น
- */
-.VPSidebar .VPSidebarItem.level-0 > .item > .text {
-  font-size: 15.5px;
-  line-height: 24px;
-  letter-spacing: 0.01em;
-}
-
-.VPSidebar .VPSidebarItem.level-1 > .item .text {
-  font-size: 14px;
-}
-
-.VPSidebar .VPSidebarItem.level-1.collapsible > .item > .text {
-  color: var(--vp-c-text-1);
-  font-weight: 650;
-}
-
-.VPSidebar .VPSidebarItem.level-2 > .item .text,
-.VPSidebar .VPSidebarItem.level-3 > .item .text {
-  font-size: 13.5px;
-  line-height: 22px;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }

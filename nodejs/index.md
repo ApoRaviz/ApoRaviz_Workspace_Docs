@@ -35,17 +35,27 @@ node:test = test runner ที่มากับ Node.js
 
 ## Recommended Order
 
-1. [Node.js Commands](commands.md)
-2. [Node.js Concepts](concepts/index.md)
-3. [Environment Variable](concepts/environment-variable.md)
-4. [.env File](concepts/dotenv-file.md)
-5. [Secret](concepts/secret.md)
-6. [01 CLI File Processing](teach/01-cli-file-processing.md)
-7. [02 Node Stream And Backpressure](teach/02-node-stream-backpressure.md)
-8. [03 CLI Arguments And Errors](teach/03-cli-arguments-and-errors.md)
-9. [04 File Backup Safety](teach/04-file-backup-safety.md)
-10. [05 Node Test And Temp Files](teach/05-node-test-temp-files.md)
-11. [06 Node And npm Version Check](teach/06-node-npm-version-check.md)
+เริ่มจากเครื่องมือ แล้วค่อยตามงาน CLI ตั้งแต่รับคำสั่งจนตรวจผล:
+
+1. [Node And npm Version Check](teach/06-node-npm-version-check.md) — รู้จัก runtime, npm และตรวจเครื่องมือก่อนรัน
+2. [CLI File Processing](teach/01-cli-file-processing.md) — เห็นภาพ parser, flow และไฟล์ด้วยตัวอย่างที่รันได้
+3. [CLI Arguments And Errors](teach/03-cli-arguments-and-errors.md) — รับคำสั่งและบอกสาเหตุเมื่อทำงานไม่ได้
+4. [Node Stream And Backpressure](teach/02-node-stream-backpressure.md) — อ่านและเขียนข้อมูลทีละส่วน
+5. [File Backup Safety](teach/04-file-backup-safety.md) — ดูแลต้นฉบับและ output เมื่อสำเร็จหรือผิดพลาด
+6. [Node Test And Temp Files](teach/05-node-test-temp-files.md) — ตรวจผลซ้ำในพื้นที่ชั่วคราว
+
+### Configuration และข้อมูลลับ
+
+อ่านกลุ่มนี้เมื่อโปรแกรมต้องรับค่าจาก environment:
+
+- [Environment Variable](concepts/environment-variable.md) → [.env File](concepts/dotenv-file.md) → [Secret](concepts/secret.md)
+
+### เปิดใช้อ้างอิง
+
+- [Node.js Commands](commands.md) — ค้นคำสั่งตามงาน
+- [Node.js Concepts](concepts/index.md) — กลับมาทบทวนศัพท์
+
+เลขใน URL ของบทเก่าเป็นชื่อเดิมของไฟล์ ให้ยึดลำดับอ่านในหน้านี้
 
 ## Node.js กับ NestJS/Fastify ต่างกันยังไง
 

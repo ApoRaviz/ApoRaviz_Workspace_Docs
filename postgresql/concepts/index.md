@@ -6,11 +6,19 @@
 
 ## Current Concepts
 
+### ตัวตนและความสัมพันธ์
+
 - [Primary Key](primary-key.md)
 - [Foreign Key](foreign-key.md)
+
+### กติกาความถูกต้องของข้อมูล
+
 - [Unique Constraint](unique-constraint.md)
-- [Index](database-index.md)
 - [Check Constraint](check-constraint.md)
+
+### การค้นหาและงานที่เกิดพร้อมกัน
+
+- [Index](database-index.md)
 - [Database Transaction](database-transaction.md)
 - [Advisory Lock](advisory-lock.md)
 

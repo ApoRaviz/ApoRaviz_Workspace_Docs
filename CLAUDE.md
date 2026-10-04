@@ -10,7 +10,7 @@
 ## Claude-specific notes
 
 - repo นี้คือ **source of truth** ที่ child repo อื่นชี้มา (`../ApoRaviz_Workspace_Docs`) — แก้ที่นี่กระทบทุกโปรเจกต์ ระวังเป็นพิเศษ
-- บทบาทของ Claude ที่นี่ = **Reviewer / QA** ของ Knowledge Sync (กติกา 2.4): ตรวจร่างที่ Codex เขียนเข้า `ApoRaviz_Workspace_Docs` ก่อนถือว่า sync เสร็จ — เช็กความถูกต้องเทียบ code จริง + ตรงตาม `TEACHING_RULES.md`
+- บทบาทและขั้นตอน Knowledge Sync ให้ยึด [Teaching Rules — Interactive Session Rule](./TEACHING_RULES.md#interactive-session-rule) ตามงานที่ได้รับ ไม่กำหนดให้ Claude เป็น reviewer บังคับซ้ำที่นี่
 - บังคับ North Star ทุกครั้งที่รีวิว/แก้: topic-first, single-source (ไม่ duplicate — ให้ link), machine-agnostic, และ **PUBLIC repo = ห้ามมี personal context**
 - ก่อนแก้หัวข้อที่มีวันที่/สถานะ ให้ทำตาม Date Check Rule ใน `AI_UPDATE_RULE.md`
 - ถ้าแตะ content ให้ยืนยัน `npm run docs:build` ผ่านก่อนปิดงาน

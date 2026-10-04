@@ -70,24 +70,14 @@ Tailwind class = สติกเกอร์คำสั่งเล็ก ๆ �
 
 ## Suggested Learning Path
 
-1. Tailwind utility class คืออะไร
-2. แยก class เป็นกลุ่ม: layout, spacing, color, typography, state
-3. responsive prefix ทำงานอย่างไร
-4. flex/grid ใน component layout
-5. button/card/form styling
-6. Angular template กับ Tailwind class ทำงานร่วมกันอย่างไร
-7. เมื่อไหร่ควรย้าย style ไป CSS
-8. Tailwind กับ design system ของ ApoRaviz
+เริ่มจาก [Tailwind CSS v4 ใน Angular](../teach/tailwind-css-v4.md) ซึ่งรวมบทเรียนที่มีอยู่แล้วไว้ครบในหน้าเดียว:
+
+1. [ติดตั้งใน Angular](../teach/tailwind-css-v4.md#setup-ใน-angular) — package, PostCSS และ stylesheet ทำงานร่วมกันอย่างไร
+2. [Pipeline เบื้องหลัง](../teach/tailwind-css-v4.md#pipeline-เบื้องหลัง) — class ใน template กลายเป็น CSS อย่างไร
+3. [ตรวจว่า Tailwind ทำงานจริง](../teach/tailwind-css-v4.md#ตรวจว่า-tailwind-ทํางานจริง) — ดูผลบนหน้าจอ
+4. [Global styles](../teach/tailwind-css-v4.md#styles-css-ใช้ทําอะไร) และ [Component CSS](../teach/tailwind-css-v4.md#component-css-ใช้เมื่อไหร่) — เลือกที่อยู่ของ style
+5. [Responsive Design](../teach/tailwind-css-v4.md#responsive-design) — อ่าน prefix ตามขนาดหน้าจอ
 
 ## Folder Direction
 
-ตอนนี้ใช้โฟลเดอร์นี้เป็น landing page ก่อน
-
-ภายหลังสามารถแยกเพิ่มได้:
-
-```text
-angular/tailwind/concepts/
-angular/tailwind/teach/
-```
-
-ถ้าบทเรียนยังเล็ก ให้เก็บในโฟลเดอร์นี้ก่อนเพื่อไม่ให้แตกไฟล์เร็วเกินไป
+หน้านี้เป็นทางเข้าหัวข้อ styling ส่วนเนื้อหา setup และการใช้งานอยู่ใน [บทเรียน Tailwind](../teach/tailwind-css-v4.md) กลับไปเลือกบท Angular อื่นได้ที่ [Teach Index](../teach/)

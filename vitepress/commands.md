@@ -6,9 +6,20 @@
 
 ## Runtime Check
 
-repo นี้ใช้ Node ตาม [`baseline.md`](../baseline.md)
+รันจาก root ของ repo ที่มี `.nvmrc` ไฟล์นี้ระบุ Node ที่ repo เลือก ส่วน [Workspace Baseline](../baseline.md) เป็นนโยบาย version สำหรับเริ่มโปรเจกต์
 
-เลือก version (machine-agnostic — Windows ใช้ `nvm use <version>`, macOS ใช้ `nvm use`):
+Windows PowerShell กับ nvm-windows:
+
+```powershell
+Get-Content .nvmrc
+nvm use <version-from-nvmrc>
+node -v
+npm -v
+```
+
+แทน `<version-from-nvmrc>` ด้วยเลขที่อ่านได้ก่อนรัน `nvm use` เพราะ nvm-windows ไม่อ่าน `.nvmrc` ให้อัตโนมัติ
+
+macOS/Linux กับ nvm:
 
 ```bash
 nvm use
@@ -16,19 +27,7 @@ node -v
 npm -v
 ```
 
-macOS/Linux:
-
-```bash
-nvm use 24
-node -v
-npm -v
-```
-
-ผลที่ควรเห็น:
-
-```text
-v24.x.x
-```
+nvm อ่าน `.nvmrc` จาก repo ให้ ตรวจว่า `node -v` ตรงกับ version ที่เลือก ส่วน `-v` แสดงหมายเลข version ของ Node/npm ถ้าเครื่องยังไม่มี Node รุ่นนั้น ให้ติดตั้งผ่านตัวจัดการ Node ที่ใช้อยู่ก่อน
 
 ## Install Dependencies
 
@@ -127,6 +126,16 @@ npx vitepress preview --host 127.0.0.1
 
 ## Route and Link Checks
 
+หลัง build ให้ตรวจทั้งปลายทางและหัวข้อย่อยในเว็บที่สร้างแล้ว:
+
+```bash
+npm run docs:build
+npm run docs:check-links
+npm test
+```
+
+`docs:check-links` ตรวจ internal link, fragment และเมนูจาก `.vitepress/dist` ส่วน `npm test` ตรวจการแปลงลิงก์ชื่อไฟล์กติกาให้ตรงกับ URL ที่เผยแพร่ เช่น `WORKSPACE_RULES.md` → `/workspace-rules` ต้อง build ใหม่หลังแก้เอกสารก่อนตรวจลิงก์ทุกครั้ง
+
 ดูไฟล์ Markdown ทั้งหมด:
 
 ```bash
@@ -149,7 +158,7 @@ rg "^## " angular/concepts/form-input-data-flow.md
 เช็ก path ใน sidebar:
 
 ```bash
-rg "/angular/memory-aids|/angular/concepts|/nodejs" .vitepress/config.mts
+rg "/angular/memory-aids|/angular/concepts|/nodejs" .vitepress/navigation.mts
 ```
 
 กติกา route:
@@ -164,16 +173,26 @@ nodejs/index.md                       -> /nodejs/
 
 ## Sidebar and Nav
 
-เปิด config:
+เมนูด้านบนอยู่ใน `.vitepress/config.mts` ส่วน sidebar แยกตามหัวข้ออยู่ใน `.vitepress/navigation.mts` เปิดใน editor หรืออ่านจาก terminal:
+
+PowerShell:
+
+```powershell
+Get-Content .vitepress/config.mts
+Get-Content .vitepress/navigation.mts
+```
+
+macOS/Linux:
 
 ```bash
-sed -n '1,220p' .vitepress/config.mts
+cat .vitepress/config.mts
+cat .vitepress/navigation.mts
 ```
 
 ค้นหา menu:
 
 ```bash
-rg "sidebar|nav|Commands|Angular Learning" .vitepress/config.mts
+rg "sidebar|nav|Commands|Angular" .vitepress/config.mts .vitepress/navigation.mts
 ```
 
 หลังแก้ sidebar ให้รัน:

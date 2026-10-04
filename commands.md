@@ -2,36 +2,30 @@
 
 หน้านี้เป็นสารบัญ command ที่ต้องเรียนรู้ใน workspace `ApoRaviz`
 
-แยกอ่านตามเครื่องมือ:
+เลือกจากงานที่กำลังทำ แต่ละหน้ารวมคำสั่งและลิงก์กลับไปอ่านแนวคิดของเครื่องมือนั้น
 
-- [Angular Commands](angular/commands.md)
-- [Node.js Commands](nodejs/commands.md)
-- [Docker Commands](docker/commands.md)
-- [dotnet CLI Commands](aspnet-core/commands.md)
-- [Git Commands](git/commands.md)
-- [VitePress Commands](vitepress/commands.md)
+## พัฒนาแอปและ Backend
+
+- [Angular Commands](angular/commands.md) — สร้างและดูแล frontend
+- [Node.js Commands](nodejs/commands.md) — runtime, CLI และ file processing
+- [NestJS Commands](nestjs/commands.md) — สร้าง API, generate module/controller/service และทดสอบ
+- [dotnet CLI Commands](aspnet-core/commands.md) — สร้าง restore build test และ run .NET projects
+
+## เปิดบริการในเครื่อง
+
+- [Docker Commands](docker/commands.md) — จัดการ container, image, volume และ port
+
+## บันทึกและส่งงาน
+
+- [Git Commands](git/commands.md) — ตรวจ diff, commit, branch และ push
+
+## ดูแลเว็บเอกสาร
+
+- [VitePress Commands](vitepress/commands.md) — เปิด preview และ build เอกสาร
 
 ## ควรอ่านลำดับไหน
 
-ถ้าเริ่มจากศูนย์:
-
-```text
-1. Git Commands
-2. VitePress Commands
-3. Angular Commands
-4. Node.js Commands
-5. Docker Commands (เมื่อเริ่มใช้ container)
-6. dotnet CLI Commands (เมื่อทำ C#/.NET backend)
-```
-
-เหตุผล:
-
-- Git ใช้บันทึกและ push งานทุก repo
-- VitePress ใช้ดูแล `ApoRaviz_Workspace_Docs`
-- Angular ใช้สร้างและดูแล frontend app
-- Node.js ใช้รัน CLI, file processing, tooling และ backend runtime
-- Docker ใช้สร้างและจัดการ image, container, volume และ port mapping
-- dotnet CLI ใช้สร้าง restore build test และ run .NET projects
+เริ่มที่ [Git Commands](git/commands.md) เมื่อต้องบันทึกงาน แล้วเปิดเฉพาะเครื่องมือที่โปรเจกต์ใช้ ถ้ากำลังแก้เว็บเอกสารให้อ่าน VitePress ต่อ ถ้าสร้างแอปให้เลือก Angular, Node.js หรือ .NET ตาม stack และเปิด Docker เมื่อเริ่มใช้ container ไม่จำเป็นต้องอ่านทุกหมวดก่อนลงมือ
 
 ## จำสั้น ๆ
 
@@ -40,6 +34,7 @@ Git = จัดการ version และ push ขึ้น GitHub
 VitePress = build Markdown ให้เป็นเว็บ docs
 Angular = build app และ demo จริง
 Node.js = run CLI, file processing, and backend tooling
+NestJS = scaffold, run, and test backend APIs
 Docker = run isolated services and persist data in volumes
 dotnet = create, restore, build, test, and run .NET projects
 ```

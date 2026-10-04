@@ -94,7 +94,6 @@ customers.id
 1. บันทึก transaction
 2. เพิ่มยอดสะสม
 3. สร้าง reward 2 สิทธิ์
-4. ส่ง LINE message
 ```
 
 ถ้าขั้นตอนหนึ่ง fail กลางทาง ข้อมูลอาจเพี้ยน เช่น transaction ถูกบันทึกแล้วแต่ reward ไม่ถูกสร้าง
@@ -102,11 +101,14 @@ customers.id
 database transaction ช่วยให้:
 
 ```text
-สำเร็จครบทุกขั้น -> commit
-มีขั้นตอนไหน fail -> rollback
+คำสั่งฐานข้อมูลสำเร็จครบ -> commit
+คำสั่งฐานข้อมูลล้มเหลว -> rollback
+หลัง commit -> ส่ง LINE message แยกจาก transaction
 ```
 
-สำหรับระบบขายจริง เรื่องนี้สำคัญมาก
+Transaction ครอบการเปลี่ยนแปลงในฐานข้อมูล ไม่ได้ครอบการส่งข้อความไปบริการภายนอก ถ้า LINE ส่งไม่สำเร็จหลัง commit ยอดซื้อและ reward ที่บันทึกแล้วจะยังอยู่ และ `ROLLBACK` ไม่สามารถเรียกข้อความที่ส่งไปแล้วกลับคืนได้ การแจ้งเตือนจึงต้องตรวจผลและจัดการการลองส่งใหม่แยกจากการบันทึกยอดซื้อ
+
+ขอบเขตของ `BEGIN`, `COMMIT` และ `ROLLBACK` อ้างอิง [PostgreSQL — Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html)
 
 อ่านรายละเอียดเรื่อง `BEGIN`, `COMMIT`, `ROLLBACK` และการใช้ร่วมกับ conditional update ที่ [Database Transaction](concepts/database-transaction.md)
 

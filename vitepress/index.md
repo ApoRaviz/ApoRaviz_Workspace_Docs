@@ -45,7 +45,8 @@ Browser เปิดเว็บ = คนอ่านเห็นหน้า do
 
 ```text
 package.json          = บอกว่าคำสั่ง docs:dev/docs:build ต้องรันอะไร
-.vitepress/config.mts = ตั้งชื่อเว็บ, base path, nav, sidebar, search
+.vitepress/config.mts = ตั้งชื่อเว็บ, base path, nav, search และ import sidebar
+.vitepress/navigation.mts = sidebar แยกตามเส้นทางหัวข้อ
 index.md              = หน้าแรกของเว็บ
 folder/index.md       = หน้าแรกของโฟลเดอร์นั้น เช่น /vitepress/
 ```
@@ -106,7 +107,8 @@ Angular app    = ที่รัน UI และ interaction จริง
 ```text
 package.json              = รวมคำสั่งรัน VitePress
 package-lock.json         = ล็อก version ของ dependency
-.vitepress/config.mts     = ตั้งค่าเว็บ, nav, sidebar, base path
+.vitepress/config.mts     = ตั้งค่าเว็บ, nav, base path และ import sidebar
+.vitepress/navigation.mts = รายการ sidebar ของแต่ละหัวข้อ
 index.md                  = หน้าแรกของเว็บ docs
 public/                   = asset ที่อยากให้ copy ไปเว็บแบบชื่อเดิม
 angular/                  = บทเรียน Angular/Tailwind
@@ -115,25 +117,9 @@ templates/                = template สำหรับเขียนบทเ�
 
 ## ก่อนรันต้องเลือก Node ให้ตรง baseline
 
-PowerShell:
+เลือก Node ตาม `.nvmrc` ของ repo และอ่านนโยบาย version ที่ [Workspace Baseline](../baseline.md) จากนั้นใช้ [Runtime Check](commands.md#runtime-check) ให้ตรงกับ PowerShell หรือ macOS/Linux ที่ใช้อยู่
 
-```powershell
-nvm use 24   # version ตาม baseline.md (macOS: nvm use)
-node -v
-```
-
-ผลที่ควรเห็น:
-
-```text
-v24.16.0
-```
-
-จำสั้น ๆ:
-
-```text
-Angular และ VitePress ใน repo นี้ใช้ Node ตาม baseline.md
-ถ้า shell เป็น Node version เก่า ให้สลับก่อนรัน
-```
+`node -v` ต้องตรงกับ version ที่ repo เลือก ไม่จำเป็นต้องตรงกับเลข patch ของตัวอย่างเก่า
 
 ## ติดตั้ง dependency ครั้งแรก
 
@@ -272,7 +258,7 @@ angular/concepts/inject.md
 
 2. เขียนเนื้อหาโดยเริ่มจากภาพจำง่าย ๆ
 
-3. ถ้าอยากให้เห็นใน sidebar ให้เพิ่มที่ `.vitepress/config.mts`
+3. ถ้าอยากให้เห็นใน sidebar ให้เพิ่มในกลุ่ม `/angular/` ที่ `.vitepress/navigation.mts` และเชื่อมจาก concept index ของหัวข้อนั้น
 
 ```ts
 { text: 'Inject Concept', link: '/angular/concepts/inject' }
@@ -284,17 +270,18 @@ angular/concepts/inject.md
 npm run docs:build
 ```
 
-ถ้า build ผ่าน แปลว่า link และ Markdown ใช้งานได้
+Build ตรวจการ compile Markdown และ dead link ในเนื้อหา จากนั้นใช้ `npm run docs:check-links` ตรวจเมนูและ fragment ในเว็บที่สร้างแล้วด้วย
 
 ## เพิ่มเมนู sidebar
 
-sidebar อยู่ใน:
+Sidebar ของเว็บนี้แยกตามเส้นทางหัวข้อ และนำเข้าไปใช้ใน config:
 
 ```text
-.vitepress/config.mts
+.vitepress/navigation.mts = รายการ sidebar ของแต่ละหัวข้อ
+.vitepress/config.mts     = import sidebar และกำหนด nav ด้านบน
 ```
 
-ตัวอย่าง:
+ตัวอย่างกลุ่มสำหรับใส่ใน array ของ `sidebar['/angular/']` โดยเก็บ `library` ซึ่งเป็นทางกลับไปเลือกหัวข้อไว้ด้วย:
 
 ```ts
 {
@@ -312,7 +299,9 @@ sidebar อยู่ใน:
 - `text` คือข้อความที่เห็นบน sidebar
 - `link` คือ path ของหน้า Markdown
 - link ควรขึ้นต้นด้วย `/`
-- ถ้า link ไปไฟล์ที่ไม่มีจริง `npm run docs:build` จะ fail
+- หลังแก้เมนู รัน `npm run docs:build` แล้ว `npm run docs:check-links` เพราะ build อย่างเดียวไม่ได้รับประกันว่า link ใน config และ fragment ถูกต้อง
+
+ไฟล์กติกาที่ใช้ `rewrites` มีชื่อไฟล์กับ URL ต่างกัน เว็บนี้แปลง Markdown link ไปยัง alias ระหว่าง render จึงยังใช้ลิงก์ชื่อไฟล์เดิมบน GitHub ได้ ดูแนวคิดที่ [VitePress — Route Rewrites](https://vitepress.dev/guide/routing#route-rewrites)
 
 ## รูปภาพและไฟล์ static
 
@@ -376,10 +365,7 @@ Angular CLI requires a minimum Node.js version...
 
 แก้:
 
-```powershell
-nvm use 24   # version ตาม baseline.md (macOS: nvm use)
-node -v
-```
+เลือก version อีกครั้งตาม [Runtime Check](commands.md#runtime-check) แล้วตรวจ `node -v` ให้ตรงกับ `.nvmrc`
 
 ### 2. ใช้ placeholder แบบ `<...>` ใน Markdown
 
@@ -445,36 +431,22 @@ angular/concepts/signal.md
 
 ## คำสั่งที่ใช้บ่อย
 
-อ่าน command แบบเต็มที่ [VitePress Commands](commands.md)
+เปิด [VitePress Commands](commands.md) ตามงานที่กำลังทำ:
 
-```powershell
-# ใช้ Node 24
-nvm use 24   # version ตาม baseline.md (macOS: nvm use)
-node -v
-npm -v
-
-# ติดตั้ง dependency
-npm install
-npm ci
-
-# เปิดเว็บระหว่างเขียน
-npm run docs:dev
-npm run docs:dev -- --port 5174
-
-# ตรวจ build
-npm run docs:build
-
-# preview output หลัง build
-npm run docs:preview
-npm run docs:preview -- --port 4174
-```
+| งาน | คำสั่งและรายละเอียด |
+|---|---|
+| เตรียมเครื่อง | [Runtime Check](commands.md#runtime-check) และ [Install Dependencies](commands.md#install-dependencies) |
+| ดูผลระหว่างเขียน | [Dev Server](commands.md#dev-server) |
+| ตรวจและดูเว็บที่จะเผยแพร่ | [Build](commands.md#build) แล้ว [Preview](commands.md#preview) |
+| ดูแลลิงก์และเมนู | [Route and Link Checks](commands.md#route-and-link-checks) และ [Sidebar and Nav](commands.md#sidebar-and-nav) |
 
 ## จำสั้น ๆ
 
 ```text
 VitePress = เอา Markdown มาทำเว็บเอกสาร
 ไฟล์ .md = หน้าเว็บ
-.vitepress/config.mts = เมนูและ config ของเว็บ
+.vitepress/config.mts = nav และ config ของเว็บ
+.vitepress/navigation.mts = sidebar แยกตามหัวข้อ
 npm run docs:dev = เปิดเว็บระหว่างเขียน
 npm run docs:build = ตรวจว่าเว็บพร้อม deploy
 ```

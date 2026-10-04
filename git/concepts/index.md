@@ -6,21 +6,32 @@
 
 ## Current Concepts
 
+### Foundations
+
 - [Git Repository](git-repository.md)
 - [.gitignore](gitignore.md)
 - [Working Tree](working-tree.md)
 - [Staging Area](staging-area.md)
+
+### Daily Workflow
+
 - [Commit](commit.md)
+- [Commit Message Convention](commit-message-convention.md)
 - [HEAD](head.md)
 - [Branch](branch.md)
+
+### Collaboration
+
+- [Remote](remote.md)
 - [Merge](merge.md)
 - [Merge Conflict](merge-conflict.md)
+- [Cherry-pick](cherry-pick.md)
+
+### Recovery
+
 - [Undo In Git](undo-in-git.md)
 - [Reflog](reflog.md)
 - [Stash](stash.md)
-- [Cherry-pick](cherry-pick.md)
-- [Commit Message Convention](commit-message-convention.md)
-- [Remote](remote.md)
 
 ## Terms to Add Later
 

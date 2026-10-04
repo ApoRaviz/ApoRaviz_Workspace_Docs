@@ -12,16 +12,7 @@
 
 ## Core Rule
 
-```text
-ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แบบ W3Schools / shared rules
-ApoRaviz_DevEng         = โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง
-ApoRaviz_Portfolio      = profile/showcase/job site, link hub — โชว์ผลงานอย่างเดียว
-ApoRaviz_Mooping        = MooPing Reward app project (พักไว้)
-ApoRaviz_Tools          = tools/CLI/file processing project
-ApoRaviz_*              = future project repos
-```
-
-โปรเจกต์ใหม่ทุกตัวต้องเริ่มจาก `ApoRaviz_Workspace_Docs` ก่อน ไม่เริ่มจากการ copy บทเรียนใน Portfolio หรือโปรเจกต์ลูก
+โปรเจกต์ใหม่เริ่มจากกติกากลางนี้ และยึด [บทบาทและขอบเขต repo](./WORKSPACE_RULES.md#project-roles) ไม่ copy บทเรียนจาก Portfolio หรือโปรเจกต์ลูกมาเป็นแหล่งความรู้กลางอีกชุด
 
 ## Default Frontend Stack
 
@@ -116,21 +107,7 @@ git/          = Git command กลาง
 
 ## What Goes Where
 
-```text
-Angular concept ที่ใช้ซ้ำได้        -> angular/
-Tailwind pattern ที่ใช้ซ้ำได้       -> angular/tailwind/
-Node.js concept / CLI flow          -> nodejs/
-Backend architecture                -> backend/
-NestJS backend pattern              -> nestjs/
-Fastify decision/pattern            -> backend/fastify.md
-PostgreSQL/Supabase concept         -> postgresql/
-Git command pattern                 -> git/
-บทเรียน reusable จากโปรเจกต์จริง    -> ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
-ภาพจำใหม่ที่ใช้ทบทวนได้เร็ว          -> หน้าเนื้อหาหลัก + Quick Recall ของ topic
-Product spec / implementation plan  -> repo ของโปรเจกต์นั้น (README เป็นหลัก)
-Repo URL / port / base-href command -> repo ของโปรเจกต์นั้น docs/commands.md
-Portfolio showcase                  -> ApoRaviz_Portfolio
-```
+ใช้ [AI Update Rule — Decision Table](./AI_UPDATE_RULE.md#decision-table) เพื่อตัดสินใจว่าความรู้ใหม่ควรอยู่ topic ใด หรือเป็นเอกสารเฉพาะโปรเจกต์ ตาราง routing เก็บที่นั่นเพียงแห่งเดียว
 
 ## Project Startup Checklist
 

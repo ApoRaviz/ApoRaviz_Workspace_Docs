@@ -630,20 +630,18 @@ cat path/to/file
 
 ## Stage and Commit
 
-```bash
-git add -A
-git add path/to/file.md
-git commit -m "Describe the change"
-```
+ขั้นตอนเลือกไฟล์ ตรวจ staged diff และ commit อยู่ที่ [Working Tree, Stage, Commit](#working-tree-stage-commit)
 
-ก่อน commit ควรดู:
+ถ้าต้องการ stage ทุก change ใน repository ใช้ `git add -A` โดย `-A` รวมทั้งไฟล์เพิ่ม แก้ และลบ ใช้เมื่อทุก change เป็นของงานเดียวกันเท่านั้น ถ้าเลือกเฉพาะไฟล์ ให้ใช้ `git add path/to/file.md`
+
+ก่อน commit ตรวจรายการและ whitespace ของสิ่งที่ staged:
 
 ```bash
 git diff --cached --stat
 git diff --cached --check
 ```
 
-เพื่อยืนยันว่า staged เฉพาะไฟล์ที่ตั้งใจ
+`--cached` ดู staging area, `--stat` สรุปไฟล์และจำนวนบรรทัดที่เปลี่ยน และ `--check` ตรวจ whitespace error
 
 ดู commit ล่าสุด:
 
@@ -652,39 +650,7 @@ git show --stat
 git show --name-only
 ```
 
-แก้ commit message ล่าสุด ถ้ายังไม่ได้ push:
-
-```bash
-git commit --amend -m "Better commit message"
-```
-
-ใช้ commit message convention:
-
-```bash
-git commit -m "docs(git): add commit message practice note"
-```
-
-รูปแบบ:
-
-```text
-type(scope): summary
-```
-
-ตัวอย่าง:
-
-```text
-docs(readme): add setup instructions
-chore(gitignore): ignore dist output
-feat(login-form): add login form component
-fix(login): redirect after successful login
-```
-
-บทเรียน:
-
-- ใช้ `git add path/to/file.md` เมื่อไม่อยาก stage ทุกไฟล์
-- ใช้ `git add -A` เฉพาะเมื่อมั่นใจว่าทุก change เกี่ยวกับงานเดียวกัน
-- อย่า amend commit ที่ push แล้ว ถ้าไม่ได้คุยกับทีมก่อน
-- อ่าน concept: [Commit Message Convention](concepts/commit-message-convention.md)
+`--name-only` แสดงเฉพาะชื่อไฟล์ การแก้ commit ล่าสุดด้วย `--amend` อยู่ใน [Undo](#undo) และไม่ควร amend commit ที่ push แล้วโดยไม่ได้ตกลงกับทีม ส่วนรูปแบบ `type(scope): summary` และตัวอย่างอ่านที่ [Commit Message Convention](concepts/commit-message-convention.md)
 
 ## Push
 
@@ -709,30 +675,15 @@ git status --short --branch
 
 ## Restore and Unstage
 
-ยกเลิก staged แต่ยังเก็บไฟล์ที่แก้ไว้:
+เลือกคำสั่งตามสิ่งที่ต้องการย้อนใน [Undo](#undo): `git restore --staged` เอาออกจาก staging แต่เก็บเนื้อหา ส่วน `git restore` ทิ้งการแก้ใน working tree ของไฟล์นั้น
 
-```bash
-git restore --staged path/to/file.md
-```
-
-ทิ้งการแก้ในไฟล์หนึ่ง:
-
-```bash
-git restore path/to/file.md
-```
-
-ทิ้งทุกไฟล์ที่แก้:
+ถ้าต้องการทิ้งการแก้ที่ยังไม่ staged ของ tracked files ทั้งหมดใต้โฟลเดอร์ปัจจุบัน:
 
 ```bash
 git restore .
 ```
 
-ข้อควรระวัง:
-
-```text
-git restore path/to/file.md จะลบการแก้ในไฟล์นั้น
-ใช้เฉพาะเมื่อแน่ใจว่าไม่ต้องการ change แล้ว
-```
+`.` หมายถึงโฟลเดอร์ปัจจุบันและไฟล์ข้างใต้ ตรวจ `git diff` ก่อนเสมอ และเลือกคืนทีละไฟล์หากยังมีงานที่ต้องเก็บ อ่านความแตกต่างกับ reset/revert ที่ [Undo In Git](concepts/undo-in-git.md)
 
 ใน workspace นี้ห้ามใช้คำสั่งทำลายงาน เช่น `git reset --hard` ถ้าไม่ได้ตั้งใจจริงและตรวจแล้วว่าไม่มีงานของคนอื่นปน
 

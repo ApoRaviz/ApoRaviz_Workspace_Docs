@@ -300,23 +300,7 @@ Nest ยังมี request และ transient scope แต่ควรเร�
 
 ## ใช้ Provider ข้าม Module
 
-Provider มองเห็นภายใน Module เจ้าของโดย default ถ้า Module อื่นต้องใช้ ต้องเปิดและเชื่อมสองฝั่ง:
-
-```ts
-@Module({
-  providers: [PasswordService],
-  exports: [PasswordService],
-})
-export class SecurityModule {}
-```
-
-```ts
-@Module({
-  imports: [SecurityModule],
-  providers: [UsersService],
-})
-export class UsersModule {}
-```
+DI จะหา provider ได้เมื่อ Module ของผู้ใช้มองเห็นการลงทะเบียนนั้น การ import class ใน TypeScript อย่างเดียวยังไม่เปิดขอบเขตนี้:
 
 ```text
 providers   = เจ้าของลงทะเบียนและดูแล instance
@@ -324,6 +308,8 @@ exports     = เจ้าของเปิด provider ให้ Module อื
 imports     = Module ผู้ใช้เชื่อม Module เจ้าของ
 constructor = class ผู้ใช้ประกาศว่าต้องการและรับ instance
 ```
+
+ดูตัวอย่างสอง Module และความต่างระหว่าง TypeScript `export` กับ Nest `exports` ใน [Module: ใช้ Provider ข้าม Module](module.md#ใช้-provider-ข้าม-module) แล้วกลับมาอ่านเรื่อง instance และ scope ในหน้านี้เมื่อสงสัยว่าใครใช้ object เดียวกัน
 
 ## จุดที่มักงง
 

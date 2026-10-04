@@ -43,41 +43,68 @@ index    = ประตูหน้า CLI ที่รับ command จาก 
 
 ## Tiny Code Example
 
-```ts
-for await (const line of readLines(inputPath)) {
-  const record = parseRecord(line);
+ตัวอย่างนี้ย่อเหลือการเลือก detail ของกลุ่ม A โดยสร้างไฟล์ทดลองเอง ไม่ต้องเปิด repo โปรเจกต์จริง บันทึกเป็น `file-processing.mjs` ในโฟลเดอร์ทดลอง; `.mjs` คือ JavaScript module ที่ Node รันได้โดยตรง ไม่ต้อง build TypeScript
 
-  if (record.type === 'detail') {
-    await writer.appendLine(record.groupNumber, record.raw);
+```js
+import { mkdtemp, readFile, writeFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+
+function parseRecord(line) {
+  const [type, group, value] = line.split('|');
+  return { type, group, value };
+}
+
+const workDir = await mkdtemp(join(tmpdir(), 'docs-cli-'));
+try {
+  const inputPath = join(workDir, 'input.txt');
+  const outputPath = join(workDir, 'output.txt');
+  await writeFile(inputPath, 'header|A|Orders\ndetail|A|apple\ndetail|B|tea\n', 'utf8');
+
+  const input = await readFile(inputPath, 'utf8');
+  const selected = [];
+  for (const line of input.trim().split('\n')) {
+    const record = parseRecord(line);
+    if (record.type === 'detail' && record.group === 'A') {
+      selected.push(record.value);
+    }
   }
+
+  await writeFile(outputPath, selected.join('\n') + '\n', 'utf8');
+  console.log((await readFile(outputPath, 'utf8')).trim());
+} finally {
+  await rm(workDir, { recursive: true, force: true });
 }
 ```
 
+รันจากโฟลเดอร์ที่บันทึกไฟล์:
+
+```bash
+node file-processing.mjs
+```
+
+ผลที่คาดหวังคือ `apple` หนึ่งบรรทัด และโฟลเดอร์ข้อมูลทดลองถูกลบเมื่อจบ ตัวอย่างอ่านไฟล์เล็กทั้งก้อนเพื่อให้เห็นหน้าที่ก่อน; การอ่านไฟล์ใหญ่ทีละบรรทัดอยู่ใน [Streams and Backpressure](02-node-stream-backpressure.md)
+
 ## อธิบาย code ทีละบรรทัด
 
-```ts
-for await (const line of readLines(inputPath))
-```
+| ส่วนของ code | หน้าที่ |
+|---|---|
+| `import ... from 'node:...'` | ขอ API ที่มากับ Node ไม่ต้องติดตั้ง package เพิ่ม |
+| `parseRecord(line)` | แยกหนึ่งบรรทัดที่คั่นด้วย `\|` เป็น type, group และ value; ไม่ได้อ่านไฟล์เอง |
+| `mkdtemp(join(tmpdir(), 'docs-cli-'))` | สร้างพื้นที่ชั่วคราวชื่อไม่ซ้ำใน temp directory ของระบบ |
+| `join(workDir, ...)` | ประกอบ path ของ input/output ภายในพื้นที่ทดลอง |
+| `await writeFile(inputPath, ...)` | รอให้เขียนข้อมูลตัวอย่างเสร็จก่อนอ่าน |
+| `await readFile(...)` | อ่านข้อความจากไฟล์เล็กเข้าหน่วยความจำ |
+| `input.trim().split('\n')` | ตัดบรรทัดว่างท้ายข้อมูลตัวอย่าง แล้วแยกข้อความเป็นบรรทัด |
+| `for (const line of ...)` | ส่งแต่ละบรรทัดให้ parser |
+| `if (...)` และ `selected.push(...)` | เลือกเฉพาะ detail กลุ่ม A แล้วเก็บ value |
+| `writeFile(outputPath, ...)` | รวมผลที่เลือกเป็นข้อความและเขียน output |
+| `console.log(...)` | อ่าน output กลับมาแสดง เพื่อเห็นผลของงานไฟล์จริง |
+| `finally` และ `rm(...)` | ล้างพื้นที่ทดลองแม้ขั้นก่อนหน้าเกิด error |
 
-อ่านไฟล์ทีละบรรทัดแบบ async เหมาะกับไฟล์ใหญ่
+`recursive: true` ให้ลบไฟล์ภายในโฟลเดอร์ด้วย ส่วน `force: true` ไม่ฟ้อง error ถ้า path หายไปแล้ว การลบนี้ใช้เฉพาะ `workDir` ที่ `mkdtemp` เพิ่งสร้าง ห้ามเปลี่ยนเป็น path ของงานจริง
 
-```ts
-const record = parseRecord(line);
-```
-
-แปลง string หนึ่งบรรทัดให้เป็นชนิดข้อมูลที่ code ตัดสินใจได้
-
-```ts
-if (record.type === 'detail')
-```
-
-ทำงานเฉพาะ detail row เพราะ header ถูกจัดการตอน pass แรกแล้ว
-
-```ts
-await writer.appendLine(record.groupNumber, record.raw);
-```
-
-เขียนบรรทัดนี้ลงไฟล์ output ของ group ที่ตรงกัน
+parser นี้เป็นตัวอย่าง format ง่ายที่ตกลงไว้เท่านั้น ยังไม่ตรวจ malformed input; อ่านการรายงานข้อผิดพลาดต่อใน [CLI Arguments and Errors](03-cli-arguments-and-errors.md)
 
 ## ศัพท์ที่เจอในบทนี้
 
@@ -96,11 +123,12 @@ await writer.appendLine(record.groupNumber, record.raw);
 
 ## ลองทำเอง
 
-1. เปิด `ApoRaviz_Tools/split-order-txt/src/parser.ts`
-2. หา function `parseRecord`
-3. ดูว่า header, detail, separator, trailer ถูกแยกจากกันอย่างไร
-4. รัน `npm run build`
-5. รัน `npm test`
+1. บันทึกและรันตัวอย่างด้านบน ตรวจว่าได้ `apple`
+2. เปลี่ยนเงื่อนไข `record.group === 'A'` เป็นกลุ่ม B แล้วรันใหม่ ควรได้ `tea`
+3. เพิ่ม detail อีกบรรทัดของกลุ่ม B ในข้อมูลตัวอย่าง แล้วดูว่า output มีสองบรรทัด
+4. อธิบายว่า parser, เงื่อนไขเลือกข้อมูล และส่วนเขียนไฟล์ทำคนละหน้าที่อย่างไร
+
+เมื่อเข้าใจแล้ว ค่อยเปิด implementation ของโปรเจกต์จริงเพื่อเทียบวิธีแยก parser/splitter/writer เป็นไฟล์ และอ่าน [Node Test and Temp Files](05-node-test-temp-files.md) เพื่อเปลี่ยนการตรวจด้วยตาเป็น test
 
 ## เช็กตัวเอง
 

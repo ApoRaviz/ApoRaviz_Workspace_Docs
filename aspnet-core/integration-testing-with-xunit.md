@@ -1,5 +1,11 @@
 # ASP.NET Core Integration Test ด้วย xUnit และ WebApplicationFactory
 
+## ก่อนเริ่ม
+
+ควรรู้จัก `Program.cs`, `.csproj` และ request flow จาก [Foundations & Project Structure](foundations-and-project-structure.md) ก่อน บทนี้อธิบายการทำงานของ test หลังมี API project แล้ว
+
+ถ้ายังไม่มี test project ให้ทำตาม [สร้าง xUnit test project](commands.md#สร้าง-xunit-test-project), [เพิ่ม ProjectReference](commands.md#เพิ่ม-projectreference-จาก-test-ไป-api) และ [เพิ่ม testing package](commands.md#เพิ่ม-asp-net-core-testing-package) ตามลำดับ แล้วกลับมาอ่าน File Map และตัวอย่างด้านล่าง
+
 ## เรียนเรื่องนี้เพื่อแก้อาการงงอะไร
 
 การเรียก API ด้วย `curl` พิสูจน์ behavior ได้ในรอบที่ลอง แต่คนต้องเปิด server และตรวจผลเองทุกครั้ง Integration test ทำขั้นตอนเดิมให้ทำซ้ำได้อัตโนมัติ:

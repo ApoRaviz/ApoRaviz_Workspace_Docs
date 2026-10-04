@@ -92,103 +92,25 @@ Portfolio ไม่ควร:
 
 ## New Project Rule
 
-ทุก repo ใหม่ที่ขึ้นต้นด้วย `ApoRaviz_` ต้องเริ่มจากเอกสารกลางนี้ก่อน:
-
-```text
-README.md
-PROJECT_START_HERE.md
-NEW_PROJECT_GUIDE.md
-WORKSPACE_PLAN.md
-WORKSPACE_RULES.md
-TEACHING_RULES.md
-AI_UPDATE_RULE.md
-```
-
-ก่อนเริ่ม code หนัก ต้องตอบให้ได้:
-
-- โปรเจกต์นี้ทำอะไร
-- ใช้ stack อะไร
-- ถ้าเป็น Angular app ต้องใช้ Tailwind CSS เป็น styling system หลักหรือไม่
-- มีความรู้ใหม่อะไรที่ต้องเพิ่มกลับมาที่ docs กลาง
-- อะไรเป็น project-specific และอะไรเป็น shared knowledge
+ทุก repo ใหม่ที่ขึ้นต้นด้วย `ApoRaviz_` ใช้ [Project Start Here](./PROJECT_START_HERE.md) เป็นลำดับอ่านและ checklist กลาง ก่อนลงมือให้ระบุปัญหา ผู้ใช้ และ flow แรกที่ใช้งานได้ แล้วเลือก stack ตาม [New Project Guide](./NEW_PROJECT_GUIDE.md)
 
 ## Default Frontend Stack Rule
 
-สำหรับ frontend project ใน ecosystem นี้ ค่า default คือ:
-
-```text
-Angular latest stable
-Tailwind CSS latest stable
-Standalone components
-Angular Router
-Angular signals
-SSR/prerender เมื่อเหมาะกับงาน
-Node = ตาม baseline.md
-```
-
-Angular กับ Tailwind ต้องเรียนคู่กัน เพราะโปรเจกต์จริงของ ApoRaviz ใช้ Tailwind CSS เป็น styling system หลัก
+ค่า default และเงื่อนไขการใช้ Angular / Tailwind / SSR อยู่ที่ [New Project Guide — Default Frontend Stack](./NEW_PROJECT_GUIDE.md#default-frontend-stack) ส่วนเลขเวอร์ชันอ้างอิง [Baseline](./baseline.md)
 
 ## Default Full Stack Rule
 
-ถ้าโปรเจกต์ `ApoRaviz_*` ต้องมี backend หรือ database ให้ใช้ stack นี้เป็นค่า default ระยะยาว:
+ค่า default ของ backend/database และเงื่อนไขเลือก NestJS, Fastify, PostgreSQL หรือ Supabase อยู่ที่ [New Project Guide — Default Backend Stack](./NEW_PROJECT_GUIDE.md#default-backend-stack)
 
-```text
-Frontend = Angular + Tailwind CSS
-Backend  = NestJS
-Database = PostgreSQL หรือ Supabase
-Runtime  = Node (ตาม baseline.md)
-```
-
-เหตุผล:
-
-- Angular เป็น frontend หลักของ workspace
-- NestJS ใช้ TypeScript และโครงสร้างคล้าย Angular เช่น module, service, dependency injection
-- PostgreSQL เป็น relational database ที่ใช้ได้จริงใน production
-- Supabase เป็นทางเลือกที่ได้ PostgreSQL พร้อม auth/storage/API ที่เริ่มงานเร็ว
-
-Fastify ใช้ได้เมื่อ:
-
-- API เล็กและ scope ชัด
-- ต้องทำ webhook prototype
-- อยากเรียน HTTP request/response แบบตรง
-- ยังไม่จำเป็นต้องมี module structure ใหญ่
-
-ถ้าเลือก Fastify ให้จดเหตุผลไว้ใน project docs และแยก business logic ออกจาก route handler เพื่อย้ายไป NestJS ได้ในอนาคต
-
-ถ้างานเป็น CLI หรือ file processing เช่น `ApoRaviz_Tools/split-order-txt` ให้เริ่มจาก Node.js ก่อนได้ แล้วค่อยแยก core logic ให้ NestJS service เรียกใช้ในอนาคต
+งาน CLI หรือ file processing ใช้ [CLI/File Processing Rule](./NEW_PROJECT_GUIDE.md#cli-file-processing-rule) เพื่อแยก core logic ออกจากวิธีเรียกใช้งาน
 
 ## Node Rule
 
-ทุก Angular/VitePress/Node/backend command ใช้ Node version ตาม **baseline ปัจจุบัน** ดู [`baseline.md`](baseline.md)
-
-เลือก version แบบ machine-agnostic (ใช้ได้ทั้ง PC และ Mac) ผ่าน `.nvmrc` ของ repo:
-
-```bash
-# macOS:   nvm use            (อ่าน .nvmrc)
-# Windows: nvm use <version>  (nvm-windows ไม่อ่าน .nvmrc)
-```
-
-**ห้าม hardcode path เต็มของ Node** ในกฏ/บทเรียน/สคริปต์ เพราะ PC กับ Mac path ต่างกัน — `.nvmrc` + `baseline.md` คือความจริงเดียว
+ใช้ `.nvmrc` ของ repo คู่กับ [Workspace Baseline](./baseline.md) เป็นแหล่งอ้างอิงเวอร์ชันและวิธีเลือก Node บน PC/Mac ห้าม hardcode path เต็มของ Node ลงในกฎ บทเรียน หรือสคริปต์
 
 ## Learning Capture Rule
 
-ถ้าระหว่างทำโปรเจกต์เจอคำใหม่ flow ใหม่ หรือ command ใหม่ ให้ตัดสินใจทันทีว่าจะเก็บไว้ที่ไหน
-
-```text
-ศัพท์/แนวคิด Angular ที่ใช้ซ้ำได้      -> angular/concepts/
-Angular flow ที่ใช้สอนได้              -> angular/teach/
-Tailwind pattern กลาง                   -> angular/tailwind/
-Angular command pattern                  -> angular/commands.md
-Node.js CLI/file/stream/test             -> nodejs/
-Backend architecture                     -> backend/
-NestJS pattern                           -> nestjs/
-Fastify decision/pattern                 -> backend/fastify.md
-PostgreSQL/Supabase concept              -> postgresql/
-Git workflow                             -> git/commands.md
-บทเรียน reusable จากโปรเจกต์จริง        -> ซึมเข้าหน้า topic ที่เกี่ยวข้องเป็นตัวอย่าง
-product spec/plan/command เฉพาะ app      -> repo ของโปรเจกต์นั้น (README เป็นหลัก)
-portfolio showcase                       -> ApoRaviz_Portfolio
-```
+เมื่อพบคำศัพท์ flow หรือคำสั่งใหม่ ให้จัดเก็บตาม [AI Update Rule — Decision Table](./AI_UPDATE_RULE.md#decision-table) และใช้รูปแบบบทเรียนตาม [Teaching Rules](./TEACHING_RULES.md)
 
 ## No Floating Knowledge
 

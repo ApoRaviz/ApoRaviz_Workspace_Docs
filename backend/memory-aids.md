@@ -22,6 +22,32 @@ API contract = เมนูและกติกาว่าต้องสั�
 service/DB   = ครัวหลังร้าน
 ```
 
+## [Web Service, Web API และ REST](concepts/web-service-and-web-api.md)
+
+```text
+Web App = หน้าร้านที่คนใช้งาน
+Web API = ช่องทางที่โปรแกรมคุยกัน
+Service = งานที่รับผิดชอบ ไม่จำเป็นต้องเปิด HTTP เสมอไป
+REST = แนวทางออกแบบ API โดยมองข้อมูลเป็น resource
+```
+
+## [CORS](concepts/cors.md)
+
+```text
+origin = protocol + host + port
+backend ส่งกติกาว่า origin ใดอ่าน response ได้
+browser เป็นคนตรวจกติกานั้น
+API ตอบ 200 ไม่ได้แปลว่า browser ยอมให้ JavaScript อ่าน
+```
+
+## [HTTPS, TLS และ Certificate](concepts/https-tls-certificate.md)
+
+```text
+DNS = พาไปหาปลายทาง
+certificate = หลักฐานยืนยันชื่อของปลายทาง
+TLS = ช่องทางที่เข้ารหัสก่อนส่ง HTTP request
+```
+
 ## [Privilege Escalation](concepts/privilege-escalation.md)
 
 ```text

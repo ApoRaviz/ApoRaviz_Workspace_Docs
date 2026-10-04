@@ -2,21 +2,11 @@
 
 ## Current Direction
 
-ตั้งแต่วันที่ 2026-06-07 แผนหลักของ repo นี้คือทำ `ApoRaviz_Workspace_Docs` ให้เป็น learning hub และ static web กลางของ `ApoRaviz_*`
+Workspace Docs เป็น learning hub และเว็บ VitePress กลางของ `ApoRaviz_*` แล้ว งานดูแลต่อเนื่องคือทำให้หัวข้อค้นพบง่าย ตัวอย่างอ่านได้ในตัว และลดกติกาที่เขียนซ้ำหลายไฟล์
 
-กติกาที่ต้องยึด:
+กติกาหลัก: [Workspace Rules](./WORKSPACE_RULES.md), [Teaching Rules](./TEACHING_RULES.md), [AI Update Rule](./AI_UPDATE_RULE.md)
 
-```text
-WORKSPACE_RULES.md
-TEACHING_RULES.md
-AI_UPDATE_RULE.md
-```
-
-เป้าหมายถัดไปคือจัดโครงบทเรียน Angular ให้เป็น `concepts`, `teach`, และ `labs` ก่อนเริ่มทำ VitePress
-
-ไฟล์นี้เป็น project registry และแผนรวมของ workspace `ApoRaviz` ใช้ดูภาพใหญ่ว่ามีโปรเจกต์อะไร กำลังทำอะไร และโปรเจกต์ใหม่ควรเข้าระบบอย่างไร
-
-แผนละเอียดของแต่ละโปรเจกต์ต้องอยู่ใน `Project/docs/implementation-plan.md`
+ไฟล์นี้เก็บ project registry และแผนรวม ส่วนแผนละเอียดของแต่ละโปรเจกต์อยู่ใน repo ของโปรเจกต์นั้น
 
 ## Planning Rules
 
@@ -39,6 +29,8 @@ AI_UPDATE_RULE.md
 | Future project | `ApoRaviz_ProjectName` | เพิ่มเมื่อเริ่มโปรเจกต์ใหม่ | Backlog | `Project/README.md` |
 
 ## Current Focus
+
+รายการด้านล่างเป็นประวัติสิ่งที่ทำแล้ว ไม่ใช่กติกาปัจจุบัน หากแนวทางเปลี่ยนให้ยึดไฟล์หลักด้านบน เช่น case study แยกตามโปรเจกต์ถูกยกเลิกแล้ว และเอกสารโปรเจกต์อื่นนอกจาก README เพิ่มเมื่อจำเป็น
 
 - [x] 0.1 จัด `ApoRaviz_Workspace_Docs` ให้เหลือเอกสารกลางที่จำเป็น
 - [x] 0.2 ย่อ `NEW_PROJECT_GUIDE.md` ให้เป็น concept กลางสำหรับโปรเจกต์ใหม่

@@ -13,19 +13,16 @@ NestJS controller/service/module
 
 ## เริ่มเรียน
 
-- [NestJS Commands](commands.md)
-- [NestJS Concepts](concepts/)
-- [Module](concepts/module.md)
-- [Controller](concepts/controller.md)
-- [Service](concepts/service.md)
-- [Dependency Injection](concepts/dependency-injection.md)
-- [Exception Filter](concepts/exception-filter.md)
-- [Unit Test ด้วย Jest](concepts/unit-test.md)
-- [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md)
-- [Middleware และ Request Pipeline](concepts/middleware-and-request-pipeline.md)
-- [ตั้งค่าและทดสอบ CORS](concepts/cors-configuration-and-testing.md)
-- [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md)
-- [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md)
+ถ้ายังไม่คุ้น runtime และคำสั่ง npm ให้เริ่มที่ [Node And npm Version Check](../nodejs/teach/06-node-npm-version-check.md) และทบทวน [Web Service, Web API และ REST](../backend/concepts/web-service-and-web-api.md) เพื่อรู้ว่า request/response ที่กำลังสร้างมีหน้าที่อะไร
+
+1. [Nest CLI และโครงสร้างโปรเจกต์ที่สร้างมา](nest-cli-project-structure.md) — เห็น File Map และจุดเริ่ม application
+2. [Module](concepts/module.md) → [Controller](concepts/controller.md) → [Service](concepts/service.md) — ประกอบส่วนรับ request และส่วนทำงาน
+3. [Dependency Injection](concepts/dependency-injection.md) — ตามว่า Nest สร้างและส่ง instance ให้ใคร
+4. [Middleware และ Request Pipeline](concepts/middleware-and-request-pipeline.md) — ตามเส้นทาง request ก่อนเข้า route
+5. [Exception Filter](concepts/exception-filter.md) และ [ตั้งค่าและทดสอบ CORS](concepts/cors-configuration-and-testing.md) — ต่อเติม behavior บน pipeline
+6. [Unit Test ด้วย Jest](concepts/unit-test.md) → [Backend E2E Test ด้วย Jest และ Supertest](concepts/backend-e2e-test.md) — ตรวจจาก class ไปถึง HTTP flow
+
+เปิดอ้างอิงตามงาน: [Commands](commands.md), [Concepts แยกตามหน้าที่](concepts/) และ [Monorepo และ Managed Monorepo](../backend/concepts/monorepo.md) เมื่อเริ่มจัดหลาย application ใน repo เดียว
 
 ## ทำไม ApoRaviz ใช้ NestJS เป็น default
 

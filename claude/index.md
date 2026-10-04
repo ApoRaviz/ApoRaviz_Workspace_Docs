@@ -159,9 +159,8 @@ tool                 = ความสามารถพื้นฐานขอ
 # หมวด F — ผมทำงานยังไง (ศึกษาตัวเอง)
 
 - **เลือก tool เอง:** อ่านไฟล์ก่อนแก้เสมอ, งานที่ไม่พึ่งกันยิงหลาย tool พร้อมกันให้เร็ว
-- **รีวิว Learning Loop (กติกา 2.4):** ผม **ไม่ได้ใช้ `/review`** — อ่าน draft ของ Codex + verify กับ repo จริง (รัน git/build) + เทียบ TEACHING_RULES แล้วตัดสินผ่าน/ไม่ผ่าน
+- **วิธีเรียนและตรวจงานใน workspace:** ยึด [Working Mode](../TEACHING_RULES.md#working-mode-rule) และ [Interactive Session Rule](../TEACHING_RULES.md#interactive-session-rule) เป็นหลัก เพื่อให้บทบาทและ review flow ตรงกับกติกาปัจจุบัน
 - **ขออนุญาตก่อนงานย้อนยาก/ออกนอก:** push, ลบไฟล์, ส่งข้อมูลออก — ยืนยันก่อนเสมอ
-- **บทบาทในโปรเจกต์:** ผม = Designer/Reviewer, Codex = Hands-on Tutor; ใน `ApoRaviz_Workspace_Docs` ผม = Reviewer/QA
 - **ข้อจำกัด:** สั่งสแลชคอมมานด์ให้ตัวเองไม่ได้ (เช่นพิมพ์ `/help` เอง), ไม่รัน `/code-review ultra` เอง (บิลแยก), เห็นแค่ใน repo/เครื่องนี้ + เว็บที่ค้น
 
 ---

@@ -194,27 +194,11 @@ imports: [RouterOutlet]
 
 ## Flow เวลาเรารัน command
 
-ตัวอย่าง:
-
-```bash
-npm run build
-```
-
-flow:
-
 ```text
-npm
--> อ่าน package.json
--> เจอ script build เช่น ng build --progress=false
--> Angular CLI อ่าน angular.json
--> เข้า target build
--> build target อ่าน tsconfig.app.json
--> TypeScript อ่าน tsconfig.json ผ่าน extends
--> styles อ่าน .postcssrc.json ถ้าใช้ PostCSS/Tailwind
--> output ไป dist/ หรือ out-tsc ตามหน้าที่ของแต่ละ tool
+npm script -> Angular CLI target -> config ของ compiler/styles -> output
 ```
 
-นี่คือเหตุผลที่เวลา build พัง เราไม่ควรเดาสุ่ม ต้องไล่ถามว่า command ไปอ่าน config ตัวไหน
+ใช้ภาพนี้เลือกว่าต้องตรวจ config ชั้นไหน ส่วนลำดับ `start`, `build`, `test` และการเริ่ม application อธิบายเต็มใน [Angular Run Flow and angular.json](angular-run-flow-and-angular-json.md) หน้านี้เน้นหน้าที่ของไฟล์และเหตุผลที่ต้องแก้แต่ละตัว
 
 ## ไฟล์หลักทำหน้าที่อะไร
 
@@ -222,25 +206,7 @@ npm
 
 `package.json` คือไฟล์ที่บอกว่า project มี dependency อะไร และมี script อะไรให้เรียก
 
-ตัวอย่าง:
-
-```json
-{
-  "scripts": {
-    "start": "ng serve",
-    "build": "ng build --progress=false",
-    "test:ci": "ng test --watch=false --progress=false"
-  }
-}
-```
-
-ตั้งแบบนี้แล้วได้อะไร:
-
-```text
-npm run start  = เปิด dev server
-npm run build  = build production ตาม angular.json
-npm run test:ci = รัน test ครั้งเดียว เหมาะกับ CI
-```
+ดูตัวอย่าง `scripts` และวิธีตามคำสั่งไปยัง Angular CLI ใน [Run Flow: package.json](angular-run-flow-and-angular-json.md#package-json)
 
 ควรแก้ไฟล์นี้เมื่อ:
 
@@ -297,76 +263,9 @@ package-lock.json = "@angular/core": "22.0.2"
 
 ### angular.json
 
-`angular.json` คือแผงควบคุมหลักของ Angular CLI
+`angular.json` คือแผงควบคุมของ Angular CLI: บอกว่า target แต่ละงาน เช่น build/serve/test ใช้ builder ใดและมี options อะไร
 
-ตัวอย่างส่วนสำคัญ:
-
-```json
-{
-  "projects": {
-    "portfolio": {
-      "architect": {
-        "build": {},
-        "serve": {},
-        "test": {}
-      }
-    }
-  }
-}
-```
-
-คำที่ต้องจำ:
-
-```text
-projects  = project ใน Angular workspace
-architect = รายการงานที่ CLI ทำได้
-target    = งานหนึ่งอย่าง เช่น build, serve, test
-builder   = engine ที่ Angular ใช้ทำ target
-options   = ค่า default ของ target
-configurations = ค่าแยกตามโหมด เช่น production/development
-```
-
-ตั้งค่าแบบนี้แล้วได้อะไร:
-
-```json
-{
-  "assets": [
-    {
-      "glob": "**/*",
-      "input": "public"
-    }
-  ],
-  "styles": ["src/styles.css"],
-  "browser": "src/main.ts"
-}
-```
-
-ความหมาย:
-
-```text
-assets  = copy ไฟล์ใน public ไปกับ build เช่น favicon, resume, image
-styles  = global CSS ของ app
-browser = entry file ฝั่ง browser
-```
-
-ถ้าใช้ SSR อาจเห็น:
-
-```json
-{
-  "server": "src/main.server.ts",
-  "outputMode": "server",
-  "ssr": {
-    "entry": "src/server.ts"
-  }
-}
-```
-
-ตั้งแบบนี้แล้วได้อะไร:
-
-```text
-Angular รู้ว่าต้องมี entry ฝั่ง browser และฝั่ง server
-ใช้สำหรับ SSR/prerender และ output ที่มี browser/server แยกกัน
-```
+รายละเอียด `projects`, `architect`, build/serve targets, assets/styles และ configurations อยู่ที่ [Run Flow: angular.json](angular-run-flow-and-angular-json.md#angular-json) ส่วนหน้าที่ของไฟล์ฝั่ง server อ่านใน [App Config, SSR และ Hydration](app-config-ssr-hydration.md)
 
 ควรแก้ไฟล์นี้เมื่อ:
 

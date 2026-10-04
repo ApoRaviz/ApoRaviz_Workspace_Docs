@@ -26,7 +26,9 @@ assert.rejects = ยืนยันว่า function ต้อง throw error
 
 ## ตัวอย่าง test ด้วย node:test
 
-```ts
+บันทึกเป็น `numbers.test.mjs` แล้วรัน `node --test numbers.test.mjs` โดย `--test` ให้ Node ค้นและรัน test ในไฟล์ที่ระบุ:
+
+```js
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -35,36 +37,54 @@ test('adds numbers', () => {
 });
 ```
 
-ถ้าเป็น async:
-
-```ts
-test('writes output file', async () => {
-  await runJob();
-  assert.equal(result.count, 3);
-});
-```
+เมื่อทดสอบงานไฟล์ function ของ test ต้องเป็น `async` และใช้ `await` รอทั้งงานเขียนและงานอ่านก่อนตรวจผล ดูตัวอย่างครบในหัวข้อถัดไป
 
 ## สร้าง temp workspace
 
-```ts
-import { mkdtemp, writeFile, readFile } from 'node:fs/promises';
+บันทึกตัวอย่างนี้เป็น `files.test.mjs` ได้โดยอิสระจากตัวอย่างแรก ใช้เฉพาะ API ที่มากับ Node:
+
+```js
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 
-test('splits input file', async () => {
-  const workDir = await mkdtemp(join(tmpdir(), 'split-order-'));
-  const inputPath = join(workDir, 'input.txt');
-  const outputDir = join(workDir, 'output');
-  const backupDir = join(workDir, 'backup');
-
-  await writeFile(inputPath, 'example content', 'utf8');
-
-  await splitOrderTxt({ inputPath, outputDir, backupDir });
-
-  const output = await readFile(join(outputDir, 'result.txt'), 'utf8');
-  assert.match(output, /example/);
+test('writes and reads a temporary file', async () => {
+  const workDir = await mkdtemp(join(tmpdir(), 'docs-file-test-'));
+  try {
+    const outputPath = join(workDir, 'result.txt');
+    await writeFile(outputPath, 'example content\n', 'utf8');
+    const output = await readFile(outputPath, 'utf8');
+    assert.equal(output, 'example content\n');
+  } finally {
+    await rm(workDir, { recursive: true, force: true });
+  }
 });
 ```
+
+รันด้วย:
+
+```bash
+node --test files.test.mjs
+```
+
+`--test` เปิด test runner ผลควรมีหนึ่ง test ผ่านและไม่มี test ล้มเหลว รูปแบบข้อความอาจต่างตาม Node version ส่วนข้อมูลทดลองจะถูกลบหลัง test แม้ assertion ไม่ผ่าน
+
+flow ของตัวอย่าง:
+
+```text
+test runner เรียก async function
+-> mkdtemp สร้างโฟลเดอร์ใหม่
+-> writeFile เขียนและรอจนเสร็จ
+-> readFile อ่านผลกลับ
+-> assert.equal เทียบข้อความจริงกับที่คาด
+-> finally ลบโฟลเดอร์ทดลอง
+```
+
+`join()` ประกอบ path ตามระบบปฏิบัติการ, `tmpdir()` เลือก temp directory และ `mkdtemp()` เติมส่วนท้ายให้ชื่อไม่ซ้ำ `recursive: true` ให้ลบไฟล์ภายใน ส่วน `force: true` ยอมให้ path หายไปแล้วได้ ใช้ `rm` กับ `workDir` ที่ตัวอย่างสร้างเท่านั้น
+
+test นี้พิสูจน์ flow เขียน/อ่านและการตรวจข้อความในพื้นที่ทดลอง ยังไม่ได้พิสูจน์ parser หรือกฎ backup ของ application ต้องเปลี่ยนงานที่เรียกและ assertion ให้ตรง behavior นั้นเมื่อใช้กับโปรเจกต์จริง
 
 ข้อดี:
 
@@ -74,25 +94,33 @@ test('splits input file', async () => {
 
 ## Test error case
 
-ใช้ `assert.rejects()` เมื่อคาดว่า function ต้อง fail:
+ใช้ `assert.rejects()` เมื่อคาดว่า Promise ต้องถูกปฏิเสธ ตัวอย่างนี้บันทึกเป็น `missing-file.test.mjs` และรันด้วย `node --test missing-file.test.mjs` ได้เอง:
 
-```ts
-await assert.rejects(
-  () => splitOrderTxt({ inputPath: 'missing.txt' }),
-  /ไม่พบไฟล์|ENOENT/,
-);
+```js
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+
+test('reading a missing file reports ENOENT', async () => {
+  const workDir = await mkdtemp(join(tmpdir(), 'docs-missing-test-'));
+  try {
+    await assert.rejects(
+      () => readFile(join(workDir, 'missing.txt'), 'utf8'),
+      { code: 'ENOENT' },
+    );
+  } finally {
+    await rm(workDir, { recursive: true, force: true });
+  }
+});
 ```
 
-หรือเช็ก class:
-
-```ts
-await assert.rejects(
-  () => parseInvalidFile(),
-  InvalidCsvFormatError,
-);
-```
+เราไม่สร้าง `missing.txt` ในโฟลเดอร์ใหม่ จึงคาดให้ `readFile` ปฏิเสธ Promise ด้วยรหัส `ENOENT` ซึ่งหมายถึงหาไฟล์หรือ path ไม่พบ `assert.rejects` รอผลนั้นและตรวจรหัส ถ้าอ่านสำเร็จหรือได้ error คนละรหัส test จะไม่ผ่าน
 
 ## Test backup rule
+
+อ่านเงื่อนไขการย้ายต้นฉบับใน [File Backup Safety](04-file-backup-safety.md) ก่อนออกแบบ test กลุ่มนี้
 
 สิ่งที่ควร test สำหรับ file processing:
 

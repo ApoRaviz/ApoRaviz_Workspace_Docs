@@ -51,7 +51,7 @@ PUBLIC repo = ทุกไฟล์ที่ commit คนนอกอ่าน�
 
 ## Knowledge Sync (เนื้อหาจากโปรเจกต์เรียนไหลเข้ามายังไง)
 
-- Codex เขียนร่างความรู้ reusable เข้า repo นี้หน้างาน → Claude (Reviewer/QA) ตรวจก่อนถือว่า sync เสร็จ
+- ผู้ช่วยที่ทำงานต้องสรุปความรู้ reusable ตรวจความถูกต้อง และทำ validation ตาม [Teaching Rules — Interactive Session Rule](./TEACHING_RULES.md#interactive-session-rule) ไม่กำหนด reviewer ซ้ำในไฟล์นี้
 - ก่อนแก้หัวข้อที่มีวันที่/สถานะ ให้ทำตาม **Date Check Rule** ใน [AI Update Rule](./AI_UPDATE_RULE.md#date-check-rule) (เช็ควันจริงก่อน ห้าม copy วันเก่า)
 
 ## Commands (machine-agnostic — PC/Mac)

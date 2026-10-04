@@ -6,48 +6,13 @@
 
 ## Required Reading
 
-ก่อนเริ่มงานที่เกี่ยวกับ `ApoRaviz_*` ให้อ่านหรือยึดตามไฟล์เหล่านี้:
-
-```text
-ApoRaviz_Workspace_Docs/WORKSPACE_RULES.md
-ApoRaviz_Workspace_Docs/TEACHING_RULES.md
-ApoRaviz_Workspace_Docs/PROJECT_START_HERE.md
-ApoRaviz_Workspace_Docs/NEW_PROJECT_GUIDE.md
-ApoRaviz_Workspace_Docs/WORKSPACE_PLAN.md
-```
-
-ถ้างานเกี่ยวกับ Angular ให้อ่านเพิ่ม:
-
-```text
-ApoRaviz_Workspace_Docs/angular/index.md
-ApoRaviz_Workspace_Docs/angular/commands.md
-ApoRaviz_Workspace_Docs/angular/teach/index.md
-ApoRaviz_Workspace_Docs/angular/concepts/index.md
-ApoRaviz_Workspace_Docs/angular/tailwind/index.md
-```
-
-ถ้างานเกี่ยวกับ Node.js, CLI, backend, NestJS, Fastify หรือ database ให้อ่านเพิ่มตามเรื่อง:
-
-```text
-ApoRaviz_Workspace_Docs/nodejs/index.md
-ApoRaviz_Workspace_Docs/backend/index.md
-ApoRaviz_Workspace_Docs/nestjs/index.md
-ApoRaviz_Workspace_Docs/postgresql/index.md
-```
+ก่อนทำงานใน `ApoRaviz_*` ให้ใช้ [Project Start Here](./PROJECT_START_HERE.md#read-order) เป็นลำดับอ่านกลาง เลือก overview ของ stack ที่เกี่ยวข้องจาก [สารบัญหัวข้อ](./topics.md) และอ่าน [Teaching Rules](./TEACHING_RULES.md) เมื่อต้องเขียนบทเรียน
 
 ## Source Of Truth
 
-```text
-ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แบบ W3Schools / source of truth
-ApoRaviz_DevEng         = โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง
-ApoRaviz_Portfolio      = เว็บ profile/showcase/link hub — โชว์ผลงานอย่างเดียว
-ApoRaviz_Mooping        = app project MooPing Reward (พักไว้)
-ApoRaviz_Tools          = tools project และ CLI/file processing project
-```
+ยึด [Workspace Rules — North Star](./WORKSPACE_RULES.md#north-star) และ [Project Roles](./WORKSPACE_RULES.md#project-roles) สำหรับขอบเขตของแต่ละ repo
 
-ห้ามสร้างบทเรียนกลางใหม่ใน `ApoRaviz_Portfolio`
-
-โปรเจกต์ลูกไม่ควรสร้าง `docs/teach/` เป็น default ถ้าบทเรียนนั้นใช้สอนซ้ำได้ ให้กลับมาที่ `ApoRaviz_Workspace_Docs`
+บทเรียน reusable กลับมาที่ Workspace Docs ตาม topic ส่วนรายละเอียดเฉพาะระบบอยู่ใน repo ของระบบนั้น การเลือกปลายทางแต่ละประเภทใช้ Decision Table ด้านล่าง
 
 ## When To Update Docs
 

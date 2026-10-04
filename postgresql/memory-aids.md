@@ -82,3 +82,12 @@ role ต้องเป็น admin หรือ user
 
 สองขั้นต้องสำเร็จพร้อมกัน ถ้าขั้นหนึ่งพังต้องย้อนทั้งหมด
 ```
+
+## [Advisory Lock](concepts/advisory-lock.md)
+
+```text
+หลาย process แย่งทำงานเดียวกัน = คนหลายคนรอใช้ห้อง
+advisory lock = กุญแจที่ application ตกลงใช้ร่วมกัน
+session lock = รับและคืนกุญแจผ่าน connection เดิม
+lock กันงานซ้อน แต่ยังต้องออกแบบให้ retry แล้วข้อมูลไม่ซ้ำ
+```

@@ -4,11 +4,12 @@
 
 ## เริ่มอ่านจากตรงไหน
 
-1. [Foundations & Project Structure](foundations-and-project-structure.md) — แยก C#/.NET/ASP.NET Core, SDK/Runtime/Target Framework, request flow และ File Map
-2. [dotnet CLI Commands](commands.md) — สร้าง ตรวจ build และรัน project พร้อมความหมายของ option
-3. [Integration Test ด้วย xUnit และ WebApplicationFactory](integration-testing-with-xunit.md) — แยก xUnit/Test SDK/TestServer และตาม flow `dotnet test` ตั้งแต่ project ถึง assertion
-4. [Web Service, Web API และ REST](../backend/concepts/web-service-and-web-api.md) — แยกคำที่ชื่อคล้ายกัน
-5. [HTTPS, TLS และ Certificate](../backend/concepts/https-tls-certificate.md) — ภาพรวมความเชื่อถือก่อน HTTP request ไปถึง Controller
+1. [Web Service, Web API และ REST](../backend/concepts/web-service-and-web-api.md) — ปูภาพ HTTP API ก่อนเข้า framework; ข้ามได้ถ้าคุ้นแล้ว
+2. [Foundations & Project Structure](foundations-and-project-structure.md) — แยก C#/.NET/ASP.NET Core, SDK/Runtime/Target Framework, request flow และ File Map
+3. [dotnet CLI Commands](commands.md) — สร้าง ตรวจ build และรัน project พร้อมความหมายของ option
+4. [Integration Test ด้วย xUnit และ WebApplicationFactory](integration-testing-with-xunit.md) — แยก xUnit/Test SDK/TestServer และตาม flow `dotnet test` ตั้งแต่ project ถึง assertion
+
+อ่านประกอบเมื่อทดสอบผ่าน HTTPS: [HTTPS, TLS และ Certificate](../backend/concepts/https-tls-certificate.md) — ภาพรวมความเชื่อถือก่อน HTTP request ไปถึง Controller
 
 ## ภาพจำสั้น ๆ
 

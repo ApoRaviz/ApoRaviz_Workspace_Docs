@@ -62,6 +62,12 @@ named volume             = พื้นที่เก็บ data files ให�
 
 ## สร้าง PostgreSQL ครั้งแรก
 
+ก่อนเริ่ม ให้ติดตั้งและเปิด Docker Desktop จน Engine พร้อม แล้ว [ตรวจ Docker Client และ Engine](../../docker/commands.md#ตรวจ-docker-client-และ-engine) ถ้า `docker version` ยังติดต่อ Server ไม่ได้ ให้แก้จุดนี้ก่อน
+
+ตัวอย่างนี้สร้าง container ชื่อ `learning-postgres` และใช้ Host port `5433` ตรวจ [รายการ container](../../docker/commands.md#ดู-container) ก่อน ถ้ามี container ชื่อนี้อยู่แล้ว อย่ารันคำสั่งสร้างซ้ำหรือลบของเดิมโดยยังไม่ตรวจว่าข้อมูลเป็นของงานใด ส่วน port `5433` ต้องยังไม่มีโปรแกรมอื่นใช้อยู่
+
+อ่าน [ความหมายของ options ในคำสั่งสร้างครั้งแรก](../../docker/commands.md#สร้าง-postgresql-ครั้งแรกพร้อม-named-volume) ก่อนรัน โดยเฉพาะ `-p` ที่เปิดทางเข้าและ `-v` ที่กำหนดพื้นที่เก็บข้อมูล
+
 ตัวอย่าง local lab:
 
 ```bash
@@ -165,13 +171,21 @@ Database/user/password = มาจากข้อมูล PostgreSQL ใน vol
 
 ```text
 1. สร้างตารางทดลองและ INSERT ข้อมูล
-2. Stop container
-3. ตรวจ mount ว่าใช้ named volume ที่ต้องการ
-4. Remove container โดยไม่ลบ named volume
+2. ตรวจ mount ว่าใช้ named volume ที่ต้องการ
+3. Stop container และ Remove เฉพาะ container
+4. ตรวจว่า named volume เดิมยังอยู่
 5. สร้าง container ใหม่และ mount volume เดิม
 6. Query row เดิมอีกครั้ง
 7. ลบตารางทดลองเมื่อจบ
 ```
+
+ใช้เฉพาะ container ของ lab นี้ และใช้ image major version เดิมตลอดการทดลอง คำสั่งแต่ละช่วงอยู่ที่:
+
+- [ตรวจ Mount ของ Container](../../docker/commands.md#ตรวจ-mount-ของ-container) — ยืนยันชื่อ `learning-postgres-data` และปลายทางก่อนนำ container ออก
+- [Start, Stop และ Remove](../../docker/commands.md#start-stop-และ-remove) — รัน `stop` แล้ว `rm` โดยเก็บ named volume ไว้
+- [ดูและตรวจ Volume](../../docker/commands.md#ดูและตรวจ-volume) — ยืนยันว่า volume เดิมยังอยู่
+- [สร้าง Container ใหม่จาก Volume ที่มีข้อมูลแล้ว](../../docker/commands.md#สร้าง-container-ใหม่จาก-volume-ที่มีข้อมูลแล้ว) — ใช้คำสั่งสำหรับข้อมูลเดิม
+- [เปิด psql ภายใน Container](../../docker/commands.md#เปิด-psql-ภายใน-container) — เชื่อมอีกครั้งแล้วรัน `SELECT` ด้านล่าง
 
 ตัวอย่างตารางทดลอง:
 

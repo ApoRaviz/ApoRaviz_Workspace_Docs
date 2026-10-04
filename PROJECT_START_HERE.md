@@ -55,12 +55,7 @@ Workspace Baseline  = โปรเจกต์ใหม่ควรเริ่�
 
 ## Current Roles
 
-```text
-ApoRaviz_Workspace_Docs = ความรู้กลางตาม topic แบบ W3Schools / source of truth
-ApoRaviz_DevEng         = โปรเจกต์หลักที่ใช้เรียน/ฝึก dev จริงจัง
-ApoRaviz_Portfolio      = profile/showcase/link hub — โชว์ผลงานอย่างเดียว
-ApoRaviz_Mooping        = app project ที่พักไว้ก่อน
-```
+บทบาทและขอบเขต repo อยู่ที่ [Workspace Rules — Project Roles](./WORKSPACE_RULES.md#project-roles) ส่วนสถานะล่าสุดของแต่ละโปรเจกต์ดู [Project Registry](./WORKSPACE_PLAN.md#project-registry)
 
 ## Before Coding a New Project
 

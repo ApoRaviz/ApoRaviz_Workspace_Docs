@@ -6,6 +6,8 @@
   "scripts": {
     "docs:dev": "vitepress --host 127.0.0.1",
     "docs:build": "vitepress build",
+    "docs:check-links": "node scripts/check-docs.mjs",
+    "test": "node --test scripts/*.test.mjs",
     "docs:preview": "vitepress preview --host 127.0.0.1"
   },
   "engines": {
